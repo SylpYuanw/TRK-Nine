@@ -600,7 +600,7 @@
   	
   <!-- 箭袋 -->
   <ThingDef ParentName="ApparelMakeableBase">
-    <defName>si2</defName>
+    <defName>si_quiver</defName>
     <description>A nice-looking collared shirt with buttons.</description>
     <label>箭袋</label>
     <recipeMaker>
@@ -608,7 +608,7 @@
       <displayPriority>208</displayPriority>
     </recipeMaker>
     <graphicData>
-      <texPath>Clothing/si2</texPath>
+      <texPath>Clothing/si_quiver</texPath>
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
     <costStuffCount>45</costStuffCount>
@@ -641,7 +641,7 @@
         <li>Shoulders</li>
         <li>Arms</li>
       </bodyPartGroups>
-      <wornGraphicPath>Clothing/si2</wornGraphicPath>
+      <wornGraphicPath>Clothing/si_quiver</wornGraphicPath>
       <layers>
         <li>OnSkin</li>
       </layers>
@@ -662,7 +662,7 @@
 
 	<!-- 四协会衣服 -->
  <ThingDef ParentName="ApparelMakeableBase">
-    <defName>si1</defName>
+    <defName>si_uniform</defName>
     <description>A long duster coat for blocking the sun and grit of the outdoors.</description>
     <label>四协会衣服</label>
     <possessionCount>1</possessionCount>
@@ -671,7 +671,7 @@
       <displayPriority>215</displayPriority>
     </recipeMaker>
     <graphicData>
-      <texPath>Clothing/si1</texPath>
+      <texPath>Clothing/si_uniform</texPath>
       <graphicClass>Graphic_Single</graphicClass>
       <drawSize>1.05</drawSize>
     </graphicData>
@@ -708,7 +708,7 @@
         <li>Arms</li>
         <li>Legs</li>
       </bodyPartGroups>
-      <wornGraphicPath>Clothing/si1</wornGraphicPath>
+      <wornGraphicPath>Clothing/si_uniform</wornGraphicPath>
       <layers>
         <li>Shell</li>
       </layers>
