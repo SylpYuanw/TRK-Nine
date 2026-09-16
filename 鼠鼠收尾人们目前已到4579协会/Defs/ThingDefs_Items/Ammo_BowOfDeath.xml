@@ -7,11 +7,13 @@
     <description>四协会为死之弓准备的箭矢。装入死之弓后可换取一次闪弓射击。</description>
     <graphicData>
       <texPath>Item/Bow_of_Death_Arrow</texPath>
-      <!-- 堆叠显示:Graphic_StackCount 属于 Graphic_Collection,texPath 指向只含该物品贴图的文件夹,
-           文件夹内按文件名排序取 _a/_b/_c 三张,依 stackCount 分别显示单支/两支/满堆。 -->
-      <graphicClass>Graphic_StackCount</graphicClass>
+      <!-- 堆叠显示:texPath 指向只含该物品贴图的文件夹,文件夹内按文件名排序取 _a/_b/_c 三张;
+           取图规则由 XIYUNTE.Graphic_ArrowStackCount 覆盖为 1 支取 a、2 支取 b、3 支及以上取 c。 -->
+      <graphicClass>XIYUNTE.Graphic_ArrowStackCount</graphicClass>
       <drawSize>(2,2)</drawSize>
     </graphicData>
+    <!-- UI 图标固定用单支贴图:原版 Widgets.GetIconFor 对堆叠物品按当前 stackCount 取图,会显示"两支"贴图。 -->
+    <uiIconPath>Item/Bow_of_Death_Arrow/Bow_of_Death_Arrow_a</uiIconPath>
     <altitudeLayer>Item</altitudeLayer>
     <alwaysHaulable>true</alwaysHaulable>
     <category>Item</category>

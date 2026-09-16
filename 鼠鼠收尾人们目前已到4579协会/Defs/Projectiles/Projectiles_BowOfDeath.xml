@@ -9,6 +9,7 @@
     <graphicData>
       <texPath>Weapon/Bow_of_Death_Arrow</texPath>
       <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(2,2)</drawSize>
     </graphicData>
     <projectile>
       <damageDef>Arrow</damageDef>
@@ -26,6 +27,7 @@
     <graphicData>
       <texPath>Weapon/Bow_of_Death_Arrow</texPath>
       <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(2,2)</drawSize>
     </graphicData>
     <projectile>
       <damageDef>Arrow</damageDef>
@@ -43,6 +45,7 @@
     <graphicData>
       <texPath>Weapon/Bow_of_Death_Arrow</texPath>
       <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(2,2)</drawSize>
     </graphicData>
     <projectile>
       <damageDef>Arrow</damageDef>
@@ -60,6 +63,7 @@
     <graphicData>
       <texPath>Weapon/Bow_of_Death_Arrow</texPath>
       <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(2,2)</drawSize>
     </graphicData>
     <projectile>
       <damageDef>Arrow</damageDef>

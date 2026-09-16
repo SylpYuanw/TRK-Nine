@@ -4,7 +4,7 @@
        单层不做任何自然愈合与包扎,只能通过手术"取出箭矢"清除;层数上限由弹丸侧限制为 4。 -->
   <HediffDef>
     <defName>BowOfDeath_StuckArrow</defName>
-    <label>箭矢</label>
+    <label>死之箭嵌入</label>
     <description>一支嵌入体内的死之箭。取出前会让该单位承受更多伤害。</description>
     <isBad>true</isBad>
     <tendable>false</tendable>
@@ -25,6 +25,8 @@
     <description>射击后短时间内意识提高。</description>
     <isBad>false</isBad>
     <tendable>false</tendable>
+    <!-- 健康页文字色:四协会红偏淡深色系(#96272B,取自 Textures/Clothing/si_uniform.png 的红色主色)。 -->
+    <defaultLabelColor>(150,39,43)</defaultLabelColor>
     <comps>
       <li Class="HediffCompProperties_Disappears">
         <disappearsAfterTicks>10000</disappearsAfterTicks>
