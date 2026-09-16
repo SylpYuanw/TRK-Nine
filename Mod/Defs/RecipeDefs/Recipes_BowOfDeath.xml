@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- 死之箭制作:机械加工台或锻造台,25 钢铁出 1 根。 -->
+  <RecipeDef>
+    <defName>Make_BowOfDeath_Arrow</defName>
+    <label>制作死之箭</label>
+    <description>用钢铁加工一根死之箭。</description>
+    <jobString>正在制作死之箭。</jobString>
+    <workAmount>1000</workAmount>
+    <workSkill>Crafting</workSkill>
+    <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+    <soundWorking>Recipe_Machining</soundWorking>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>Steel</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Steel</li>
+          </thingDefs>
+        </filter>
+        <count>25</count>
+      </li>
+    </ingredients>
+    <products>
+      <Bow_of_Death_Arrow>1</Bow_of_Death_Arrow>
+    </products>
+    <recipeUsers>
+      <li>TableMachining</li>
+      <li>ElectricSmithy</li>
+      <li>FueledSmithy</li>
+    </recipeUsers>
+  </RecipeDef>
+
+  <!-- 取出箭矢:一次手术清除目标身上全部"箭矢"层数,与豪猪棘刺同结构。 -->
+  <RecipeDef ParentName="SurgeryFlesh">
+    <defName>RemoveBowOfDeathArrow</defName>
+    <label>取出箭矢</label>
+    <description>取出嵌入体内的死之箭。</description>
+    <jobString>正在取出箭矢。</jobString>
+    <workerClass>Recipe_RemoveHediff</workerClass>
+    <removesHediff>BowOfDeath_StuckArrow</removesHediff>
+    <targetsBodyPart>false</targetsBodyPart>
+    <anesthetize>false</anesthetize>
+    <deathOnFailedSurgeryChance>0</deathOnFailedSurgeryChance>
+    <workAmount>600</workAmount>
+    <workSkill>Medicine</workSkill>
+    <workSkillLearnFactor>16</workSkillLearnFactor>
+    <workSpeedStat>MedicalOperationSpeed</workSpeedStat>
+    <effectWorking>Surgery</effectWorking>
+    <soundWorking>Recipe_Surgery</soundWorking>
+    <fixedIngredientFilter>
+      <categories>
+        <li>Medicine</li>
+      </categories>
+    </fixedIngredientFilter>
+    <hideBodyPartNames>false</hideBodyPartNames>
+    <ingredients />
+    <isViolation>false</isViolation>
+    <surgeryOutcomeEffect IsNull="True" />
+    <uiIconPath>Weapon/Bow_of_Death_Arrow</uiIconPath>
+    <!-- 可执行种族由 Patches/BowOfDeath_RecipeUsers.xml 挂到种族 Def 的 recipes 列表:
+         跨引用不能指向抽象 Def,AnimalThingBase 直接写进 recipeUsers 会报 "Could not resolve cross-reference"。 -->
+  </RecipeDef>
+</Defs>

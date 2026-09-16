@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- 死之箭:补充"闪弓"次数的弹药,在机械加工台或锻造台用钢铁制作。 -->
+  <ThingDef ParentName="ResourceBase">
+    <defName>Bow_of_Death_Arrow</defName>
+    <label>死之箭</label>
+    <description>四协会为死之弓准备的箭矢。装入死之弓后可换取一次闪弓射击。</description>
+    <graphicData>
+      <texPath>Weapon/Bow_of_Death_Arrow</texPath>
+      <!-- Graphic_StackCount/Graphic_Multi 属于 Graphic_Collection:texPath 必须按文件夹取多张贴图(如 _a/_b/_c/_d),
+           单张贴图会报 "Collection cannot init: No textures found at path"。死之箭只有一张贴图,用 Graphic_Single。 -->
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(2,2)</drawSize>
+    </graphicData>
+    <altitudeLayer>Item</altitudeLayer>
+    <alwaysHaulable>true</alwaysHaulable>
+    <category>Item</category>
+    <comps>
+      <li Class="CompProperties_Forbiddable" />
+    </comps>
+    <drawGUIOverlay>true</drawGUIOverlay>
+    <drawerType>MapMeshOnly</drawerType>
+    <pathCost>14</pathCost>
+    <rotatable>false</rotatable>
+    <selectable>true</selectable>
+    <stackLimit>75</stackLimit>
+    <orderedTakeGroup>BowOfDeath_ArrowTakeGroup</orderedTakeGroup>
+    <statBases>
+      <Mass>0.3</Mass>
+      <MarketValue>47</MarketValue>
+    </statBases>
+    <thingCategories>
+      <li>Manufactured</li>
+    </thingCategories>
+    <thingClass>ThingWithComps</thingClass>
+    <useHitPoints>false</useHitPoints>
+  </ThingDef>
+</Defs>

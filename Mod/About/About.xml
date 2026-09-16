@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>TRK_初版9协会</name>
+  <author>炸黄瓜条</author>
+  <supportedVersions>
+    <li>1.6</li>
+  </supportedVersions>
+  <description>测试创造mod物品</description>
+  <packageId>Trk.Nine</packageId>
+  <modDependencies>
+    <li>
+      <packageId>brrainz.harmony</packageId>
+      <displayName>Harmony</displayName>
+    </li>
+    <li>
+      <packageId>Solaris.RatkinRaceMod</packageId>
+      <displayName>New Ratkin Plus</displayName>
+    </li>
+  </modDependencies>
+  <loadAfter>
+    <li>brrainz.harmony</li>
+    <li>Solaris.RatkinRaceMod</li>
+  </loadAfter>
+</ModMetaData>

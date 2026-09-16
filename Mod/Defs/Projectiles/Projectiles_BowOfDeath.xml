@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- 死之箭弹丸:每阶一份,差异在基础伤害与穿透;命中后由 XIYUNTE.Projectile_DeathBowArrow 挂载"箭矢"Hediff。
+       伤害取整:33.6 -> 34、47.04 -> 47。 -->
+  <ThingDef ParentName="BaseBullet">
+    <defName>BowOfDeath_Arrow_StageOne</defName>
+    <label>死之箭</label>
+    <thingClass>XIYUNTE.Projectile_DeathBowArrow</thingClass>
+    <graphicData>
+      <texPath>Weapon/Bow_of_Death_Arrow</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <damageDef>Arrow</damageDef>
+      <damageAmountBase>24</damageAmountBase>
+      <armorPenetrationBase>0.34</armorPenetrationBase>
+      <speed>44.4</speed>
+      <stoppingPower>4</stoppingPower>
+    </projectile>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseBullet">
+    <defName>BowOfDeath_Arrow_StageTwo</defName>
+    <label>死之箭</label>
+    <thingClass>XIYUNTE.Projectile_DeathBowArrow</thingClass>
+    <graphicData>
+      <texPath>Weapon/Bow_of_Death_Arrow</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <damageDef>Arrow</damageDef>
+      <damageAmountBase>34</damageAmountBase>
+      <armorPenetrationBase>0.476</armorPenetrationBase>
+      <speed>44.4</speed>
+      <stoppingPower>4</stoppingPower>
+    </projectile>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseBullet">
+    <defName>BowOfDeath_Arrow_StageThree</defName>
+    <label>死之箭</label>
+    <thingClass>XIYUNTE.Projectile_DeathBowArrow</thingClass>
+    <graphicData>
+      <texPath>Weapon/Bow_of_Death_Arrow</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <damageDef>Arrow</damageDef>
+      <damageAmountBase>47</damageAmountBase>
+      <armorPenetrationBase>0.6664</armorPenetrationBase>
+      <speed>44.4</speed>
+      <stoppingPower>4</stoppingPower>
+    </projectile>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseBullet">
+    <defName>BowOfDeath_Arrow_StageFour</defName>
+    <label>死之箭</label>
+    <thingClass>XIYUNTE.Projectile_DeathBowArrow</thingClass>
+    <graphicData>
+      <texPath>Weapon/Bow_of_Death_Arrow</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <damageDef>Arrow</damageDef>
+      <damageAmountBase>66</damageAmountBase>
+      <armorPenetrationBase>0.933</armorPenetrationBase>
+      <speed>44.4</speed>
+      <stoppingPower>4</stoppingPower>
+    </projectile>
+  </ThingDef>
+</Defs>

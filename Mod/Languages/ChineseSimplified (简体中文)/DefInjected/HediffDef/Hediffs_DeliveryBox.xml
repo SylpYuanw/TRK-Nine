@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <RK_DeliveryBox_HighPower.label>派送箱高功率模式</RK_DeliveryBox_HighPower.label>
+  <RK_DeliveryBox_HighPower.description>高功率模式进行中，移动速度提升且免疫受击硬直。\n运行满12小时将因严重超载直接死亡，期间可随时关闭，关闭后进入24小时冷却。</RK_DeliveryBox_HighPower.description>
+  <RK_DeliveryBox_HighPower_Shield.label>高功率护盾</RK_DeliveryBox_HighPower_Shield.label>
+  <RK_DeliveryBox_HighPower_Shield.description>高功率二阶段提供的真实伤害护盾，上限50点，15点/秒回复。</RK_DeliveryBox_HighPower_Shield.description>
+</LanguageData>

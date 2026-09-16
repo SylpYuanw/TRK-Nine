@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- 四协会——死之弓:近战为弓臂,远程为"闪弓"技能射击。
+       武器精度写在 statBases(原版武器卡与命中判定都读这里);蓄力阶的精度加成由 XIYUNTE.CompEquippable_DeathBow 通过 ThingComp.GetStatOffset 叠加。 -->
+  <ThingDef ParentName="BaseMeleeWeapon_Sharp_Quality">
+    <defName>Bow_of_Death</defName>
+    <label>四协会——死之弓</label>
+    <description>四协会使用的弓刀。弓臂本身可作利器劈砍,拉动弓弦后能射出死之箭。\n拉动弓弦需要消耗死之箭,箭矢用尽时只能近身作战。</description>
+    <thingClass>XIYUNTE.Thing_DeathBow</thingClass>
+    <graphicData>
+      <texPath>Weapon/Bow_of_Death</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+      <ignoreThingDrawColor>true</ignoreThingDrawColor>
+      <!-- 图像大小:物品/地面/手持武器的绘制尺寸,默认 (1,1) 即一格。改这里调整大小。 -->
+      <drawSize>(1.5,1.5)</drawSize>
+    </graphicData>
+    <uiIconPath>Weapon/Bow_of_Death</uiIconPath>
+    <!-- UI 图标缩放(物品栏/信息卡图标大小),与 drawSize 分开。 -->
+    <uiIconScale>1</uiIconScale>
+    <relicChance>0</relicChance>
+    <!-- 外观与持握:沿用参考文件的武器持握角度与交互音效。 -->
+    <equippedAngleOffset>165</equippedAngleOffset>
+    <soundInteract>Bow_Large</soundInteract>
+    <rotateInShelves>false</rotateInShelves>
+    <!-- 远程部分:四段基础精度,对应距离 <=3 / 3~12 / 12~25 / >=25 格。 -->
+    <statBases>
+      <WorkToMake>9000</WorkToMake>
+      <Mass>3.0</Mass>
+      <AccuracyTouch>0.64</AccuracyTouch>
+      <AccuracyShort>0.74</AccuracyShort>
+      <AccuracyMedium>0.84</AccuracyMedium>
+      <AccuracyLong>0.74</AccuracyLong>
+    </statBases>
+    <!-- 制作:沿用参考文件(手工制作点 + 大弓研究 + 6 级手工)。 -->
+    <costList>
+      <WoodLog>60</WoodLog>
+    </costList>
+    <!-- 近战部分:弓臂,24 利器伤害、34% 穿透、2.4 秒冷却,四档蓄力都不改变近战面板。 -->
+    <tools>
+      <li>
+        <label>弓臂</label>
+        <capacities>
+          <li>Cut</li>
+        </capacities>
+        <power>24</power>
+        <armorPenetration>0.34</armorPenetration>
+        <cooldownTime>2.4</cooldownTime>
+      </li>
+    </tools>
+    <!-- 闪弓射击动词:普通模式下该动词不可用,武器自动退回近战;闪弓模式下作为主攻击动词。 -->
+    <verbs>
+      <li>
+        <verbClass>XIYUNTE.Verb_DeathBowShot</verbClass>
+        <label>闪弓</label>
+        <isPrimary>true</isPrimary>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>BowOfDeath_Arrow_StageOne</defaultProjectile>
+        <warmupTime>4</warmupTime>
+        <range>44</range>
+        <soundCast>Bow_Large</soundCast>
+      </li>
+    </verbs>
+    <comps Inherit="False">
+      <li Class="CompProperties_Forbiddable" />
+      <li Class="CompProperties_Styleable" />
+      <li>
+        <compClass>CompQuality</compClass>
+      </li>
+      <li Class="CompProperties_Art">
+        <nameMaker>NamerArtWeaponMelee</nameMaker>
+        <descriptionMaker>ArtDescription_WeaponMelee</descriptionMaker>
+        <minQualityForArtistic>Excellent</minQualityForArtistic>
+      </li>
+      <!-- 模式/蓄力阶/次数状态组件,同时承担武器装备组件职责。 -->
+      <li Class="XIYUNTE.Properties_DeathBow">
+        <ammoDef>Bow_of_Death_Arrow</ammoDef>
+        <maxCharges>4</maxCharges>
+        <!-- 蓄力阶切换耗时(tick):30 tick = 0.5 秒,6 tick = 0.1 秒。等待期内射击不可用,结束后才换参数。 -->
+        <stageSwitchTicks>6</stageSwitchTicks>
+        <!-- 近战/远程模式切换耗时(tick),与蓄力阶切换独立;0 = 立即切换。 -->
+        <modeSwitchTicks>0</modeSwitchTicks>
+        <!-- 近战/远程模式切换音效(占位,可换成专用音效)。 -->
+        <modeSwitchSound>Interact_PlasmaSword</modeSwitchSound>
+        <!-- 可选按钮图标(相对 Textures,不含扩展名);留空时模式用武器图标、装填用死之箭图标。 -->
+        <modeIconPath>Ability/Bow_of_Death_Ability</modeIconPath>
+        <!-- <loadIconPath>Weapon/Bow_of_Death_Arrow</loadIconPath> -->
+        <!-- 每阶独立:瞄准时间为该阶总值(基础 4 秒 + 该阶蓄力增量),精度加成为该阶总值。 -->
+        <stages>
+          <li>
+            <projectile>BowOfDeath_Arrow_StageOne</projectile>
+            <warmupTime>4</warmupTime>
+            <accuracyOffset>0.04</accuracyOffset>
+            <iconPath>Ability/Bow_of_Death_Ability_1</iconPath>
+            <!-- 切到该阶时播放的音效(占位,四阶可各自替换)。 -->
+            <switchSound>Bow_Recurve</switchSound>
+            <description>一阶蓄力：伤害 24，护甲穿透 34%，瞄准时间 4 秒，精度加成 +4%。</description>
+          </li>
+          <li>
+            <projectile>BowOfDeath_Arrow_StageTwo</projectile>
+            <warmupTime>5.4</warmupTime>
+            <accuracyOffset>0.08</accuracyOffset>
+            <iconPath>Ability/Bow_of_Death_Ability_2</iconPath>
+            <switchSound>Bow_Recurve</switchSound>
+            <description>二阶蓄力：伤害 34，护甲穿透 47.6%，瞄准时间 5.4 秒，精度加成 +8%。</description>
+          </li>
+          <li>
+            <projectile>BowOfDeath_Arrow_StageThree</projectile>
+            <warmupTime>6.8</warmupTime>
+            <accuracyOffset>0.12</accuracyOffset>
+            <iconPath>Ability/Bow_of_Death_Ability_3</iconPath>
+            <switchSound>Bow_Recurve</switchSound>
+            <description>三阶蓄力：伤害 47，护甲穿透 66.64%，瞄准时间 6.8 秒，精度加成 +12%。</description>
+          </li>
+          <li>
+            <projectile>BowOfDeath_Arrow_StageFour</projectile>
+            <warmupTime>8.2</warmupTime>
+            <accuracyOffset>0.16</accuracyOffset>
+            <iconPath>Ability/Bow_of_Death_Ability_4</iconPath>
+            <switchSound>Bow_Recurve</switchSound>
+            <description>四阶蓄力：伤害 66，护甲穿透 93.3%，瞄准时间 8.2 秒，精度加成 +16%。</description>
+          </li>
+        </stages>
+      </li>
+    </comps>
+    <recipeMaker>
+      <recipeUsers>
+        <li>CraftingSpot</li>
+      </recipeUsers>
+      <researchPrerequisite>Greatbow</researchPrerequisite>
+      <skillRequirements>
+        <Crafting>6</Crafting>
+      </skillRequirements>
+      <displayPriority>530</displayPriority>
+    </recipeMaker>
+  </ThingDef>
+</Defs>

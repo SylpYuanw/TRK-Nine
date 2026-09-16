@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- 箭矢:命中后挂在目标身上的层数型状态,每层提供 +14% 承伤系数(原版 IncomingDamageFactor 偏移),
+       单层不做任何自然愈合与包扎,只能通过手术"取出箭矢"清除;层数上限由弹丸侧限制为 4。 -->
+  <HediffDef>
+    <defName>BowOfDeath_StuckArrow</defName>
+    <label>箭矢</label>
+    <description>一支嵌入体内的死之箭。取出前会让该单位承受更多伤害。</description>
+    <isBad>true</isBad>
+    <tendable>false</tendable>
+    <stages>
+      <li>
+        <statOffsets>
+          <IncomingDamageFactor>0.14</IncomingDamageFactor>
+        </statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <!-- 意识提升:每次射击完成后给射手挂载 4 小时(10000 tick)。重复射击只刷新持续时间,不叠加数值。 -->
+  <HediffDef>
+    <defName>BowOfDeath_Consciousness</defName>
+    <hediffClass>HediffWithComps</hediffClass>
+    <label>意识提升</label>
+    <description>射击后短时间内意识提高。</description>
+    <isBad>false</isBad>
+    <tendable>false</tendable>
+    <comps>
+      <li Class="HediffCompProperties_Disappears">
+        <disappearsAfterTicks>10000</disappearsAfterTicks>
+        <!-- 原版默认 false:不开这一项,健康页只显示 Hediff 名,不显示剩余时间。 -->
+        <showRemainingTime>true</showRemainingTime>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>0.14</offset>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+  </HediffDef>
+</Defs>

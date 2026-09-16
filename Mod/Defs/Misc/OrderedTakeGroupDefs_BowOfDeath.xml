@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- 携带分组:原版在玩家据点地图上只允许"有携带分组的物品"被拾取进背包(PawnUtility.CanPickUp),
+       死之箭属于该类物品,因此需要一个自己的分组才能被手动拾取与按政策携带。 -->
+  <OrderedTakeGroupDef>
+    <defName>BowOfDeath_ArrowTakeGroup</defName>
+    <label>死之箭</label>
+    <max>4</max>
+  </OrderedTakeGroupDef>
+</Defs>

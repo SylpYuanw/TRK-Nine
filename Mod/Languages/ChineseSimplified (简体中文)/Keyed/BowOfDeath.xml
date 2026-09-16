@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <BowOfDeath_NoAmmo>没有死之箭,无法射击。装填死之箭或切回普通模式近身作战。</BowOfDeath_NoAmmo>
+  <BowOfDeath_Busy>正在瞄准或射击中,无法切换模式。</BowOfDeath_Busy>
+  <BowOfDeath_Switching>切换中（{0} 秒）</BowOfDeath_Switching>
+
+  <BowOfDeath_Mode_FlashBow>模式：闪弓（{0} / {1}）</BowOfDeath_Mode_FlashBow>
+  <BowOfDeath_Mode_Melee>模式：普通（仅近战）</BowOfDeath_Mode_Melee>
+  <BowOfDeath_ModeDesc>切换武器模式。闪弓模式且尚有余弹时,装备按钮栏会出现原版的远程攻击命令;普通模式只保留近战。</BowOfDeath_ModeDesc>
+
+  <BowOfDeath_Stage>蓄力阶段：{0}</BowOfDeath_Stage>
+  <BowOfDeath_StageDesc>选择本次射击使用的蓄力阶段。阶段越高,伤害、穿透与精度加成越高,瞄准时间越长。</BowOfDeath_StageDesc>
+  <BowOfDeath_NoStage>蓄力阶段数据缺失,无法选择。</BowOfDeath_NoStage>
+
+  <BowOfDeath_StatStage>当前蓄力阶段</BowOfDeath_StatStage>
+  <BowOfDeath_StatStageDesc>当前阶段对应的远程数据。切换阶段后重新打开信息卡即会刷新。</BowOfDeath_StatStageDesc>
+  <BowOfDeath_StatMode>武器模式与剩余次数</BowOfDeath_StatMode>
+  <BowOfDeath_StatModeDesc>闪弓模式下才能远程射击,每射击一次消耗一次死之箭。</BowOfDeath_StatModeDesc>
+
+  <BowOfDeath_Load>装填死之箭（{0} / {1}）</BowOfDeath_Load>
+  <BowOfDeath_LoadDesc>把背包里的{0}装入武器,每根换取一次闪弓射击。</BowOfDeath_LoadDesc>
+  <BowOfDeath_LoadFull>次数已满。</BowOfDeath_LoadFull>
+  <BowOfDeath_LoadFailed>背包里没有{0}。</BowOfDeath_LoadFailed>
+</LanguageData>

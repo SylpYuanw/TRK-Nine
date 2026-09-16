@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <ThingDef ParentName="BaseMeleeWeapon_Sharp_Quality">
+    <defName>RK_DeliveryBox</defName>
+    <thingClass>XIYUNTE.Thing_DeliveryBox</thingClass>
+    <!-- 使用原版近战武器父定义提供材料、品质和基础武器属性；SYS 手持、背负与收纳接口由本定义显式配置。 -->
+    <label>派送箱</label>
+    <description>Девять协会北部收尾人使用的派送箱。\n派送箱可以进行增强输出功率以及转换模式。启动后派送箱会持续释放能量协助战斗，还可以增强输出功率或转换模式。\n不过增强输出功率也不一定对性命有保障。请别错过最后的期限。\n[最低福利休息模式运作。能量补给暂停。注意。此措施是暂时的。建议迅速派送。]\n派送箱内有搭载AI助理“波鲁（鼠）德尼察”进行导航来达到快速配送的目的。\n内置重力奇点，即使放入许多物品也不会感到有明显的重量增加。\n不过通常来讲，这些箱子大多都是前辈的遗物\n[阶段三。警告。任务超时。进入派送加速最终阶段。进一步的时间延误将无法保障您的安全。]\n ”放我一马我保证一定会好好完成派送的！吱！“</description>
+    <!-- 外观组件 使用 CutoutComplex 着色器 用于带透明边缘或复杂轮廓的贴图 -->
+    <graphicData>
+      <texPath>Weapon/Box_Core</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+      <ignoreThingDrawColor>true</ignoreThingDrawColor>
+    </graphicData>
+    <!-- 装备偏移 -->
+    <uiIconPath>Weapon/Box_Core</uiIconPath>
+    <equippedAngleOffset>0</equippedAngleOffset>
+    <equippedDistanceOffset>0</equippedDistanceOffset>
+    <!-- 武器属性 -->
+    <techLevel>Medieval</techLevel>
+    <relicChance>0</relicChance>
+    <statBases>
+      <WorkToMake>24000</WorkToMake>
+      <Mass>4</Mass>
+    </statBases>
+    <!-- 制作材料 -->
+    <costStuffCount>120</costStuffCount>
+    <stuffCategories>
+      <li>Metallic</li>
+    </stuffCategories>
+    <costList>
+      <Steel>50</Steel>
+      <Silver>15</Silver>
+      <WoodLog>45</WoodLog>
+    </costList>
+    <!-- 静态 tools 使用箱体形态数据:用于通过原版"equipment has no verbs or tools"配置检查,并让武器卡显示默认形态的近战 DPS/穿透;实际攻击动词由运行时 IVerbOwner 按当前形态提供。 -->
+    <tools>
+      <li>
+        <label>箱角</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>17</power>
+        <armorPenetration>0.15</armorPenetration>
+        <cooldownTime>2.1</cooldownTime>
+        <soundMeleeHit>MeleeHit_ZeusHammer</soundMeleeHit>
+      </li>
+      <li>
+        <label>箱面</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>19</power>
+        <armorPenetration>0.20</armorPenetration>
+        <cooldownTime>2.5</cooldownTime>
+        <soundMeleeHit>MeleeHit_ZeusHammer</soundMeleeHit>
+      </li>
+    </tools>
+
+    <comps Inherit="False">
+      <li Class="CompProperties_Forbiddable" />
+      <li Class="CompProperties_Styleable" />
+      <li>
+        <compClass>CompQuality</compClass>
+      </li>
+      <li Class="CompProperties_Art">
+        <nameMaker>NamerArtWeaponMelee</nameMaker>
+        <descriptionMaker>ArtDescription_WeaponMelee</descriptionMaker>
+        <minQualityForArtistic>Excellent</minQualityForArtistic>
+      </li>
+      <li Class="CompProperties_EquippableAbility">
+        <abilityDef>RK_DeliveryBox_HighPower</abilityDef>
+        <compClass>XIYUNTE.CompEquippable_MultiForm</compClass>
+      </li>
+      <!-- 每个形态配置原版近战 tool:容量 Blunt/Cut 匹配原版 Smash/Slash 机动(决定伤害类型),伤害/冷却/命中音效由 tool 提供;切换只替换该实例的 tool 与机动。 -->
+      <li Class="XIYUNTE.Box_shift">
+        <modes>
+          <li>
+            <!-- 基础形态:钝器伤害,宙斯锤命中音效。 -->
+            <label>派送箱</label>
+            <description>可以切换多种战斗形态的模块化派送箱。\nДевять协会北部收尾人使用的派送箱。\n派送箱可以进行增强输出功率以及转换模式。启动后派送箱会持续释放能量协助战斗，还可以增强输出功率或转换模式。\n不过增强输出功率也不一定对性命有保障。请别错过最后的期限。\n[最低福利休息模式运作。能量补给暂停。注意。此措施是暂时的。建议迅速派送。]\n派送箱内有搭载AI助理“波鲁（鼠）德尼察”进行导航来达到快速配送的目的。\n内置重力奇点，即使放入许多物品也不会感到有明显的重量增加。\n不过通常来讲，这些箱子大多都是前辈的遗物\n[阶段三。警告。任务超时。进入派送加速最终阶段。进一步的时间延误将无法保障您的安全。]\n ”放我一马我保证一定会好好完成派送的！吱！“</description>
+            <texPath>Weapon/Box_Core</texPath>
+            <drawSize>1.0</drawSize>
+            
+            <commandIcon>Weapon/Box_Core</commandIcon>
+            <sheathTexPath>Weapon/box_Full</sheathTexPath>
+            <sheathGraphicMulti>true</sheathGraphicMulti>
+            <switchSound>Interact_ZeusHammer</switchSound>
+            
+            <tools>
+              <li>
+                <label>箱角</label>
+                <capacities>
+                  <li>Blunt</li>
+                </capacities>
+                <power>17</power>
+                <armorPenetration>0.15</armorPenetration>
+                <cooldownTime>2.1</cooldownTime>
+                <soundMeleeHit>MeleeHit_ZeusHammer</soundMeleeHit>
+              </li>
+              <li>
+                <label>箱面</label>
+                <capacities>
+                  <li>Blunt</li>
+                </capacities>
+                <power>19</power>
+                <armorPenetration>0.20</armorPenetration>
+                <cooldownTime>2.5</cooldownTime>
+                <soundMeleeHit>MeleeHit_ZeusHammer</soundMeleeHit>
+              </li>
+            </tools>
+            <equippedStatOffsets>
+              <MoveSpeed>0.45</MoveSpeed>
+            </equippedStatOffsets>
+          </li>
+          <li>
+            <!-- 与箱体模式不同:利器伤害,等离子剑命中音效。 -->
+            <label>崩坏刃</label>
+            <description>[已确认提高功率的请求。]</description>
+            <texPath>Weapon/Box_Blade</texPath>
+            <drawSize>1.0</drawSize>
+            
+            <commandIcon>Weapon/Box_Blade</commandIcon>
+            <sheathTexPath>Weapon/Box_Blade</sheathTexPath>
+            <switchSound>Interact_PlasmaSword</switchSound>
+
+            <tools>
+              <li>
+                <label>崩坏刃斩击</label>
+                <capacities>
+                  <li>Cut</li>
+                </capacities>
+                <power>33</power>
+                <armorPenetration>0.65</armorPenetration>
+                <cooldownTime>3.0</cooldownTime>
+                <soundMeleeHit>MeleeHit_PlasmaSword</soundMeleeHit>
+              </li>
+              <li>
+                <label>箱面</label>
+                <capacities>
+                  <li>Blunt</li>
+                </capacities>
+                <power>19</power>
+                <armorPenetration>0.20</armorPenetration>
+                <cooldownTime>2.5</cooldownTime>
+                <soundMeleeHit>MeleeHit_ZeusHammer</soundMeleeHit>
+              </li>
+            </tools>
+          </li>
+          <li>
+            <!-- 与箱体模式不同:多功能钝器,保留较快的攻击冷却。 -->
+            <label>多功能工具</label>
+            <description>[检测到敌对势力。波鲁德尼察，强力派送模式启动。]</description>
+            <texPath>Weapon/Box_Tool</texPath>
+            <drawSize>1.0</drawSize>
+            
+            <commandIcon>Weapon/Box_Tool</commandIcon>
+            <sheathTexPath>Weapon/Box_Tool</sheathTexPath>
+            <switchSound>Interact_ZeusHammer</switchSound>
+
+            <tools>
+              <li>
+                <label>工具射出一</label>
+                <capacities>
+                  <li>Stab</li>
+                </capacities>
+                <power>24</power>
+                <armorPenetration>0.40</armorPenetration>
+                <cooldownTime>2.4</cooldownTime>
+                <soundMeleeHit>MeleeHit_ZeusHammer</soundMeleeHit>
+              </li>
+              <li>
+                <label>工具射出二</label>
+                <capacities>
+                  <li>Cut</li>
+                </capacities>
+                <power>20</power>
+                <armorPenetration>0.40</armorPenetration>
+                <cooldownTime>2.6</cooldownTime>
+                <soundMeleeHit>MeleeHit_PlasmaSword</soundMeleeHit>
+              </li>
+              <li>
+                <label>工具射出三</label>
+                <capacities>
+                  <li>Stab</li>
+                </capacities>
+                <power>20</power>
+                <armorPenetration>0.30</armorPenetration>
+                <cooldownTime>2.2</cooldownTime>
+                <soundMeleeHit>MeleeHit_ZeusHammer</soundMeleeHit>
+              </li>
+              <li>
+                <label>箱面</label>
+                <capacities>
+                  <li>Blunt</li>
+                </capacities>
+                <power>19</power>
+                <armorPenetration>0.20</armorPenetration>
+                <cooldownTime>2.5</cooldownTime>
+                <soundMeleeHit>MeleeHit_ZeusHammer</soundMeleeHit>
+              </li>
+            </tools>
+          </li>
+          <li>
+            <!-- 与箱体模式不同:高伤害、长冷却的重型钝器。 -->
+            <label>崩解锤</label>
+            <description>[切换至锤模式。请根据崩解粒子的震动有力挥击。]</description>
+            <texPath>Weapon/Box_Hammer</texPath>
+            <drawSize>1.0</drawSize>
+            
+            <commandIcon>Weapon/Box_Hammer</commandIcon>
+            <sheathTexPath>Weapon/Box_Hammer</sheathTexPath>
+            <switchSound>Interact_ZeusHammer</switchSound>
+            
+            <tools>
+              <li>
+                <label>崩解锤击</label>
+                <capacities>
+                  <li>Blunt</li>
+                </capacities>
+                <power>29</power>
+                <armorPenetration>0.90</armorPenetration>
+                <cooldownTime>3.0</cooldownTime>
+                <soundMeleeHit>MeleeHit_ZeusHammer</soundMeleeHit>
+              </li>
+              <li>
+                <label>箱面</label>
+                <capacities>
+                  <li>Blunt</li>
+                </capacities>
+                <power>19</power>
+                <armorPenetration>0.20</armorPenetration>
+                <cooldownTime>2.5</cooldownTime>
+                <soundMeleeHit>MeleeHit_ZeusHammer</soundMeleeHit>
+              </li>
+            </tools>
+          </li>
+          <li>
+            <!-- 突破工具:重型穿透钝器 + 箱面,移动速度小幅提升。 -->
+            <label>突破工具</label>
+            <description>[警告：为提升派送效率，解除对派送员的崩解粒子限制。请立即执行派送。]</description>
+            <texPath>Weapon/Box_DemolitionGadget</texPath>
+            <drawSize>1.0</drawSize>
+            <commandIcon>Weapon/Box_DemolitionGadget</commandIcon>
+            <sheathTexPath>Weapon/Box_DemolitionGadget</sheathTexPath>
+            <switchSound>Interact_ZeusHammer</switchSound>
+            <tools>
+              <li>
+                <label>突破锤击</label>
+                <capacities>
+                  <li>Blunt</li>
+                </capacities>
+                <power>25</power>
+                <armorPenetration>0.50</armorPenetration>
+                <cooldownTime>3.0</cooldownTime>
+                <soundMeleeHit>MeleeHit_ZeusHammer</soundMeleeHit>
+              </li>
+              <li>
+                <label>箱面</label>
+                <capacities>
+                  <li>Blunt</li>
+                </capacities>
+                <power>19</power>
+                <armorPenetration>0.20</armorPenetration>
+                <cooldownTime>2.5</cooldownTime>
+                <soundMeleeHit>MeleeHit_ZeusHammer</soundMeleeHit>
+              </li>
+            </tools>
+            <equippedStatOffsets>
+              <MoveSpeed>0.20</MoveSpeed>
+            </equippedStatOffsets>
+          </li>
+        </modes>
+      </li>
+      <li Class="SYS.CompProperties_WeaponExtention">
+        <northOffset>
+          <position>(0,0,0)</position>
+          <angle>90</angle>
+        </northOffset>
+        <southOffset>
+          <position>(0,0,0)</position>
+          <angle>90</angle>
+        </southOffset>
+        <eastOffset>
+          <position>(0,0,0)</position>
+          <angle>90</angle>
+        </eastOffset>
+        <westOffset>
+          <position>(0,0,0)</position>
+          <angle>90</angle>
+        </westOffset>
+      </li>
+      <li Class="SYS.CompProperties_Sheath">
+        <sheathOnlyGraphicData>
+          <texPath>RK_Texture_Empty</texPath>
+          <graphicClass>Graphic_Single</graphicClass>
+          <ignoreThingDrawColor>true</ignoreThingDrawColor>
+        </sheathOnlyGraphicData>
+        <fullGraphicData>
+          <texPath>Weapon/box_Full</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <ignoreThingDrawColor>true</ignoreThingDrawColor>
+        </fullGraphicData>
+        <drawPosition>Back</drawPosition>
+        <northOffset>
+          <position>(0,1,0)</position>
+          <angle>45</angle>
+        </northOffset>
+        <southOffset>
+          <position>(0,-1,0.1)</position>
+          <angle>42</angle>
+        </southOffset>
+        <eastOffset>
+          <position>(-0.25,-0.3,0.1)</position>
+          <angle>30</angle>
+        </eastOffset>
+        <westOffset>
+          <position>(0.25,0.3,0.1)</position>
+          <angle>-30</angle>
+        </westOffset>
+      </li>
+    </comps>
+    <recipeMaker>
+      <researchPrerequisite>LongBlades</researchPrerequisite>
+      <skillRequirements>
+        <Crafting>7</Crafting>
+        <Artistic>3</Artistic>
+      </skillRequirements>
+    </recipeMaker>
+  </ThingDef>
+</Defs>

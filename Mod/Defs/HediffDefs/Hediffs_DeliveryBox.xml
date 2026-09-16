@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- 高功率主状态：严重度=已运行时间/总时长(12h)，lethalSeverity=1 使其在12h直接判死 -->
+  <HediffDef>
+    <defName>RK_DeliveryBox_HighPower</defName>
+    <label>派送箱-高功率模式</label>
+    <description>高功率模式进行中，移动速度提升且免疫受击硬直；随运行时间强化(护盾/化学灼伤)，运行满12小时将严重超载死亡。</description>
+    <hediffClass>XIYUNTE.Hediff_DeliveryBoxHighPower</hediffClass>
+    <defaultLabelColor>(0.9, 0.7, 0.2)</defaultLabelColor>
+    <isBad>false</isBad>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <tendable>false</tendable>
+    <everCurableByItem>false</everCurableByItem>
+    <initialSeverity>0</initialSeverity>
+    <maxSeverity>1</maxSeverity>
+    <lethalSeverity>1</lethalSeverity>
+
+    <stages>
+      <li>
+        <minSeverity>0</minSeverity>
+        <label>I</label>
+        <overrideTooltip>[阶段一。开始派送辅助及管理流程。请沉着地开拓生路。]</overrideTooltip>
+        <statFactors>
+          <StaggerDurationFactor>0</StaggerDurationFactor>
+        </statFactors>
+        <statOffsets>
+          <MoveSpeed>0.5</MoveSpeed>
+        </statOffsets>
+      </li>
+      <li>
+        <minSeverity>0.25</minSeverity>
+        <label>II</label>
+        <overrideTooltip>[阶段2。派送单元功率提升。建议迅速开拓。]</overrideTooltip>
+        <statFactors>
+          <StaggerDurationFactor>0</StaggerDurationFactor>
+        </statFactors>
+        <statOffsets>
+          <MoveSpeed>0.5</MoveSpeed>
+        </statOffsets>
+        <!-- <painFactor>0.9</painFactor> -->
+      </li>
+      <li>
+        <minSeverity>0.75</minSeverity>
+        <label>III</label>
+        <overrideTooltip>[阶段三。警告。任务超时。进入派送加速最终阶段。进一步的时间延误将无法保障您的安全。]</overrideTooltip>
+        <statFactors>
+          <StaggerDurationFactor>0</StaggerDurationFactor>
+        </statFactors>
+        <statOffsets>
+          <MoveSpeed>0.5</MoveSpeed>
+        </statOffsets>
+        <!-- <painFactor>0.7</painFactor> -->
+      </li>
+    </stages>
+
+    <comps>
+      <li Class="XIYUNTE.HediffCompProperties_DeliveryBoxHighPower">
+        <totalTicks>30000</totalTicks>
+        <stage2Tick>7500</stage2Tick>
+        <stage3Tick>22500</stage3Tick>
+        <burnIntervalTicks>1875</burnIntervalTicks>
+        <!-- 化学烧伤，每次 X 点 -->
+        <burnSeverity>4</burnSeverity>
+        <shieldDef>RK_DeliveryBox_HighPower_Shield</shieldDef>
+        <burnDef>ChemicalBurn</burnDef>
+      </li>
+    </comps>
+  </HediffDef>
+
+  <!-- 二阶段护盾：真实伤害池(非能量)50点，15点/秒回复，由主状态组件加载/清理 -->
+  <HediffDef>
+    <defName>RK_DeliveryBox_HighPower_Shield</defName>
+    <label>高功率护盾</label>
+    <description>高功率二阶段提供的真实伤害护盾，上限50点，15点/秒回复。</description>
+    <hediffClass>XIYUNTE.Hediff_DeliveryBoxShield</hediffClass>
+    <renderNodeProperties>
+      <li Class="XIYUNTE.PawnRenderNodeProperties_DeliveryBoxShield">
+        <pawnType>Any</pawnType>
+        <useGraphic>false</useGraphic>
+        <debugLabel>DeliveryBox HighPower Shield</debugLabel>
+      </li>
+    </renderNodeProperties>
+    <defaultLabelColor>(0.25, 0.7, 0.55)</defaultLabelColor>
+    <isBad>false</isBad>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <tendable>false</tendable>
+    <everCurableByItem>false</everCurableByItem>
+    <initialSeverity>1</initialSeverity>
+    <maxSeverity>1</maxSeverity>
+    <comps>
+      <li Class="XIYUNTE.HediffCompProperties_DeliveryBoxShieldEnergy">
+        <maxDamage>50</maxDamage>
+        <regenPerTick>0.25</regenPerTick>
+      </li>
+    </comps>
+  </HediffDef>
+</Defs>

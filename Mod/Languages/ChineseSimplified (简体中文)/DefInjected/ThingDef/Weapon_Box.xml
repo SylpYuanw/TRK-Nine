@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <RK_DeliveryBox.label>派送箱</RK_DeliveryBox.label>
+  <RK_DeliveryBox.description>Девять协会北部收尾人使用的派送箱。\n派送箱可以进行增强输出功率以及转换模式。启动后派送箱会持续释放能量协助战斗，还可以增强输出功率或转换模式。\n不过增强输出功率也不一定对性命有保障。请别错过最后的期限。\n[最低福利休息模式运作。能量补给暂停。注意。此措施是暂时的。建议迅速派送。]\n派送箱内有搭载AI助理“波鲁（鼠）德尼察”进行导航来达到快速配送的目的。\n内置重力奇点，即使放入许多物品也不会感到有明显的重量增加。\n不过通常来讲，这些箱子大多都是前辈的遗物\n[阶段三。警告。任务超时。进入派送加速最终阶段。进一步的时间延误将无法保障您的安全。]\n ”放我一马我保证一定会好好完成派送的！吱！“</RK_DeliveryBox.description>
+
+  <RK_DeliveryBox.comps.Box_shift.modes.0.label>箱体模式</RK_DeliveryBox.comps.Box_shift.modes.0.label>
+  <RK_DeliveryBox.comps.Box_shift.modes.0.description>以派送箱本体进行攻击的基础形态。\nДевять协会北部收尾人使用的派送箱。\n派送箱可以进行增强输出功率以及转换模式。启动后派送箱会持续释放能量协助战斗，还可以增强输出功率或转换模式。\n不过增强输出功率也不一定对性命有保障。请别错过最后的期限。\n[最低福利休息模式运作。能量补给暂停。注意。此措施是暂时的。建议迅速派送。]\n派送箱内有搭载AI助理“波鲁（鼠）德尼察”进行导航来达到快速配送的目的。\n内置重力奇点，即使放入许多物品也不会感到有明显的重量增加。\n不过通常来讲，这些箱子大多都是前辈的遗物\n[阶段三。警告。任务超时。进入派送加速最终阶段。进一步的时间延误将无法保障您的安全。]\n ”放我一马我保证一定会好好完成派送的！吱！“</RK_DeliveryBox.comps.Box_shift.modes.0.description>
+
+  <RK_DeliveryBox.comps.Box_shift.modes.1.label>刃模式</RK_DeliveryBox.comps.Box_shift.modes.1.label>
+  <RK_DeliveryBox.comps.Box_shift.modes.1.description>[已确认提高功率的请求。]</RK_DeliveryBox.comps.Box_shift.modes.1.description>
+
+  <RK_DeliveryBox.comps.Box_shift.modes.2.label>多功能工具模式</RK_DeliveryBox.comps.Box_shift.modes.2.label>
+  <RK_DeliveryBox.comps.Box_shift.modes.2.description>[检测到敌对势力。波鲁德尼察，强力派送模式启动。]</RK_DeliveryBox.comps.Box_shift.modes.2.description>
+
+  <RK_DeliveryBox.comps.Box_shift.modes.3.label>崩解锤模式</RK_DeliveryBox.comps.Box_shift.modes.3.label>
+  <RK_DeliveryBox.comps.Box_shift.modes.3.description>[切换至锤模式。请根据崩解粒子的震动有力挥击。]</RK_DeliveryBox.comps.Box_shift.modes.3.description>
+  <RK_DeliveryBox.comps.Box_shift.modes.4.label>突破工具</RK_DeliveryBox.comps.Box_shift.modes.4.label>
+  <RK_DeliveryBox.comps.Box_shift.modes.4.description>[警告：为提升派送效率，解除对派送员的崩解粒子限制。请立即执行派送。]</RK_DeliveryBox.comps.Box_shift.modes.4.description>
+
+  <!-- 静态 ThingDef.tools 工具名(标准 tools.<handle> 翻译键) 除非出BUG 永远不会被匹配 仅留存 -->
+  <RK_DeliveryBox.tools.box_corner.label>箱角</RK_DeliveryBox.tools.box_corner.label>
+  <RK_DeliveryBox.tools.box_face.label>箱面</RK_DeliveryBox.tools.box_face.label>
+</LanguageData>
