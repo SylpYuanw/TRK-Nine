@@ -54,6 +54,7 @@ namespace XIYUNTE
         public List<Tool> tools;
 
         [Unsaved(false)] private Graphic graphic;
+        [Unsaved(false)] private Texture2D uiIconTex;
 
         // 按当前形态的 texPath 构造并缓存单张贴图;shaderType 固定为 Cutout,且关闭 Thing.DrawColor 的材料染色。
         public Graphic GetGraphic(Thing parent)
@@ -64,6 +65,17 @@ namespace XIYUNTE
                 graphic = data.GraphicColoredFor(parent);
             }
             return graphic;
+        }
+
+        // 按当前形态 texPath 加载并缓存 UI 图标贴图;供 Thing_DeliveryBox.UIIconOverride 使用。
+        // 贴图缺失时由 ContentFinder 记录原版加载错误并返回 null,此时原版图标链路回退到 ThingDef.uiIcon。
+        public Texture2D GetUITexture()
+        {
+            if (uiIconTex == null)
+            {
+                uiIconTex = ContentFinder<Texture2D>.Get(texPath);
+            }
+            return uiIconTex;
         }
     }
 
@@ -305,6 +317,15 @@ namespace XIYUNTE
     // Thing_DeliveryBox 是派送箱武器实例类:动态提供当前形态的图形、描述与信息卡统计。
     public class Thing_DeliveryBox : ThingWithComps
     {
+        // 形态显示缓存:按当前形态索引在首次读取时重建。形态未变化时,所有显示入口只做一次索引比较,
+        // 不重复构造描述文本或查找贴图,避免进入每帧 GUI 绘制路径后产生额外的字符串分配。
+        private CompWeaponTransformer transformerInt;
+        private int cachedModeIndex = -1;
+        private string cachedFlavor;
+        private string cachedDetailed;
+        private string cachedGizmoDesc;
+        private Texture2D cachedIcon;
+
         // 完全屏蔽材料颜色：所有渲染路径(含攻击/贴图态)读 DrawColor 都得到白色,不再被材质染色；
         // 材料仍参与属性与品质加成,仅影响视觉,不含材质颜色。
         public override Color DrawColor => Color.white;
@@ -314,27 +335,67 @@ namespace XIYUNTE
         // 地面/手持/背负渲染统一使用当前形态贴图;无形态组件时回退原版图形。
         public override Graphic Graphic { get { CompWeaponTransformer transformer = GetComp<CompWeaponTransformer>(); return transformer == null ? base.Graphic : transformer.CurrentGraphic; } }
 
-        // 描述:以当前形态描述为开头,再拼接其余组件(如艺术组件)的描述段落。
+        // 形态显示数据缓存:形态索引变化时重建描述文本与 UI 图标,否则直接复用。
+        private bool TryGetDisplayCache(out CompWeaponTransformer transformer)
+        {
+            if (transformerInt == null) transformerInt = GetComp<CompWeaponTransformer>();
+            transformer = transformerInt;
+            if (transformer == null) return false;
+            int index = transformer.CurrentModeIndex;
+            if (cachedModeIndex != index)
+            {
+                cachedModeIndex = index;
+                WeaponMode mode = transformer.CurrentMode;
+                cachedDetailed = mode.description;
+                cachedGizmoDesc = mode.description.CapitalizeFirst();
+                cachedIcon = mode.GetUITexture();
+                cachedFlavor = BuildFlavor(mode, transformer);
+            }
+            return true;
+        }
+
+        // 形态描述 + 其余组件(艺术等)的描述段落,结构与原版 ThingWithComps.DescriptionFlavor 一致。
+        private string BuildFlavor(WeaponMode mode, CompWeaponTransformer transformer)
+        {
+            StringBuilder result = new StringBuilder(mode.description);
+            foreach (ThingComp comp in AllComps)
+            {
+                if (comp == transformer) continue;
+                string descriptionPart = comp.GetDescriptionPart();
+                if (!descriptionPart.NullOrEmpty())
+                {
+                    result.AppendLine();
+                    result.AppendLine();
+                    result.Append(descriptionPart);
+                }
+            }
+            return result.ToString();
+        }
+
+        // 装备栏武器攻击 Gizmo 由原版 Command_VerbTarget.DrawIcon 经 Widgets.ThingIcon 绘制,
+        // 对有 uiIconPath 的 ThingDef 直接使用静态 def.uiIcon;此处返回缓存的当前形态贴图,使 Gizmo 图标随形态刷新。
+        public override Texture UIIconOverride
+        {
+            get { return TryGetDisplayCache(out _) ? cachedIcon : null; }
+        }
+
+        // 物品信息卡描述:以当前形态描述为开头,再拼接其余组件(如艺术组件)的描述段落。
         public override string DescriptionFlavor
         {
-            get
-            {
-                CompWeaponTransformer transformer = GetComp<CompWeaponTransformer>();
-                if (transformer == null) return base.DescriptionFlavor;
-                StringBuilder result = new StringBuilder(transformer.CurrentMode.description);
-                foreach (ThingComp comp in AllComps)
-                {
-                    if (comp == transformer) continue;
-                    string descriptionPart = comp.GetDescriptionPart();
-                    if (!descriptionPart.NullOrEmpty())
-                    {
-                        result.AppendLine();
-                        result.AppendLine();
-                        result.Append(descriptionPart);
-                    }
-                }
-                return result.ToString();
-            }
+            get { return TryGetDisplayCache(out _) ? cachedFlavor : base.DescriptionFlavor; }
+        }
+
+        // 装备栏 tooltip 走原版 ThingWithComps.GetTooltip(),其中读取 DescriptionDetailed(原版取静态 ThingDef 文本);
+        // 此处返回当前形态描述,使装备栏说明与攻击 Gizmo 一致地随形态刷新。
+        public override string DescriptionDetailed
+        {
+            get { return TryGetDisplayCache(out _) ? cachedDetailed : base.DescriptionDetailed; }
+        }
+
+        // 近战攻击 Gizmo 的提示描述文本(不含武器标签),供 Command.Desc 补丁使用;无形态组件时返回 null 表示保留原版文本。
+        public string GizmoTooltipDescription
+        {
+            get { return TryGetDisplayCache(out _) ? cachedGizmoDesc : null; }
         }
 
         // 信息卡统计:输出基础条目、当前形态名称与移动速度偏移。
