@@ -254,7 +254,7 @@
   <defaultData>
     <offset>(0,0,-0.03)</offset><!-- 贴图偏移度 -->
   </defaultData>
-     <drawSize>1.1</drawSize>
+     <scale>1.1</scale>
 </drawData>
       <bodyPartGroups>
         <li>Torso</li>
@@ -479,7 +479,7 @@
   <defaultData>
     <offset>(-0.004,-0.001,0)</offset><!-- 贴图偏移度 -->
   </defaultData>
-     <drawSize>1.1</drawSize>
+     <scale>1.1</scale>
 </drawData>
       <bodyPartGroups>
         <li>Torso</li>
@@ -633,7 +633,7 @@
   <defaultData>
     <offset>(-0.004,-0.001,0)</offset><!-- 贴图偏移度 -->
   </defaultData>
-     <drawSize>1.1</drawSize>
+     <scale>1.1</scale>
 </drawData>
       <bodyPartGroups>
         <li>Torso</li>
