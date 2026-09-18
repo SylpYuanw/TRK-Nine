@@ -31,3 +31,4 @@ Fixed stale icon and description after switching the delivery box form:
 - Tooltip descriptions are evaluated only while shown, and form descriptions and textures are cached per form index, so an unchanged form adds no extra cost.
 
 Related files: `Source/ClassLibrary1/Weapon/Weapon_DeliveryBox.cs`, `Source/ClassLibrary1/Weapon/Weapon_DeliveryBox_DisplayPatches.cs`, `鼠鼠收尾人们目前已到4579协会/Assemblies/ClassLibrary1.dll`
+...
