@@ -25,10 +25,12 @@
     </graphicData>
   </ThingDef>
 
-  <!-- 四阶蓄力通用:瞄准开始时由 XIYUNTE.CompEquippable_DeathBow 生成、绑定装备者的烟雾特效。
-       时间轴:fadeInTime 淡入 1 秒 → 持续期间呼吸/摇曳(由 Mote_DeathBowAimVfx 每 tick 驱动)→ 停止维护后按 fadeOutTime 淡出 1 秒并自毁。
-       存活时间由"是否仍在瞄准"决定,所以 solidTime 取大值;needsMaintenance + fadeOutUnmaintained 提供原版"停止续命即淡出"的规则。
-       透明度上限 70% 在 C# 中乘算(Mote_DeathBowAimVfx.Alpha);贴图自身不透明度约 81%~88%。 -->
+  <!-- 仅四阶蓄力启用,由 XIYUNTE.CompEquippable_DeathBow 生成、绑定装备者,分两层叠加。
+       侧面层(本 Def)使用 Trk/BowOfDeathAimWind:Shader 内部按相位持续生成向右发射带出生、向左飘散的风扫粒子,
+       贴图只作烟雾软层(_SmokeStrength 可调为 0 关闭);层呼吸(最低 8%、周期 1.7 秒)与摇曳仍由 Mote_DeathBowAimVfx 提供,
+       两侧不重复实现同一动画。画布 5×3.2 格、偏移 -1.4 格即粒子场覆盖角色右侧出生、向左延伸约 4 格。
+       两层共用同一套时间轴:按 fadeInTime 淡入 1 秒 → 持续 → 停止维护(射击完成或瞄准中断)后按 fadeOutTime 淡出 1 秒并自毁,
+       solidTime 取大值即"存活时间由是否仍在瞄准决定",needsMaintenance + fadeOutUnmaintained 提供原版"停止续命即淡出"的规则。 -->
   <ThingDef ParentName="MoteBase">
     <defName>BowOfDeath_AimVfx</defName>
     <thingClass>XIYUNTE.Mote_DeathBowAimVfx</thingClass>
@@ -39,14 +41,74 @@
       <fadeOutTime>1</fadeOutTime>
       <needsMaintenance>true</needsMaintenance>
       <fadeOutUnmaintained>true</fadeOutUnmaintained>
-      <!-- 相对装备者绘制位置的偏移:略微向下,避免烟雾整体压住角色头顶。 -->
-      <attachedDrawOffset>(0,0,0.15)</attachedDrawOffset>
+      <!-- 相对装备者绘制位置的偏移:X 为画面左右,Z 为画面上下(北)。 -->
+      <attachedDrawOffset>(-1.4,0,0)</attachedDrawOffset>
     </mote>
     <graphicData>
       <texPath>VFX/Bow_of_Death_Aim_Vfx</texPath>
-      <!-- Mote 为普通透明混合;若想让烟雾发光,改成 MoteGlow。 -->
-      <shaderType>Mote</shaderType>
-      <drawSize>(2.6,2.6)</drawSize>
+      <shaderType>Trk_BowOfDeathAimWind</shaderType>
+      <drawSize>(5,3.2)</drawSize>
+      <shaderParameters>
+        <_StreakColor>(1,0.05,0.04,1)</_StreakColor>
+        <_HeadColor>(1,0.45,0.45,1)</_HeadColor>
+        <_ParticleCount>10</_ParticleCount>
+        <_EmitPeriod>1.35</_EmitPeriod>
+        <_TravelDistance>1.05</_TravelDistance>
+        <_SpeedCurve>0.6</_SpeedCurve>
+        <_StreakAngle>22</_StreakAngle>
+        <_StreakLength>0.34</_StreakLength>
+        <_StreakWidth>0.055</_StreakWidth>
+        <_StreakBrightness>1.15</_StreakBrightness>
+        <_HeadGlow>1</_HeadGlow>
+        <_Turbulence>0.05</_Turbulence>
+        <_TurbulenceSpeed>0.6</_TurbulenceSpeed>
+        <_SmokeStrength>0.2</_SmokeStrength>
+        <_SmokeScroll>0.18</_SmokeScroll>
+        <_SmokeCut>0.2</_SmokeCut>
+        <_SmokeSoft>0.1</_SmokeSoft>
+        <_SmokeWarp>0.06</_SmokeWarp>
+        <_UseRealTime>1</_UseRealTime>
+      </shaderParameters>
+    </graphicData>
+  </ThingDef>
+
+  <!-- 基底层:使用 Trk/BowOfDeathAimBase,由 Shader 生成类高斯光团并让贴图火苗持续卷动侵蚀;
+       层呼吸(最低 55%、周期 2.6 秒)仍由 Mote_DeathBowAimBaseVfx 提供,画在比侧面层更低的图层上垫底。
+       画布 2.6×1.8 格保持贴图原始长宽比,高斯半径按 _GlowRadius×画布宽 换算。 -->
+  <ThingDef ParentName="MoteBase">
+    <defName>BowOfDeath_AimBaseVfx</defName>
+    <thingClass>XIYUNTE.Mote_DeathBowAimBaseVfx</thingClass>
+    <altitudeLayer>MoteOverheadLow</altitudeLayer>
+    <mote>
+      <fadeInTime>1</fadeInTime>
+      <solidTime>99999</solidTime>
+      <fadeOutTime>1</fadeOutTime>
+      <needsMaintenance>true</needsMaintenance>
+      <fadeOutUnmaintained>true</fadeOutUnmaintained>
+      <attachedDrawOffset>(0,0,0.2)</attachedDrawOffset>
+    </mote>
+    <graphicData>
+      <texPath>VFX/Bow_of_Death_Aim_Base_Vfx</texPath>
+      <shaderType>Trk_BowOfDeathAimBase</shaderType>
+      <drawSize>(2.6,1.8)</drawSize>
+      <shaderParameters>
+        <_GlowColor>(1,0.08,0.06,1)</_GlowColor>
+        <_CoreColor>(1,0.32,0.42,1)</_CoreColor>
+        <_GlowRadius>0.24</_GlowRadius>
+        <_GlowFalloff>2</_GlowFalloff>
+        <_GlowAspect>1.3</_GlowAspect>
+        <_GlowBrightness>1.5</_GlowBrightness>
+        <_CoreStrength>0.9</_CoreStrength>
+        <_FlameStrength>1</_FlameStrength>
+        <_FlameScroll>0.55</_FlameScroll>
+        <_FlameErosion>0.45</_FlameErosion>
+        <_FlameFlicker>0.35</_FlameFlicker>
+        <_FlameCut>0.06</_FlameCut>
+        <_FlameSoft>0.07</_FlameSoft>
+        <_TurbulenceScale>3.2</_TurbulenceScale>
+        <_TurbulenceSpeed>0.45</_TurbulenceSpeed>
+        <_UseRealTime>1</_UseRealTime>
+      </shaderParameters>
     </graphicData>
   </ThingDef>
 </Defs>

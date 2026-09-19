@@ -15,6 +15,9 @@ namespace XIYUNTE
         // 可选:该阶按钮图标路径(相对 Textures,不含扩展名);留空时使用武器图标。
         public string iconPath;
 
+        // 可选:该阶蓄力瞄准时是否显示瞄准特效(烟雾),默认关闭;当前只有四阶开启。
+        public bool aimVfx;
+
         // 该阶介绍文字,必需。用于按钮悬停说明、阶段选择菜单提示与信息卡当前阶段说明。
         public string description;
 

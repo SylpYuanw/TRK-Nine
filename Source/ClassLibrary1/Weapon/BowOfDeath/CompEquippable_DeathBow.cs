@@ -38,8 +38,10 @@ namespace XIYUNTE
         // 蓄力阶切换印迹的运行时实例:只用于刷新判定,不写入存档(mote 本身不可保存)。
         private Mote stageSwitchVfx;
 
-        // 蓄力瞄准特效的运行时实例:存活期间由 Mote 自身按"是否仍在瞄准"续命,不写入存档。
+        // 蓄力特效的运行时实例(主体层/基底层):存活期间由 Mote 自身按"是否仍在瞄准"续命,不写入存档。
         private Mote aimVfx;
+
+        private Mote aimBaseVfx;
 
         private VerbProperties activeProps;
 
@@ -351,25 +353,37 @@ namespace XIYUNTE
             stageSwitchVfx = MoteMaker.MakeAttachedOverlay(pawn, DeathBowDefOf.BowOfDeath_StageVfx, Vector3.zero);
         }
 
-        // 蓄力瞄准特效:瞄准开始时在装备者身上挂一枚烟雾 Mote,淡入 1 秒 → 持续 → 停止维护 1 秒后淡出,
-        // 三段时长与"停止维护即淡出"的规则都写在 Defs/Misc/Mote_BowOfDeath.xml;这里只负责生成一次。
-        // 仍在使用同一枚时直接复用,避免 AI 反复重新瞄准把淡入打断、或叠出多枚烟雾。
+        // 蓄力特效:瞄准开始时在装备者身上同时挂两层 Mote —— 主体层(反复淡出)与基底层(常驻轻呼吸),
+        // 时长、贴图与"停止维护即淡出"的规则都写在 Defs/Misc/Mote_BowOfDeath.xml,这里只负责生成一次。
+        // 仍在使用同一枚时直接复用,避免 AI 反复重新瞄准把淡入打断、或叠出多枚特效。
         public void Notify_AimStarted()
         {
+            // 只有配置了瞄准特效的蓄力阶才出特效(当前为四阶);其他阶正常瞄准但不挂烟雾。
+            if (CurrentStage?.aimVfx != true)
+            {
+                return;
+            }
             Pawn pawn = EquippedPawn;
             if (pawn == null || !pawn.Spawned || pawn.MapHeld == null)
             {
                 return;
             }
-            if (aimVfx != null && !aimVfx.Destroyed && aimVfx.Spawned)
+            EnsureAimVfx(ref aimVfx, DeathBowDefOf.BowOfDeath_AimVfx, pawn);
+            EnsureAimVfx(ref aimBaseVfx, DeathBowDefOf.BowOfDeath_AimBaseVfx, pawn);
+        }
+
+        // 已有存活实例且宿主相同时复用,宿主已变或已销毁时重建。
+        private void EnsureAimVfx(ref Mote mote, ThingDef def, Pawn pawn)
+        {
+            if (mote != null && !mote.Destroyed && mote.Spawned)
             {
-                if (aimVfx.link1.Target.Thing == pawn)
+                if (mote.link1.Target.Thing == pawn)
                 {
                     return;
                 }
-                aimVfx.Destroy();
+                mote.Destroy();
             }
-            aimVfx = MoteMaker.MakeAttachedOverlay(pawn, DeathBowDefOf.BowOfDeath_AimVfx, Vector3.zero);
+            mote = MoteMaker.MakeAttachedOverlay(pawn, def, Vector3.zero);
         }
 
         // 图标:配置了路径就读取,缺失时回退到传入的默认图标(不静默使用错误贴图)。

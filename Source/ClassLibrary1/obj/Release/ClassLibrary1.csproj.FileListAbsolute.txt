@@ -38,3 +38,9 @@ C:\Users\Administrator\Desktop\天翼种\鼠鼠收尾人们 - 最初版9协会\S
 C:\Users\Administrator\Desktop\天翼种\鼠鼠收尾人们 - 最初版9协会\Source\ClassLibrary1\obj\Release\ClassLibrary1.pdb
 C:\Users\Administrator\Desktop\天翼种\鼠鼠收尾人们 - 最初版9协会\Assemblies\ClassLibrary1.dll
 C:\Users\Administrator\Desktop\天翼种\鼠鼠收尾人们 - 最初版9协会\Assemblies\ClassLibrary1.pdb
+C:\Users\Administrator\Desktop\天翼种\鼠鼠收尾人们目前已到4579协会\Assemblies\ClassLibrary1.dll
+C:\Users\Administrator\Desktop\天翼种\鼠鼠收尾人们目前已到4579协会\Assemblies\ClassLibrary1.pdb
+C:\Users\Administrator\Desktop\天翼种\鼠鼠收尾人们目前已到4579协会\Source\ClassLibrary1\obj\Release\ClassLibrary1.csproj.AssemblyReference.cache
+C:\Users\Administrator\Desktop\天翼种\鼠鼠收尾人们目前已到4579协会\Source\ClassLibrary1\obj\Release\ClassLibrary1.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\天翼种\鼠鼠收尾人们目前已到4579协会\Source\ClassLibrary1\obj\Release\ClassLibrary1.dll
+C:\Users\Administrator\Desktop\天翼种\鼠鼠收尾人们目前已到4579协会\Source\ClassLibrary1\obj\Release\ClassLibrary1.pdb

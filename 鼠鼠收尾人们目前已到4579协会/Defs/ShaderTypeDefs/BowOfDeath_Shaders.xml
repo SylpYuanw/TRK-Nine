@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- 死之弓四阶蓄力特效的两个自绘 Shader。
+       shaderPath 对应 AssetBundle 内资源路径 Assets/Data/Trk.Nine/Materials/<shaderPath>.shader，
+       包文件为 AssetBundles/trk_bowofdeath_win，随 MOD 一起分发。 -->
+  <ShaderTypeDef>
+    <defName>Trk_BowOfDeathAimBase</defName>
+    <shaderPath>Trk/BowOfDeathAimBase</shaderPath>
+  </ShaderTypeDef>
+  <ShaderTypeDef>
+    <defName>Trk_BowOfDeathAimWind</defName>
+    <shaderPath>Trk/BowOfDeathAimWind</shaderPath>
+  </ShaderTypeDef>
+</Defs>

@@ -123,6 +123,8 @@
             <accuracyOffset>0.16</accuracyOffset>
             <iconPath>Ability/Bow_of_Death_Ability_4</iconPath>
             <switchSound>BowOfDeath_StageSwitch</switchSound>
+            <!-- 仅四阶:瞄准开始时显示烟雾特效;其余三阶不写这一项即视为关闭。 -->
+            <aimVfx>true</aimVfx>
             <description>四阶蓄力：伤害 66，护甲穿透 93.3%，瞄准时间 8.2 秒，精度加成 +16%。</description>
           </li>
         </stages>

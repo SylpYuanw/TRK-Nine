@@ -19,6 +19,9 @@ namespace XIYUNTE
         // 蓄力瞄准特效的 Mote 定义(Defs/Misc/Mote_BowOfDeath.xml)。
         public static ThingDef BowOfDeath_AimVfx;
 
+        // 蓄力特效基底层(常驻呼吸)的 Mote 定义(Defs/Misc/Mote_BowOfDeath.xml)。
+        public static ThingDef BowOfDeath_AimBaseVfx;
+
         static DeathBowDefOf()
         {
             DefOfHelper.EnsureInitializedInCtor(typeof(DeathBowDefOf));
