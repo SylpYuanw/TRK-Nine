@@ -13,7 +13,7 @@ GitHub仓库文件
 ### 2026-09-19 死之弓：四阶蓄力特效 Shader 化
 
 - 新增基底层：在角色身下垫一个类高斯光团，亮度沿半径连续衰减、没有硬边；叠加贴图火苗的向上输送、噪声侵蚀与明暗闪烁，让基底真的在燃烧，而不是整张图一起淡入淡出。
-- 侧面层改为持续发射的粒子流：粒子从右侧出生，按各自的产生时间向左上方飘去并在途中淡出，一直产生到蓄力结束；拖尾沿运动方向拉长、截面按高斯衰减、头部带亮核，并受风向扰动。
+- 侧面层主体是贴图烟雾整体缓慢向左卷动（颜色统一取暗红，不使用贴图自带的浅色像素）；粒子降为辅助拖尾，从右侧缓慢出生、向左上方飘散并淡出，一直产生到蓄力结束，头部只留轻微红色鼓包、不出现白点。
 - 两层的呼吸与摇曳仍由 Mote 类按帧驱动（基底最低 55%、周期 2.6 秒；侧面最低 8%、周期 1.7 秒），Shader 只生成画面，不再做第二套呼吸。
 - 实现方式：特效由随 MOD 分发的 Shader 包绘制，全部参数写在 Def 的 `shaderParameters` 中，调整观感不需要重新打包。
 - 素材沿用原有两张贴图（分别作为火焰形体来源与烟雾软层），未新增图片。
@@ -25,7 +25,7 @@ GitHub仓库文件
 ### 2026-09-19 Death bow: charge VFX rebuilt with custom shaders
 
 - New base layer: a soft gaussian glow under the wielder whose brightness falls off smoothly along the radius with no hard edge, combined with upward-scrolling flame erosion and flicker taken from the existing texture, so the base really burns instead of fading in and out as a whole image.
-- The side layer is now a continuous particle stream: particles spawn on the right side, drift up and to the left according to their own spawn time, fading out on the way until the aim ends; each streak is stretched along its motion direction with a gaussian cross-section, a bright head and wind turbulence.
+- The side layer is now led by the smoke texture scrolling slowly to the left as a whole (colored uniformly in dark red, ignoring the texture's own light pixels); the particles are a secondary stream that spawns slowly on the right, drifts up and to the left, fades out and keeps emitting until the aim ends, with only a faint red bulge instead of a bright white head.
 - Breathing and swaying of both layers are still driven per frame by the mote classes (base: minimum 55%, 2.6 s period; side: minimum 8%, 1.7 s period); the shaders only generate the imagery and do not duplicate the breathing.
 - Implementation: the effects are drawn by a shader bundle shipped with the mod, and every parameter lives in the def's `shaderParameters`, so tuning the look needs no repackaging.
 - Both existing textures are reused (as the flame source shape and the optional smoke layer); no new images were added.
