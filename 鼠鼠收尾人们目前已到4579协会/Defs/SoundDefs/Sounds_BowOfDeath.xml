@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- 死之弓音效:瞄准(拉弓)、射击、蓄力阶切换。
+       clipPath 相对于本 MOD 的 Sounds 文件夹,不含扩展名;volumeRange 为百分数,引擎播放时除以 100。 -->
+
+  <!-- 瞄准(拉弓):瞄准开始时由原版 Stance_Warmup 用 Sustainer 拉起,每次瞄准只播放一次素材,不循环、不重播。
+       作 Sustainer 使用必须 sustain=true,且 priorityMode 不能用 PrioritizeNewest(原版配置检查会报错)。 -->
+  <SoundDef>
+    <defName>BowOfDeath_Aim</defName>
+    <sustain>true</sustain>
+    <context>MapOnly</context>
+    <maxSimultaneous>2</maxSimultaneous>
+    <priorityMode>PrioritizeNearest</priorityMode>
+    <sustainFadeoutTime>0.2</sustainFadeoutTime>
+    <subSounds>
+      <li>
+        <tempoAffectedByGameSpeed>true</tempoAffectedByGameSpeed>
+        <!-- 暂停/开菜单时掐掉循环,避免瞄准音在暂停界面里一直响。 -->
+        <muteWhenPaused>true</muteWhenPaused>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Bow_of_Death_Draw</clipPath>
+          </li>
+        </grains>
+        <volumeRange>60~70</volumeRange>
+        <pitchRange>0.98~1.02</pitchRange>
+        <!-- 只播放一次:sustainLoop=false 时样本按素材自身长度播完即止(AudioSource 不置 loop),
+             sustainIntervalRange 取远超最长蓄力(8.2 秒)的值,使整个瞄准期不会再起第二个样本。
+             素材播完后为静音;若瞄准提前结束,Sustainer 结束并按 sustainFadeoutTime 淡出收尾。 -->
+        <sustainLoop>false</sustainLoop>
+        <sustainIntervalRange>9999~9999</sustainIntervalRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <!-- 射击:射击成功那一帧由原版 Verb.TryCastNextBurstShot 单发播放。 -->
+  <SoundDef>
+    <defName>BowOfDeath_Shot</defName>
+    <context>MapOnly</context>
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Bow_of_Death_Shot</clipPath>
+          </li>
+        </grains>
+        <volumeRange>60~70</volumeRange>
+        <pitchRange>0.98~1.02</pitchRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <!-- 蓄力阶切换:四个阶共用,由 XIYUNTE.CompEquippable_DeathBow 在该阶生效瞬间单发播放。
+       maxSimultaneous=1 保证连点切换时新音覆盖旧音,不叠成一片。 -->
+  <SoundDef>
+    <defName>BowOfDeath_StageSwitch</defName>
+    <context>MapOnly</context>
+    <maxSimultaneous>1</maxSimultaneous>
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Bow_of_Death_Switch</clipPath>
+          </li>
+        </grains>
+        <volumeRange>80~90</volumeRange>
+        <pitchRange>0.98~1.02</pitchRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+</Defs>

@@ -35,6 +35,9 @@ namespace XIYUNTE
 
         private bool hasPendingModeSwitch;
 
+        // 蓄力阶切换印迹的运行时实例:只用于刷新判定,不写入存档(mote 本身不可保存)。
+        private Mote stageSwitchVfx;
+
         private VerbProperties activeProps;
 
         private VerbProperties dormantProps;
@@ -249,7 +252,7 @@ namespace XIYUNTE
             return loaded;
         }
 
-        // 蓄力阶切换:耗时来自 stageSwitchTicks,切换完成时播放该阶音效。
+        // 蓄力阶切换:耗时来自 stageSwitchTicks,生效时播放该阶音效并浮现切换印迹。
         private void RequestStageSwitch(int stage)
         {
             int clampedStage = Mathf.Clamp(stage, 0, MaxStageIndex);
@@ -258,6 +261,7 @@ namespace XIYUNTE
                 stageIndex = clampedStage;
                 hasPendingStageSwitch = false;
                 PlaySwitchSound(Props.stages[clampedStage].switchSound);
+                PlayStageSwitchVfx();
                 ApplyModeToVerb();
                 return;
             }
@@ -291,6 +295,7 @@ namespace XIYUNTE
                 stageIndex = pendingStageIndex;
                 hasPendingStageSwitch = false;
                 PlaySwitchSound(Props.stages[stageIndex].switchSound);
+                PlayStageSwitchVfx();
                 ApplyModeToVerb();
             }
             if (hasPendingModeSwitch && now >= modeSwitchReadyTick)
@@ -318,6 +323,29 @@ namespace XIYUNTE
             {
                 sound.PlayOneShotOnCamera();
             }
+        }
+
+        // 蓄力阶切换的浮现印迹:在装备者身上挂一枚 MoteAttached,外观与时长由 Defs/Misc/Mote_BowOfDeath.xml 定义,
+        // 淡入/保持/上浮淡出与超时销毁全部由原版 Mote 生命周期负责,这里只负责生成与刷新。
+        // 刷新语义:上一枚仍在播放且宿主未变时,只把它的时间轴推回起点重播,不叠加第二枚;
+        // 宿主已变(换装/换人)或印迹已销毁时,毁掉旧实例另起一枚。
+        private void PlayStageSwitchVfx()
+        {
+            Pawn pawn = EquippedPawn;
+            if (pawn == null || !pawn.Spawned || pawn.MapHeld == null)
+            {
+                return;
+            }
+            if (stageSwitchVfx != null && !stageSwitchVfx.Destroyed && stageSwitchVfx.Spawned)
+            {
+                if (stageSwitchVfx.link1.Target.Thing == pawn)
+                {
+                    stageSwitchVfx.ForceSpawnTick(Find.TickManager.TicksGame);
+                    return;
+                }
+                stageSwitchVfx.Destroy();
+            }
+            stageSwitchVfx = MoteMaker.MakeAttachedOverlay(pawn, DeathBowDefOf.BowOfDeath_StageVfx, Vector3.zero);
         }
 
         // 图标:配置了路径就读取,缺失时回退到传入的默认图标(不静默使用错误贴图)。
@@ -448,6 +476,17 @@ namespace XIYUNTE
                 if (loaded <= 0)
                 {
                     Messages.Message("BowOfDeath_LoadFailed".Translate(Props.ammoDef.label), pawn, MessageTypeDefOf.RejectInput, historical: false);
+                    return;
+                }
+                // 装填成功才出声:背包装不下或没有死之箭时只有拒绝提示,不响装填音。
+                // 装填是独立 Gizmo,音效按装备者位置单独播放,不经过切换音效入口。
+                if (pawn.Spawned && pawn.MapHeld != null)
+                {
+                    Props.loadSound.PlayOneShot(SoundInfo.InMap(new TargetInfo(pawn.Position, pawn.MapHeld)));
+                }
+                else
+                {
+                    Props.loadSound.PlayOneShotOnCamera();
                 }
             };
             if (charges >= Props.maxCharges)

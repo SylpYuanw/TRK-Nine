@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- 死之弓蓄力阶切换的浮现印迹:切换完成时由 XIYUNTE.CompEquippable_DeathBow 在装备者身上生成。
+       生命周期完全走原版 Mote 机制:fadeInTime → solidTime → fadeOutTime 三段结束后自行销毁,不入存档;
+       archHeight/archDuration 使印迹在显示期间先上浮再回落,archDuration 必须不超过三段之和(即 Lifespan)。 -->
+  <ThingDef ParentName="MoteBase">
+    <defName>BowOfDeath_StageVfx</defName>
+    <!-- MoteAttached 每 tick 把自身位置同步到宿主(装备者)的绘制位置,宿主移动时印迹跟随。 -->
+    <!-- Pawn层级23,MoteOverheadLow在Pawn之上ItemImportant 19 是Pawn之下 -->
+    <thingClass>MoteAttached</thingClass>
+    <altitudeLayer>MoteOverheadLow</altitudeLayer>
+    <mote>
+      <fadeInTime>0.08</fadeInTime>
+      <solidTime>0.6</solidTime>
+      <fadeOutTime>0.5</fadeOutTime>
+      <!-- 相对宿主绘制位置的偏移:z 为画面上下方向,0.6 表示显示在头顶上方约 0.6 格。 -->
+      <attachedDrawOffset>(0,0,0)</attachedDrawOffset>
+      <archHeight>0</archHeight>
+      <archDuration>1</archDuration>
+    </mote>
+    <graphicData>
+      <texPath>VFX/Bow_of_Death_Stage_Vfx</texPath>
+      <shaderType>MoteGlow</shaderType>
+      <drawSize>1</drawSize>
+    </graphicData>
+  </ThingDef>
+</Defs>

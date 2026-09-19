@@ -40,6 +40,9 @@ namespace XIYUNTE
         // 近战/远程模式切换音效,必需。
         public SoundDef modeSwitchSound;
 
+        // 装填死之箭的音效,必需。
+        public SoundDef loadSound;
+
         // 可选:模式按钮与装填按钮的图标路径;留空时分别使用武器图标与弹药图标。
         public string modeIconPath;
 
@@ -88,6 +91,10 @@ namespace XIYUNTE
             if (modeSwitchSound == null)
             {
                 yield return "DeathBow has no modeSwitchSound configured.";
+            }
+            if (loadSound == null)
+            {
+                yield return "DeathBow has no loadSound configured.";
             }
             if (ammoDef == null)
             {
