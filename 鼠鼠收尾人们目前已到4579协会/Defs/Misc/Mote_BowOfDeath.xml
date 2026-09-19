@@ -34,8 +34,9 @@
   </ThingDef>
 
   <!-- 仅四阶蓄力启用,由 XIYUNTE.CompEquippable_DeathBow 生成、绑定装备者,分两层叠加。
-       侧面层(本 Def)使用 Trk/BowOfDeathAimWind:画面主体是贴图(VFX/Bow_of_Death_Aim_Vfx)的暗红烟雾整体向左卷动,
-       颜色统一取 _StreakColor、不使用贴图自带像素色;程序粒子只作辅助拖尾,在右侧发射带缓慢出生后向左飘散,
+       侧面层(本 Def)使用 Trk/BowOfDeathAimWind:画面主体是贴图(VFX/Bow_of_Death_Aim_Vfx)本身,
+       Shader 不做裁剪与扭曲,按贴图自带颜色显示,并随 _SmokeScroll 整图向左平移(取样随读数增大而右移,内容因此左移),
+       _SmokeWarp 为 0 时完全不扭曲;程序粒子只作辅助拖尾,在右侧发射带出生后向左飘散,
        头部只留轻微红色鼓包(_HeadGlow/_HeadColor 控制),不出现高亮白点。
        层呼吸(最低 8%、周期 1.7 秒)与摇曳仍由 Mote_DeathBowAimVfx 提供,两侧不重复实现同一动画。
        画布 5×3.2 格、偏移 -1.4 格即烟雾与粒子场从角色右侧向左延伸约 4 格。
@@ -76,7 +77,7 @@
         <_SmokeScroll>0.12</_SmokeScroll>
         <_SmokeCut>0.12</_SmokeCut>
         <_SmokeSoft>0.16</_SmokeSoft>
-        <_SmokeWarp>0.08</_SmokeWarp>
+        <_SmokeWarp>0</_SmokeWarp>
         <_UseRealTime>1</_UseRealTime>
       </shaderParameters>
     </graphicData>
@@ -119,6 +120,32 @@
         <_TurbulenceSpeed>0.45</_TurbulenceSpeed>
         <_UseRealTime>1</_UseRealTime>
       </shaderParameters>
+    </graphicData>
+  </ThingDef>
+
+  <!-- 流线层:仅四阶蓄力启用,由 XIYUNTE.CompEquippable_DeathBow 与两层烟雾同时生成。
+       贴图 VFX/Bow_of_Death_Aim_Streak_Vfx 是一条横向长条流光,由 XIYUNTE.Mote_DeathBowAimStreakVfx
+       每 tick 把长轴转到瞄准方向(与原版 Stance_Warmup 给瞄准光效写 exactRotation 的取值同源),
+       并沿瞄准方向整体前移,使线段覆盖"弓前(正前方)至身后(正后方)"。
+       画布 4×2 格:长边即线段长度,短边只决定贴图缩放(贴图内容集中在中间 13% 高度,可见光带厚度约 0.27 格);
+       角色落在线段全长的 37.5% 处(自尾端起算),该比例写在 Mote_DeathBowAimStreakVfx 里,不是 XML 字段。
+       图层 VisEffects 高于两层烟雾(MoteOverhead / MoteOverheadLow),流线压在烟雾之上。 -->
+  <ThingDef ParentName="MoteBase">
+    <defName>BowOfDeath_AimStreakVfx</defName>
+    <thingClass>XIYUNTE.Mote_DeathBowAimStreakVfx</thingClass>
+    <altitudeLayer>VisEffects</altitudeLayer>
+    <mote>
+      <fadeInTime>1</fadeInTime>
+      <solidTime>99999</solidTime>
+      <fadeOutTime>1</fadeOutTime>
+      <needsMaintenance>true</needsMaintenance>
+      <fadeOutUnmaintained>true</fadeOutUnmaintained>
+      <attachedDrawOffset>(0,0,0)</attachedDrawOffset>
+    </mote>
+    <graphicData>
+      <texPath>VFX/Bow_of_Death_Aim_Streak_Vfx</texPath>
+      <shaderType>MoteGlow</shaderType>
+      <drawSize>(4,2)</drawSize>
     </graphicData>
   </ThingDef>
 </Defs>
