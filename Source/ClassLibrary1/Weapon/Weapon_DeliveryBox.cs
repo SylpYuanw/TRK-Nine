@@ -39,7 +39,7 @@ namespace XIYUNTE
         }
     }
 
-    // WeaponMode 保存单个武器形态的数据:显示名、描述、贴图、装备属性偏移、背负图片、切换音效和原版近战 tools。
+    // WeaponMode 保存单个武器形态的数据:显示名、描述、贴图、装备属性偏移与倍率、负重加成、形态特性参数、背负图片、切换音效和原版近战 tools。
     public class WeaponMode
     {
         public string label;
@@ -51,6 +51,16 @@ namespace XIYUNTE
         public bool sheathGraphicMulti;
         public SoundDef switchSound;
         public List<StatModifier> equippedStatOffsets = new List<StatModifier>();
+        // 装备者属性倍率(如 CaravanBonusSpeedFactor):与 equippedStatOffsets 分开配置,偏移与倍率不能混写。
+        public List<StatModifier> equippedStatFactors = new List<StatModifier>();
+        // 负重加成(kg):原版负重与商队载重由 MassUtility.Capacity 按体形计算,没有对应 StatDef,由补丁读取本值叠加。
+        public float massCapacityBonus;
+        // 连击触发概率(0 表示不启用):每次挥击独立判定一次,触发时本次挥击结算 multiAttackCount 次完整攻击。
+        public float multiAttackChance;
+        // 连击触发时的攻击次数(小于等于 1 表示不启用连击)。
+        public int multiAttackCount = 3;
+        // 对建筑伤害的最终倍率(0 表示不修改):覆盖 DamageDef 自带的建筑伤害系数。
+        public float buildingDamageFactor;
         public List<Tool> tools;
 
         [Unsaved(false)] private Graphic graphic;
@@ -109,6 +119,14 @@ namespace XIYUNTE
         {
             float value = 0f;
             if (CurrentMode.equippedStatOffsets != null) foreach (StatModifier item in CurrentMode.equippedStatOffsets) if (item.stat == stat) value += item.value;
+            return value;
+        }
+
+        // 形态装备属性倍率(如 CaravanBonusSpeedFactor):汇总当前形态 equippedStatFactors 中目标 stat 的倍率值,未配置时为 1。
+        public override float GetStatFactor(StatDef stat)
+        {
+            float value = 1f;
+            if (CurrentMode.equippedStatFactors != null) foreach (StatModifier item in CurrentMode.equippedStatFactors) if (item.stat == stat) value *= item.value;
             return value;
         }
 
@@ -231,33 +249,66 @@ namespace XIYUNTE
         public override void PostExposeData() { base.PostExposeData(); Scribe_Values.Look(ref modeIndex, "modeIndex", 0); if (Scribe.mode == LoadSaveMode.PostLoadInit) ApplyMode(); }
     }
 
-    // StatPart_DeliveryBoxMoveSpeed 把当前装备武器的形态 MoveSpeed 偏移接入 Pawn 移动速度统计。
-    // 原版武器组件 GetStatOffset 不作用于 Pawn 的 MoveSpeed 面板,因此通过 Patch 挂到 MoveSpeed 的 parts 上。
-    public class StatPart_DeliveryBoxMoveSpeed : StatPart
+    // StatPart_DeliveryBoxModeOffset 把当前装备武器形态的 equippedStatOffsets 接入 Pawn 属性统计。
+    // 原版 Pawn 属性只读取 ThingDef.equippedStatOffsets(def 级),组件级形态偏移需要把本类挂到目标 StatDef 的 parts 上。
+    public class StatPart_DeliveryBoxModeOffset : StatPart
     {
-        // 从 StatRequest 中的 Pawn 取主装备,读取其形态组件的 MoveSpeed 偏移;无武器/无组件/偏移为 0 时返回 false。
-        private static bool TryGetOffset(StatRequest request, out Pawn pawn, out float offset)
+        // 从 StatRequest 中的 Pawn 取主装备,读取其形态组件中目标 stat 的偏移;无武器/无组件/未配置时返回 false。
+        private bool TryGetOffset(StatRequest request, out Pawn pawn, out float offset)
         {
             pawn = request.Thing as Pawn;
             offset = 0f;
             if (pawn?.equipment?.Primary == null) return false;
             CompWeaponTransformer transformer = pawn.equipment.Primary.GetComp<CompWeaponTransformer>();
             if (transformer == null) return false;
-            offset = transformer.CurrentMode.equippedStatOffsets.GetStatOffsetFromList(StatDefOf.MoveSpeed);
+            List<StatModifier> offsets = transformer.CurrentMode.equippedStatOffsets;
+            if (offsets == null) return false;
+            offset = offsets.GetStatOffsetFromList(parentStat);
             return !Mathf.Approximately(offset, 0f);
         }
 
-        // 移动速度最终值叠加当前形态偏移。
+        // 目标属性最终值叠加当前形态偏移。
         public override void TransformValue(StatRequest req, ref float val)
         {
             if (TryGetOffset(req, out _, out float offset)) val += offset;
         }
 
-        // 面板说明:列出武器名称与形态移动速度偏移。
+        // 面板说明:列出武器名称与当前形态的属性偏移。
         public override string ExplanationPart(StatRequest req)
         {
             if (!TryGetOffset(req, out Pawn pawn, out float offset)) return null;
             return "    " + pawn.equipment.Primary.LabelCap + ": " + offset.ToStringByStyle(parentStat.toStringStyle, ToStringNumberSense.Offset);
+        }
+    }
+
+    // StatPart_DeliveryBoxModeFactor 把当前装备武器形态的 equippedStatFactors 接入 Pawn 属性统计,语义为乘法。
+    public class StatPart_DeliveryBoxModeFactor : StatPart
+    {
+        // 从 StatRequest 中的 Pawn 取主装备,读取其形态组件中目标 stat 的倍率;无武器/无组件/未配置时返回 false。
+        private bool TryGetFactor(StatRequest request, out Pawn pawn, out float factor)
+        {
+            pawn = request.Thing as Pawn;
+            factor = 1f;
+            if (pawn?.equipment?.Primary == null) return false;
+            CompWeaponTransformer transformer = pawn.equipment.Primary.GetComp<CompWeaponTransformer>();
+            if (transformer == null) return false;
+            List<StatModifier> factors = transformer.CurrentMode.equippedStatFactors;
+            if (factors == null) return false;
+            factor = factors.GetStatFactorFromList(parentStat);
+            return !Mathf.Approximately(factor, 1f);
+        }
+
+        // 目标属性最终值乘以当前形态倍率。
+        public override void TransformValue(StatRequest req, ref float val)
+        {
+            if (TryGetFactor(req, out _, out float factor)) val *= factor;
+        }
+
+        // 面板说明:列出武器名称与当前形态的属性倍率。
+        public override string ExplanationPart(StatRequest req)
+        {
+            if (!TryGetFactor(req, out Pawn pawn, out float factor)) return null;
+            return "    " + pawn.equipment.Primary.LabelCap + ": " + factor.ToStringByStyle(parentStat.toStringStyle, ToStringNumberSense.Factor);
         }
     }
 
@@ -407,10 +458,19 @@ namespace XIYUNTE
             if (transformer == null) yield break;
             WeaponMode mode = transformer.CurrentMode;
             yield return new StatDrawEntry(StatCategoryDefOf.BasicsImportant, "RK_DeliveryBox_CurrentForm".Translate(), mode.label, mode.description, 6000);
-            float moveSpeedOffset = mode.equippedStatOffsets.GetStatOffsetFromList(StatDefOf.MoveSpeed);
-            if (!Mathf.Approximately(moveSpeedOffset, 0f))
+            foreach (StatModifier offset in mode.equippedStatOffsets)
             {
-                yield return new StatDrawEntry(StatCategoryDefOf.EquippedStatOffsets, StatDefOf.MoveSpeed, moveSpeedOffset, StatRequest.ForEmpty(), ToStringNumberSense.Offset);
+                if (offset.stat == null || Mathf.Approximately(offset.value, 0f)) continue;
+                yield return new StatDrawEntry(StatCategoryDefOf.EquippedStatOffsets, offset.stat, offset.value, StatRequest.ForEmpty(), ToStringNumberSense.Offset);
+            }
+            foreach (StatModifier factor in mode.equippedStatFactors)
+            {
+                if (factor.stat == null || Mathf.Approximately(factor.value, 1f)) continue;
+                yield return new StatDrawEntry(StatCategoryDefOf.EquippedStatOffsets, factor.stat, factor.value, StatRequest.ForEmpty(), ToStringNumberSense.Factor);
+            }
+            if (mode.massCapacityBonus > 0f)
+            {
+                yield return new StatDrawEntry(StatCategoryDefOf.EquippedStatOffsets, "MassCapacity".Translate(), "+" + mode.massCapacityBonus.ToString("0.#") + " " + "kg".Translate(), null, 6000);
             }
         }
     }

@@ -144,7 +144,7 @@ namespace XIYUNTE
     public class Mote_DeathBowAimStreakVfx : Mote_DeathBowAimVfxBase
     {
         // 武器绘制时的前移量:原版 PawnRenderUtility.DrawEquipmentAndApparelExtras 用 0.4 + 武器 Def 的 equippedDistanceOffset。
-        private const float WeaponDrawDistance = 0.4f;
+        private const float WeaponDrawDistance = -1f;
 
         // 当前面朝角(AngleFlat 口径);预热未建立时保留上一次取值。
         private float aimAngle;

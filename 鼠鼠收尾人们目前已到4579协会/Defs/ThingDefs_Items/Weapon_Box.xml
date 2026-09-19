@@ -77,7 +77,7 @@
       <li Class="XIYUNTE.Box_shift">
         <modes>
           <li>
-            <!-- 基础形态:钝器伤害,宙斯锤命中音效。 -->
+            <!-- 基础形态:钝器伤害,宙斯锤命中音效;装备者属性见本形态 equippedStatOffsets(偏移)、equippedStatFactors(倍率)与 massCapacityBonus(负重)。 -->
             <label>派送箱</label>
             <description>可以切换多种战斗形态的模块化派送箱。\nДевять协会北部收尾人使用的派送箱。\n派送箱可以进行增强输出功率以及转换模式。启动后派送箱会持续释放能量协助战斗，还可以增强输出功率或转换模式。\n不过增强输出功率也不一定对性命有保障。请别错过最后的期限。\n[最低福利休息模式运作。能量补给暂停。注意。此措施是暂时的。建议迅速派送。]\n派送箱内有搭载AI助理“波鲁（鼠）德尼察”进行导航来达到快速配送的目的。\n内置重力奇点，即使放入许多物品也不会感到有明显的重量增加。\n不过通常来讲，这些箱子大多都是前辈的遗物\n[阶段三。警告。任务超时。进入派送加速最终阶段。进一步的时间延误将无法保障您的安全。]\n ”放我一马我保证一定会好好完成派送的！吱！“</description>
             <texPath>Weapon/Box_Core</texPath>
@@ -110,9 +110,15 @@
                 <soundMeleeHit>MeleeHit_ZeusHammer</soundMeleeHit>
               </li>
             </tools>
+            <!-- 形态特性:偏移为加法、倍率为乘法,分两组配置;负重加成没有对应 StatDef,由补丁读取。 -->
             <equippedStatOffsets>
               <MoveSpeed>0.45</MoveSpeed>
+              <CarryingCapacity>300</CarryingCapacity>
             </equippedStatOffsets>
+            <equippedStatFactors>
+              <CaravanBonusSpeedFactor>2</CaravanBonusSpeedFactor>
+            </equippedStatFactors>
+            <massCapacityBonus>1000</massCapacityBonus>
           </li>
           <li>
             <!-- 与箱体模式不同:利器伤害,等离子剑命中音效。 -->
@@ -201,6 +207,9 @@
                 <soundMeleeHit>MeleeHit_ZeusHammer</soundMeleeHit>
               </li>
             </tools>
+            <!-- 形态特性:每次挥击结算后独立掷 33%,触发时本次挥击结算 3 次完整攻击。 -->
+            <multiAttackChance>0.33</multiAttackChance>
+            <multiAttackCount>3</multiAttackCount>
           </li>
           <li>
             <!-- 与箱体模式不同:高伤害、长冷却的重型钝器。 -->
@@ -235,6 +244,8 @@
                 <soundMeleeHit>MeleeHit_ZeusHammer</soundMeleeHit>
               </li>
             </tools>
+            <!-- 形态特性:对建筑伤害最终倍率 = 原版钝击 1.5 + 0.9 = 2.4。 -->
+            <buildingDamageFactor>2.4</buildingDamageFactor>
           </li>
           <li>
             <!-- 突破工具:重型穿透钝器 + 箱面,移动速度小幅提升。 -->
