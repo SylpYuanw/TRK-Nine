@@ -97,11 +97,12 @@ namespace XIYUNTE
             }
         }
 
-        // 瞄准方向(水平单位向量):装备者到预热目标的方向,与原版 Stance_Warmup.AimDir 同源。
-        // 预热未建立,或目标与装备者几乎重合时返回 false,调用方保留上一次方向,避免零向量归一化出 NaN。
-        protected bool TryGetAimDirection(out Vector3 direction)
+        // 瞄准角(AngleFlat 口径:0 = 北、90 = 东、180 = 南、270 = 西):装备者到预热目标的水平方向,
+        // 与原版武器绘制取的是同一份数据(Stance_Busy.focusTarg)。
+        // 预热未建立,或目标与装备者几乎重合时返回 false,调用方保留上一次角度。
+        protected bool TryGetAimAngle(out float angle)
         {
-            direction = Vector3.right;
+            angle = 0f;
             Stance_Warmup warmup = CurrentWarmup;
             Pawn pawn = link1.Target.Thing as Pawn;
             if (warmup == null || pawn == null || !warmup.focusTarg.IsValid)
@@ -114,7 +115,7 @@ namespace XIYUNTE
             {
                 return false;
             }
-            direction = delta.normalized;
+            angle = delta.AngleFlat();
             return true;
         }
     }
@@ -135,16 +136,18 @@ namespace XIYUNTE
         protected override float PulsePeriodSeconds => 2.6f;
     }
 
-    // 流线层:贴图长轴始终指向瞄准方向,并沿该方向整体前移,覆盖"弓前(正前方)至身后(正后方)"一段。
-    // 与两层烟雾不同,它随瞄准方向定向,因此不做摇曳旋转与尺寸呼吸,瞄准期间稳定显示,淡入/淡出各 1 秒。
+    // 流线层:贴图长轴指向角色面朝方向,并沿该方向附加一个前移量,使线段落在弓的绘制位置上,
+    // 覆盖"弓前(正前方)至身后(正后方)"一段。
+    // 角度口径与武器绘制完全一致:Mote 与武器都是"用 Quaternion.AngleAxis(角度, Vector3.up) 画一张平面贴图",
+    // 因此"面朝角 - 90"就是让贴图长轴指向面朝方向的取值(武器绘制取的是 面朝角 - 90 + equippedAngleOffset)。
+    // 与两层烟雾不同,它随面朝方向定向,因此不做摇曳旋转与尺寸呼吸,瞄准期间稳定显示,淡入/淡出各 1 秒。
     public class Mote_DeathBowAimStreakVfx : Mote_DeathBowAimVfxBase
     {
-        // 装备者在流线全长中的位置(自尾端起算):0.375 表示尾段占 37.5%、头段占 62.5%。
-        // 全长来自 Def 的 drawSize.x,这里只决定角色落点,改动它即改变"身后/弓前"的覆盖比例。
-        private const float StreakHostRatio = 0.375f;
+        // 武器绘制时的前移量:原版 PawnRenderUtility.DrawEquipmentAndApparelExtras 用 0.4 + 武器 Def 的 equippedDistanceOffset。
+        private const float WeaponDrawDistance = 0.4f;
 
-        // 当前瞄准方向(水平单位向量):预热未建立时保留上一次取值。
-        private Vector3 aimDir = Vector3.right;
+        // 当前面朝角(AngleFlat 口径);预热未建立时保留上一次取值。
+        private float aimAngle;
 
         protected override float Opacity => 0.8f;
 
@@ -158,33 +161,51 @@ namespace XIYUNTE
         public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {
             base.SpawnSetup(map, respawningAfterLoad);
-            UpdateAimDirection();
+            UpdateAimAngle();
         }
 
-        // 朝向 = 瞄准角:原版 Stance_Warmup 给瞄准光效写 exactRotation 用的就是 AimDir().AngleFlat()。
+        // 朝向 = 面朝方向:与原版武器绘制同一套角度口径,不需要额外的贴图旋转量。
         protected override float RotationAt(float t)
         {
-            return aimDir.AngleFlat();
+            return aimAngle - 90f;
         }
 
-        // 位移 = 沿瞄准方向前移,使线段中心落在角色前方、尾段留在角色身后。
+        // 位移 = 沿面朝方向前移(等价于在角色局部坐标系里加一个 Z 偏移),与弓的落点一致。
         protected override Vector3 OffsetAt(float t)
         {
-            return aimDir * (def.graphicData.drawSize.x * (0.5f - StreakHostRatio));
+            return new Vector3(0f, 0f, WeaponDrawDistance + EquippedDistanceOffset).RotatedBy(aimAngle);
         }
 
         protected override void TimeInterval(float deltaTime)
         {
-            UpdateAimDirection();
+            UpdateAimAngle();
             base.TimeInterval(deltaTime);
         }
 
-        private void UpdateAimDirection()
+        // 武器 Def 上的额外持握距离(本武器未配置时为 0),与武器绘制同源,避免流线与弓错位。
+        private float EquippedDistanceOffset
         {
-            Vector3 direction;
-            if (TryGetAimDirection(out direction))
+            get
             {
-                aimDir = direction;
+                Pawn pawn = link1.Target.Thing as Pawn;
+                Thing weapon = pawn?.equipment?.Primary;
+                return weapon == null ? 0f : weapon.def.equippedDistanceOffset;
+            }
+        }
+
+        private void UpdateAimAngle()
+        {
+            float angle;
+            if (TryGetAimAngle(out angle))
+            {
+                aimAngle = angle;
+                return;
+            }
+            // 预热状态取不到时(刚生成、瞄准已结束进入淡出)退回角色当前朝向,方向不跳变。
+            Pawn pawn = link1.Target.Thing as Pawn;
+            if (pawn != null)
+            {
+                aimAngle = pawn.Rotation.AsAngle;
             }
         }
     }

@@ -125,10 +125,11 @@
 
   <!-- 流线层:仅四阶蓄力启用,由 XIYUNTE.CompEquippable_DeathBow 与两层烟雾同时生成。
        贴图 VFX/Bow_of_Death_Aim_Streak_Vfx 是一条横向长条流光,由 XIYUNTE.Mote_DeathBowAimStreakVfx
-       每 tick 把长轴转到瞄准方向(与原版 Stance_Warmup 给瞄准光效写 exactRotation 的取值同源),
-       并沿瞄准方向整体前移,使线段覆盖"弓前(正前方)至身后(正后方)"。
-       画布 4×2 格:长边即线段长度,短边只决定贴图缩放(贴图内容集中在中间 13% 高度,可见光带厚度约 0.27 格);
-       角色落在线段全长的 37.5% 处(自尾端起算),该比例写在 Mote_DeathBowAimStreakVfx 里,不是 XML 字段。
+       每 tick 把长轴转到角色面朝方向:取值 = 面朝角 - 90(AngleFlat 口径:0=北 90=东),
+       与原版武器绘制同一套 Quaternion.AngleAxis 口径(武器取 面朝角 - 90 + equippedAngleOffset);
+       位置沿该方向前移 0.4 + 武器 Def 的 equippedDistanceOffset 格,与弓的绘制落点一致,
+       线段因此覆盖"弓前(正前方)至身后(正后方)"。
+       画布 4×2 格:长边即线段长度,短边只决定贴图缩放(贴图内容集中在中间 13% 高度,可见光带厚度约 0.27 格)。
        图层 VisEffects 高于两层烟雾(MoteOverhead / MoteOverheadLow),流线压在烟雾之上。 -->
   <ThingDef ParentName="MoteBase">
     <defName>BowOfDeath_AimStreakVfx</defName>
