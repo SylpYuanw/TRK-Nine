@@ -1,7 +1,6 @@
 using System;
 using System.Reflection;
 using System.Runtime.ExceptionServices;
-using System.Text;
 using HarmonyLib;
 using RimWorld;
 using Verse;
@@ -79,20 +78,15 @@ namespace XIYUNTE
 
     // 本体形态负重加成:1.6 的小人负重与商队载重由 MassUtility.Capacity 按体形(BodySize × 35kg)计算,
     // 没有对应 StatDef,装备偏移与 Hediff 都无法接入,因此在原版结果上叠加当前形态配置的负重加成。
-    [HarmonyPatch(typeof(MassUtility), nameof(MassUtility.Capacity), new Type[] { typeof(Pawn), typeof(StringBuilder) })]
+    [HarmonyPatch(typeof(MassUtility), nameof(MassUtility.Capacity), new Type[] { typeof(Pawn), typeof(System.Text.StringBuilder) })]
     internal static class Patch_MassUtility_Capacity_DeliveryBox
     {
-        static void Postfix(Pawn p, StringBuilder explanation, ref float __result)
+        static void Postfix(Pawn p, ref float __result)
         {
             CompWeaponTransformer transformer = p?.equipment?.Primary?.GetComp<CompWeaponTransformer>();
             float bonus = transformer?.CurrentMode?.massCapacityBonus ?? 0f;
             if (bonus <= 0f) return;
             __result += bonus;
-            if (explanation != null)
-            {
-                if (explanation.Length > 0) explanation.AppendLine();
-                explanation.Append("  - " + p.equipment.Primary.LabelCap + ": +" + bonus.ToString("0.#") + " " + "kg".Translate());
-            }
         }
     }
 }
