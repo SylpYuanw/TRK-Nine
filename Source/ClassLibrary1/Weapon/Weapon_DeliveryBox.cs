@@ -468,6 +468,11 @@ namespace XIYUNTE
                 if (factor.stat == null || Mathf.Approximately(factor.value, 1f)) continue;
                 yield return new StatDrawEntry(StatCategoryDefOf.EquippedStatOffsets, factor.stat, factor.value, StatRequest.ForEmpty(), ToStringNumberSense.Factor);
             }
+            // 负重加成没有对应 StatDef,按原版载重标签与原版质量格式化输出,不拼接文本。
+            if (mode.massCapacityBonus > 0f)
+            {
+                yield return new StatDrawEntry(StatCategoryDefOf.EquippedStatOffsets, "MassCapacity".Translate(), mode.massCapacityBonus.ToStringMassOffset(), null, 6000);
+            }
         }
     }
 }
