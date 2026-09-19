@@ -10,6 +10,26 @@ GitHub仓库文件
 
 ## 更新记录
 
+### 2026-09-19 死之弓：蓄力瞄准烟雾特效
+
+- 四个蓄力阶通用：瞄准开始时在装备者身上生成烟雾特效，1 秒淡入，之后持续以 5% 振幅缓慢呼吸、在水平面小幅摇曳并轻微旋转，透明度上限 70%（素材自身不透明度约 81%~88%）。
+- 消散节点：射击完成或瞄准被中断后，1 秒内逐渐消散并自行销毁；读档时若正处于瞄准中会自动补挂特效。
+- 实现沿用原版 Mote 生命周期（淡入 / 停止续命即按同样时长淡出并销毁），呼吸与摇曳由 Mote 类按帧驱动，未新增每帧补丁。
+- 素材改名：`Textures/VFX/ChatGPT Image 2026年9月19日 14_39_40.png` → `Textures/VFX/Bow_of_Death_Aim_Vfx.png`。
+
+关联文件：`Source/ClassLibrary1/Weapon/BowOfDeath/Mote_DeathBowAimVfx.cs`、`Source/ClassLibrary1/Weapon/BowOfDeath/Verb_DeathBowShot.cs`、`Source/ClassLibrary1/Weapon/BowOfDeath/CompEquippable_DeathBow.cs`、`Source/ClassLibrary1/Weapon/BowOfDeath/DeathBowDefOf.cs`、`Source/死之弓_实现与依据.md`、`鼠鼠收尾人们目前已到4579协会/Defs/Misc/Mote_BowOfDeath.xml`、`鼠鼠收尾人们目前已到4579协会/Textures/VFX/Bow_of_Death_Aim_Vfx.png`、`鼠鼠收尾人们目前已到4579协会/Assemblies/ClassLibrary1.dll`
+
+
+
+### 2026-09-19 Death bow: aiming smoke VFX
+
+- Shared by all four charge stages: a smoke effect is spawned on the wielder when aiming starts, fading in over 1 second and then breathing at 5% amplitude, swaying slightly in the horizontal plane and rotating gently, with opacity capped at 70% (the texture itself is about 81%~88% opaque).
+- Dissipation timing: one second after the shot completes or the aim is interrupted the smoke fades out and destroys itself; loading a save mid-aim re-attaches the effect automatically.
+- Built on the vanilla mote lifecycle (fade in / fade out and destroy once maintenance stops); the breathing and swaying are driven per frame by the mote class, with no per-frame patches added.
+- Renamed asset: `Textures/VFX/ChatGPT Image 2026年9月19日 14_39_40.png` → `Textures/VFX/Bow_of_Death_Aim_Vfx.png`.
+
+Related files: `Source/ClassLibrary1/Weapon/BowOfDeath/Mote_DeathBowAimVfx.cs`, `Source/ClassLibrary1/Weapon/BowOfDeath/Verb_DeathBowShot.cs`, `Source/ClassLibrary1/Weapon/BowOfDeath/CompEquippable_DeathBow.cs`, `Source/ClassLibrary1/Weapon/BowOfDeath/DeathBowDefOf.cs`, `Source/死之弓_实现与依据.md`, `鼠鼠收尾人们目前已到4579协会/Defs/Misc/Mote_BowOfDeath.xml`, `鼠鼠收尾人们目前已到4579协会/Textures/VFX/Bow_of_Death_Aim_Vfx.png`, `鼠鼠收尾人们目前已到4579协会/Assemblies/ClassLibrary1.dll`
+
 ### 2026-09-19 死之弓：蓄力阶切换印迹与音效
 
 为死之弓补上蓄力阶切换的表现与音效：

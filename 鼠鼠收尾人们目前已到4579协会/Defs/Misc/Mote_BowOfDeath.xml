@@ -24,4 +24,29 @@
       <drawSize>1</drawSize>
     </graphicData>
   </ThingDef>
+
+  <!-- 四阶蓄力通用:瞄准开始时由 XIYUNTE.CompEquippable_DeathBow 生成、绑定装备者的烟雾特效。
+       时间轴:fadeInTime 淡入 1 秒 → 持续期间呼吸/摇曳(由 Mote_DeathBowAimVfx 每 tick 驱动)→ 停止维护后按 fadeOutTime 淡出 1 秒并自毁。
+       存活时间由"是否仍在瞄准"决定,所以 solidTime 取大值;needsMaintenance + fadeOutUnmaintained 提供原版"停止续命即淡出"的规则。
+       透明度上限 70% 在 C# 中乘算(Mote_DeathBowAimVfx.Alpha);贴图自身不透明度约 81%~88%。 -->
+  <ThingDef ParentName="MoteBase">
+    <defName>BowOfDeath_AimVfx</defName>
+    <thingClass>XIYUNTE.Mote_DeathBowAimVfx</thingClass>
+    <altitudeLayer>MoteOverhead</altitudeLayer>
+    <mote>
+      <fadeInTime>1</fadeInTime>
+      <solidTime>99999</solidTime>
+      <fadeOutTime>1</fadeOutTime>
+      <needsMaintenance>true</needsMaintenance>
+      <fadeOutUnmaintained>true</fadeOutUnmaintained>
+      <!-- 相对装备者绘制位置的偏移:略微向下,避免烟雾整体压住角色头顶。 -->
+      <attachedDrawOffset>(0,0,0.15)</attachedDrawOffset>
+    </mote>
+    <graphicData>
+      <texPath>VFX/Bow_of_Death_Aim_Vfx</texPath>
+      <!-- Mote 为普通透明混合;若想让烟雾发光,改成 MoteGlow。 -->
+      <shaderType>Mote</shaderType>
+      <drawSize>(2.6,2.6)</drawSize>
+    </graphicData>
+  </ThingDef>
 </Defs>

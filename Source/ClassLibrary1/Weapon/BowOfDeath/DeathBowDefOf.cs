@@ -16,6 +16,9 @@ namespace XIYUNTE
         // 蓄力阶切换特效的 Mote 定义(Defs/Misc/Mote_BowOfDeath.xml)。
         public static ThingDef BowOfDeath_StageVfx;
 
+        // 蓄力瞄准特效的 Mote 定义(Defs/Misc/Mote_BowOfDeath.xml)。
+        public static ThingDef BowOfDeath_AimVfx;
+
         static DeathBowDefOf()
         {
             DefOfHelper.EnsureInitializedInCtor(typeof(DeathBowDefOf));

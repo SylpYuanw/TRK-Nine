@@ -53,5 +53,16 @@ namespace XIYUNTE
             }
             return fired;
         }
+
+        // 瞄准开始:预热状态建立后通知武器组件挂上瞄准特效;近战动词不经过这里,因此只有四阶蓄力射击会出特效。
+        public override bool TryStartCastOn(LocalTargetInfo castTarg, LocalTargetInfo destTarg, bool surpriseAttack = false, bool canHitNonTargetPawns = true, bool preventFriendlyFire = false, bool nonInterruptingSelfCast = false)
+        {
+            bool started = base.TryStartCastOn(castTarg, destTarg, surpriseAttack, canHitNonTargetPawns, preventFriendlyFire, nonInterruptingSelfCast);
+            if (started && WarmingUp)
+            {
+                Bow?.Notify_AimStarted();
+            }
+            return started;
+        }
     }
 }
