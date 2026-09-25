@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <RK_DeliveryBox_SwitchWeaponForm>切换武器形态</RK_DeliveryBox_SwitchWeaponForm>
+  <RK_DeliveryBox_SelectWeaponForm>选择该武器的使用形态。</RK_DeliveryBox_SelectWeaponForm>
+  <RK_DeliveryBox_CurrentForm>当前形态</RK_DeliveryBox_CurrentForm>
+  <RK_DeliveryBox_Equipped>装备中</RK_DeliveryBox_Equipped>
+  <RK_DeliveryBox_HighPower_RequiresWeapon>必须装备派送箱。</RK_DeliveryBox_HighPower_RequiresWeapon>
+  <RK_DeliveryBox_HighPower_AlreadyActive>高功率模式正在持续。</RK_DeliveryBox_HighPower_AlreadyActive>
+  <RK_DeliveryBox_HighPower_NotActive>高功率模式未在持续。</RK_DeliveryBox_HighPower_NotActive>
+
+  <!-- 三阶段进入提示：括号内容用护盾薄荷绿(#3EB489) -->
+  <RK_DeliveryBox_HighPower_Stage3>&lt;color=#3EB489&gt;[ 我们Девять协会的波鲁德尼察避免无意义的杀生。请立即执行派送以保障您的性命。]&lt;/color&gt;</RK_DeliveryBox_HighPower_Stage3>
+
+  <!-- 高功率状态 Gizmo 文案 -->
+  <RK_DeliveryBox_HighPower_StatusTitle>高功率模式</RK_DeliveryBox_HighPower_StatusTitle>
+  <RK_DeliveryBox_HighPower_RemainingTime>剩余 {0} 小时</RK_DeliveryBox_HighPower_RemainingTime>
+  <RK_DeliveryBox_HighPower_ShieldValue>{0} / {1}</RK_DeliveryBox_HighPower_ShieldValue>
+  <RK_DeliveryBox_HighPower_ShieldInactive>护盾未激活</RK_DeliveryBox_HighPower_ShieldInactive>
+
+  <!-- 突破工具技能：仅在派送箱处于突破工具形态时可用 -->
+  <RK_BreakthroughTool_RequiresMode>必须使用突破工具形态的派送箱。</RK_BreakthroughTool_RequiresMode>
+  <!-- 突破工具目标选择失败的具体原因 -->
+  <RK_BreakthroughTool_NeedsWeapon>必须装备派送箱才能使用突破工具。</RK_BreakthroughTool_NeedsWeapon>
+  <RK_BreakthroughTool_NeedsPawn>突破工具只能对角色使用。</RK_BreakthroughTool_NeedsPawn>
+  <RK_BreakthroughTool_NotSelf>不能对自己使用突破工具。</RK_BreakthroughTool_NotSelf>
+  <RK_BreakthroughTool_TargetDead>目标已经死亡。</RK_BreakthroughTool_TargetDead>
+  <RK_BreakthroughTool_NotFriendly>不能对友方使用突破工具。</RK_BreakthroughTool_NotFriendly>
+  <RK_BreakthroughTool_NoStandCell>目标周围没有可站立的冲刺落点。</RK_BreakthroughTool_NoStandCell>
+</LanguageData>

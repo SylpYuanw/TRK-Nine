@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- 突破工具技能：
+       - 6 格内选取一个敌方 Pawn，冲刺到其正前方，落地后造成 47.5 钝击(命中躯干)
+         并沿冲刺方向击退 5 格；击退路径撞到不可通行建筑时提前停止并追加 20 伤害。
+       - 数值、飞行器与特效均由本 Def 的 comp 传导给 C#，改 XML 即改数值。
+       - 本技能由 CompWeaponTransformer 在切到「突破工具」形态时挂到 pawn.abilities、
+         切走形态或卸下武器时移除，因此并非常驻技能，也不需要在武器 Gizmo 上注入。 -->
+  <AbilityDef>
+    <defName>RK_BreakthroughTool</defName>
+    <label>突破工具</label>
+    <description>冲刺至目标正前方，造成47.5点钝击伤害并击退5格。\n击退路径撞到墙壁时提前停止，并造成额外伤害。</description>
+    <abilityClass>XIYUNTE.Ability_BreakthroughTool</abilityClass>
+    <iconPath>Ability/Breakthrough_Tool</iconPath>
+    <targetRequired>true</targetRequired>
+    <hostile>true</hostile>
+    <displayGizmoWhileUndrafted>true</displayGizmoWhileUndrafted>
+    <disableGizmoWhileUndrafted>false</disableGizmoWhileUndrafted>
+    <!-- 射程 6 格：使用原版 Verb_CastAbility 与原版圆形范围高亮(斜角按欧氏距离缩短)。
+         不再自绘方形高亮 —— 那会与原版圆形高亮叠加，同时出现方框与圆环。
+         冲刺由 comp 里的 dashFlyerDef 完成，不依赖 Verb 的跳跃落点判定。 -->
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <range>6</range>
+      <hasStandardCommand>true</hasStandardCommand>
+    </verbProperties>
+    <comps>
+      <li Class="XIYUNTE.CompProperties_BreakthroughTool">
+        <damage>47.5</damage>
+        <knockbackDistance>5</knockbackDistance>
+        <wallExtraDamage>20</wallExtraDamage>
+        <dashFlyerDef>RK_BreakthroughFlyer</dashFlyerDef>
+        <!-- 释放技能时：与切换到突破工具形态同一音效。 -->
+        <castSound>Interact_ZeusHammer</castSound>
+        <!-- 命中时：宙斯锤钝器命中音效 + 冲击波，两者都只在命中那一刻播放。 -->
+        <impactSound>MeleeHit_ZeusHammer</impactSound>
+        <impactFleck>ShockwaveFast</impactFleck>
+      </li>
+    </comps>
+    <cooldownTicksRange>600</cooldownTicksRange>
+  </AbilityDef>
+
+  <!-- 冲刺飞行器：贴地冲刺，不是腾空跳跃。
+       参考 Flugel 的 Flyer_LeapStrike(heightFactor 0 + 线性 progressCurve + 自定义 worker)，
+       配合 GetHeight 恒为 0 的 worker，得到贴地快速突进。
+       flightSpeed 越大冲刺越快；flightDurationMin 是 3 格行程的最短耗时下限。 -->
+  <ThingDef ParentName="PawnFlyerBase">
+    <defName>RK_BreakthroughFlyer</defName>
+    <thingClass>PawnFlyer</thingClass>
+    <label>冲刺飞行器</label>
+    <pawnFlyer>
+      <workerClass>XIYUNTE.PawnFlyerWorker_Breakthrough</workerClass>
+      <flightSpeed>10</flightSpeed>
+      <flightDurationMin>0.1</flightDurationMin>
+      <heightFactor>0</heightFactor>
+      <progressCurve>
+        <points>
+          <li>(0,0)</li>
+          <li>(1,1)</li>
+        </points>
+      </progressCurve>
+    </pawnFlyer>
+  </ThingDef>
+</Defs>

@@ -1,0 +1,7 @@
+{
+  "enabled": true,
+  "assets": true,
+  "defs": true,
+  "watch": true,
+  "api": true
+}

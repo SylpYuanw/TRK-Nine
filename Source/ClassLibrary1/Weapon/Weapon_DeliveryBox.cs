@@ -18,6 +18,9 @@ namespace XIYUNTE
     public class Box_shift : CompProperties
     {
         public List<WeaponMode> modes = new List<WeaponMode>();
+        // 第二个武器技能(突破工具)。原版 CompProperties_EquippableAbility 只能配置一个技能,
+        // 故在高功率模式之外再挂一个由本组件管理的能力。
+        public AbilityDef secondAbilityDef;
         public Box_shift() { compClass = typeof(CompWeaponTransformer); }
 
         // Def 加载解析阶段为每个形态的 tool 分配稳定 id,保证 VerbTracker 生成的动词 loadID 不随加载顺序变化。
@@ -61,6 +64,8 @@ namespace XIYUNTE
         public int multiAttackCount = 3;
         // 对建筑伤害的最终倍率(0 表示不修改):覆盖 DamageDef 自带的建筑伤害系数。
         public float buildingDamageFactor;
+        // 该形态是否为「突破工具」形态:突破工具技能以本标记判断当前形态能否施放。
+        public bool isBreakthroughTool;
         public List<Tool> tools;
 
         [Unsaved(false)] private Graphic graphic;
@@ -211,6 +216,10 @@ namespace XIYUNTE
         // 避免重建 VerbTracker 导致攻击中的 Stance 与新 Verb 对象脱节。
         private void ApplyMode()
         {
+            // 技能随形态挂载/卸载:切到突破工具形态才持有该技能,切走即移除(与高功率同一套挂载模型)。
+            // 放在最前,保证即使形态的 tool 数据异常也先让技能状态与形态一致,不残留。
+            parent.GetComp<CompEquippable_MultiForm>()?.SyncBreakthroughAbility();
+
             WeaponMode mode = CurrentMode;
             CompEquippable equippable = parent.GetComp<CompEquippable>();
             if (equippable?.verbTracker?.AllVerbs == null || mode.tools == null || mode.tools.Count == 0)
@@ -314,23 +323,69 @@ namespace XIYUNTE
 
     // CompEquippable_MultiForm 替代原版 CompEquippable:保留 Ability 的装备 Gizmo 链路,
     // 并作为动态 IVerbOwner 向 VerbTracker 提供当前形态的 VerbProperties 与 Tools。
+    // 另外负责按形态挂载/卸载突破工具技能(与高功率模式同一套挂载模型)。
     public class CompEquippable_MultiForm : CompEquippableAbility, IVerbOwner
     {
         // 取得当前装备者(仅装备中的武器可行)。
         private Pawn EquippedPawn => (parent.ParentHolder as Pawn_EquipmentTracker)?.pawn;
 
-        // 关闭技能后给「开启」能力手动进入冷却(企划-2:冷却在关闭时进入)。
-        public void StartHighPowerCooldown(int ticks)
+        // 突破工具技能定义:由 Box_shift 属性 secondAbilityDef 配置。
+        // 注意 secondAbilityDef 定义在 XIYUNTE.Box_shift(CompWeaponTransformer 的属性类)上,
+        // 而本组件的 props 是 CompProperties_EquippableAbility —— 两者是不同的组件实例,
+        // 因此必须从兄弟组件取,直接 (props as Box_shift) 会恒为 null。
+        private AbilityDef BreakthroughAbilityDef
         {
-            AbilityForReading?.StartCooldown(ticks);
-            EquippedPawn?.abilities?.Notify_TemporaryAbilitiesChanged();
+            get
+            {
+                CompWeaponTransformer transformer = parent?.GetComp<CompWeaponTransformer>();
+                return transformer?.Props?.secondAbilityDef;
+            }
         }
 
-        // 卸下武器 => 视作停止技能：立即移除主高功率 Hediff（其 CompPostPostRemoved 会清护盾与「关闭」能力），
-        // 并给「开启」能力进入 24 小时冷却；再次拿起时按正常冷却计时。
+        // 把突破工具技能同步为「当前形态是否需要它」:
+        // 处于突破工具形态 => 挂到 pawn.abilities;其他形态或未装备 => 移除。
+        // 挂到 pawn.abilities 后本技能进入 AllAbilitiesForReading,Pawn_AbilityTracker 会调用
+        // AbilityTick -> CooldownTick,冷却才能正常结束(仅靠组件持有的 Ability 实例不会 tick)。
+        public void SyncBreakthroughAbility()
+        {
+            AbilityDef def = BreakthroughAbilityDef;
+            if (def == null)
+                return;
+
+            Pawn pawn = EquippedPawn;
+            if (pawn?.abilities == null)
+                return;
+
+            CompWeaponTransformer transformer = parent.GetComp<CompWeaponTransformer>();
+            bool wanted = transformer?.CurrentMode != null && transformer.CurrentMode.isBreakthroughTool;
+            bool present = pawn.abilities.GetAbility(def) != null;
+
+            if (wanted && !present)
+                pawn.abilities.GainAbility(def);
+            else if (!wanted && present)
+                pawn.abilities.RemoveAbility(def);
+        }
+
+        // 卸下武器 => 视作停止技能：移除突破工具技能，并立即移除主高功率 Hediff
+        // （其 CompPostPostRemoved 会清护盾与「关闭」能力），给「开启」能力进入 24 小时冷却。
         public override void Notify_Unequipped(Pawn pawn)
         {
             base.Notify_Unequipped(pawn);
+            RemoveBreakthroughAbility(pawn);
+            RemoveHighPowerOnUnequip(pawn);
+        }
+
+        private void RemoveBreakthroughAbility(Pawn pawn)
+        {
+            AbilityDef def = BreakthroughAbilityDef;
+            if (def == null || pawn?.abilities == null)
+                return;
+            if (pawn.abilities.GetAbility(def) != null)
+                pawn.abilities.RemoveAbility(def);
+        }
+
+        private void RemoveHighPowerOnUnequip(Pawn pawn)
+        {
             if (pawn == null || pawn.health == null)
                 return;
             HediffDef mainDef = DefDatabase<HediffDef>.GetNamedSilentFail("RK_DeliveryBox_HighPower");
@@ -341,6 +396,13 @@ namespace XIYUNTE
                 return;
             pawn.health.RemoveHediff(main);
             AbilityForReading?.StartCooldown(60000);
+        }
+
+        // 关闭技能后给「开启」能力手动进入冷却(企划-2:冷却在关闭时进入)。
+        public void StartHighPowerCooldown(int ticks)
+        {
+            AbilityForReading?.StartCooldown(ticks);
+            EquippedPawn?.abilities?.Notify_TemporaryAbilitiesChanged();
         }
 
         // 动态动词属性:近战攻击动词由 Tools 的机动生成,此处固定返回空列表,避免额外生成无 tool 的攻击动词。
@@ -356,10 +418,14 @@ namespace XIYUNTE
             }
         }
 
-        // 装备 Gizmo:输出 Ability 自身的 Gizmo,再追加武器形态切换 Gizmo。
+        // 装备 Gizmo:输出 Ability 自身的 Gizmo,再追加突破工具技能 Gizmo 与武器形态切换 Gizmo。
         public override IEnumerable<Gizmo> CompGetEquippedGizmosExtra()
         {
             foreach (Gizmo gizmo in base.CompGetEquippedGizmosExtra()) yield return gizmo;
+
+            // 突破工具技能不再在此注入:它由 SyncBreakthroughAbility 挂到 pawn.abilities,
+            // 走原版技能栏并由 Pawn_AbilityTracker 正常 tick(冷却依赖这一点)。
+
             CompWeaponTransformer transformer = parent.GetComp<CompWeaponTransformer>();
             if (transformer != null) foreach (Gizmo gizmo in transformer.GetModeGizmos()) yield return gizmo;
         }

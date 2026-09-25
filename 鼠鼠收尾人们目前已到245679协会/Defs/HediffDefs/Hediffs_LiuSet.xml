@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- 六协会套装状态：severity = 已穿戴件数(1 = 1/2，2 = 2/2)。
+       进度由内衬/制服上的 XIYUNTE.CompProperties_LiuPiece 在装备/卸下时维护，
+       不扫描装备；Hediff 随存档保存，因此读档后进度不变。
+       本 Hediff 自身不提供属性加成：意识加成全部由光环增益实例发放，
+       每个来源一份实例，可叠加(同时处于 N 个成员圈内 = N*6%)。
+       maxSeverity = 2 使件数天然封顶，重复装备事件不会把进度推过 2/2。 -->
+  <HediffDef>
+    <defName>RK_LiuSet</defName>
+    <label>六协会套装</label>
+    <description>六协会制服的完整套装状态。\n穿齐内衬与制服时成为套装成员，为自身与周围的成员提供意识增益。</description>
+    <hediffClass>XIYUNTE.Hediff_LiuSet</hediffClass>
+    <defaultLabelColor>(0.55, 0.15, 0.15)</defaultLabelColor>
+    <isBad>false</isBad>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <tendable>false</tendable>
+    <everCurableByItem>false</everCurableByItem>
+    <initialSeverity>1</initialSeverity>
+    <maxSeverity>2</maxSeverity>
+    <stages>
+      <!-- 1/2：只穿一件，无任何效果(也不显示加成)。 -->
+      <li>
+        <minSeverity>0</minSeverity>
+        <label>1/2</label>
+        <overrideTooltip>只穿戴了一件六协会制服部件，尚未构成套装。</overrideTooltip>
+      </li>
+      <!-- 2/2：套装成员，开始向外提供光环。 -->
+      <li>
+        <minSeverity>2</minSeverity>
+        <label>2/2</label>
+        <overrideTooltip>已完整穿戴六协会套装，成为套装成员：为自身与周围成员提供意识增益。</overrideTooltip>
+      </li>
+    </stages>
+    <comps>
+      <!-- 光环半径(基础6格/每多1人+2格)与扫描间隔在此配置，改 XML 即改范围。 -->
+      <li Class="XIYUNTE.HediffCompProperties_LiuSetAura">
+        <baseRange>6</baseRange>
+        <rangePerExtraPawn>2</rangePerExtraPawn>
+        <scanIntervalTicks>30</scanIntervalTicks>
+      </li>
+    </comps>
+  </HediffDef>
+
+  <!-- 六协会光环增益：每个来源一份独立实例(禁止同 def 合并)，每份 +6% 意识。
+       一个角色可同时持有来自多名成员的实例，因此加成为 份数 * 6%，不设上限。
+       依赖 HediffComp_Disappears 到期：来源离开/失去套装后自动移除。 -->
+  <HediffDef>
+    <defName>RK_LiuAuraBuff</defName>
+    <label>六协会光环</label>
+    <description>受到六协会套装成员的意识增益。</description>
+    <hediffClass>XIYUNTE.Hediff_LiuAuraBuff</hediffClass>
+    <defaultLabelColor>(0.55, 0.15, 0.15)</defaultLabelColor>
+    <isBad>false</isBad>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <tendable>false</tendable>
+    <everCurableByItem>false</everCurableByItem>
+    <initialSeverity>1</initialSeverity>
+    <maxSeverity>1</maxSeverity>
+    <stages>
+      <li>
+        <minSeverity>0</minSeverity>
+        <!-- Consciousness 是 PawnCapacityDef 而非 StatDef，必须走 capMods；
+             capMods.offset 按份直接相加，因此多份实例即多份 +6%。 -->
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>0.06</offset>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+    <comps>
+      <li Class="XIYUNTE.HediffCompProperties_LiuAuraLink" />
+      <li Class="HediffCompProperties_Disappears">
+        <disappearsAfterTicks>35</disappearsAfterTicks>
+      </li>
+    </comps>
+  </HediffDef>
+</Defs>
