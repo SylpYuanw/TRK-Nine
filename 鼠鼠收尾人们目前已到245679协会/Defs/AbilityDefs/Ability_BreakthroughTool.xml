@@ -8,8 +8,8 @@
          切走形态或卸下武器时移除，因此并非常驻技能，也不需要在武器 Gizmo 上注入。 -->
   <AbilityDef>
     <defName>RK_BreakthroughTool</defName>
-    <label>突破工具</label>
-    <description>冲刺至目标正前方，造成47.5点钝击伤害并击退5格。\n击退路径撞到墙壁时提前停止，并造成额外伤害。</description>
+    <label>突破工具-肘击</label>
+    <description>冲刺至目标正前方，使用突破工具蓄力肘击对方躯干，造成47.5点钝击伤害并击退5格。\n撞到墙壁时提前停止，并造成额外伤害。</description>
     <abilityClass>XIYUNTE.Ability_BreakthroughTool</abilityClass>
     <iconPath>Ability/Breakthrough_Tool</iconPath>
     <targetRequired>true</targetRequired>
@@ -23,6 +23,7 @@
       <verbClass>Verb_CastAbility</verbClass>
       <range>6</range>
       <hasStandardCommand>true</hasStandardCommand>
+      <warmupTime>0.1</warmupTime>
     </verbProperties>
     <comps>
       <li Class="XIYUNTE.CompProperties_BreakthroughTool">
@@ -30,6 +31,7 @@
         <knockbackDistance>5</knockbackDistance>
         <wallExtraDamage>20</wallExtraDamage>
         <dashFlyerDef>RK_BreakthroughFlyer</dashFlyerDef>
+        <knockbackFlyerDef>RK_BreakthroughKnockbackFlyer</knockbackFlyerDef>
         <!-- 释放技能时：与切换到突破工具形态同一音效。 -->
         <castSound>Interact_ZeusHammer</castSound>
         <!-- 命中时：宙斯锤钝器命中音效 + 冲击波，两者都只在命中那一刻播放。 -->
@@ -40,25 +42,57 @@
     <cooldownTicksRange>600</cooldownTicksRange>
   </AbilityDef>
 
-  <!-- 冲刺飞行器：贴地冲刺，不是腾空跳跃。
-       参考 Flugel 的 Flyer_LeapStrike(heightFactor 0 + 线性 progressCurve + 自定义 worker)，
-       配合 GetHeight 恒为 0 的 worker，得到贴地快速突进。
-       flightSpeed 越大冲刺越快；flightDurationMin 是 3 格行程的最短耗时下限。 -->
+  <!-- ============ 冲刺飞行器（施放者）============
+       垂直高度只由 worker 的 GetHeight() 决定(= 本 Def 的 maxHeight * 抛物线)，
+       heightFactor 只影响前进方向偏移，不是高度。
+         flightSpeed       冲刺速度，越大越快
+         flightDurationMin 行程最短耗时下限(秒)，速度再快也不会短于它
+         maxHeight         起跳高度(altitude 层，原版跳跃峰值=1)。0 = 完全贴地。
+         heightFactor      前进方向偏移倍率，通常保持 0 -->
   <ThingDef ParentName="PawnFlyerBase">
     <defName>RK_BreakthroughFlyer</defName>
-    <thingClass>PawnFlyer</thingClass>
-    <label>冲刺飞行器</label>
-    <pawnFlyer>
+    <thingClass>XIYUNTE.PawnFlyer_Breakthrough</thingClass>
+    <label>突破工具-肘击冲刺</label>
+    <pawnFlyer Class="XIYUNTE.PawnFlyerProperties_Breakthrough">
       <workerClass>XIYUNTE.PawnFlyerWorker_Breakthrough</workerClass>
       <flightSpeed>10</flightSpeed>
       <flightDurationMin>0.1</flightDurationMin>
       <heightFactor>0</heightFactor>
+      <maxHeight>0</maxHeight>
       <progressCurve>
         <points>
           <li>(0,0)</li>
           <li>(1,1)</li>
         </points>
       </progressCurve>
+    </pawnFlyer>
+  </ThingDef>
+
+  <!-- ============ 击退飞行器（被击退的目标）============
+       与冲刺飞行器同一套参数，只是默认值不同：这里要「起跳后落地」，
+       所以 maxHeight > 0，并按原版 PawnFlyer_Stun 的手感给了速度与时长。
+         maxHeight            击退弧线峰值高度，调大 = 飞得更高
+         flightSpeed          击退飞行速度，调大 = 飞得更快
+         flightDurationMin    行程最短耗时下限(秒)，调大 = 飞得更慢、更久
+         stunDurationTicksRange 落地眩晕时长(tick)，不想要眩晕可删掉本行 -->
+  <ThingDef ParentName="PawnFlyerBase">
+    <defName>RK_BreakthroughKnockbackFlyer</defName>
+    <thingClass>XIYUNTE.PawnFlyer_Breakthrough</thingClass>
+    <label>突破工具-被肘击击退飞行中</label>
+    <pawnFlyer Class="XIYUNTE.PawnFlyerProperties_Breakthrough">
+      <workerClass>XIYUNTE.PawnFlyerWorker_Breakthrough</workerClass>
+      <flightSpeed>8</flightSpeed>
+      <flightDurationMin>0.5</flightDurationMin>
+      <heightFactor>0</heightFactor>
+      <maxHeight>1</maxHeight>
+      <progressCurve>
+        <points>
+          <li>(0,0)</li>
+          <li>(1,1)</li>
+        </points>
+      </progressCurve>
+      <!-- 落地眩晕时长(tick)；不需要眩晕就删掉本行。 -->
+      <stunDurationTicksRange>60~180</stunDurationTicksRange>
     </pawnFlyer>
   </ThingDef>
 </Defs>
