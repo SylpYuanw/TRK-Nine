@@ -83,8 +83,8 @@
       <workerClass>XIYUNTE.PawnFlyerWorker_Breakthrough</workerClass>
       <flightSpeed>8</flightSpeed>
       <flightDurationMin>0.5</flightDurationMin>
-      <heightFactor>5</heightFactor>
-      <maxHeight>0.5</maxHeight>
+      <heightFactor>0</heightFactor>
+      <maxHeight>1</maxHeight>
       <progressCurve>
         <points>
           <li>(0,0)</li>
