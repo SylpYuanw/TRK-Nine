@@ -169,12 +169,49 @@ namespace XIYUNTE
     // 高亮也是原版的圆形环(斜角按欧氏距离缩短)。
     // 不使用自定义方形射程/方形高亮：那会与原版圆形高亮叠加，出现「一个方框 + 一个圆环」。
 
-    // 冲刺飞行器工作器：进度线性推进、高度恒为 0，得到贴地冲刺而不是抛物线跳跃。
+    // 冲刺/击退飞行器：在原版 PawnFlyer 基础上绘制 Pawn 手中的武器。
+    // 飞行途中角色显示为空手闲置状态，因此这里在画完 Pawn 本体后补画主武器。
+    public class PawnFlyer_Breakthrough : PawnFlyer
+    {
+        public override void DynamicDrawPhaseAt(DrawPhase phase, Vector3 drawLoc, bool flip = false)
+        {
+            base.DynamicDrawPhaseAt(phase, drawLoc, flip);
+
+            // 只在真正绘制 Pawn 本体的阶段绘制。
+            if (phase != DrawPhase.Draw)
+                return;
+
+            Pawn pawn = FlyingPawn;
+            if (pawn?.equipment?.Primary == null)
+                return;
+
+            float distanceFactor = pawn.ageTracker?.CurLifeStage?.equipmentDrawDistanceFactor ?? 1f;
+            PawnRenderUtility.DrawCarriedWeapon(pawn.equipment.Primary, DrawPos, pawn.Rotation, distanceFactor);
+        }
+    }
+
+    // 飞行器参数扩展：把「飞行高度」变成 XML 可调项。
+    // 原版 PawnFlyer 的垂直高度只由 worker 的 GetHeight() 决定(Altitudes.AltIncVect * effectiveHeight)，
+    // 而 heightFactor 只缩放「前进方向」的偏移，不影响高度；原版 worker 又把 GetHeight 写死成
+    // InverseParabola(峰值为 1)，因此要调高度必须自建属性类 + worker。
+    public class PawnFlyerProperties_Breakthrough : PawnFlyerProperties
+    {
+        // 飞行弧线峰值高度，单位是 altitude 层(原版跳跃的 InverseParabola 峰值为 1)。
+        // 0 = 全程贴地(冲刺)；>0 = 起跳后落地(击退)。数值越大飞得越高。
+        public float maxHeight;
+    }
+
+    // 冲刺/击退共用的飞行器 worker：进度线性推进，高度为 maxHeight 的抛物线弧。
     public class PawnFlyerWorker_Breakthrough : PawnFlyerWorker
     {
         public PawnFlyerWorker_Breakthrough(PawnFlyerProperties properties) : base(properties) { }
+
+        private PawnFlyerProperties_Breakthrough Props => properties as PawnFlyerProperties_Breakthrough;
+
         public override float AdjustedProgress(float t) => t;
-        public override float GetHeight(float t) => 0f;
+
+        // t = 0.5 时达到 maxHeight，起落两端为 0；maxHeight = 0 时全程贴地。
+        public override float GetHeight(float t) => (Props?.maxHeight ?? 0f) * GenMath.InverseParabola(t);
     }
 
     public class Ability_BreakthroughTool : Ability
@@ -220,8 +257,10 @@ namespace XIYUNTE
         public int knockbackDistance = 5;
         // 击退路径撞到不可通行建筑时追加的伤害。
         public float wallExtraDamage = 20f;
-        // 冲刺用贴地飞行器；必须在 XML 指向 heightFactor=0 的飞行器，否则会变成腾空跳跃。
+        // 冲刺用贴地飞行器；必须在 XML 指向 heightFactor=0/maxHeight=0 的飞行器，否则会腾空。
         public ThingDef dashFlyerDef;
+        // 击退用飞行器；高度与速度都在该 ThingDef 的 pawnFlyer 里配置。
+        public ThingDef knockbackFlyerDef;
         // 释放技能时的音效(默认与切换突破工具形态同一音效)。
         public SoundDef castSound;
         // 命中时的音效(默认宙斯锤钝器命中音效)与冲击波特效。
@@ -379,8 +418,15 @@ namespace XIYUNTE
             if (destCell == victim.Position)
                 return;
 
-            // 击退动画：原版「被击飞」飞行器，落地自带眩晕。
-            PawnFlyer flyer = PawnFlyer.MakeFlyer(ThingDefOf.PawnFlyer_Stun, victim, destCell, null, null);
+            // 击退动画：使用 XML 配置的击退飞行器(高度/速度都在那个 Def 的 pawnFlyer 里)。
+            ThingDef kbFlyerDef = Props.knockbackFlyerDef;
+            if (kbFlyerDef == null)
+            {
+                Log.Error("[BreakthroughTool] knockbackFlyerDef is not configured; knockback was not performed.");
+                return;
+            }
+
+            PawnFlyer flyer = PawnFlyer.MakeFlyer(kbFlyerDef, victim, destCell, null, null);
             if (flyer != null)
                 GenSpawn.Spawn(flyer, destCell, map);
         }
