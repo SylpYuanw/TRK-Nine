@@ -84,7 +84,7 @@
             <description>可以切换多种战斗形态的模块化派送箱。\nДевять协会北部收尾人使用的派送箱。\n派送箱可以进行增强输出功率以及转换模式。启动后派送箱会持续释放能量协助战斗，还可以增强输出功率或转换模式。\n不过增强输出功率也不一定对性命有保障。请别错过最后的期限。\n[最低福利休息模式运作。能量补给暂停。注意。此措施是暂时的。建议迅速派送。]\n派送箱内有搭载AI助理“波鲁（鼠）德尼察”进行导航来达到快速配送的目的。\n内置重力奇点，即使放入许多物品也不会感到有明显的重量增加。\n不过通常来讲，这些箱子大多都是前辈的遗物\n[阶段三。警告。任务超时。进入派送加速最终阶段。进一步的时间延误将无法保障您的安全。]\n ”放我一马我保证一定会好好完成派送的！吱！“</description>
             <texPath>Weapon/Box_Core</texPath>
             <drawSize>1.0</drawSize>
-            
+
             <commandIcon>Weapon/Box_Core</commandIcon>
             <sheathTexPath>Weapon/box_Full</sheathTexPath>
             <sheathGraphicMulti>true</sheathGraphicMulti>
@@ -281,19 +281,19 @@
       <li Class="SYS.CompProperties_WeaponExtention">
         <northOffset>
           <position>(0,0,0)</position>
-          <angle>90</angle>
+          <angle>-90</angle>
         </northOffset>
         <southOffset>
           <position>(0,0,0)</position>
           <angle>90</angle>
         </southOffset>
         <eastOffset>
-          <position>(0,0,0)</position>
-          <angle>90</angle>
+          <position>(0.3,0,-0.25)</position>
+          <angle>-315</angle>
         </eastOffset>
         <westOffset>
-          <position>(0,0,0)</position>
-          <angle>90</angle>
+          <position>(-0.3,0,-0.25)</position>
+          <angle>-45</angle>
         </westOffset>
       </li>
       <li Class="SYS.CompProperties_Sheath">
