@@ -3,6 +3,7 @@ using System.Reflection;
 using System.Runtime.ExceptionServices;
 using HarmonyLib;
 using RimWorld;
+using UnityEngine;
 using Verse;
 
 namespace XIYUNTE
@@ -28,9 +29,15 @@ namespace XIYUNTE
                 (__instance.tool == mode.tools[0] || __instance.tool == mode.tools[1]))
             {
                 Pawn caster = __instance.CasterPawn;
-                // 攻击特效的偏移与朝向由 A(施放者)、B(本次挥击的目标格)两点确定,因此 B 传入目标格而非施放者所在格,
-                // 斜向攻击时特效同样落在目标方向。目标若被本次挥击击杀,其 PositionHeld 仍指向最后所在格。
-                mode.attackEffecter.Spawn(new TargetInfo(caster), new TargetInfo(__instance.CurrentTarget.Cell, caster.Map)).Cleanup();
+                // 偏移按「施放者格 -> 本次挥击目标格」的格差逐轴计算:正交得 (0,0,±0.9)/(±0.9,0,0),
+                // 斜角得 (±0.9,0,±0.9),八个方向贴图中心与目标的相对位置一致。
+                // 朝向由 B(目标格)决定,即 num = (B.Cell - A.Cell).AngleFlat。目标若被本次挥击击杀,PositionHeld 仍指向最后所在格。
+                IntVec3 targetCell = __instance.CurrentTarget.Cell;
+                IntVec3 cellDelta = targetCell - caster.PositionHeld;
+                Effecter effecter = new Effecter(mode.attackEffecter);
+                effecter.offset = new Vector3(cellDelta.x, 0f, cellDelta.z) * mode.attackEffectOffset;
+                effecter.Trigger(new TargetInfo(caster), new TargetInfo(targetCell, caster.Map));
+                effecter.Cleanup();
             }
 
             if (resolvingExtraAttack) return;

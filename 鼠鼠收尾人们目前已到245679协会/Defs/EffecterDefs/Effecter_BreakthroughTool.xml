@@ -25,12 +25,10 @@
         <spawnLocType>OnSource</spawnLocType>
         <!-- 朝向按 A(施放者) -> B(本次挥击的目标格) 的真实方向计算:关闭 useTargetAInitialRotation 后
              num = (B.Cell - A.Cell).AngleFlat;rotation 的 -90 用于修正「冲击端朝东」的贴图基准,
-             两者相加后冲击端指向目标。perRotationOffsets 的索引是 Rot4.AsInt(仅 0~3 四值),只能表达四向,故不使用。 -->
+             两者相加后冲击端指向目标。perRotationOffsets 的索引是 Rot4.AsInt(仅 0~3 四值),只能表达四向,故不使用。
+             偏移不在本 Def 配置:offsetTowardsTarget 是固定距离,斜角会缩短;偏移量由 C# 按目标格差逐轴写入 Effecter.offset。 -->
         <rotation>-90~-90</rotation>
       </li>
     </children>
-    <!-- 沿 A->B 推出 0.9,把贴图中心落到目标身上。本字段属于 EffecterDef,必须与 children 同级;
-         写进子效果器不会生效(SubEffecterDef 无此字段)。 -->
-    <offsetTowardsTarget>0.9~0.9</offsetTowardsTarget>
   </EffecterDef>
 </Defs>
