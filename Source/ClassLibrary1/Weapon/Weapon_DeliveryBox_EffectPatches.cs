@@ -22,9 +22,18 @@ namespace XIYUNTE
 
         static void Postfix(Verb_MeleeAttack __instance)
         {
-            if (resolvingExtraAttack) return;
             CompWeaponTransformer transformer = __instance.EquipmentSource?.GetComp<CompWeaponTransformer>();
             WeaponMode mode = transformer?.CurrentMode;
+            if (mode?.isBreakthroughTool == true &&
+                (__instance.tool == mode.tools[0] || __instance.tool == mode.tools[1]))
+            {
+                Pawn caster = __instance.CasterPawn;
+                // 攻击特效的偏移与朝向由 A(施放者)、B(本次挥击的目标格)两点确定,因此 B 传入目标格而非施放者所在格,
+                // 斜向攻击时特效同样落在目标方向。目标若被本次挥击击杀,其 PositionHeld 仍指向最后所在格。
+                mode.attackEffecter.Spawn(new TargetInfo(caster), new TargetInfo(__instance.CurrentTarget.Cell, caster.Map)).Cleanup();
+            }
+
+            if (resolvingExtraAttack) return;
             if (mode == null || mode.multiAttackChance <= 0f || mode.multiAttackCount <= 1) return;
             if (mode.tools == null || !mode.tools.Contains(__instance.tool)) return;
             if (!Rand.Chance(mode.multiAttackChance)) return;

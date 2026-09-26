@@ -250,6 +250,7 @@
             <switchSound>Interact_ZeusHammer</switchSound>
             <!-- 突破工具形态标记:突破工具技能以本标记判断当前形态能否施放。 -->
             <isBreakthroughTool>true</isBreakthroughTool>
+            <attackEffecter>RK_DeliveryBox_BreakthroughAttack</attackEffecter>
             <tools>
               <li>
                 <label>突破锤击</label>
@@ -334,4 +335,5 @@
       </skillRequirements>
     </recipeMaker>
   </ThingDef>
+
 </Defs>

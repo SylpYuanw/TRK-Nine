@@ -66,6 +66,8 @@ namespace XIYUNTE
         public float buildingDamageFactor;
         // 该形态是否为「突破工具」形态:突破工具技能以本标记判断当前形态能否施放。
         public bool isBreakthroughTool;
+        // 突破工具主攻击使用的特效;只在普通近战攻击动作中触发。
+        public EffecterDef attackEffecter;
         public List<Tool> tools;
 
         [Unsaved(false)] private Graphic graphic;
@@ -212,8 +214,7 @@ namespace XIYUNTE
         }
 
         // 把当前形态应用到运行链路:替换装备组件主 Verb 的机动参数与 tool、恢复 caster,并更新 SYS 背负图形缓存。
-        // 多攻击形态：逐个同步每个近战动词的 tool/maneuver/loadID；保留同一批 Verb 对象并同步 loadID，
-        // 避免重建 VerbTracker 导致攻击中的 Stance 与新 Verb 对象脱节。
+        // 各形态的 Verb 类型一致,复用 Verb 对象并同步当前形态的 tool/maneuver/loadID。
         private void ApplyMode()
         {
             // 技能随形态挂载/卸载:切到突破工具形态才持有该技能,切走即移除(与高功率同一套挂载模型)。
