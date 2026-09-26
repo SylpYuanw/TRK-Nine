@@ -251,8 +251,6 @@
             <!-- 突破工具形态标记:突破工具技能以本标记判断当前形态能否施放。 -->
             <isBreakthroughTool>true</isBreakthroughTool>
             <attackEffecter>RK_DeliveryBox_BreakthroughAttack</attackEffecter>
-            <!-- 近战攻击特效偏移系数:按「施放者格 -> 目标格」的格差逐轴缩放,正交推 0.9 格,斜角每轴 0.9 格。 -->
-            <attackEffectOffset>0.9</attackEffectOffset>
             <tools>
               <li>
                 <label>突破锤击</label>

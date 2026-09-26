@@ -68,9 +68,6 @@ namespace XIYUNTE
         public bool isBreakthroughTool;
         // 突破工具主攻击使用的特效;只在普通近战攻击动作中触发。
         public EffecterDef attackEffecter;
-        // 突破工具主攻击特效的偏移系数:沿「施放者格 -> 目标格」的格差逐轴缩放,
-        // 正交格差 1 格推 attackEffectOffset 格,斜角格差 (1,1) 每轴各推 attackEffectOffset 格。
-        public float attackEffectOffset = 0.9f;
         public List<Tool> tools;
 
         [Unsaved(false)] private Graphic graphic;
