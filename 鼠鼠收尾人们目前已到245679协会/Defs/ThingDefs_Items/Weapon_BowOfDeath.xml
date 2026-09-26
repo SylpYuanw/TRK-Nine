@@ -80,6 +80,11 @@
       <li Class="XIYUNTE.Properties_DeathBow">
         <ammoDef>Bow_of_Death_Arrow</ammoDef>
         <maxCharges>4</maxCharges>
+        <aimDrawOffsetEast>(0,0,0.2)</aimDrawOffsetEast>
+        <aimDrawOffsetWest>(0,0,0.2)</aimDrawOffsetWest>
+        <aimDrawOffsetNorth>(-0.1,0,0)</aimDrawOffsetNorth>
+        <aimDrawOffsetSouth>(0.1,0,0)</aimDrawOffsetSouth>
+        <heldSouthTexPath>Weapon/Bow_of_Death_HeldSouth</heldSouthTexPath>
         <!-- 蓄力阶切换耗时(tick):30 tick = 0.5 秒,6 tick = 0.1 秒。等待期内射击不可用,结束后才换参数。 -->
         <stageSwitchTicks>6</stageSwitchTicks>
         <!-- 近战/远程模式切换耗时(tick),与蓄力阶切换独立;0 = 立即切换。 -->
@@ -129,6 +134,24 @@
             <description>四阶蓄力：伤害 66，护甲穿透 93.3%，瞄准时间 8.2 秒，精度加成 +16%。</description>
           </li>
         </stages>
+      </li>
+      <li Class="SYS.CompProperties_WeaponExtention">
+        <northOffset>
+          <position>(0,-0.3,-0.11)</position>
+          <angle>273</angle>
+        </northOffset>
+        <eastOffset>
+          <position>(0.4,0.3,-0.02)</position>
+          <angle>273</angle>
+        </eastOffset>
+        <southOffset>
+          <position>(0.2,0.3,-0.02)</position>
+          <angle>93</angle>
+        </southOffset>
+        <westOffset>
+          <position>(-0.4,0,-0.02)</position>
+          <angle>87</angle>
+        </westOffset>
       </li>
     </comps>
     <recipeMaker>

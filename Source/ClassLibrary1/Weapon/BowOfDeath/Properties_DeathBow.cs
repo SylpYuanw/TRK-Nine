@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEngine;
 using Verse;
 
 namespace XIYUNTE
@@ -51,6 +52,16 @@ namespace XIYUNTE
 
         public string loadIconPath;
 
+        // 瞄准时按瞄准方向应用的世界坐标偏移。
+        public Vector3 aimDrawOffsetEast;
+
+        public Vector3 aimDrawOffsetWest;
+        public Vector3 aimDrawOffsetNorth;
+        public Vector3 aimDrawOffsetSouth;
+
+        // 非瞄准朝南持握时使用的贴图路径。
+        public string heldSouthTexPath;
+
         public Properties_DeathBow()
         {
             compClass = typeof(CompEquippable_DeathBow);
@@ -102,6 +113,10 @@ namespace XIYUNTE
             if (ammoDef == null)
             {
                 yield return "DeathBow has no ammoDef configured.";
+            }
+            if (heldSouthTexPath.NullOrEmpty())
+            {
+                yield return "DeathBow has no heldSouthTexPath configured.";
             }
             if (maxCharges <= 0)
             {

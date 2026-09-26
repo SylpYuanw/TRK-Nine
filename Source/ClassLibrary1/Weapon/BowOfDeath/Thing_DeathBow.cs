@@ -10,6 +10,41 @@ namespace XIYUNTE
     // 蓄力阶切换后不会变化,因此这里过滤掉静态远程条目,再用当前阶的弹丸重新生成。
     public class Thing_DeathBow : ThingWithComps
     {
+        private Graphic heldSouthGraphic;
+
+        // 非瞄准朝南持握使用独立贴图；其他方向与瞄准时使用武器原图。
+        public override Graphic Graphic
+        {
+            get
+            {
+                Pawn pawn = (ParentHolder as Pawn_EquipmentTracker)?.pawn;
+                if (pawn == null || pawn.Rotation != Rot4.South)
+                {
+                    return base.Graphic;
+                }
+
+                Stance_Busy stance = pawn.stances.curStance as Stance_Busy;
+                if (stance != null && !stance.neverAimWeapon && stance.focusTarg.IsValid)
+                {
+                    return base.Graphic;
+                }
+
+                if (heldSouthGraphic == null)
+                {
+                    GraphicData source = def.graphicData;
+                    heldSouthGraphic = new GraphicData
+                    {
+                        texPath = GetComp<CompEquippable_DeathBow>().Props.heldSouthTexPath,
+                        graphicClass = typeof(Graphic_Single),
+                        shaderType = source.shaderType,
+                        drawSize = source.drawSize,
+                        ignoreThingDrawColor = source.ignoreThingDrawColor
+                    }.GraphicColoredFor(this);
+                }
+                return heldSouthGraphic;
+            }
+        }
+
         public override IEnumerable<StatDrawEntry> SpecialDisplayStats()
         {
             CompEquippable_DeathBow bow = GetComp<CompEquippable_DeathBow>();
