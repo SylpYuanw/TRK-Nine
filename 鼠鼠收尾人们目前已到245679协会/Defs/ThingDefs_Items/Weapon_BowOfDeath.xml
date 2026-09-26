@@ -20,7 +20,7 @@
     <uiIconScale>1</uiIconScale>
     <relicChance>0</relicChance>
     <!-- 外观与持握:沿用参考文件的武器持握角度与交互音效。 -->
-    <equippedAngleOffset>165</equippedAngleOffset>
+    <equippedAngleOffset>220</equippedAngleOffset>
     <soundInteract>Bow_Large</soundInteract>
     <rotateInShelves>false</rotateInShelves>
     <!-- 远程部分:四段基础精度,对应距离 <=3 / 3~12 / 12~25 / >=25 格。 -->
