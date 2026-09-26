@@ -13,7 +13,8 @@
       <shaderType>CutoutComplex</shaderType>
       <ignoreThingDrawColor>true</ignoreThingDrawColor>
       <!-- 图像大小:物品/地面/手持武器的绘制尺寸,默认 (1,1) 即一格。改这里调整大小。 -->
-      <drawSize>(1.5,1.5)</drawSize>
+      <drawSize>(1.2,1.2)</drawSize>
+      <drawOffset>(0,0.2,0)</drawOffset>
     </graphicData>
     <uiIconPath>Weapon/Bow_of_Death</uiIconPath>
     <!-- UI 图标缩放(物品栏/信息卡图标大小),与 drawSize 分开。 -->
