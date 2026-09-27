@@ -24,14 +24,16 @@ namespace XIYUNTE
         {
             CompWeaponTransformer transformer = __instance.EquipmentSource?.GetComp<CompWeaponTransformer>();
             WeaponMode mode = transformer?.CurrentMode;
-            if (mode?.isBreakthroughTool == true &&
-                (__instance.tool == mode.tools[0] || __instance.tool == mode.tools[1]))
+            // 攻击特效按「是否派送箱 -> 当前形态是否配置特效」短路:只有派送箱带本组件,mode 才有值;
+            // 形态未配置 attackEffecter 时直接跳过。不按 tool 判定,因此同一形态的任意近战动作都用该形态的 EffecterDef。
+            EffecterDef attackEffecter = mode?.attackEffecter;
+            if (attackEffecter != null)
             {
                 Pawn caster = __instance.CasterPawn;
                 // 偏移与朝向都由 A(施放者)、B(本次挥击的目标格)两点确定,故 B 传目标格而非施放者所在格:
-                // 朝向取 A->B 的连续角,偏移由 EffecterDef.offsetTowardsTarget 沿 A->B 推出,斜角攻击同样落在目标方向。
+                // 朝向取 A->B 的连续角,偏移由 EffecterDef.offsetTowardsTarget 沿 A->B 推出。
                 // 目标若被本次挥击击杀,其 PositionHeld 仍指向最后所在格。
-                mode.attackEffecter.Spawn(new TargetInfo(caster), new TargetInfo(__instance.CurrentTarget.Cell, caster.Map)).Cleanup();
+                attackEffecter.Spawn(new TargetInfo(caster), new TargetInfo(__instance.CurrentTarget.Cell, caster.Map)).Cleanup();
             }
 
             if (resolvingExtraAttack) return;

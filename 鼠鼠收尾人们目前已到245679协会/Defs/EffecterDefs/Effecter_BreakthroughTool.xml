@@ -1,36 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
-  <FleckDef ParentName="FleckBase_Thrown">
-    <defName>RK_DeliveryBox_BreakthroughAttackFleck</defName>
+  <!-- 派送箱四个形态(崩坏刃/多功能工具/崩解锤/突破工具)的近战攻击特效。
+       四个 EffecterDef 参数完全一致,只有引用贴图不同;派送箱本体形态不配置特效。 -->
+
+  <FleckDef Name="RK_DeliveryBox_AttackFleckBase" ParentName="FleckBase_Thrown" Abstract="True">
     <altitudeLayer>MoteOverhead</altitudeLayer>
     <fadeInTime>0.01</fadeInTime>
     <solidTime>0.1</solidTime>
     <fadeOutTime>0.2</fadeOutTime>
     <graphicData>
-      <texPath>VFX/Breakthrough_AttackEffect</texPath>
       <shaderType>MoteGlow</shaderType>
       <drawSize>1.2</drawSize>
       <graphicClass>Graphic_Fleck</graphicClass>
     </graphicData>
   </FleckDef>
 
+  <FleckDef ParentName="RK_DeliveryBox_AttackFleckBase">
+    <defName>RK_DeliveryBox_AttackFleck_Blade</defName>
+    <graphicData>
+      <texPath>VFX/Box_Blade_AttackEffect</texPath>
+    </graphicData>
+  </FleckDef>
+
+  <FleckDef ParentName="RK_DeliveryBox_AttackFleckBase">
+    <defName>RK_DeliveryBox_AttackFleck_Tool</defName>
+    <graphicData>
+      <texPath>VFX/Box_Tool_AttackEffect</texPath>
+    </graphicData>
+  </FleckDef>
+
+  <FleckDef ParentName="RK_DeliveryBox_AttackFleckBase">
+    <defName>RK_DeliveryBox_AttackFleck_Hammer</defName>
+    <graphicData>
+      <texPath>VFX/Box_Hammer_AttackEffect</texPath>
+    </graphicData>
+  </FleckDef>
+
+  <FleckDef ParentName="RK_DeliveryBox_AttackFleckBase">
+    <defName>RK_DeliveryBox_AttackFleck_Breakthrough</defName>
+    <graphicData>
+      <texPath>VFX/Box_Breakthrough_AttackEffect</texPath>
+    </graphicData>
+  </FleckDef>
+
+  <!-- 攻击特效按 A(施放者) -> B(本次挥击的目标格) 的真实方向定位与朝向:
+       朝向:关闭 useTargetAInitialRotation 后取 num = (B.Cell - A.Cell).AngleFlat,再叠加 rotation 的 -90
+             (用于修正「冲击端朝东」的贴图基准),使冲击端指向目标;
+             不使用 perRotationOffsets —— 其索引为 Rot4.AsInt(仅 0~3 四值),只能表达四向。
+       偏移:offsetTowardsTarget 沿 A->B 推出 0.9 格,正交与斜角使用同一距离。该字段属于 EffecterDef,
+             必须与 children 同级,写进子效果器会被静默忽略。 -->
   <EffecterDef>
-    <defName>RK_DeliveryBox_BreakthroughAttack</defName>
+    <defName>RK_DeliveryBox_AttackEffect_Blade</defName>
     <children>
       <li>
         <subEffecterClass>SubEffecter_SprayerTriggered</subEffecterClass>
-        <fleckDef>RK_DeliveryBox_BreakthroughAttackFleck</fleckDef>
+        <fleckDef>RK_DeliveryBox_AttackFleck_Blade</fleckDef>
         <burstCount>1</burstCount>
         <scale>1.0~1.0</scale>
         <spawnLocType>OnSource</spawnLocType>
-        <!-- 朝向按 A(施放者) -> B(本次挥击的目标格) 的真实方向计算:关闭 useTargetAInitialRotation 后
-             num = (B.Cell - A.Cell).AngleFlat;rotation 的 -90 用于修正「冲击端朝东」的贴图基准,两者相加后冲击端指向目标。
-             perRotationOffsets 的索引是 Rot4.AsInt(仅 0~3 四值),只能表达四向,故不使用。 -->
         <rotation>-90~-90</rotation>
       </li>
     </children>
-    <!-- 沿 A->B 推出 0.9 格,把贴图中心落到目标身上:正交与斜角都用同一距离 0.9。
-         本字段属于 EffecterDef,必须与 children 同级;写进子效果器会被静默忽略。 -->
+    <offsetTowardsTarget>0.9~0.9</offsetTowardsTarget>
+  </EffecterDef>
+
+  <EffecterDef>
+    <defName>RK_DeliveryBox_AttackEffect_Tool</defName>
+    <children>
+      <li>
+        <subEffecterClass>SubEffecter_SprayerTriggered</subEffecterClass>
+        <fleckDef>RK_DeliveryBox_AttackFleck_Tool</fleckDef>
+        <burstCount>1</burstCount>
+        <scale>1.0~1.0</scale>
+        <spawnLocType>OnSource</spawnLocType>
+        <rotation>-90~-90</rotation>
+      </li>
+    </children>
+    <offsetTowardsTarget>0.9~0.9</offsetTowardsTarget>
+  </EffecterDef>
+
+  <EffecterDef>
+    <defName>RK_DeliveryBox_AttackEffect_Hammer</defName>
+    <children>
+      <li>
+        <subEffecterClass>SubEffecter_SprayerTriggered</subEffecterClass>
+        <fleckDef>RK_DeliveryBox_AttackFleck_Hammer</fleckDef>
+        <burstCount>1</burstCount>
+        <scale>1.0~1.0</scale>
+        <spawnLocType>OnSource</spawnLocType>
+        <rotation>-90~-90</rotation>
+      </li>
+    </children>
+    <offsetTowardsTarget>0.9~0.9</offsetTowardsTarget>
+  </EffecterDef>
+
+  <EffecterDef>
+    <defName>RK_DeliveryBox_AttackEffect_Breakthrough</defName>
+    <children>
+      <li>
+        <subEffecterClass>SubEffecter_SprayerTriggered</subEffecterClass>
+        <fleckDef>RK_DeliveryBox_AttackFleck_Breakthrough</fleckDef>
+        <burstCount>1</burstCount>
+        <scale>1.0~1.0</scale>
+        <spawnLocType>OnSource</spawnLocType>
+        <rotation>-90~-90</rotation>
+      </li>
+    </children>
     <offsetTowardsTarget>0.9~0.9</offsetTowardsTarget>
   </EffecterDef>
 </Defs>

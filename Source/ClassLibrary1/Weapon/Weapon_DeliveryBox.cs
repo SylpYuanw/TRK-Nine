@@ -66,7 +66,7 @@ namespace XIYUNTE
         public float buildingDamageFactor;
         // 该形态是否为「突破工具」形态:突破工具技能以本标记判断当前形态能否施放。
         public bool isBreakthroughTool;
-        // 突破工具主攻击使用的特效;只在普通近战攻击动作中触发。
+        // 该形态近战攻击时生成的攻击特效(为空则不生成);四个形态各自指向只有一个贴图不同的 EffecterDef。
         public EffecterDef attackEffecter;
         public List<Tool> tools;
 
