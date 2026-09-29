@@ -1,12 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-
-
-
-
-
-
-
 <Defs>
   <!-- 死之弓蓄力阶切换的浮现印迹:切换完成时由 XIYUNTE.CompEquippable_DeathBow 在装备者身上生成。
        生命周期完全走原版 Mote 机制:fadeInTime → solidTime → fadeOutTime 三段结束后自行销毁,不入存档;
@@ -33,14 +25,17 @@
     </graphicData>
   </ThingDef>
 
-  <!-- 仅四阶蓄力启用,由 XIYUNTE.CompEquippable_DeathBow 生成、绑定装备者,分两层叠加。
-       侧面层(本 Def)使用 Trk/BowOfDeathAimWind:画面主体是贴图(VFX/Bow_of_Death_Aim_Vfx)本身,
+  <!-- 仅四阶蓄力启用,由 XIYUNTE.CompEquippable_DeathBow 生成、绑定装备者,与流线层、扩散层叠加。
+       主体层(本 Def)使用 Trk/BowOfDeathAimWind:画面主体是贴图(VFX/Bow_of_Death_Aim_Vfx)本身,
        Shader 不做裁剪与扭曲,按贴图自带颜色显示,并随 _SmokeScroll 整图向左平移(取样随读数增大而右移,内容因此左移),
        _SmokeWarp 为 0 时完全不扭曲;程序粒子只作辅助拖尾,在右侧发射带出生后向左飘散,
        头部只留轻微红色鼓包(_HeadGlow/_HeadColor 控制),不出现高亮白点。
-       层呼吸(最低 8%、周期 1.7 秒)与摇曳仍由 Mote_DeathBowAimVfx 提供,两侧不重复实现同一动画。
-       画布 5×3.2 格、偏移 -1.4 格即烟雾与粒子场从角色右侧向左延伸约 4 格。
-       两层共用同一套时间轴:按 fadeInTime 淡入 1 秒 → 持续 → 停止维护(射击完成或瞄准中断)后按 fadeOutTime 淡出 1 秒并自毁,
+       贴图按"朝右射击"绘制,而 Mote_DeathBowAimVfx 把画布定向为 瞄准角 - 90(局部 +X 指向瞄准方向),
+       因此"贴图向左"在游戏内表现为"向角色背后":朝正上方瞄准时整片烟雾落到角色正下方,朝右上方瞄准时落到左下方。
+       attachedDrawOffset 是随瞄准方向一起旋转的局部偏移:X 为瞄准方向偏移,-1.4 表示画布中心落在角色身后 1.4 格。
+       层呼吸(最低 8%、周期 1.7 秒)、尺寸呼吸与摇曳仍由 Mote_DeathBowAimVfx 提供,两侧不重复实现同一动画。
+       画布 5×3.2 格,即烟雾与粒子场从角色前方约 1.1 格起向身后延伸约 4 格。
+       三层共用同一套时间轴:按 fadeInTime 淡入 1 秒 → 持续 → 停止维护(射击完成或瞄准中断)后按 fadeOutTime 淡出 1 秒并自毁,
        solidTime 取大值即"存活时间由是否仍在瞄准决定",needsMaintenance + fadeOutUnmaintained 提供原版"停止续命即淡出"的规则。 -->
   <ThingDef ParentName="MoteBase">
     <defName>BowOfDeath_AimVfx</defName>
@@ -52,7 +47,8 @@
       <fadeOutTime>1</fadeOutTime>
       <needsMaintenance>true</needsMaintenance>
       <fadeOutUnmaintained>true</fadeOutUnmaintained>
-      <!-- 相对装备者绘制位置的偏移:X 为画面左右,Z 为画面上下(北)。 -->
+      <!-- 相对装备者绘制位置的局部偏移(单位:格):X 为瞄准方向偏移,负值表示画布中心落在角色背后;
+           由 Mote_DeathBowAimVfx 按瞄准角旋转后生效,Z 为画布纵向偏移。 -->
       <attachedDrawOffset>(-1.4,0,0)</attachedDrawOffset>
     </mote>
     <graphicData>
@@ -83,54 +79,14 @@
     </graphicData>
   </ThingDef>
 
-  <!-- 基底层:使用 Trk/BowOfDeathAimBase,由 Shader 生成类高斯光团并让贴图火苗持续卷动侵蚀;
-       层呼吸(最低 55%、周期 2.6 秒)仍由 Mote_DeathBowAimBaseVfx 提供,画在比侧面层更低的图层上垫底。
-       画布 2.6×1.8 格保持贴图原始长宽比,高斯半径按 _GlowRadius×画布宽 换算。 -->
-  <ThingDef ParentName="MoteBase">
-    <defName>BowOfDeath_AimBaseVfx</defName>
-    <thingClass>XIYUNTE.Mote_DeathBowAimBaseVfx</thingClass>
-    <altitudeLayer>MoteOverheadLow</altitudeLayer>
-    <mote>
-      <fadeInTime>1</fadeInTime>
-      <solidTime>99999</solidTime>
-      <fadeOutTime>0</fadeOutTime>
-      <needsMaintenance>true</needsMaintenance>
-      <fadeOutUnmaintained>true</fadeOutUnmaintained>
-      <attachedDrawOffset>(0,0,0.2)</attachedDrawOffset>
-    </mote>
-    <graphicData>
-      <texPath>VFX/Bow_of_Death_Aim_Base_Vfx</texPath>
-      <shaderType>Trk_BowOfDeathAimBase</shaderType>
-      <drawSize>(2.1,2.1)</drawSize>
-      <shaderParameters>
-        <_GlowColor>(1,0.08,0.06,1)</_GlowColor>
-        <_CoreColor>(1,0.32,0.42,1)</_CoreColor>
-        <_GlowRadius>0.24</_GlowRadius>
-        <_GlowFalloff>2</_GlowFalloff>
-        <_GlowAspect>1.3</_GlowAspect>
-        <_GlowBrightness>1</_GlowBrightness>
-        <_CoreStrength>0.9</_CoreStrength>
-        <_FlameStrength>0.5</_FlameStrength>
-        <_FlameScroll>0.4</_FlameScroll>
-        <_FlameErosion>0.45</_FlameErosion>
-        <_FlameFlicker>0.35</_FlameFlicker>
-        <_FlameCut>0.06</_FlameCut>
-        <_FlameSoft>0.07</_FlameSoft>
-        <_TurbulenceScale>3.2</_TurbulenceScale>
-        <_TurbulenceSpeed>0.45</_TurbulenceSpeed>
-        <_UseRealTime>1</_UseRealTime>
-      </shaderParameters>
-    </graphicData>
-  </ThingDef>
-
-  <!-- 流线层:仅四阶蓄力启用,由 XIYUNTE.CompEquippable_DeathBow 与两层烟雾同时生成。
+  <!-- 流线层:仅四阶蓄力启用,由 XIYUNTE.CompEquippable_DeathBow 与主体层、扩散层同时生成。
        贴图 VFX/Bow_of_Death_Aim_Streak_Vfx 是一条横向长条流光,由 XIYUNTE.Mote_DeathBowAimStreakVfx
        每 tick 把长轴转到角色面朝方向:取值 = 面朝角 - 90(AngleFlat 口径:0=北 90=东),
        与原版武器绘制同一套 Quaternion.AngleAxis 口径(武器取 面朝角 - 90 + equippedAngleOffset);
        位置沿该方向前移 0.4 + 武器 Def 的 equippedDistanceOffset 格,与弓的绘制落点一致,
        线段因此覆盖"弓前(正前方)至身后(正后方)"。
        画布 4×2 格:长边即线段长度,短边只决定贴图缩放(贴图内容集中在中间 13% 高度,可见光带厚度约 0.27 格)。
-       图层 VisEffects 高于两层烟雾(MoteOverhead / MoteOverheadLow),流线压在烟雾之上。 -->
+       图层 VisEffects 高于主体层(MoteOverhead)与扩散层(Gas),流线压在两者之上。 -->
   <ThingDef ParentName="MoteBase">
     <defName>BowOfDeath_AimStreakVfx</defName>
     <thingClass>XIYUNTE.Mote_DeathBowAimStreakVfx</thingClass>
@@ -147,6 +103,48 @@
       <texPath>VFX/Bow_of_Death_Aim_Streak_Vfx</texPath>
       <shaderType>MoteGlow</shaderType>
       <drawSize>(4,2)</drawSize>
+    </graphicData>
+  </ThingDef>
+
+  <!-- 扩散层:仅四阶蓄力启用,由 XIYUNTE.CompEquippable_DeathBow 与主体层、流线层同时生成。
+       贴图 VFX/Bow_of_Death_Aim_Charge_Vfx 是四条红色能量条,按"朝右射击"绘制(头部在右、尾部在左):
+       最右侧的头部贴在箭头上,四条红色向后(角色背后)飘散。
+       朝向与位置由 XIYUNTE.Mote_DeathBowAimChargeVfx 按瞄准方向给出:朝向 = 瞄准角 - 90,attachedDrawOffset 按同一角度旋转,
+       因此朝正上方瞄准时整块画布落在角色正下方、朝右上方瞄准时落在左下方。
+       Shader Trk/BowOfDeathAimCharge 只把贴图整图沿画布 -X 逐份向后推移(平移,不缩放、不压缩),
+       每份副本在头部停留后向后推移 _FlowSpan 的画布比例并在终点完全淡出。
+       画布 0.8×0.8 格:_FlowSpan 0.5 即向后推移 0.4 格,对应贴图四条红色的后飘距离;
+       _CopyCount 控制同时可见的副本份数,_FlowPeriod 控制单份副本从头部走到终点的秒数;
+       _HeadHold 取 1/_CopyCount 以上时任意时刻都有一份副本停在头部,头部因此完全不动。
+       图层 Gas 高于主体层(MoteOverhead)、低于流线层(VisEffects),避免同层同位置深度打架。 -->
+  <ThingDef ParentName="MoteBase">
+    <defName>BowOfDeath_AimChargeVfx</defName>
+    <thingClass>XIYUNTE.Mote_DeathBowAimChargeVfx</thingClass>
+    <altitudeLayer>Gas</altitudeLayer>
+    <mote>
+      <fadeInTime>1</fadeInTime>
+      <solidTime>99999</solidTime>
+      <fadeOutTime>1</fadeOutTime>
+      <needsMaintenance>true</needsMaintenance>
+      <fadeOutUnmaintained>true</fadeOutUnmaintained>
+      <!-- 局部偏移(单位:格):X 为瞄准方向偏移,0.3 表示画布中心落在角色前方 0.3 格,贴图头部因此贴近箭头;
+           由 Mote_DeathBowAimChargeVfx 按瞄准角旋转后生效,Z 为画布纵向偏移。 -->
+      <attachedDrawOffset>(0.3,0,0)</attachedDrawOffset>
+    </mote>
+    <graphicData>
+      <texPath>VFX/Bow_of_Death_Aim_Charge_Vfx</texPath>
+      <shaderType>Trk_BowOfDeathAimCharge</shaderType>
+      <drawSize>(0.8,0.8)</drawSize>
+      <shaderParameters>
+        <_CopyCount>3</_CopyCount>
+        <_FlowSpan>0.5</_FlowSpan>
+        <_FlowPeriod>1.1</_FlowPeriod>
+        <_HeadHold>0.34</_HeadHold>
+        <_FadeStart>0.35</_FadeStart>
+        <_FlowEase>0.5</_FlowEase>
+        <_Brightness>1</_Brightness>
+        <_UseRealTime>1</_UseRealTime>
+      </shaderParameters>
     </graphicData>
   </ThingDef>
 </Defs>

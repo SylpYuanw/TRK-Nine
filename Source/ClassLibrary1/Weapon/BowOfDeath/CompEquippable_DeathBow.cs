@@ -38,12 +38,12 @@ namespace XIYUNTE
         // 蓄力阶切换印迹的运行时实例:只用于刷新判定,不写入存档(mote 本身不可保存)。
         private Mote stageSwitchVfx;
 
-        // 蓄力特效的运行时实例(主体层/基底层/流线层):存活期间由 Mote 自身按"是否仍在瞄准"续命,不写入存档。
+        // 蓄力特效的运行时实例(主体层/流线层/扩散层):存活期间由 Mote 自身按"是否仍在瞄准"续命,不写入存档。
         private Mote aimVfx;
 
-        private Mote aimBaseVfx;
-
         private Mote aimStreakVfx;
+
+        private Mote aimChargeVfx;
 
         private VerbProperties activeProps;
 
@@ -355,8 +355,8 @@ namespace XIYUNTE
             stageSwitchVfx = MoteMaker.MakeAttachedOverlay(pawn, DeathBowDefOf.BowOfDeath_StageVfx, Vector3.zero);
         }
 
-        // 蓄力特效:瞄准开始时在装备者身上同时挂三层 Mote —— 主体层(反复淡出)、基底层(常驻轻呼吸)
-        // 与流线层(长轴指向瞄准方向、沿瞄准方向前移)。
+        // 蓄力特效:瞄准开始时在装备者身上同时挂三层 Mote —— 主体层(反复淡出)、流线层(长轴指向瞄准方向、
+        // 沿瞄准方向前移)与扩散层(箭头处沿瞄准方向向后推移)。
         // 时长、贴图与"停止维护即淡出"的规则都写在 Defs/Misc/Mote_BowOfDeath.xml,这里只负责生成一次。
         // 仍在使用同一枚时直接复用,避免 AI 反复重新瞄准把淡入打断、或叠出多枚特效。
         public void Notify_AimStarted()
@@ -372,8 +372,8 @@ namespace XIYUNTE
                 return;
             }
             EnsureAimVfx(ref aimVfx, DeathBowDefOf.BowOfDeath_AimVfx, pawn);
-            EnsureAimVfx(ref aimBaseVfx, DeathBowDefOf.BowOfDeath_AimBaseVfx, pawn);
             EnsureAimVfx(ref aimStreakVfx, DeathBowDefOf.BowOfDeath_AimStreakVfx, pawn);
+            EnsureAimVfx(ref aimChargeVfx, DeathBowDefOf.BowOfDeath_AimChargeVfx, pawn);
         }
 
         // 已有存活实例且宿主相同时复用,宿主已变或已销毁时重建。

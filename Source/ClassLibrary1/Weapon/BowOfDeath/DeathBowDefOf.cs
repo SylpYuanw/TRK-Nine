@@ -19,8 +19,8 @@ namespace XIYUNTE
         // 蓄力瞄准特效的 Mote 定义(Defs/Misc/Mote_BowOfDeath.xml)。
         public static ThingDef BowOfDeath_AimVfx;
 
-        // 蓄力特效基底层(常驻呼吸)的 Mote 定义(Defs/Misc/Mote_BowOfDeath.xml)。
-        public static ThingDef BowOfDeath_AimBaseVfx;
+        // 箭头蓄力扩散层(沿瞄准方向定向、由 Shader 向后推移)的 Mote 定义(Defs/Misc/Mote_BowOfDeath.xml)。
+        public static ThingDef BowOfDeath_AimChargeVfx;
 
         // 蓄力流线层(沿瞄准方向定向)的 Mote 定义(Defs/Misc/Mote_BowOfDeath.xml)。
         public static ThingDef BowOfDeath_AimStreakVfx;
