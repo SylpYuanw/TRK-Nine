@@ -3,7 +3,7 @@
   <ThingDef ParentName="ApparelMakeableBase">
     <defName>zweiA</defName>
     <description>“我们的座右铭是什么？”\n“您的盾牌。”\n一件米黄色的衬衫加上马甲作为打底作为Zwei协会成员的制服，维持着所负责地区的治安</description>
-    <label>南部2协会西装</label>
+    <label>南部Zwei协会西装</label>
     <recipeMaker>
       <researchPrerequisite>RK_Research_AdvancedApparel</researchPrerequisite>
       <recipeUsers Inherit="false">
@@ -27,13 +27,13 @@
     <techLevel>Industrial</techLevel>
     <statBases>
       <MaxHitPoints>320</MaxHitPoints>
-      <WorkToMake>2700</WorkToMake>
+      <WorkToMake>5000</WorkToMake>
       <Mass>1.2</Mass>
       <!-- 固定护甲值；材料护甲贡献按材料系数 0.30 缩放后叠加。 -->
       <ArmorRating_Blunt>0.10</ArmorRating_Blunt>
       <ArmorRating_Sharp>0.05</ArmorRating_Sharp>
       <ArmorRating_Heat>0.05</ArmorRating_Heat>
-      <StuffEffectMultiplierArmor>0.30</StuffEffectMultiplierArmor>
+      <StuffEffectMultiplierArmor>0.12</StuffEffectMultiplierArmor>
       <StuffEffectMultiplierInsulation_Cold>0.32</StuffEffectMultiplierInsulation_Cold>
       <StuffEffectMultiplierInsulation_Heat>0.20</StuffEffectMultiplierInsulation_Heat>
       <Flammability>0.60</Flammability>
@@ -83,7 +83,7 @@
  <ThingDef ParentName="ApparelMakeableBase">
     <defName>zweiB</defName>
     <description>有些厚大的衣物，能提供不错的防御力，不过Zwei协会的收尾人们在暗中保护目标时不会选择把这么有标志性的衣物套在身上，可能会在外面再套一件，或是准备保护目标的时候立马披上。\n不过嘛，保护的委托费也过于贵了。</description>
-    <label>南部2协会大衣</label>
+    <label>南部Zwei协会大衣</label>
     <possessionCount>1</possessionCount>
     <recipeMaker>
       <researchPrerequisite>RK_Research_AdvancedApparel</researchPrerequisite>
@@ -112,13 +112,13 @@
     <techLevel>Industrial</techLevel>
     <statBases>
       <MaxHitPoints>320</MaxHitPoints>
-      <WorkToMake>10000</WorkToMake>
+      <WorkToMake>13500</WorkToMake>
       <Mass>3.2</Mass>
       <!-- 固定护甲值；材料护甲系数为 1(100%)。 -->
-      <ArmorRating_Blunt>0.60</ArmorRating_Blunt>
+      <ArmorRating_Blunt>0.82</ArmorRating_Blunt>
       <ArmorRating_Sharp>0.30</ArmorRating_Sharp>
-      <ArmorRating_Heat>0.32</ArmorRating_Heat>
-      <StuffEffectMultiplierArmor>1</StuffEffectMultiplierArmor>
+      <ArmorRating_Heat>0.22</ArmorRating_Heat>
+      <StuffEffectMultiplierArmor>0.20</StuffEffectMultiplierArmor>
       <StuffEffectMultiplierInsulation_Cold>1.70</StuffEffectMultiplierInsulation_Cold>
       <StuffEffectMultiplierInsulation_Heat>0.90</StuffEffectMultiplierInsulation_Heat>
       <Flammability>0.60</Flammability>

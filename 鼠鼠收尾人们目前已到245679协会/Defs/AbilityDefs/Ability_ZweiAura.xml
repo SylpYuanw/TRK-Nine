@@ -5,8 +5,8 @@
        技能只作用于自身，通过原版 CompAbilityEffect_GiveHediff 挂载 zwei_AuraActive。 -->
   <AbilityDef>
     <defName>zwei_Aura</defName>
-    <label>二协会光环</label>
-    <description>开启二协会套装光环：10 格内的友军获得承伤 90% 的增益，最多叠加 3 层，持续 12 小时。\n冷却 36 小时，自开启时开始计算。</description>
+    <label>人民卫士</label>
+    <description>开启人民卫士：10 格内的友军获得承伤 90% 的增益，最多叠加 3 层，持续 12 小时。\n冷却 36 小时，自开启时开始计算。</description>
     <iconPath>Ability/Zwei_Clothes_Ability</iconPath>
     <targetRequired>false</targetRequired>
     <hostile>false</hostile>

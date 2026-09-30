@@ -70,10 +70,12 @@
     <Compile Include="Weapon\**\*.cs" />
     <Compile Include="Abilities\**\*.cs" />
     <Compile Include="Hediff\**\*.cs" />
+    <Compile Include="Combat\**\*.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Weapon\" />
     <Folder Include="Hediff\" />
+    <Folder Include="Combat\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

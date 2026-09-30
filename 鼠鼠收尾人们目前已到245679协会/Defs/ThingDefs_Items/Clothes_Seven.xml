@@ -1,22 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
-  <!-- 南部六协会西装：贴身层衣物，提供心灵敏感度与社交效果偏移，代号仍为 liuA 供套装判定使用。 -->
+  <!-- 南部Seven协会西装：贴身层衣物，提供调查效率与骇入速度偏移。 -->
   <ThingDef ParentName="ApparelMakeableBase">
-    <defName>liuA</defName>
-    <description>与外套一样，里面的西装也拥有金色的花纹。作为善于进行大规模作战的协会，协会内风气也是其乐融融的像一个大家庭一样，这也是支撑六协会能进行大规模作战的原因之一。</description>
-    <label>南部六协会西装</label>
+    <defName>sevenA</defName>
+    <label>南部Seven协会西装</label>
+    <description>虽然是有着大大小小情报的协会，并且会向外界售卖情报，不过一些容易影响到整个Seven协会存亡的事成员们是不会选择去打探的。</description>
     <recipeMaker>
-      <researchPrerequisite>ComplexClothing</researchPrerequisite>
+      <researchPrerequisite>RK_Research_AdvancedApparel</researchPrerequisite>
+      <recipeUsers Inherit="false">
+        <li>RK_ElectricTailoringBench</li>
+        <li>RK_HandTailoringBench</li>
+      </recipeUsers>
       <displayPriority>208</displayPriority>
     </recipeMaker>
     <graphicData>
-      <texPath>Clothing/liuA</texPath>
+      <texPath>Clothing/sevenA</texPath>
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
-    <costStuffCount>75</costStuffCount>
-    <costList>
-      <Gold>8</Gold>
-    </costList>
+    <costStuffCount>70</costStuffCount>
     <stuffCategories>
       <li>Fabric</li>
       <li>Leathery</li>
@@ -27,24 +28,30 @@
     <techLevel>Industrial</techLevel>
     <statBases>
       <MaxHitPoints>300</MaxHitPoints>
-      <WorkToMake>5600</WorkToMake>
+      <WorkToMake>5000</WorkToMake>
       <Mass>0.5</Mass>
       <!-- 固定护甲值；材料护甲贡献按材料系数缩放后叠加。 -->
-      <ArmorRating_Blunt>0.10</ArmorRating_Blunt>
-      <ArmorRating_Sharp>0.40</ArmorRating_Sharp>
-      <ArmorRating_Heat>0.40</ArmorRating_Heat>
+      <ArmorRating_Blunt>0.30</ArmorRating_Blunt>
+      <ArmorRating_Sharp>0.30</ArmorRating_Sharp>
+      <ArmorRating_Heat>0.20</ArmorRating_Heat>
       <StuffEffectMultiplierArmor>0.20</StuffEffectMultiplierArmor>
-      <StuffEffectMultiplierInsulation_Cold>0.40</StuffEffectMultiplierInsulation_Cold>
-      <StuffEffectMultiplierInsulation_Heat>0.60</StuffEffectMultiplierInsulation_Heat>
-      <Flammability>0.40</Flammability>
-      <EquipDelay>3</EquipDelay>
+      <StuffEffectMultiplierInsulation_Cold>0.70</StuffEffectMultiplierInsulation_Cold>
+      <StuffEffectMultiplierInsulation_Heat>0.70</StuffEffectMultiplierInsulation_Heat>
+      <Flammability>1.00</Flammability>
+      <EquipDelay>2.7</EquipDelay>
     </statBases>
-    <!-- 装备时属性偏移：心灵敏感度 -40%，社交效果 +16%。 -->
+    <!-- 装备时属性偏移：调查效率 +30%(需异常 DLC)，骇入速度 +30%。 -->
     <equippedStatOffsets>
-      <PsychicSensitivity>-0.40</PsychicSensitivity>
-      <SocialImpact>0.16</SocialImpact>
+      <StudyEfficiency MayRequire="Ludeon.RimWorld.Anomaly">0.30</StudyEfficiency>
+      <HackingSpeed>0.30</HackingSpeed>
     </equippedStatOffsets>
     <apparel>
+      <drawData>
+        <defaultData>
+          <offset>(-0.004,-0.001,0)</offset>
+        </defaultData>
+        <scale>1.0</scale>
+      </drawData>
       <developmentalStageFilter>Adult</developmentalStageFilter>
       <bodyPartGroups>
         <li>Torso</li>
@@ -55,7 +62,7 @@
         <li>Hands</li>
         <li>Feet</li>
       </bodyPartGroups>
-      <wornGraphicPath>Clothing/liuA</wornGraphicPath>
+      <wornGraphicPath>Clothing/sevenA</wornGraphicPath>
       <layers>
         <li>OnSkin</li>
       </layers>
@@ -72,31 +79,27 @@
     <tradeTags>
       <li>BasicClothing</li>
     </tradeTags>
-    <!-- 套装件：装备/卸下时把 RK_LiuSet 的进度 +1 / -1。 -->
-    <comps>
-      <li Class="XIYUNTE.CompProperties_LiuPiece" />
-    </comps>
   </ThingDef>
 
-  <!-- 南部六协会外套：外套层衣物，提供心灵敏感度与社交效果偏移，代号仍为 liuB 供套装判定使用。 -->
+  <!-- 南部Seven协会外套：贴身层衣物，提供调查效率与骇入速度偏移。 -->
   <ThingDef ParentName="ApparelMakeableBase">
-    <defName>liuB</defName>
-    <description>带有金色花纹的红色外套，有较好的防利器能力和隔热能力，衣服上的金色花纹可以一定程度上抵御精神攻击。</description>
-    <label>南部六协会外套</label>
-    <possessionCount>1</possessionCount>
+    <defName>sevnB</defName>
+    <label>南部Seven协会外套</label>
+    <description>衣领处带有金色的Seven协会徽标。\n作为主要掌管情报的协会，协会的成员们奔波于世界各地搜集情报，或是接手别人的线索委托，不过期间与擅长战斗的组织合作也是常有的事。</description>
     <recipeMaker>
-      <researchPrerequisite>ComplexClothing</researchPrerequisite>
+      <researchPrerequisite>RK_Research_AdvancedApparel</researchPrerequisite>
+      <recipeUsers Inherit="false">
+        <li>RK_ElectricTailoringBench</li>
+        <li>RK_HandTailoringBench</li>
+      </recipeUsers>
       <displayPriority>215</displayPriority>
     </recipeMaker>
     <graphicData>
-      <texPath>Clothing/liuB</texPath>
+      <texPath>Clothing/sevenB</texPath>
       <graphicClass>Graphic_Single</graphicClass>
       <drawSize>1.05</drawSize>
     </graphicData>
-    <costStuffCount>85</costStuffCount>
-    <costList>
-      <Gold>16</Gold>
-    </costList>
+    <costStuffCount>75</costStuffCount>
     <stuffCategories>
       <li>Fabric</li>
       <li>Leathery</li>
@@ -106,28 +109,28 @@
     </thingCategories>
     <techLevel>Industrial</techLevel>
     <statBases>
-      <MaxHitPoints>300</MaxHitPoints>
-      <WorkToMake>13600</WorkToMake>
+      <MaxHitPoints>170</MaxHitPoints>
+      <WorkToMake>12000</WorkToMake>
       <Mass>0.5</Mass>
       <!-- 固定护甲值；材料护甲贡献按材料系数缩放后叠加。 -->
-      <ArmorRating_Blunt>0.30</ArmorRating_Blunt>
-      <ArmorRating_Sharp>0.60</ArmorRating_Sharp>
-      <ArmorRating_Heat>0.40</ArmorRating_Heat>
+      <ArmorRating_Blunt>0.20</ArmorRating_Blunt>
+      <ArmorRating_Sharp>0.40</ArmorRating_Sharp>
+      <ArmorRating_Heat>0.20</ArmorRating_Heat>
       <StuffEffectMultiplierArmor>0.30</StuffEffectMultiplierArmor>
-      <StuffEffectMultiplierInsulation_Cold>0.60</StuffEffectMultiplierInsulation_Cold>
-      <StuffEffectMultiplierInsulation_Heat>2.60</StuffEffectMultiplierInsulation_Heat>
-      <Flammability>0.40</Flammability>
-      <EquipDelay>2.6</EquipDelay>
+      <StuffEffectMultiplierInsulation_Cold>1.70</StuffEffectMultiplierInsulation_Cold>
+      <StuffEffectMultiplierInsulation_Heat>0.70</StuffEffectMultiplierInsulation_Heat>
+      <Flammability>1.00</Flammability>
+      <EquipDelay>1.7</EquipDelay>
     </statBases>
-    <!-- 装备时属性偏移：心灵敏感度 -60%，社交效果 +16%。 -->
+    <!-- 装备时属性偏移：调查效率 +40%(需异常 DLC)，骇入速度 +40%。 -->
     <equippedStatOffsets>
-      <PsychicSensitivity>-0.60</PsychicSensitivity>
-      <SocialImpact>0.16</SocialImpact>
+      <StudyEfficiency MayRequire="Ludeon.RimWorld.Anomaly">0.40</StudyEfficiency>
+      <HackingSpeed>0.40</HackingSpeed>
     </equippedStatOffsets>
     <apparel>
       <drawData>
         <defaultData>
-          <offset>(-0.002,0,0)</offset>
+          <offset>(-0.002,-0.001,0)</offset>
         </defaultData>
       </drawData>
       <developmentalStageFilter>Adult</developmentalStageFilter>
@@ -138,7 +141,7 @@
         <li>Arms</li>
         <li>Legs</li>
       </bodyPartGroups>
-      <wornGraphicPath>Clothing/liuB</wornGraphicPath>
+      <wornGraphicPath>Clothing/sevenB</wornGraphicPath>
       <layers>
         <li>Shell</li>
       </layers>
@@ -179,9 +182,5 @@
     <tradeTags>
       <li>BasicClothing</li>
     </tradeTags>
-    <!-- 套装件：装备/卸下时把 RK_LiuSet 的进度 +1 / -1。 -->
-    <comps>
-      <li Class="XIYUNTE.CompProperties_LiuPiece" />
-    </comps>
   </ThingDef>
 </Defs>

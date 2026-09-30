@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- 东部し协会制服：贴身层衣物，提供固定护甲与狩猎隐蔽加成。 -->
+  <ThingDef ParentName="ApparelMakeableBase">
+    <defName>si_uniform</defName>
+    <label>东部し协会制服</label>
+    <description>款式简洁的衣物有红白点缀，方便由再暗中刺杀委托目标。死亡对谁都是平等的，若是下手时有犹豫说明你不适合这份工作。</description>
+    <recipeMaker>
+      <researchPrerequisite>RK_Research_AdvancedApparel</researchPrerequisite>
+      <recipeUsers Inherit="false">
+        <li>RK_ElectricTailoringBench</li>
+        <li>RK_HandTailoringBench</li>
+      </recipeUsers>
+      <displayPriority>208</displayPriority>
+    </recipeMaker>
+    <graphicData>
+      <texPath>Clothing/si_uniform</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>1.05</drawSize>
+    </graphicData>
+    <costStuffCount>85</costStuffCount>
+    <stuffCategories>
+      <li>Fabric</li>
+      <li>Leathery</li>
+    </stuffCategories>
+    <thingCategories>
+      <li>ApparelMisc</li>
+    </thingCategories>
+    <techLevel>Industrial</techLevel>
+    <statBases>
+      <MaxHitPoints>240</MaxHitPoints>
+      <WorkToMake>5000</WorkToMake>
+      <Mass>1.2</Mass>
+      <!-- 固定护甲值；材料护甲贡献按材料系数缩放后叠加。 -->
+      <ArmorRating_Blunt>0.30</ArmorRating_Blunt>
+      <ArmorRating_Sharp>0.60</ArmorRating_Sharp>
+      <ArmorRating_Heat>0.24</ArmorRating_Heat>
+      <StuffEffectMultiplierArmor>0.24</StuffEffectMultiplierArmor>
+      <StuffEffectMultiplierInsulation_Cold>1.44</StuffEffectMultiplierInsulation_Cold>
+      <StuffEffectMultiplierInsulation_Heat>1.44</StuffEffectMultiplierInsulation_Heat>
+      <Flammability>1.00</Flammability>
+      <EquipDelay>3</EquipDelay>
+    </statBases>
+    <!-- 装备时属性偏移：狩猎隐蔽率 +44%。 -->
+    <equippedStatOffsets>
+      <HuntingStealth>0.44</HuntingStealth>
+    </equippedStatOffsets>
+    <apparel>
+      <drawData>
+        <defaultData>
+          <offset>(-0.002,-0.001,0)</offset>
+        </defaultData>
+      </drawData>
+      <developmentalStageFilter>Adult</developmentalStageFilter>
+      <bodyPartGroups>
+        <li>Torso</li>
+        <li>Neck</li>
+        <li>Shoulders</li>
+        <li>Arms</li>
+        <li>Legs</li>
+        <li>Hands</li>
+        <li>Feet</li>
+      </bodyPartGroups>
+      <wornGraphicPath>Clothing/si_uniform</wornGraphicPath>
+      <layers>
+        <li>OnSkin</li>
+      </layers>
+      <tags>
+        <li>IndustrialBasic</li>
+      </tags>
+      <defaultOutfitTags>
+        <li>Worker</li>
+        <li>Soldier</li>
+        <li>Spacefarer</li>
+      </defaultOutfitTags>
+    </apparel>
+    <colorGenerator Class="ColorGenerator_StandardApparel" />
+    <tradeTags>
+      <li>BasicClothing</li>
+    </tradeTags>
+  </ThingDef>
+
+  <!-- 东部し协会箭袋：腰部装备，按原版背包写法实现：贴图用 <路径>_方向 命名，
+       位置由 wornGraphicData 提供，绘制层由原版按朝向注入(朝北 93 = 衣物之上、朝南 -3 = 身体之后)。 -->
+  <ThingDef ParentName="ApparelMakeableBase">
+    <defName>si_quiver</defName>
+    <label>东部し协会箭袋</label>
+    <description>为什么暗杀的委托如此之多呢？人与人之间的怨恨未免也太重太多了吧。</description>
+    <recipeMaker>
+      <researchPrerequisite>RK_Research_AdvancedApparel</researchPrerequisite>
+      <recipeUsers Inherit="false">
+        <li>RK_ElectricTailoringBench</li>
+        <li>RK_HandTailoringBench</li>
+      </recipeUsers>
+      <displayPriority>208</displayPriority>
+    </recipeMaker>
+    <graphicData>
+      <texPath>Clothing/si_quiver</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <costStuffCount>40</costStuffCount>
+    <stuffCategories>
+      <li>Fabric</li>
+      <li>Leathery</li>
+    </stuffCategories>
+    <thingCategories>
+      <li>ApparelMisc</li>
+    </thingCategories>
+    <techLevel>Industrial</techLevel>
+    <statBases>
+      <MaxHitPoints>100</MaxHitPoints>
+      <WorkToMake>3500</WorkToMake>
+      <Mass>0.4</Mass>
+      <Flammability>1.00</Flammability>
+      <EquipDelay>1.4</EquipDelay>
+    </statBases>
+    <!-- 装备时属性偏移：携带量 +44，瞄准时间 -24%。 -->
+    <equippedStatOffsets>
+      <CarryingCapacity>44</CarryingCapacity>
+      <AimingDelayFactor>-0.24</AimingDelayFactor>
+    </equippedStatOffsets>
+    <apparel>
+      <wornGraphicData>
+        <renderUtilityAsPack>true</renderUtilityAsPack>
+        <north>
+          <offset>(-0.004,0)</offset>
+        </north>
+        <south>
+          <offset>(-0.004,0)</offset>
+        </south>
+        <east>
+          <offset>(-0.004,0)</offset>
+        </east>
+        <west>
+          <offset>(-0.004,0)</offset>
+        </west>
+      </wornGraphicData>
+      <countsAsClothingForNudity>false</countsAsClothingForNudity>
+      <developmentalStageFilter>Adult</developmentalStageFilter>
+      <bodyPartGroups>
+        <li>Waist</li>
+      </bodyPartGroups>
+      <wornGraphicPath>Clothing/si_quiver</wornGraphicPath>
+      <layers>
+        <li>Belt</li>
+      </layers>
+      <tags>
+        <li>IndustrialBasic</li>
+      </tags>
+      <defaultOutfitTags>
+        <li>Worker</li>
+        <li>Soldier</li>
+      </defaultOutfitTags>
+    </apparel>
+    <colorGenerator Class="ColorGenerator_StandardApparel" />
+    <tradeTags>
+      <li>BasicClothing</li>
+    </tradeTags>
+  </ThingDef>
+</Defs>
