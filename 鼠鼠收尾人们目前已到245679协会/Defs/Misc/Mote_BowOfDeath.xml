@@ -129,18 +129,17 @@
       <fadeOutUnmaintained>true</fadeOutUnmaintained>
       <!-- 局部偏移(单位:格):X 为瞄准方向偏移,0.3 表示画布中心落在角色前方 0.3 格,贴图头部因此贴近箭头;
            由 Mote_DeathBowAimChargeVfx 按瞄准角旋转后生效,Z 为画布纵向偏移。 -->
-      <attachedDrawOffset>(0.3,0,0)</attachedDrawOffset>
+      <attachedDrawOffset>(-0.152,0,0)</attachedDrawOffset>
     </mote>
     <graphicData>
       <texPath>VFX/Bow_of_Death_Aim_Charge_Vfx</texPath>
       <shaderType>Trk_BowOfDeathAimCharge</shaderType>
-      <drawSize>(0.8,0.8)</drawSize>
+      <drawSize>(4,4)</drawSize>
       <shaderParameters>
-        <_CopyCount>3</_CopyCount>
-        <_FlowSpan>0.5</_FlowSpan>
-        <_FlowPeriod>1.1</_FlowPeriod>
-        <_HeadHold>0.34</_HeadHold>
-        <_FadeStart>0.35</_FadeStart>
+        <_FlowSpan>0.35</_FlowSpan>
+        <_FlowPeriod>1</_FlowPeriod>
+        <_HeadHold>0.15</_HeadHold>
+        <_FadeStart>0.5</_FadeStart>
         <_FlowEase>0.5</_FlowEase>
         <_Brightness>1</_Brightness>
         <_UseRealTime>1</_UseRealTime>

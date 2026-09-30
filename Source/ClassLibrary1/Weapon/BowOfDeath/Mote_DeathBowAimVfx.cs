@@ -240,11 +240,45 @@ namespace XIYUNTE
     // 与流线层相同:不做尺寸呼吸与反复淡出,瞄准期间稳定显示,淡入/淡出各 1 秒。
     public class Mote_DeathBowAimChargeVfx : Mote_DeathBowAimAlignedVfx
     {
+        // 开始态贴图路径(相对 Textures,不含扩展名);结束态贴图是 Def 的 texPath。
+        private const string StartTexPath = "VFX/Bow_of_Death_Aim_Charge_Start_Vfx";
+
         protected override float Opacity => 0.9f;
         protected override float PulseMinAlpha => 1f;
         protected override float PulsePeriodSeconds => 1f;
 
         // 尺寸恒定:扩散只由 Shader 的平移完成,不做任何缩放,避免贴图被压缩。
         protected override float BreathScaleAmplitude => 0f;
+
+        public override void SpawnSetup(Map map, bool respawningAfterLoad)
+        {
+            base.SpawnSetup(map, respawningAfterLoad);
+            ApplyStartTexture();
+        }
+
+        // Mote 的材质由 MaterialPool 按 Def 与参数生成,只带 Def 的主贴图;开始态贴图在这里补进同一个材质。
+        // 该材质只服务本 Def 的实例,两张贴图都固定不变,因此不必每个实例各建一份材质。
+        private void ApplyStartTexture()
+        {
+            Material material = Graphic?.MatSingle;
+            if (material == null)
+            {
+                Log.ErrorOnce("Bow of death charge vfx material is missing.", def.shortHash ^ 0x5B0A);
+                return;
+            }
+            Texture2D startTexture = ContentFinder<Texture2D>.Get(StartTexPath);
+            if (startTexture == null)
+            {
+                Log.ErrorOnce("Bow of death charge vfx start texture is missing: " + StartTexPath, def.shortHash ^ 0x5B0B);
+                return;
+            }
+            // 未绑定过时 GetTexture 返回的是 Shader 默认贴图(不是 null),必须按"是否已是这张贴图"判断,
+            // 否则第一帧就会直接返回,开始态贴图永远绑不上。
+            if (material.GetTexture("_StartTex") == startTexture)
+            {
+                return;
+            }
+            material.SetTexture("_StartTex", startTexture);
+        }
     }
 }

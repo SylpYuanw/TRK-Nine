@@ -69,9 +69,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Weapon\**\*.cs" />
     <Compile Include="Abilities\**\*.cs" />
+    <Compile Include="Hediff\**\*.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Weapon\" />
+    <Folder Include="Hediff\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

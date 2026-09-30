@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- 二协会套装状态：severity = 已穿戴件数(1 = 1/2，2 = 2/2)。
+       进度由内衬(zweiA)与外衣(zweiB)上的 XIYUNTE.CompProperties_SetPiece 在装备/卸下时维护，
+       不扫描装备；Hediff 随存档保存，因此读档后进度不变。
+       集齐两件时套装件组件授予技能 zwei_Aura；本 Hediff 自身不提供属性。 -->
+  <HediffDef>
+    <defName>zweiSet</defName>
+    <label>二协会套装</label>
+    <description>二协会制服的完整套装状态。\n穿齐内衬与外衣时获得二协会光环技能。</description>
+    <defaultLabelColor>(250,210,93)</defaultLabelColor>
+    <isBad>false</isBad>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <tendable>false</tendable>
+    <everCurableByItem>false</everCurableByItem>
+    <initialSeverity>1</initialSeverity>
+    <maxSeverity>2</maxSeverity>
+    <stages>
+      <li>
+        <minSeverity>0</minSeverity>
+        <label>1/2</label>
+        <overrideTooltip>只穿戴了一件二协会制服部件，尚未构成套装。</overrideTooltip>
+      </li>
+      <li>
+        <minSeverity>2</minSeverity>
+        <label>2/2</label>
+        <overrideTooltip>已完整穿戴二协会套装，获得二协会光环技能。</overrideTooltip>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <!-- 南部2协会大衣：装备时由 XIYUNTE.CompProperties_EquippedHediff 挂载，卸下时移除。
+       承伤系数取 80%：IncomingDamageFactor 基础值 1，statFactors 按倍率相乘，
+       因此与其他修改该 Stat 的来源为乘算组合。 -->
+  <HediffDef>
+    <defName>zweiB_Coat</defName>
+    <label>Zwei协会-大衣</label>
+    <description>您的盾牌。</description>
+    <defaultLabelColor>(250,210,93)</defaultLabelColor>
+    <isBad>false</isBad>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <tendable>false</tendable>
+    <everCurableByItem>false</everCurableByItem>
+    <initialSeverity>1</initialSeverity>
+    <maxSeverity>1</maxSeverity>
+    <stages>
+      <li>
+        <minSeverity>1</minSeverity>
+        <statFactors>
+          <IncomingDamageFactor>0.8</IncomingDamageFactor>
+        </statFactors>
+      </li>
+    </stages>
+  </HediffDef>
+</Defs>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- 光环来源：技能施放后挂在穿戴者身上，持续时间由技能 Ability_Duration 传导(500 秒 = 12 小时)。
+       光环每 30 tick 扫描一次，为 10 格内同阵营人形单位(含自身)发放 zwei_AuraBuff。 -->
+  <HediffDef>
+    <defName>zwei_AuraActive</defName>
+    <label>二协会光环-开启中</label>
+    <description>二协会套装光环的开启状态。\n剩余时间结束时技能效果关闭，光环随之消失。\n开启期间：10 格内同阵营成员（含自身）获得承伤减免。</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defaultLabelColor>(250,210,93)</defaultLabelColor>
+    <isBad>false</isBad>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <tendable>false</tendable>
+    <everCurableByItem>false</everCurableByItem>
+    <comps>
+      <li Class="HediffCompProperties_Disappears">
+        <disappearsAfterTicks>30000</disappearsAfterTicks>
+        <showRemainingTime>true</showRemainingTime>
+      </li>
+      <li Class="HediffCompProperties_DisappearsOnDeath" />
+      <!-- 继承六协会光环组件：沿用 baseRange / rangePerExtraPawn / scanIntervalTicks，
+           auraBuff 与 maxSources 为二协会新增字段。 -->
+      <li Class="XIYUNTE.HediffCompProperties_ZweiAura">
+        <baseRange>10</baseRange>
+        <rangePerExtraPawn>0</rangePerExtraPawn>
+        <scanIntervalTicks>30</scanIntervalTicks>
+        <auraBuff>zwei_AuraBuff</auraBuff>
+        <maxSources>3</maxSources>
+        <!-- 有文化 DLC 时直接用它的战斗命令光罩；缺 DLC 时该字段不加载，回落到自绘圆。 -->
+        <motePreferred MayRequire="Ludeon.RimWorld.Ideology">Mote_CombatCommand</motePreferred>
+        <mote>Mote_ZweiAuraCircle</mote>
+      </li>
+    </comps>
+  </HediffDef>
+
+  <!-- 光环增益：复用六协会的增益类(禁止同 def 合并)与来源记录组件，因此每个来源各占一份实例、
+       多个来源可叠加；每份提供承伤 ×0.9。数量上限由光环来源的 maxSources 控制(3)。
+       连线沿用原版 HediffCompProperties_Link；缺 Ideology 时回落核心连线贴图。 -->
+  <HediffDef>
+    <defName>zwei_AuraBuff</defName>
+    <label>二协会-承伤减免</label>
+    <description>来自二协会套装光环的承伤减免：每次受击伤害 ×90%。\n多个来源可叠加，同一目标最多 3 层。</description>
+    <hediffClass>XIYUNTE.Hediff_LiuAuraBuff</hediffClass>
+    <defaultLabelColor>(250,210,93)</defaultLabelColor>
+    <isBad>false</isBad>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <tendable>false</tendable>
+    <everCurableByItem>false</everCurableByItem>
+    <comps>
+      <li Class="HediffCompProperties_Disappears">
+        <disappearsAfterTicks>35</disappearsAfterTicks>
+        <showRemainingTime>false</showRemainingTime>
+      </li>
+      <li Class="HediffCompProperties_DisappearsOnDeath" />
+      <li Class="XIYUNTE.HediffCompProperties_LiuAuraLink" />
+      <li Class="HediffCompProperties_Link">
+        <requireLinkOnOtherPawn>false</requireLinkOnOtherPawn>
+        <maxDistance>10</maxDistance>
+        <customMote MayRequire="Ludeon.RimWorld.Ideology">Mote_CombatCommandLinkLine</customMote>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <statFactors>
+          <IncomingDamageFactor>0.9</IncomingDamageFactor>
+        </statFactors>
+      </li>
+    </stages>
+  </HediffDef>
+</Defs>

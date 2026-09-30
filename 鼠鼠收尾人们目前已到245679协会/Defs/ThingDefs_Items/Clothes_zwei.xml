@@ -1,0 +1,197 @@
+ <Defs> 
+    <!-- 2协会内衬 -->
+  <ThingDef ParentName="ApparelMakeableBase">
+    <defName>zweiA</defName>
+    <description>“我们的座右铭是什么？”\n“您的盾牌。”\n一件米黄色的衬衫加上马甲作为打底作为Zwei协会成员的制服，维持着所负责地区的治安</description>
+    <label>南部2协会西装</label>
+    <recipeMaker>
+      <researchPrerequisite>RK_Research_AdvancedApparel</researchPrerequisite>
+      <recipeUsers Inherit="false">
+        <li>RK_ElectricTailoringBench</li>
+        <li>RK_HandTailoringBench</li>
+      </recipeUsers>
+      <displayPriority>208</displayPriority>
+    </recipeMaker>
+    <graphicData>
+      <texPath>Clothing/zwei1</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <costStuffCount>85</costStuffCount>
+    <stuffCategories>
+      <li>Fabric</li>
+      <li>Leathery</li>
+    </stuffCategories>
+    <thingCategories>
+      <li>ApparelMisc</li>
+    </thingCategories>
+    <techLevel>Industrial</techLevel>
+    <statBases>
+      <MaxHitPoints>320</MaxHitPoints>
+      <WorkToMake>2700</WorkToMake>
+      <Mass>1.2</Mass>
+      <!-- 固定护甲值；材料护甲贡献按材料系数 0.30 缩放后叠加。 -->
+      <ArmorRating_Blunt>0.10</ArmorRating_Blunt>
+      <ArmorRating_Sharp>0.05</ArmorRating_Sharp>
+      <ArmorRating_Heat>0.05</ArmorRating_Heat>
+      <StuffEffectMultiplierArmor>0.30</StuffEffectMultiplierArmor>
+      <StuffEffectMultiplierInsulation_Cold>0.32</StuffEffectMultiplierInsulation_Cold>
+      <StuffEffectMultiplierInsulation_Heat>0.20</StuffEffectMultiplierInsulation_Heat>
+      <Flammability>0.60</Flammability>
+      <EquipDelay>3</EquipDelay>
+    </statBases>
+    <!-- 装备时属性偏移：压制下降率偏移 -0.10；仅 Ideology 启用时加载。 -->
+    <equippedStatOffsets>
+      <SlaveSuppressionOffset MayRequire="Ludeon.RimWorld.Ideology">-0.10</SlaveSuppressionOffset>
+    </equippedStatOffsets>
+    <apparel>
+      <bodyPartGroups>
+        <li>Torso</li>
+        <li>Neck</li>
+        <li>Shoulders</li>
+        <li>Arms</li>
+        <li>Legs</li>
+        <li>Hands</li>
+        <li>Feet</li>
+      </bodyPartGroups>
+      <wornGraphicPath>Clothing/zwei1</wornGraphicPath>
+      <layers>
+        <li>OnSkin</li>
+      </layers>
+      <tags>
+        <li>IndustrialBasic</li>
+      </tags>
+      <defaultOutfitTags>
+        <li>Worker</li>
+        <li>Soldier</li>
+        <li>Spacefarer</li>
+      </defaultOutfitTags>
+    </apparel>
+    <colorGenerator Class="ColorGenerator_StandardApparel" />
+    <tradeTags>
+      <li>BasicClothing</li>
+    </tradeTags>
+    <!-- 套装件：与 zweiB 共同维护 zweiSet 的进度(装备 +1 / 卸下 -1)；集齐两件时授予技能 zwei_Aura。 -->
+    <comps>
+      <li Class="XIYUNTE.CompProperties_SetPiece">
+        <setHediff>zweiSet</setHediff>
+        <abilityDef>zwei_Aura</abilityDef>
+      </li>
+    </comps>
+  </ThingDef>
+
+	<!-- 2协会外套 -->
+ <ThingDef ParentName="ApparelMakeableBase">
+    <defName>zweiB</defName>
+    <description>有些厚大的衣物，能提供不错的防御力，不过Zwei协会的收尾人们在暗中保护目标时不会选择把这么有标志性的衣物套在身上，可能会在外面再套一件，或是准备保护目标的时候立马披上。\n不过嘛，保护的委托费也过于贵了。</description>
+    <label>南部2协会大衣</label>
+    <possessionCount>1</possessionCount>
+    <recipeMaker>
+      <researchPrerequisite>RK_Research_AdvancedApparel</researchPrerequisite>
+      <recipeUsers Inherit="false">
+        <li>RK_ElectricTailoringBench</li>
+        <li>RK_HandTailoringBench</li>
+      </recipeUsers>
+      <displayPriority>215</displayPriority>
+    </recipeMaker>
+    <graphicData>
+      <texPath>Clothing/zwei2</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>1.05</drawSize>
+    </graphicData>
+    <costStuffCount>85</costStuffCount>
+    <costList>
+      <Steel>25</Steel>
+    </costList>
+    <stuffCategories>
+      <li>Fabric</li>
+      <li>Leathery</li>
+    </stuffCategories>
+    <thingCategories>
+      <li>ApparelMisc</li>
+    </thingCategories>
+    <techLevel>Industrial</techLevel>
+    <statBases>
+      <MaxHitPoints>320</MaxHitPoints>
+      <WorkToMake>10000</WorkToMake>
+      <Mass>3.2</Mass>
+      <!-- 固定护甲值；材料护甲系数为 1(100%)。 -->
+      <ArmorRating_Blunt>0.60</ArmorRating_Blunt>
+      <ArmorRating_Sharp>0.30</ArmorRating_Sharp>
+      <ArmorRating_Heat>0.32</ArmorRating_Heat>
+      <StuffEffectMultiplierArmor>1</StuffEffectMultiplierArmor>
+      <StuffEffectMultiplierInsulation_Cold>1.70</StuffEffectMultiplierInsulation_Cold>
+      <StuffEffectMultiplierInsulation_Heat>0.90</StuffEffectMultiplierInsulation_Heat>
+      <Flammability>0.60</Flammability>
+      <EquipDelay>0.8</EquipDelay>
+    </statBases>
+    <!-- 装备时属性偏移：压制下降率偏移 -0.20；仅 Ideology 启用时加载。 -->
+    <equippedStatOffsets>
+      <SlaveSuppressionOffset MayRequire="Ludeon.RimWorld.Ideology">-0.20</SlaveSuppressionOffset>
+    </equippedStatOffsets>
+    <apparel>
+      <drawData>
+  <defaultData>
+    <offset>(-0.002,0,0)</offset>
+  </defaultData>
+</drawData>
+      <bodyPartGroups>
+        <li>Torso</li>
+        <li>Neck</li>
+        <li>Shoulders</li>
+        <li>Arms</li>
+        <li>Legs</li>
+      </bodyPartGroups>
+      <wornGraphicPath>Clothing/zwei2</wornGraphicPath>
+      <layers>
+        <li>Shell</li>
+      </layers>
+      <tags>
+        <li>IndustrialAdvanced</li>
+      </tags>
+      <defaultOutfitTags>
+        <li>Worker</li>
+      </defaultOutfitTags>
+      <canBeDesiredForIdeo>false</canBeDesiredForIdeo>
+    </apparel>
+    <colorGenerator Class="ColorGenerator_Options">
+      <options>
+        <li>
+          <weight>10</weight>
+          <only>(0.33,0.33,0.33)</only>
+        </li>
+        <li>
+          <weight>10</weight>
+          <only>(0.65,0.65,0.65)</only>
+        </li>
+        <li>
+          <weight>30</weight>
+          <only>(0.4,0.3,0.15)</only>
+        </li>
+        <li>
+          <weight>6</weight>
+          <min>(0.3,0.3,0.3)</min>
+          <max>(0.5,0.5,0.5)</max>
+        </li>
+        <li>
+          <weight>2</weight>
+          <min>(0.5,0.5,0.5)</min>
+          <max>(1,1,1)</max>
+        </li>
+      </options>
+    </colorGenerator>
+    <tradeTags>
+      <li>BasicClothing</li>
+    </tradeTags>
+    <!-- 装备时挂载承伤系数 Hediff(×0.8)，卸下时移除。 -->
+    <comps>
+      <li Class="XIYUNTE.CompProperties_EquippedHediff">
+        <hediffDef>zweiB_Coat</hediffDef>
+      </li>
+      <!-- 套装件：与 zweiA 共同维护 zweiSet 的进度(装备 +1 / 卸下 -1)；集齐两件时授予技能 zwei_Aura。 -->
+      <li Class="XIYUNTE.CompProperties_SetPiece">
+        <setHediff>zweiSet</setHediff>
+        <abilityDef>zwei_Aura</abilityDef>
+      </li>
+    </comps>
+  </ThingDef>
+ </Defs>

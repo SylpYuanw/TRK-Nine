@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- 南部Seven协会单手剑 -->
+  <ThingDef ParentName="RK_MeleeWeapon">
+    <defName>sevenC</defName>
+    <label>南部Seven协会单手剑</label>
+    <description>主要负责收集情报的协会，多用基础的单手剑对敌人的弱点进行打击。Seven协会的收尾人也会向其他协会学习技巧，例如Cinq协会的刺剑用法，或尝试用Zwei协会的防御风格进行防守反击。</description>
+    <graphicData>
+      <texPath>Weapon/sevenC</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <techLevel>Medieval</techLevel>
+    <weaponTags Inherit="false">
+      <li>RK_Sword</li>
+      <li>RK_Knight</li>
+      <li>RK_LightWeapon</li>
+      <li>RK_WeaponTag_OneHand</li>
+      <li>RK_WeaponTag_OneHandMelee</li>
+      <li>RK_WeaponTag_OneHandMeleeAttack</li>
+      <li>RK_WeaponTag_ArmedWanderer</li>
+    </weaponTags>
+    <statBases>
+      <WorkToMake>20000</WorkToMake>
+      <Mass>1.6</Mass>
+    </statBases>
+    <equippedAngleOffset>-65</equippedAngleOffset>
+    <stuffCategories>
+      <li>Metallic</li>
+      <li>Woody</li>
+    </stuffCategories>
+    <costStuffCount>65</costStuffCount>
+    <tools>
+      <li>
+        <label>剑柄</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>7</power>
+        <armorPenetration>0.17</armorPenetration>
+        <cooldownTime>1.8</cooldownTime>
+      </li>
+      <li>
+        <label>剑尖</label>
+        <capacities>
+          <li>Stab</li>
+        </capacities>
+        <power>18</power>
+        <armorPenetration>0.47</armorPenetration>
+        <cooldownTime>2.3</cooldownTime>
+      </li>
+      <li>
+        <label>剑刃</label>
+        <capacities>
+          <li>Cut</li>
+        </capacities>
+        <power>22</power>
+        <armorPenetration>0.47</armorPenetration>
+        <cooldownTime>2.5</cooldownTime>
+      </li>
+    </tools>
+    <recipeMaker>
+      <researchPrerequisite>RK_Research_SwordAndShield</researchPrerequisite>
+      <skillRequirements>
+        <Crafting>5</Crafting>
+      </skillRequirements>
+      <displayPriority>78272</displayPriority>
+    </recipeMaker>
+    <comps>
+      <li Class="NewRatkin.CompProperties_WeaponGripType">
+        <gripTypes>
+          <li>OneHand</li>
+        </gripTypes>
+      </li>
+    </comps>
+  </ThingDef>
+</Defs>

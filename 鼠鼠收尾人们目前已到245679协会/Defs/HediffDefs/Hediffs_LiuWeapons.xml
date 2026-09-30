@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- 六协会直剑：装备时由 XIYUNTE.CompProperties_EquippedHediff 挂载。
+       寒冷隔温 -60° 通过 ComfyTemperatureMin +60 实现：温度系统读取该 Stat，
+       而原版 ComfyTemperatureMin 的装备隔温只统计服装，武器的 Insulation_Cold 偏移不参与计算。 -->
+  <HediffDef>
+    <defName>liu_LongSword_WarmFlame</defName>
+    <label>六协会-火焰</label>
+    <description>温暖的火焰。</description>
+    <defaultLabelColor>(0.55, 0.15, 0.15)</defaultLabelColor>
+    <isBad>false</isBad>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <tendable>false</tendable>
+    <everCurableByItem>false</everCurableByItem>
+    <initialSeverity>1</initialSeverity>
+    <maxSeverity>1</maxSeverity>
+    <stages>
+      <li>
+        <minSeverity>1</minSeverity>
+        <statOffsets>
+          <ComfyTemperatureMin>60</ComfyTemperatureMin>
+        </statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+</Defs>

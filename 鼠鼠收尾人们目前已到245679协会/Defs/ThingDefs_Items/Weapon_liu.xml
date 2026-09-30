@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
  <Defs>
 
-  <ThingDef ParentName="BaseMeleeWeapon_Sharp_Quality">
+  <ThingDef ParentName="RK_MeleeWeapon">
     <defName>liu_LongSword</defName>
-    <label>六_longsword</label>
-    <description>The ancient weapon of kings, the longsword can be used for slashing or stabbing.</description>
+    <label>南部六协会直剑</label>
+    <description>缠绕着火焰的武器任谁来了都能挥舞使用。六协会的火焰并非谁都能随意燃起，也无法由自己一人将火种传递下去。也许出身、地区和本领不同，但六协会的火焰是温暖的。</description>
     <possessionCount>1</possessionCount>
     <graphicData>
       <texPath>Weapon/liuC</texPath>
@@ -12,54 +12,93 @@
     </graphicData>
     <uiIconPath>Weapon/liuCE</uiIconPath>
     <techLevel>Medieval</techLevel>
-    <weaponTags>
-      <li>MedievalMeleeAdvanced</li>
-      <li>LongSword</li>
+    <weaponTags Inherit="false">
+      <li>RK_Sword</li>
+      <li>RK_Knight</li>
+      <li>RK_LightWeapon</li>
+      <li>RK_WeaponTag_OneHand</li>
+      <li>RK_WeaponTag_OneHandMelee</li>
+      <li>RK_WeaponTag_OneHandMeleeAttack</li>
+      <li>RK_WeaponTag_ArmedWanderer</li>
     </weaponTags>
-    <costStuffCount>100</costStuffCount>
+    <costList>
+      <ComponentIndustrial>6</ComponentIndustrial>
+      <Chemfuel>20</Chemfuel>
+    </costList>
+    <costStuffCount>65</costStuffCount>
     <thingSetMakerTags><li>RewardStandardQualitySuper</li></thingSetMakerTags>
     <statBases>
-      <WorkToMake>18000</WorkToMake>
-      <Mass>2</Mass>
+      <WorkToMake>26000</WorkToMake>
+      <Mass>1.6</Mass>
+      <Flammability>0.6</Flammability>
     </statBases>
     <relicChance>2</relicChance>
     <equippedAngleOffset>-65</equippedAngleOffset>
     <stuffCategories>
       <li>Metallic</li>
-      <li>Woody</li>
     </stuffCategories>
     <tools>
       <li>
-        <label>handle</label>
+        <label>剑柄</label>
         <capacities>
           <li>Blunt</li>
         </capacities>
-        <power>9</power>
-        <cooldownTime>2</cooldownTime>
+        <power>8</power>
+        <armorPenetration>0.16</armorPenetration>
+        <cooldownTime>1.9</cooldownTime>
       </li>
       <li>
-        <label>point</label>
+        <label>剑尖</label>
         <capacities>
           <li>Stab</li>
         </capacities>
-        <power>23</power>
-        <cooldownTime>2.6</cooldownTime>
+        <power>22</power>
+        <armorPenetration>0.30</armorPenetration>
+        <cooldownTime>2.4</cooldownTime>
+        <!-- 命中时按 60% 概率追加 6 点火焰伤害。 -->
+        <extraMeleeDamages>
+          <li>
+            <def>Flame</def>
+            <amount>6</amount>
+            <chance>0.6</chance>
+          </li>
+        </extraMeleeDamages>
       </li>
       <li>
-        <label>edge</label>
+        <label>剑刃</label>
         <capacities>
           <li>Cut</li>
         </capacities>
-        <power>23</power>
+        <power>26</power>
+        <armorPenetration>0.40</armorPenetration>
         <cooldownTime>2.6</cooldownTime>
+        <!-- 命中时按 60% 概率追加 6 点火焰伤害。 -->
+        <extraMeleeDamages>
+          <li>
+            <def>Flame</def>
+            <amount>6</amount>
+            <chance>0.6</chance>
+          </li>
+        </extraMeleeDamages>
       </li>
     </tools>
     <recipeMaker>
-      <researchPrerequisite>LongBlades</researchPrerequisite>
+      <researchPrerequisite>RK_Research_SwordAndShield</researchPrerequisite>
       <skillRequirements>
         <Crafting>5</Crafting>
       </skillRequirements>
-      <displayPriority>420</displayPriority>
+      <displayPriority>78271</displayPriority>
     </recipeMaker>
+    <comps>
+      <li Class="NewRatkin.CompProperties_WeaponGripType">
+        <gripTypes>
+          <li>OneHand</li>
+        </gripTypes>
+      </li>
+      <!-- 装备时挂载寒冷隔温 Hediff，卸下时移除。 -->
+      <li Class="XIYUNTE.CompProperties_EquippedHediff">
+        <hediffDef>liu_LongSword_WarmFlame</hediffDef>
+      </li>
+    </comps>
   </ThingDef>
 </Defs>

@@ -56,7 +56,7 @@
         <subEffecterClass>SubEffecter_SprayerTriggered</subEffecterClass>
         <fleckDef>RK_DeliveryBox_AttackFleck_Blade</fleckDef>
         <burstCount>1</burstCount>
-        <scale>1.0~1.0</scale>
+        <scale>2.0~2.0</scale>
         <spawnLocType>OnSource</spawnLocType>
         <rotation>-90~-90</rotation>
       </li>
@@ -71,7 +71,7 @@
         <subEffecterClass>SubEffecter_SprayerTriggered</subEffecterClass>
         <fleckDef>RK_DeliveryBox_AttackFleck_Tool</fleckDef>
         <burstCount>1</burstCount>
-        <scale>1.0~1.0</scale>
+        <scale>2.0~2.0</scale>
         <spawnLocType>OnSource</spawnLocType>
         <rotation>-90~-90</rotation>
       </li>
@@ -86,7 +86,7 @@
         <subEffecterClass>SubEffecter_SprayerTriggered</subEffecterClass>
         <fleckDef>RK_DeliveryBox_AttackFleck_Hammer</fleckDef>
         <burstCount>1</burstCount>
-        <scale>1.0~1.0</scale>
+        <scale>2.0~2.0</scale>
         <spawnLocType>OnSource</spawnLocType>
         <rotation>-90~-90</rotation>
       </li>
@@ -101,7 +101,7 @@
         <subEffecterClass>SubEffecter_SprayerTriggered</subEffecterClass>
         <fleckDef>RK_DeliveryBox_AttackFleck_Breakthrough</fleckDef>
         <burstCount>1</burstCount>
-        <scale>1.0~1.0</scale>
+        <scale>2.0~2.0</scale>
         <spawnLocType>OnSource</spawnLocType>
         <rotation>-90~-90</rotation>
       </li>

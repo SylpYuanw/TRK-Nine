@@ -1,6 +1,6 @@
-# RimWorld 装备授予Hediff与范围光环链路
+﻿# RimWorld 装备授予Hediff与范围光环链路
 
-结论先行：原版已经提供「穿戴装备 → 授予 Hediff → 该 Hediff 定期给范围内角色授予增益」的完整链路，无需 Harmony、无需全局扫描器，也不需要自建 GameComponent。
+结论先行：原版为衣物提供「穿戴 → 授予 Hediff → Hediff 定期给范围内角色增益」的完整链路；普通武器没有同等的 Apparel 组件。武器若只需固定属性，优先用 `equippedStatOffsets`；若必须让健康页显示 Hediff，再用仅响应装备/卸下事件的轻量 `ThingComp`，无需 Harmony、周期扫描或全局 GameComponent。
 
 ## 1. 装备授予 Hediff（原版，零代码）
 
@@ -12,6 +12,68 @@
 - 该组件由 `CompCauseHediff_Apparel` 在挂载时通过 `TryGetComp` 把 `wornApparel` 回填，**不需要**手写赋值。
 
 用途：把「穿着判定」的持续 tick 挂在 Hediff 上，而不是给 Apparel 写 ThingComp（Apparel 的 ThingComp 没有可靠的「仅穿着时 tick」入口）。
+
+## 1.1 普通武器授予 Hediff 的边界
+
+- 若目标只是“装备期间获得固定属性偏移”，原版最轻方案是 `ThingDef.equippedStatOffsets`。它不创建状态、不 tick、不存档额外引用，装备/卸下与读档由原版属性系统自动处理。
+- `CompCauseHediff_Apparel` 不能直接用于武器：代码把 `parent` 强转为 `Apparel`，配套移除组件也按 `pawn.apparel.Wearing(...)` 判定。
+- 原版皇权通过 `CompBladelinkWeapon.Notify_Equipped` 调用 `WeaponTraitWorker.Notify_Equipped`，再读取 `WeaponTraitDef.equippedHediffs` 挂载或移除 Hediff。
+- `CompBladelinkWeapon` 在运行时随机生成武器特质，普通武器 Def 不能直接固定指定某个 `WeaponTraitDef`。
+- 若不允许新增 C#，普通武器没有可直接固定配置的纯 XML“装备即 Hediff”路径。
+
+## 1.2 本项目通用装备 Hediff 组件
+
+组件统一放在 `Source/ClassLibrary1/Hediff/`，通过原版 `ThingComp.Notify_Equipped` / `Notify_Unequipped` 响应装备变化。
+
+### 单 Hediff：`CompProperties_EquippedHediff`
+
+XML：
+
+```xml
+<li Class="XIYUNTE.CompProperties_EquippedHediff">
+  <hediffDef>zweiC_Defense</hediffDef>
+</li>
+```
+
+行为：装备时添加指定 Hediff；卸下时检查武器和衣服，只有不存在其他同组件、同 HediffDef 的装备时才移除。适用于单件武器或衣服，不会因多来源重复添加或提前移除。
+
+### 套装计数：`CompProperties_SetPiece`
+
+XML：
+
+```xml
+<li Class="XIYUNTE.CompProperties_SetPiece">
+  <setHediff>zweiSet</setHediff>
+</li>
+```
+
+行为：同一套装部件引用同一个 `setHediff`，装备时 severity +1，卸下时 -1；severity 上限由对应 `HediffDef.maxSeverity` 控制，降到 0 时移除 Hediff。
+
+套装 Hediff 阶段示例：
+
+```xml
+<maxSeverity>2</maxSeverity>
+<stages>
+  <li><minSeverity>1</minSeverity></li>
+  <li>
+    <minSeverity>2</minSeverity>
+    <statOffsets>
+      <ArmorRating_Blunt>0.20</ArmorRating_Blunt>
+      <ArmorRating_Sharp>0.20</ArmorRating_Sharp>
+    </statOffsets>
+  </li>
+</stages>
+```
+
+标准调试菜单的穿戴/装备操作调用 `Pawn_ApparelTracker.Wear` 或 `Pawn_EquipmentTracker.AddEquipment`，会触发这两个事件；直接绕过装备 API 修改内部列表不会触发。
+
+### 1.3 武器装备偏移的边界：体感隔温只统计服装
+
+- `StatWorker.GetValueUnfinalized` 会把 `equippedStatOffsets` 计入 Pawn 的同名 Stat：服装遍历全部穿着，武器只算 `equipment.Primary`。
+- 但温度系统读的是 `ComfyTemperatureMin` / `ComfyTemperatureMax`，它们的 `StatPart_GearStatOffset` 默认只遍历 **apparel**：字段 `includeWeapon` 默认 false，原版 Def 未开启 —— 所以**武器的 `Insulation_Cold` / `Insulation_Heat` 偏移对体感温度无效**，只改 Pawn 的 `Insulation_*` Stat（该 Stat `showOnPawns=false`，实际不参与失温判定）。
+- 需要"武器级寒冷/耐热"效果时，用 Hediff 直接偏移 Pawn 的 `ComfyTemperatureMin`(+N = 更怕冷) / `ComfyTemperatureMax`(-N = 更怕热)。本 MOD 六协会直剑即此写法：`liu_LongSword_WarmFlame` 带 `ComfyTemperatureMin +60`，等效"隔温-寒冷 -60°"。
+
+证据：`RimWorld/StatPart_GearStatOffset.cs`（`includeWeapon` 分支）、`Defs/Core/Stats/Stats_Pawns_General.xml`（`ComfyTemperatureMin` 的 part 只写 `apparelStat`、未写 `includeWeapon`）、`RimWorld/StatWorker.cs:214-219`（装备偏移计入 Pawn Stat）、`RimWorld/StatWorker.cs:148`（Hediff stage 偏移计入 Pawn Stat）。
 
 ## 2. 范围内授予 Hediff（原版领导者光环写法）
 
@@ -121,6 +183,30 @@ internal static class Patch_ApparelTracker_XxxSync
 - `Consciousness` 走 `capMods`（见 3.2）。
 - 全部数值（半径/增量/扫描间隔/加成/残留 tick）经 XML 传导。
 - 若仍需要「只穿一件」也有可见状态，可另加一个纯展示 Hediff；但**不要**让它承担检测职责，否则又回到装备事件的坑。
+
+## 4.1 边界：固定加成不要建 Hediff（二协会内衬/外衣实例）
+
+结论：装备期间只提供**固定属性**的加成，用原版 `ThingDef.equippedStatOffsets` 就够，不需要 Hediff、组件或补丁 —— 装备/卸下/读档全由原版属性链处理，无额外对象、无残留状态、无存档兼容问题。
+
+- 二协会实现：`zweiA`(内衬) `SlaveSuppressionOffset -0.10`、`zweiB`(外衣) `SlaveSuppressionOffset -0.20` 走 `equippedStatOffsets`；`zweiB` 的承伤系数 ×0.8 走 Hediff `zweiB_Coat` 的 `statFactors`（`Defs/ThingDefs_Items/Clothes_zwei.xml`、`Defs/HediffDefs/Hediffs_ZweiClothes.xml`）。
+- 原版 `ThingDef` **只有** `equippedStatOffsets` 一个装备字段，没有 `equippedStatFactors`：装备字段只能做**加算偏移**；要"×N"的**乘算倍率**必须走 Hediff 的 `statFactors`（或自定义 StatPart）。两者在同名 Stat 有多个来源时结果不同：偏移写法为 `1+Σ偏移`，乘算写法为 `(1+Σ其它偏移)×Π倍率`。
+- 同一加成只保留一个来源：从原版风衣继承来的 `SlaveSuppressionOffset -0.05` 已删除，否则与 -0.20 叠加成 -0.25。
+- 武器同理：Cinq 迅捷剑的 `+2.5 近战命中率` 是 `equippedStatOffsets/MeleeHitChance`，语义本就是加算偏移，不走 Hediff。
+- 需要 Hediff 的情形：装备期间要**持续 tick**(光环/范围发放)、要在健康页显示状态、要按**件数**计数、需要**乘算倍率**的属性。
+
+## 4.2 二协会光环技能（套装授予 → 定时发放 → 按来源叠加）
+
+结论：把「常驻光环」改成「技能开启」时，三件事分开做最省：套装状态负责授予技能、来源 Hediff 负责定时发放、增益 Hediff 负责数值与连线。
+
+- 授予：`XIYUNTE.CompProperties_SetPiece.abilityDef` 在套件集齐(severity 达到 `setHediff.maxSeverity`)时 `pawn.abilities.GainAbility`；集齐判定统一走 `SetPieceUtility.HasFullSet(pawn, setHediff)`，套装计数组件、技能隐藏、光环发放共用同一判据，不另写副本。
+- **技能只授予不回收**：未集齐时隐藏按钮，因此换装不会重置冷却。原因：`Ability` 的冷却存在实例里，`RemoveAbility` 后再 `GainAbility` 会得到全新实例、冷却归零。
+- 隐藏钩子在 **`CompAbilityEffect.ShouldHideGizmo`**，`Ability` 上**没有**该成员（写成 `Ability` 的 override 会编译报 CS0115）；做法是自定义 `CompProperties_AbilityGiveHediff` 子类 + `CompAbilityEffect_GiveHediff` 子类，只重写 `ShouldHideGizmo`，其余继承原版效果。
+- 持续时间：`CompAbilityEffect_GiveHediff` 用 `CompAbilityEffect_WithDuration.GetDurationSeconds` 取 `Ability_Duration` StatDef，**单位是秒**，再 `SecondsToTicks()`(×60)。12 小时 = 500 秒 = 30000 tick；原版战斗命令写 1000 = 24 小时。
+- 定时发放：来源 Hediff(`zwei_AuraActive`) 挂自定义 `HediffComp`，按 `IsHashIntervalTick(30)` 扫描同阵营人形单位(含自身，原版 `HediffComp_GiveHediffsInRange` 会排除自身)，逐个把增益的 `HediffComp_Disappears.ticksToDisappear` 刷成「扫描间隔 + 5」。
+- 叠加与上限：增益 Hediff 的 `TryMergeWith` 返回 false，每个来源各占一份实例；「最多 N 层」按目标身上该 def 的实例数判断，达到上限不再新增来源。
+- 连线：直接复用原版 `HediffCompProperties_Link`(`other` 记录来源、`drawConnection` 控制绘制、`maxDistance` 超距即移除)，缺 `customMote` 时自动回落 `ThingDefOf.Mote_PsychicLinkLine`。
+- 范围绘制：`GenDraw.DrawRadiusRing` 挂在 `PawnRenderer.RenderPawnAt` 后置补丁里，按帧去重；地面光环贴图用 `MoteMaker.MakeAttachedOverlay` + `Maintain()` 跟随来源 Pawn。
+- 缺 DLC 的写法：Def 引用字段元素本身可以写 `MayRequire`，跨引用加载器会跳过该字段并保持 null（`Verse/DirectXmlToObject.cs:204-213`），因此引用文化 DLC 的 `Mote_CombatCommand` 不会在缺 DLC 时报错。
 
 ## 5. 证据来源
 
