@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
   <!-- 南部Seven协会西装：贴身层衣物，提供调查效率与骇入速度偏移。 -->
-  <ThingDef ParentName="ApparelMakeableBase">
+  <ThingDef ParentName="RK_ApparelMakeableBase">
     <defName>sevenA</defName>
     <label>南部Seven协会西装</label>
     <description>虽然是有着大大小小情报的协会，并且会向外界售卖情报，不过一些容易影响到整个Seven协会存亡的事成员们是不会选择去打探的。</description>
@@ -16,6 +16,7 @@
     <graphicData>
       <texPath>Clothing/sevenA</texPath>
       <graphicClass>Graphic_Single</graphicClass>
+      <ignoreThingDrawColor>true</ignoreThingDrawColor>
     </graphicData>
     <costStuffCount>70</costStuffCount>
     <stuffCategories>
@@ -79,10 +80,15 @@
     <tradeTags>
       <li>BasicClothing</li>
     </tradeTags>
+    <comps>
+      <li Class="XIYUNTE.CompProperties_SetPiece">
+        <setHediff>RK_SevenSet</setHediff>
+      </li>
+    </comps>
   </ThingDef>
 
   <!-- 南部Seven协会外套：贴身层衣物，提供调查效率与骇入速度偏移。 -->
-  <ThingDef ParentName="ApparelMakeableBase">
+  <ThingDef ParentName="RK_ApparelMakeableBase">
     <defName>sevnB</defName>
     <label>南部Seven协会外套</label>
     <description>衣领处带有金色的Seven协会徽标。\n作为主要掌管情报的协会，协会的成员们奔波于世界各地搜集情报，或是接手别人的线索委托，不过期间与擅长战斗的组织合作也是常有的事。</description>
@@ -97,6 +103,7 @@
     <graphicData>
       <texPath>Clothing/sevenB</texPath>
       <graphicClass>Graphic_Single</graphicClass>
+      <ignoreThingDrawColor>true</ignoreThingDrawColor>
       <drawSize>1.05</drawSize>
     </graphicData>
     <costStuffCount>75</costStuffCount>
@@ -182,5 +189,10 @@
     <tradeTags>
       <li>BasicClothing</li>
     </tradeTags>
+    <comps>
+      <li Class="XIYUNTE.CompProperties_SetPiece">
+        <setHediff>RK_SevenSet</setHediff>
+      </li>
+    </comps>
   </ThingDef>
 </Defs>

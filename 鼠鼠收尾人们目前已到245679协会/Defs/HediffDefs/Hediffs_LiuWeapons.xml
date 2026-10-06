@@ -18,7 +18,7 @@
       <li>
         <minSeverity>1</minSeverity>
         <statOffsets>
-          <ComfyTemperatureMin>60</ComfyTemperatureMin>
+          <ComfyTemperatureMin>-60</ComfyTemperatureMin>
         </statOffsets>
       </li>
     </stages>

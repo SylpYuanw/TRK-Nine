@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <ThoughtDef>
+    <defName>RK_Cinq_DuelMoodThought</defName>
+    <!-- 0.21游戏日 = 5小时2分24秒；技能释放完成时添加。 -->
+    <durationDays>0.21</durationDays>
+    <stackLimit>1</stackLimit>
+    <stackedEffectMultiplier>1</stackedEffectMultiplier>
+    <stages>
+      <li>
+        <label>决斗宣告</label>
+        <description>当手套落地，喧闹的街巷便只剩剑锋与呼吸。\n决斗宣告带来的战意使心情亢奋。</description>
+        <baseMoodEffect>15</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+</Defs>

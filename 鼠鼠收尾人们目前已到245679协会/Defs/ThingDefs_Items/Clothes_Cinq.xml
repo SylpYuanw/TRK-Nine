@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
   <!-- 南部Cinq协会羽毛帽：头饰层，覆盖头部与双耳，提供近战闪避与社交加成。 -->
-  <ThingDef ParentName="HatMakeableBase">
+  <ThingDef ParentName="RK_HatMakeableBase">
     <defName>RK_cinqhat</defName>
     <label>南部Cinq协会羽毛帽</label>
     <description>帽子左侧插有羽毛的宽檐帽，因成员们大多都是右撇子，所以将羽毛插在左侧避免影响挥剑</description>
     <graphicData>
       <texPath>Clothing/cinqhat</texPath>
       <graphicClass>Graphic_Single</graphicClass>
+      <ignoreThingDrawColor>true</ignoreThingDrawColor>
     </graphicData>
     <uiIconScale>1.25</uiIconScale>
     <costStuffCount>35</costStuffCount>
@@ -45,6 +46,12 @@
       <TRK_RangeDodgeChance>0.05</TRK_RangeDodgeChance>
       <SocialImpact>0.15</SocialImpact>
     </equippedStatOffsets>
+    <comps>
+      <li Class="XIYUNTE.CompProperties_SetPiece">
+        <setHediff>RK_CinqSet</setHediff>
+        <abilityDef>RK_Cinq_DuelDeclaration</abilityDef>
+      </li>
+    </comps>
     <apparel>
       <countsAsClothingForNudity>false</countsAsClothingForNudity>
       <developmentalStageFilter>Adult</developmentalStageFilter>
@@ -71,7 +78,7 @@
   </ThingDef>
 
   <!-- 南部Cinq协会西装：贴身层衣物，提供近战闪避与移动速度加成。 -->
-  <ThingDef ParentName="ApparelMakeableBase">
+  <ThingDef ParentName="RK_ApparelMakeableBase">
     <defName>cinqsuit</defName>
     <label>南部Cinq协会西装</label>
     <description>贴身的蓝调西装，活动性很不错，即使做出夸张的动作也不会导致裤子开裂</description>
@@ -86,6 +93,7 @@
     <graphicData>
       <texPath>Clothing/cinqsuit</texPath>
       <graphicClass>Graphic_Single</graphicClass>
+      <ignoreThingDrawColor>true</ignoreThingDrawColor>
     </graphicData>
     <costStuffCount>85</costStuffCount>
     <stuffCategories>
@@ -116,6 +124,12 @@
       <TRK_RangeDodgeChance>0.15</TRK_RangeDodgeChance>
       <MoveSpeed>0.25</MoveSpeed>
     </equippedStatOffsets>
+    <comps>
+      <li Class="XIYUNTE.CompProperties_SetPiece">
+        <setHediff>RK_CinqSet</setHediff>
+        <abilityDef>RK_Cinq_DuelDeclaration</abilityDef>
+      </li>
+    </comps>
     <apparel>
       <drawData>
         <defaultData>
@@ -153,7 +167,7 @@
   </ThingDef>
 
   <!-- 南部Cinq协会披风：贴身层衣物，提供近战闪避与移动速度加成。 -->
-  <ThingDef ParentName="ApparelMakeableBase">
+  <ThingDef ParentName="RK_ApparelMakeableBase">
     <defName>cinqcloak</defName>
     <label>南部Cinq协会披风</label>
     <description>披风通常裹在左肩，在有需要时可以用左手拉到身前阻挡或偏转对方的攻击，或是干扰对方视线辅助进攻，总之在战斗的时候不止是衣物这么简单。</description>
@@ -168,6 +182,7 @@
     <graphicData>
       <texPath>Clothing/cinqcloak</texPath>
       <graphicClass>Graphic_Single</graphicClass>
+      <ignoreThingDrawColor>true</ignoreThingDrawColor>
       <drawSize>1.05</drawSize>
     </graphicData>
     <costStuffCount>65</costStuffCount>
@@ -199,6 +214,12 @@
       <TRK_RangeDodgeChance>0.30</TRK_RangeDodgeChance>
       <MoveSpeed>0.25</MoveSpeed>
     </equippedStatOffsets>
+    <comps>
+      <li Class="XIYUNTE.CompProperties_SetPiece">
+        <setHediff>RK_CinqSet</setHediff>
+        <abilityDef>RK_Cinq_DuelDeclaration</abilityDef>
+      </li>
+    </comps>
     <apparel>
       <drawData>
         <defaultData>

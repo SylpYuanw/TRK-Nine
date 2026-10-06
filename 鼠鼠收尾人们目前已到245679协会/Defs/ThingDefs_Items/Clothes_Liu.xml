@@ -1,9 +1,10 @@
- <Defs> 
-    <!-- 2协会内衬 -->
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- 南部六协会西装：贴身层衣物，提供心灵敏感度与社交效果偏移，代号仍为 liuA 供套装判定使用。 -->
   <ThingDef ParentName="RK_ApparelMakeableBase">
-    <defName>zweiA</defName>
-    <description>“我们的座右铭是什么？”\n“您的盾牌。”\n一件米黄色的衬衫加上马甲作为打底作为Zwei协会成员的制服，维持着所负责地区的治安</description>
-    <label>南部Zwei协会西装</label>
+    <defName>liuA</defName>
+    <description>与外套一样，里面的西装也拥有金色的花纹。作为善于进行大规模作战的协会，协会内风气也是其乐融融的像一个大家庭一样，这也是支撑六协会能进行大规模作战的原因之一。</description>
+    <label>南部六协会西装</label>
     <recipeMaker>
       <researchPrerequisite>RK_Research_AdvancedApparel</researchPrerequisite>
       <recipeUsers Inherit="false">
@@ -13,11 +14,14 @@
       <displayPriority>208</displayPriority>
     </recipeMaker>
     <graphicData>
-      <texPath>Clothing/zwei1</texPath>
+      <texPath>Clothing/liuA</texPath>
       <graphicClass>Graphic_Single</graphicClass>
       <ignoreThingDrawColor>true</ignoreThingDrawColor>
     </graphicData>
-    <costStuffCount>85</costStuffCount>
+    <costStuffCount>75</costStuffCount>
+    <costList>
+      <Gold>1</Gold>
+    </costList>
     <stuffCategories>
       <li>Fabric</li>
       <li>Leathery</li>
@@ -27,24 +31,26 @@
     </thingCategories>
     <techLevel>Industrial</techLevel>
     <statBases>
-      <MaxHitPoints>320</MaxHitPoints>
-      <WorkToMake>5000</WorkToMake>
-      <Mass>1.2</Mass>
-      <!-- 固定护甲值；材料护甲贡献按材料系数 0.30 缩放后叠加。 -->
+      <MaxHitPoints>300</MaxHitPoints>
+      <WorkToMake>5600</WorkToMake>
+      <Mass>0.5</Mass>
+      <!-- 固定护甲值；材料护甲贡献按材料系数缩放后叠加。 -->
       <ArmorRating_Blunt>0.10</ArmorRating_Blunt>
-      <ArmorRating_Sharp>0.05</ArmorRating_Sharp>
-      <ArmorRating_Heat>0.05</ArmorRating_Heat>
-      <StuffEffectMultiplierArmor>0.12</StuffEffectMultiplierArmor>
-      <StuffEffectMultiplierInsulation_Cold>0.32</StuffEffectMultiplierInsulation_Cold>
-      <StuffEffectMultiplierInsulation_Heat>0.20</StuffEffectMultiplierInsulation_Heat>
-      <Flammability>0.60</Flammability>
+      <ArmorRating_Sharp>0.40</ArmorRating_Sharp>
+      <ArmorRating_Heat>0.40</ArmorRating_Heat>
+      <StuffEffectMultiplierArmor>0.20</StuffEffectMultiplierArmor>
+      <StuffEffectMultiplierInsulation_Cold>0.40</StuffEffectMultiplierInsulation_Cold>
+      <StuffEffectMultiplierInsulation_Heat>0.60</StuffEffectMultiplierInsulation_Heat>
+      <Flammability>0.40</Flammability>
       <EquipDelay>3</EquipDelay>
     </statBases>
-    <!-- 装备时属性偏移：压制下降率偏移 -0.10；仅 Ideology 启用时加载。 -->
+    <!-- 装备时属性偏移：心灵敏感度 -40%，社交效果 +16%。 -->
     <equippedStatOffsets>
-      <SlaveSuppressionOffset MayRequire="Ludeon.RimWorld.Ideology">-0.10</SlaveSuppressionOffset>
+      <PsychicSensitivity>-0.40</PsychicSensitivity>
+      <SocialImpact>0.16</SocialImpact>
     </equippedStatOffsets>
     <apparel>
+      <developmentalStageFilter>Adult</developmentalStageFilter>
       <bodyPartGroups>
         <li>Torso</li>
         <li>Neck</li>
@@ -54,7 +60,7 @@
         <li>Hands</li>
         <li>Feet</li>
       </bodyPartGroups>
-      <wornGraphicPath>Clothing/zwei1</wornGraphicPath>
+      <wornGraphicPath>Clothing/liuA</wornGraphicPath>
       <layers>
         <li>OnSkin</li>
       </layers>
@@ -71,20 +77,17 @@
     <tradeTags>
       <li>BasicClothing</li>
     </tradeTags>
-    <!-- 套装件：与 zweiB 共同维护 zweiSet 的进度(装备 +1 / 卸下 -1)；集齐两件时授予技能 zwei_Aura。 -->
+    <!-- 套装件：装备/卸下时把 RK_LiuSet 的进度 +1 / -1。 -->
     <comps>
-      <li Class="XIYUNTE.CompProperties_SetPiece">
-        <setHediff>zweiSet</setHediff>
-        <abilityDef>zwei_Aura</abilityDef>
-      </li>
+      <li Class="XIYUNTE.CompProperties_LiuPiece" />
     </comps>
   </ThingDef>
 
-	<!-- 2协会外套 -->
- <ThingDef ParentName="RK_ApparelMakeableBase">
-    <defName>zweiB</defName>
-    <description>有些厚大的衣物，能提供不错的防御力，不过Zwei协会的收尾人们在暗中保护目标时不会选择把这么有标志性的衣物套在身上，可能会在外面再套一件，或是准备保护目标的时候立马披上。\n不过嘛，保护的委托费也过于贵了。</description>
-    <label>南部Zwei协会大衣</label>
+  <!-- 南部六协会外套：外套层衣物，提供心灵敏感度与社交效果偏移，代号仍为 liuB 供套装判定使用。 -->
+  <ThingDef ParentName="RK_ApparelMakeableBase">
+    <defName>liuB</defName>
+    <description>带有金色花纹的红色外套，有较好的防利器能力和隔热能力，衣服上的金色花纹可以一定程度上抵御精神攻击。</description>
+    <label>南部六协会外套</label>
     <possessionCount>1</possessionCount>
     <recipeMaker>
       <researchPrerequisite>RK_Research_AdvancedApparel</researchPrerequisite>
@@ -95,14 +98,14 @@
       <displayPriority>215</displayPriority>
     </recipeMaker>
     <graphicData>
-      <texPath>Clothing/zwei2</texPath>
+      <texPath>Clothing/liuB</texPath>
       <graphicClass>Graphic_Single</graphicClass>
       <ignoreThingDrawColor>true</ignoreThingDrawColor>
       <drawSize>1.05</drawSize>
     </graphicData>
     <costStuffCount>85</costStuffCount>
     <costList>
-      <Steel>25</Steel>
+      <Gold>2</Gold>
     </costList>
     <stuffCategories>
       <li>Fabric</li>
@@ -113,29 +116,31 @@
     </thingCategories>
     <techLevel>Industrial</techLevel>
     <statBases>
-      <MaxHitPoints>320</MaxHitPoints>
-      <WorkToMake>13500</WorkToMake>
-      <Mass>3.2</Mass>
-      <!-- 固定护甲值；材料护甲系数为 1(100%)。 -->
-      <ArmorRating_Blunt>0.82</ArmorRating_Blunt>
-      <ArmorRating_Sharp>0.30</ArmorRating_Sharp>
-      <ArmorRating_Heat>0.22</ArmorRating_Heat>
-      <StuffEffectMultiplierArmor>0.20</StuffEffectMultiplierArmor>
-      <StuffEffectMultiplierInsulation_Cold>1.70</StuffEffectMultiplierInsulation_Cold>
-      <StuffEffectMultiplierInsulation_Heat>0.90</StuffEffectMultiplierInsulation_Heat>
-      <Flammability>0.60</Flammability>
-      <EquipDelay>0.8</EquipDelay>
+      <MaxHitPoints>300</MaxHitPoints>
+      <WorkToMake>13600</WorkToMake>
+      <Mass>0.5</Mass>
+      <!-- 固定护甲值；材料护甲贡献按材料系数缩放后叠加。 -->
+      <ArmorRating_Blunt>0.30</ArmorRating_Blunt>
+      <ArmorRating_Sharp>0.60</ArmorRating_Sharp>
+      <ArmorRating_Heat>0.40</ArmorRating_Heat>
+      <StuffEffectMultiplierArmor>0.30</StuffEffectMultiplierArmor>
+      <StuffEffectMultiplierInsulation_Cold>0.60</StuffEffectMultiplierInsulation_Cold>
+      <StuffEffectMultiplierInsulation_Heat>2.60</StuffEffectMultiplierInsulation_Heat>
+      <Flammability>0.40</Flammability>
+      <EquipDelay>2.6</EquipDelay>
     </statBases>
-    <!-- 装备时属性偏移：压制下降率偏移 -0.20；仅 Ideology 启用时加载。 -->
+    <!-- 装备时属性偏移：心灵敏感度 -60%，社交效果 +16%。 -->
     <equippedStatOffsets>
-      <SlaveSuppressionOffset MayRequire="Ludeon.RimWorld.Ideology">-0.20</SlaveSuppressionOffset>
+      <PsychicSensitivity>-0.60</PsychicSensitivity>
+      <SocialImpact>0.16</SocialImpact>
     </equippedStatOffsets>
     <apparel>
       <drawData>
-  <defaultData>
-    <offset>(-0.002,0,0)</offset>
-  </defaultData>
-</drawData>
+        <defaultData>
+          <offset>(-0.002,0,0)</offset>
+        </defaultData>
+      </drawData>
+      <developmentalStageFilter>Adult</developmentalStageFilter>
       <bodyPartGroups>
         <li>Torso</li>
         <li>Neck</li>
@@ -143,7 +148,7 @@
         <li>Arms</li>
         <li>Legs</li>
       </bodyPartGroups>
-      <wornGraphicPath>Clothing/zwei2</wornGraphicPath>
+      <wornGraphicPath>Clothing/liuB</wornGraphicPath>
       <layers>
         <li>Shell</li>
       </layers>
@@ -184,16 +189,10 @@
     <tradeTags>
       <li>BasicClothing</li>
     </tradeTags>
-    <!-- 装备时挂载承伤系数 Hediff(×0.8)，卸下时移除。 -->
+    <!-- 套装件：装备/卸下时把 RK_LiuSet 的进度 +1 / -1。 -->
     <comps>
-      <li Class="XIYUNTE.CompProperties_EquippedHediff">
-        <hediffDef>zweiB_Coat</hediffDef>
-      </li>
-      <!-- 套装件：与 zweiA 共同维护 zweiSet 的进度(装备 +1 / 卸下 -1)；集齐两件时授予技能 zwei_Aura。 -->
-      <li Class="XIYUNTE.CompProperties_SetPiece">
-        <setHediff>zweiSet</setHediff>
-        <abilityDef>zwei_Aura</abilityDef>
-      </li>
+      <li Class="XIYUNTE.CompProperties_LiuPiece" />
     </comps>
   </ThingDef>
- </Defs>
+
+</Defs>

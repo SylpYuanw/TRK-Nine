@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- Cinq套装进度：三件衣物共用此Hediff，severity为1/3、2/3、3/3。 -->
+  <HediffDef>
+    <defName>RK_CinqSet</defName>
+    <label>Cinq协会套装</label>
+    <defaultLabelColor>(0.32,0.43,0.69)</defaultLabelColor>
+    <description>羽饰、礼服与披风整齐归位，剑尖所向只留下一位对手。\n穿齐三件南部Cinq协会制服后获得技能“决斗宣告”。</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <isBad>false</isBad>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <tendable>false</tendable>
+    <everCurableByItem>false</everCurableByItem>
+    <initialSeverity>1</initialSeverity>
+    <maxSeverity>3</maxSeverity>
+    <stages>
+      <li>
+        <minSeverity>1</minSeverity>
+        <label>1/3</label>
+        <overrideTooltip>只穿戴了一件Cinq协会制服部件，尚未构成套装。</overrideTooltip>
+      </li>
+      <li>
+        <minSeverity>2</minSeverity>
+        <label>2/3</label>
+        <overrideTooltip>已穿戴两件Cinq协会制服部件，尚未集齐套装。</overrideTooltip>
+      </li>
+      <li>
+        <minSeverity>3</minSeverity>
+        <label>3/3</label>
+        <overrideTooltip>已完整穿戴Cinq协会套装，可以使用“决斗宣告”。</overrideTooltip>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <!-- 主动技能的自身战斗状态：意识加成与攻击叠层均由此状态提供。 -->
+  <HediffDef>
+    <defName>RK_Cinq_DuelDeclarationActive</defName>
+    <label>决斗宣告</label>
+    <defaultLabelColor>(0.32,0.43,0.69)</defaultLabelColor>
+    <description>巷道收窄，退路交给礼仪，剑锋交给决心。\n每次近战攻击获得1层决斗节奏，最多4层，每层可使使近战冷却减少10%。</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <isBad>false</isBad>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <tendable>false</tendable>
+    <everCurableByItem>false</everCurableByItem>
+    <initialSeverity>1</initialSeverity>
+    <maxSeverity>5</maxSeverity>
+    <stages>
+      <li>
+        <minSeverity>1</minSeverity>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>0.15</offset>
+          </li>
+        </capMods>
+        <statFactorsBySeverity>
+          <li>
+            <stat>MeleeWeapon_CooldownMultiplier</stat>
+            <valueBySeverity>
+              <points>
+                <li>(1,1)</li>
+                <li>(2,0.9)</li>
+                <li>(3,0.8)</li>
+                <li>(4,0.7)</li>
+                <li>(5,0.6)</li>
+              </points>
+            </valueBySeverity>
+          </li>
+        </statFactorsBySeverity>
+      </li>
+    </stages>
+    <comps>
+      <li Class="HediffCompProperties_Disappears">
+        <disappearsAfterTicks>12500</disappearsAfterTicks>
+        <showRemainingTime>true</showRemainingTime>
+      </li>
+      <li Class="HediffCompProperties_DisappearsOnDeath" />
+      <li Class="XIYUNTE.HediffCompProperties_CinqDuelDeclaration" />
+    </comps>
+  </HediffDef>
+</Defs>

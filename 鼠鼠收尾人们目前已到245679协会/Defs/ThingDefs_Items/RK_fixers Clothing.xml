@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
   <!-- 护目镜：旧版遗留条目，未在本次企划数据范围内。 -->
-  <ThingDef ParentName="HatMakeableBase">
+  <ThingDef ParentName="RK_HatMakeableBase">
     <defName>RK_nineh</defName>
     <label>护目镜</label>
     <description>A soft, thick cap. G</description>
     <graphicData>
       <texPath>Clothing/hmj</texPath>
       <graphicClass>Graphic_Single</graphicClass>
+      <ignoreThingDrawColor>true</ignoreThingDrawColor>
     </graphicData>
     <uiIconScale>1.25</uiIconScale>
     <costStuffCount>20</costStuffCount>

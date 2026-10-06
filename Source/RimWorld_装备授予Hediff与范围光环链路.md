@@ -208,6 +208,14 @@ internal static class Patch_ApparelTracker_XxxSync
 - 范围绘制：`GenDraw.DrawRadiusRing` 挂在 `PawnRenderer.RenderPawnAt` 后置补丁里，按帧去重；地面光环贴图用 `MoteMaker.MakeAttachedOverlay` + `Maintain()` 跟随来源 Pawn。
 - 缺 DLC 的写法：Def 引用字段元素本身可以写 `MayRequire`，跨引用加载器会跳过该字段并保持 null（`Verse/DirectXmlToObject.cs:204-213`），因此引用文化 DLC 的 `Mote_CombatCommand` 不会在缺 DLC 时报错。
 
+## 4.3 Cinq自身施法与Seven攻击标记
+
+- `AbilityDef.targetRequired=false` 的自身技能不需要 `verbProperties.targetParams`；`canTargetSelf` 只是目标参数中的自目标许可，不是范围字段。保留多余目标参数会进入目标选择链，Cinq“决斗宣告”因此只保留 `targetRequired=false` 与自身施法效果。
+- Cinq 的攻击叠层与 Seven 的“弱点解析”都挂在自身套装 Hediff 的 `Notify_PawnUsedVerb`。组件先确认套装达到最大 severity，再从本次 `Verb_MeleeAttack` 的 `LocalTargetInfo` 取得目标；没有全局攻击 Harmony 补丁。
+- Seven 的目标 Hediff 直接使用 `statFactors` 将 `ArmorRating_Blunt`、`ArmorRating_Sharp`、`ArmorRating_Heat` 乘以 0.8；重复命中查找已有实例并通过 `HediffComp_Disappears.SetDuration` 刷新 7500 tick，因此不叠加层数。
+
+实现文件：`Defs/AbilityDefs/Ability_Cinq.xml`、`Defs/HediffDefs/Hediffs_Seven.xml`、`Defs/ThingDefs_Items/Clothes_Seven.xml`、`Source/ClassLibrary1/Abilities/Hediff_CinqDuelDeclaration.cs`、`Source/ClassLibrary1/Abilities/Hediff_SevenWeaknessAnalysis.cs`。
+
 ## 5. 证据来源
 
 - `Verse/HediffComp_GiveHediffsInRange.cs`、`Verse/HediffCompProperties_GiveHediffsInRange.cs`

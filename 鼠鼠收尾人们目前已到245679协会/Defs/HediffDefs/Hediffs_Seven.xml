@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- Seven套装进度：两件衣物共用此Hediff，severity为1/2、2/2。 -->
+  <HediffDef>
+    <defName>RK_SevenSet</defName>
+    <label>Seven协会套装</label>
+    <defaultLabelColor>(0.25,0.75,0.65)</defaultLabelColor>
+    <description>七份记录彼此咬合，沉默地把答案写在刀锋之前。\n穿齐两件南部Seven协会制服后，近战或远程攻击目标时施加"弱点解析"。</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <isBad>false</isBad>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <tendable>false</tendable>
+    <everCurableByItem>false</everCurableByItem>
+    <initialSeverity>1</initialSeverity>
+    <maxSeverity>2</maxSeverity>
+    <stages>
+      <li>
+        <minSeverity>1</minSeverity>
+        <label>1/2</label>
+        <overrideTooltip>只穿戴了一件Seven协会制服部件，尚未构成套装。</overrideTooltip>
+      </li>
+      <li>
+        <minSeverity>2</minSeverity>
+        <label>2/2</label>
+        <overrideTooltip>已完整穿戴Seven协会套装，近战或远程攻击会使目标获得弱点解析。</overrideTooltip>
+      </li>
+    </stages>
+    <comps>
+      <li Class="XIYUNTE.HediffCompProperties_SevenWeaknessAnalysis">
+        <weaknessHediff>RK_SevenWeaknessAnalysis</weaknessHediff>
+        <durationTicks>7500</durationTicks>
+      </li>
+    </comps>
+  </HediffDef>
+
+  <!-- 弱点解析：目标的钝击、尖锐与热能护甲均乘以0.8；重复命中只刷新持续时间。 -->
+  <HediffDef>
+    <defName>RK_SevenWeaknessAnalysis</defName>
+    <label>弱点解析</label>
+    <defaultLabelColor>(0.25,0.75,0.65)</defaultLabelColor>
+    <description>破绽已被准确标记。\n持续3小时，效果不可叠加。</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <isBad>true</isBad>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <tendable>false</tendable>
+    <everCurableByItem>false</everCurableByItem>
+    <initialSeverity>1</initialSeverity>
+    <maxSeverity>1</maxSeverity>
+    <stages>
+      <li>
+        <minSeverity>1</minSeverity>
+        <statFactors>
+          <ArmorRating_Blunt>0.8</ArmorRating_Blunt>
+          <ArmorRating_Sharp>0.8</ArmorRating_Sharp>
+          <ArmorRating_Heat>0.8</ArmorRating_Heat>
+        </statFactors>
+      </li>
+    </stages>
+    <comps>
+      <li Class="HediffCompProperties_Disappears">
+        <disappearsAfterTicks>7500</disappearsAfterTicks>
+        <showRemainingTime>true</showRemainingTime>
+      </li>
+      <li Class="HediffCompProperties_DisappearsOnDeath" />
+    </comps>
+  </HediffDef>
+</Defs>

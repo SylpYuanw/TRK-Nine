@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
   <!-- 东部し协会制服：贴身层衣物，提供固定护甲与狩猎隐蔽加成。 -->
-  <ThingDef ParentName="ApparelMakeableBase">
+  <ThingDef ParentName="RK_ApparelMakeableBase">
     <defName>si_uniform</defName>
     <label>东部し协会制服</label>
     <description>款式简洁的衣物有红白点缀，方便由再暗中刺杀委托目标。死亡对谁都是平等的，若是下手时有犹豫说明你不适合这份工作。</description>
@@ -16,6 +16,7 @@
     <graphicData>
       <texPath>Clothing/si_uniform</texPath>
       <graphicClass>Graphic_Single</graphicClass>
+      <ignoreThingDrawColor>true</ignoreThingDrawColor>
       <drawSize>1.05</drawSize>
     </graphicData>
     <costStuffCount>85</costStuffCount>
@@ -82,7 +83,7 @@
 
   <!-- 东部し协会箭袋：腰部装备，按原版背包写法实现：贴图用 <路径>_方向 命名，
        位置由 wornGraphicData 提供，绘制层由原版按朝向注入(朝北 93 = 衣物之上、朝南 -3 = 身体之后)。 -->
-  <ThingDef ParentName="ApparelMakeableBase">
+  <ThingDef ParentName="RK_ApparelMakeableBase">
     <defName>si_quiver</defName>
     <label>东部し协会箭袋</label>
     <description>为什么暗杀的委托如此之多呢？人与人之间的怨恨未免也太重太多了吧。</description>
@@ -97,6 +98,7 @@
     <graphicData>
       <texPath>Clothing/si_quiver</texPath>
       <graphicClass>Graphic_Single</graphicClass>
+      <ignoreThingDrawColor>true</ignoreThingDrawColor>
     </graphicData>
     <costStuffCount>40</costStuffCount>
     <stuffCategories>

@@ -4,7 +4,7 @@
   <ThingDef ParentName="RK_MeleeWeapon">
     <defName>liu_LongSword</defName>
     <label>南部六协会直剑</label>
-    <description>缠绕着火焰的武器任谁来了都能挥舞使用。六协会的火焰并非谁都能随意燃起，也无法由自己一人将火种传递下去。也许出身、地区和本领不同，但六协会的火焰是温暖的。</description>
+    <description>缠绕着火焰的武器任谁来了都能挥舞使用。六协会的火焰并非谁都能随意燃起，也无法由自己一人将火种传递下去。也许出身、地区和本领不同，但六协会的火焰是温暖的。\n\n持有时，最低舒适温度-60°</description>
     <possessionCount>1</possessionCount>
     <graphicData>
       <texPath>Weapon/liuC</texPath>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
   <!-- 北部Девять协会外套：贴身层衣物，提供携带量加成。 -->
-  <ThingDef ParentName="ApparelMakeableBase">
+  <ThingDef ParentName="RK_ApparelMakeableBase">
     <defName>nineja</defName>
     <label>北部Девять协会外套</label>
     <description>北部寒冷严峻的环境不得不让Девять协会的成员裹着厚大的外套进行派送，虽然收入不错但大多成员都是负债并处于债务困境中被强制指定的。</description>
@@ -16,6 +16,7 @@
     <graphicData>
       <texPath>Clothing/nineja</texPath>
       <graphicClass>Graphic_Single</graphicClass>
+      <ignoreThingDrawColor>true</ignoreThingDrawColor>
       <drawSize>1.05</drawSize>
     </graphicData>
     <costStuffCount>105</costStuffCount>
@@ -103,7 +104,7 @@
   </ThingDef>
 
   <!-- 北部Девять协会羽绒服：贴身层衣物，提供远行速度、携带量与移动速度加成。 -->
-  <ThingDef ParentName="ApparelMakeableBase">
+  <ThingDef ParentName="RK_ApparelMakeableBase">
     <defName>Apparel_ninec</defName>
     <label>北部Девять协会羽绒服</label>
     <description>为了方便Девять协会成员进行派送在腿部位置增添了白色的外骨骼，虽然放入派送箱的物品不会导致派送箱重量增加，但派送箱的重量也是有些过于重了。</description>
@@ -118,6 +119,7 @@
     <graphicData>
       <texPath>Clothing/ninec</texPath>
       <graphicClass>Graphic_Single</graphicClass>
+      <ignoreThingDrawColor>true</ignoreThingDrawColor>
     </graphicData>
     <costStuffCount>95</costStuffCount>
     <costList>

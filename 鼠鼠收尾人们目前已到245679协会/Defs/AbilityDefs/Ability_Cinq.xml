@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <AbilityDef>
+    <defName>RK_Cinq_DuelDeclaration</defName>
+    <label>决斗宣告</label>
+    <description>手套划过空气，宣告一场只属于两人的较量。\n意识提高15%，心情提高15；每次成功完成近战攻击获得1层决斗节奏，每层使近战冷却降低10%，最多4层。</description>
+    <iconPath>Ability/Cinq</iconPath>
+    <targetRequired>false</targetRequired>
+    <hostile>false</hostile>
+    <displayGizmoWhileUndrafted>true</displayGizmoWhileUndrafted>
+    <disableGizmoWhileUndrafted>false</disableGizmoWhileUndrafted>
+    <statBases>
+      <Ability_EffectRadius>0</Ability_EffectRadius>
+      <!-- 5小时 = 12500 tick = 208.3333秒；CompAbilityEffect_WithDuration的单位为秒。 -->
+      <Ability_Duration>208.33333</Ability_Duration>
+    </statBases>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <range>0</range>
+      <drawAimPie>false</drawAimPie>
+      <requireLineOfSight>false</requireLineOfSight>
+      <targetable>false</targetable>
+      <nonInterruptingSelfCast>true</nonInterruptingSelfCast>
+      <targetParams>
+        <canTargetSelf>true</canTargetSelf>
+      </targetParams>
+      <warmupTime>0.1</warmupTime>
+    </verbProperties>
+    <comps>
+      <li Class="XIYUNTE.CompProperties_CinqDuelDeclaration">
+        <hediffDef>RK_Cinq_DuelDeclarationActive</hediffDef>
+        <moodThought>RK_Cinq_DuelMoodThought</moodThought>
+        <setHediff>RK_CinqSet</setHediff>
+        <onlyApplyToSelf>true</onlyApplyToSelf>
+        <replaceExisting>true</replaceExisting>
+        <severity>1</severity>
+      </li>
+    </comps>
+    <!-- 12小时 = 30000 tick。Ability在施放前开始冷却。 -->
+    <cooldownTicksRange>30000</cooldownTicksRange>
+  </AbilityDef>
+</Defs>
