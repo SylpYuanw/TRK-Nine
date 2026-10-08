@@ -93,10 +93,10 @@ XML：
 
 做法：光环组件不用原版 `GiveHediffsInRange`，改为自定义 `HediffComp`，按 `IsHashIntervalTick(interval)`（0.5 秒 = 30 tick）扫描：
 
-1. 遍历同阵营角色（`map.mapPawns.SpawnedPawnsInFaction(faction)`；无阵营退回 `AllPawnsSpawned`）。
-2. 从其中筛出**满足条件**的成员（只有他们才是加成对象）。
-3. 对每个成员，以**成员自身**为中心统计 `baseRange` 内满足条件的人数（含自身），得 `range = base + (count-1) * perExtra`。
-4. 若光环持有者与该成员距离 `<= range`，则授予/刷新增益 Hediff。
+1. 沿用原版同阵营候选集，以领袖命令的 `TargetingParameters.CanTarget` 筛出殖民者。
+2. 从候选集中另筛完整套装成员，只用于半径计算。
+3. 以**光环来源自身**为中心统计基础方形范围内的套装成员数（含自身），得 `range = base + (count-1) * perExtra`。
+4. 给实际方形范围内的全部候选者发放/刷新增益；完整套装成员每来源 +6% 意识，非套装成员 +2%。
 
 要点：`SpawnedPawnsInFaction` 返回 `List<Pawn>`，`AllPawnsSpawned` 返回 `IReadOnlyList<Pawn>` —— 类型不同，不要写「返回其中一个」的公共方法（会编译不过）。改用「把结果写入调用方传入的 `List<Pawn>` 缓冲」的形式，既兼容两种来源又可复用缓冲。
 
@@ -104,15 +104,15 @@ XML：
 
 若半径依赖「附近满足条件的同伴数」，**不要**在每个目标上重新遍历全部候选者并逐个判定穿戴（会变成 (目标 × 邻员) 次 `WornApparel` 读取，且每名光环持有者都跑一遍）。正确做法是每个扫描 tick：
 
-1. 收集同阵营候选者一次（复用调用方提供的 `List` 缓冲，不新建）。
-2. 从候选者中筛出「满足条件」的成员一次，写入第二个复用缓冲。
-3. **把第 2 步的成员集合直接当作光环目标集**（只有满足条件者才该吃到加成），并对其中每个成员以其自身为中心算半径、判定距离。
+1. 收集合格同阵营殖民者一次，复用 `List` 缓冲。
+2. 另筛完整套装成员，写入第二个复用缓冲。
+3. 仅用套装成员计算来源半径，再向第 1 步的候选集发放增益。
 
-这样目标集与半径计算集是同一个集合，既满足「只有满足条件者获得加成」，又只遍历一次。
+受益者与扩大半径的人数分开：非套装成员可接收光环，但不扩大半径。
 
 `HasFullSet` 这类判定只与穿戴状态有关，同一 tick 内对同一角色只需判定一次。
 
-注意：若把目标集写成「全部同阵营角色」，就会把加成发给**未满足条件**的人（如只穿一件或什么都没穿的人），这与「满足 N/N 条件者才获得」的需求直接冲突 —— 这是实际踩过的坑。
+六协会目标参数与原版领袖命令一致：`canTargetAnimals=false`、`canTargetMechs=false`、`canTargetBuildings=false`、`onlyTargetColonists=true`；不另外判断敌对、访客或囚犯。
 
 ### 3.2 意识等「能力」必须走 capMods，不是 statOffsets
 
@@ -161,28 +161,34 @@ internal static class Patch_ApparelTracker_XxxSync
 
 范围光环常见写法是「源头 Hediff 带光环组件 → 给范围内目标挂 buff Hediff」。若**同时**让源头 Hediff 也用 `capMods`/`statOffsets` 给自己加同样的属性，而光环目标集**包含授予者自身**（距离 0 必然在范围内），穿戴者就会同时吃到两份 → 数值翻倍。
 
-结论：**要么**由源头给自身、光环只给他人（需显式排除自身）；**要么**源头不加属性、由光环 buff 统一发放（推荐，天然封顶）。
-推荐后者的原因：同一 def 的 Hediff 在一个角色身上只会存在一个（`GetFirstHediffOfDef` 去重），所以「发放式」加成本质上不可叠加，需求里的「上限 X%、多人只加范围」由结构保证，不依赖额外判断。
+结论：源头不加属性，全部由光环 buff 发放，避免自身重复受益。
+单来源刷新必须按来源 Pawn 查找实例。`TryMergeWith=false` 允许同 def 的多个来源独立存在；`GetFirstHediffOfDef` 本身不保证实例唯一，也不决定叠加上限。
 
 ## 4. 该 MOD 内的具体落地（六协会套装）
 
-两个 Hediff + 一条同步补丁：
+两个 Hediff + 一个情境 ThoughtDef（2026-10-08）：
 
 | 组成 | 职责 |
 |---|---|
-| `Patch_ApparelTracker_LiuSetSync` | **检测**。每 30 tick 按 `HasFullSet` 增删 `RK_LiuSet`，不依赖装备事件 |
+| `Comp_LiuPiece` | 装备/卸下事件维护 `RK_LiuSet` 的件数；套装 Hediff 随存档保存 |
 | `RK_LiuSet` | **2/2 身份标记 + 光环源头**。自身**不加任何属性**；带 `HediffComp_LiuSetAura` |
-| `RK_LiuAuraBuff` | **意识 +6% 的唯一来源**。带 `HediffComp_Disappears`，每次刷新 5 tick |
+| `RK_LiuAuraBuff` | 每来源一份独立实例；阶段 1/2/3 每份 +2% 意识，4/5/6 每份 +6%；第一份保存最多三来源的心情汇总阶段；每 30 tick 刷新到 35 tick |
+| `RK_Liu_AuraMoodThought` | `ThoughtWorker_LiuAura` 继承原版 `ThoughtWorker_Hediff` 的阶段判定，只重写描述输出，显示单条“六协会之火” |
 
 要点：
 
-- 目标集 = **满足 2/2 的成员集合**，不是全部同阵营角色。1/2 或未穿戴者不获得任何效果。
+- 目标集采用原版同阵营与领袖命令目标参数；1/2 与未穿戴者接收非套装档位。
 - 授予者自身距离 0，必在自身光环范围内 → 单人 2/2 也能稳定拿到 +6%。
-- 加成封顶 +6%：套装状态不加属性，光环 buff 同 def 去重，因此多人只放大范围（`6 + (N-1)*2`）不叠加数值。
-- `HasFullSet` 按 `ThingDef.defName` 比较（`liuA`/`liuB`），不依赖 label。
+- 意识按来源无限叠加；只有心情封顶：套装成员 6/12/18，非套装成员 2/4/6。
+- 套装身份只读 `RK_LiuSet.Severity`，不扫描衣物；光环增删与装备/卸下事件同步阶段，同来源刷新只重置到期时间。
 - `Consciousness` 走 `capMods`（见 3.2）。
-- 全部数值（半径/增量/扫描间隔/加成/残留 tick）经 XML 传导。
-- 若仍需要「只穿一件」也有可见状态，可另加一个纯展示 Hediff；但**不要**让它承担检测职责，否则又回到装备事件的坑。
+- 原版心情 Worker 只读第一份指定 Hediff 的 `CurStageIndex`，不会自动相加同名实例。来源数在现有光环代码内汇总，不另建心情 Hediff、不增加 tick 扫描。描述子类不重写 `CurrentStateInternal`。
+- 六个 Thought 阶段分别填写描述，前三阶段为非成员、后三阶段为完整套装成员。描述输出直接返回阶段文本，不追加原版 Hediff Worker 的“由于”来源段落；需求面板仍使用原版标题与正文间距。
+- 阶段同步遍历一次光环列表；只给发生变化的实例设置 severity，沿原版 Setter 通知缓存。首份移除后，下一份自动接替汇总。
+- 范围与增益继续使用原版到期组件；选中时连线覆盖所有合格受益者，非套装人员不扩大半径。
+- 二协会继续使用无目标参数的候选收集调用，保留原有筛选与三来源上限。
+
+证据：RIMSAGE `RimWorld/ThoughtWorker_Hediff.cs:8-18`、`Verse/HediffSet.cs` 的 `AddDirect`、`Pawn_HealthTracker.RemoveHediff`、`Hediff.Severity`；可复现模拟与限制见 [六协会与 Cinq 自测记录](Verification/六协会与Cinq自测记录.md)。
 
 ## 4.1 边界：固定加成不要建 Hediff（二协会内衬/外衣实例）
 
@@ -226,4 +232,5 @@ internal static class Patch_ApparelTracker_XxxSync
 - `Verse/Pawn.cs:2929`（`TickInterval` 对每个未暂停 Pawn 调 `apparel.ApparelTrackerTickInterval(delta)`）
 - `Verse/Pawn_HealthTracker.cs:1020-1050`（`HealthTick` 调 `Hediff.PostTick` → `CompPostTick`，异常时移除 Hediff 并写日志）
 - `Verse/HediffWithComps.cs:209-224`（`PostTick` → `comps[i].CompPostTick`）
-- 项目文件：`Source/ClassLibrary1/Abilities/Hediff_LiuSet.cs`、`Defs/HediffDefs/Hediffs_LiuSet.xml`、`Defs/ThingDefs_Items/RK_liu Clothing.xml`
+- RIMSAGE（2026-10-08）：`CombatCommand` HediffDef 的 `targetingParameters`、`RimWorld/TargetingParameters.cs:89-313`、`RimWorld/ThoughtDef.cs`、`RimWorld/ThoughtWorker.cs`、`RimWorld/SituationalThoughtHandler.cs:195-221`、`Verse/Hediff.cs:236-265`。
+- 项目文件：`Source/ClassLibrary1/Abilities/Hediff_LiuSet.cs`、`Defs/HediffDefs/Hediffs_LiuSet.xml`、`Defs/ThoughtDefs/Thoughts_Liu.xml`、`Defs/ThingDefs_Items/Clothes_Liu.xml`

@@ -1,0 +1,15 @@
+CHAIN 1 PASS: full/non-full single source, 100 refreshes without duplication/cache invalidation; vanilla CanTarget accepts player humanlike pawn, rejects visitor/animal/mech; square boundaries; 6 valid stage descriptions, 2 membership texts, no added tooltip lines; native stage decision inherited.
+CHAIN 2 values: full mood=6/12/18/18, consciousness offsets=6/12/18/24%; non-full mood=2/4/6/6, offsets=2/4/6/8%.
+CHAIN 2 PASS: 1/2/3/4 sources, mood cap with unlimited consciousness, unequip/re-equip, first-source removal, native 35-tick expiry, final removal.
+MANAGED Cinq Postfix -> vanilla Effecter -> captured Fleck (render/angle boundaries simulated), median_ns=994.76, bytes_per_call=712.00
+CHAIN 3 PASS: production melee Postfix -> vanilla Effecter -> Sprayer -> captured Fleck; Cinq eight directions, DeliveryBox 5 modes, ordinary weapon, Zwei isolation. Unity planar angle/DrawPos/Fleck renderer are simulated boundaries.
+PASS checks=157; isolated boundaries: health state transition/render caches/Pawn DrawPos/Unity planar angle/Fleck submission.
+VANILLA mood query sources=1, unrelated=25, median_ns=29.80, bytes_per_call=40.00, Gen0_collections=9, checksum=4500000
+MANAGED stage sync unchanged sources=1, median_ns=32.09, bytes_per_call=0.00
+MANAGED existing-source refresh sources=1, median_ns=42.85, bytes_per_call=0.00
+VANILLA mood query sources=3, unrelated=25, median_ns=30.91, bytes_per_call=40.00, Gen0_collections=10, checksum=7500000
+MANAGED stage sync unchanged sources=3, median_ns=35.53, bytes_per_call=0.00
+MANAGED existing-source refresh sources=3, median_ns=48.45, bytes_per_call=0.00
+VANILLA mood query sources=20, unrelated=25, median_ns=31.87, bytes_per_call=40.00, Gen0_collections=10, checksum=7500000
+MANAGED stage sync unchanged sources=20, median_ns=79.69, bytes_per_call=0.00
+MANAGED existing-source refresh sources=20, median_ns=43.49, bytes_per_call=0.00

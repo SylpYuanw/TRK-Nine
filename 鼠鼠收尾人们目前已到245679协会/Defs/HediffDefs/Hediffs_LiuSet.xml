@@ -4,7 +4,7 @@
        进度由内衬/制服上的 XIYUNTE.CompProperties_LiuPiece 在装备/卸下时维护，
        不扫描装备；Hediff 随存档保存，因此读档后进度不变。
        本 Hediff 自身不提供属性加成：意识加成全部由光环增益实例发放，
-       每个来源一份实例，可叠加(同时处于 N 个成员圈内 = N*6%)。
+       每个来源一份实例，套装成员每份 +6%，其他合格殖民者每份 +2%。
        maxSeverity = 2 使件数天然封顶，重复装备事件不会把进度推过 2/2。 -->
   <HediffDef>
     <defName>RK_LiuSet</defName>
@@ -19,7 +19,7 @@
     <initialSeverity>1</initialSeverity>
     <maxSeverity>2</maxSeverity>
     <stages>
-      <!-- 1/2：只穿一件，无任何效果(也不显示加成)。 -->
+      <!-- 1/2：不提供光环，接收其他来源时使用非套装档位。 -->
       <li>
         <minSeverity>0</minSeverity>
         <label>1/2</label>
@@ -38,12 +38,19 @@
         <baseRange>6</baseRange>
         <rangePerExtraPawn>2</rangePerExtraPawn>
         <scanIntervalTicks>30</scanIntervalTicks>
+        <targetingParameters>
+          <canTargetBuildings>false</canTargetBuildings>
+          <canTargetAnimals>false</canTargetAnimals>
+          <canTargetMechs>false</canTargetMechs>
+          <onlyTargetColonists>true</onlyTargetColonists>
+        </targetingParameters>
       </li>
     </comps>
   </HediffDef>
 
-  <!-- 六协会光环增益：每个来源一份独立实例(禁止同 def 合并)，每份 +6% 意识。
-       一个角色可同时持有来自多名成员的实例，因此加成为 份数 * 6%，不设上限。
+  <!-- 每来源一份独立实例；第一份以 severity 1/2/3 或 4/5/6 表示最多三份心情。
+       其他实例保持非套装单来源阶段 1，或完整套装单来源阶段 4。
+       意识每份分别 +2% / +6%，来源数不设上限。
        依赖 HediffComp_Disappears 到期：来源离开/失去套装后自动移除。 -->
   <HediffDef>
     <defName>RK_LiuAuraBuff</defName>
@@ -56,12 +63,56 @@
     <tendable>false</tendable>
     <everCurableByItem>false</everCurableByItem>
     <initialSeverity>1</initialSeverity>
-    <maxSeverity>1</maxSeverity>
+    <maxSeverity>6</maxSeverity>
     <stages>
       <li>
         <minSeverity>0</minSeverity>
-        <!-- Consciousness 是 PawnCapacityDef 而非 StatDef，必须走 capMods；
-             capMods.offset 按份直接相加，因此多份实例即多份 +6%。 -->
+        <!-- 意识属于 PawnCapacityDef，各来源通过原版 capMods 相加。 -->
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>0.02</offset>
+          </li>
+        </capMods>
+      </li>
+      <li>
+        <minSeverity>2</minSeverity>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>0.02</offset>
+          </li>
+        </capMods>
+      </li>
+      <li>
+        <minSeverity>3</minSeverity>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>0.02</offset>
+          </li>
+        </capMods>
+      </li>
+      <li>
+        <minSeverity>4</minSeverity>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>0.06</offset>
+          </li>
+        </capMods>
+      </li>
+      <li>
+        <minSeverity>5</minSeverity>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>0.06</offset>
+          </li>
+        </capMods>
+      </li>
+      <li>
+        <minSeverity>6</minSeverity>
         <capMods>
           <li>
             <capacity>Consciousness</capacity>

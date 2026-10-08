@@ -10,14 +10,15 @@ namespace XIYUNTE
     // 「六协会」套装：
     // 内衬(liuA)与制服(liuB)各挂 Comp_LiuPiece，装备时把 RK_LiuSet 的 severity 累加 1、
     // 卸下时减 1。因此**只有一个 Hediff** 就表达进度：
-    //   severity 1 = 1/2  无任何效果
+    //   severity 1 = 1/2  不提供光环，作为非套装成员接收其他来源的增益
     //   severity 2 = 2/2  套装成员，获得意识加成并向外提供光环
     // 加成完全由光环发放，且**每个来源一份独立增益实例**（Hediff_LiuAuraBuff.TryMergeWith 返回
-    // false 阻止同 def 合并），因此同时处于 N 个成员的圈内就是 N*6% 意识，不设上限。
+    // false 阻止同 def 合并），套装成员每份 +6% 意识，非套装成员每份 +2%，不设上限。
+    // 第一份六协会光环保存心情汇总阶段，由原版情境心情读取，最多计入三份。
     // 圈半径由每个成员按自己周围的成员数算出：基础半径 + (人数-1) * 每人格数。
     //
     // 检测不扫描装备：套装进度由装备/卸下事件维护在 Hediff 上（Hediff 随存档保存），
-    // 光环组件只负责定期扫描**附近成员**并发放增益。
+    // 光环组件定期扫描同阵营殖民者；完整套装成员参与半径计算，全部合格目标获得增益。
     // ========================================================================
 
     [DefOf]
@@ -36,6 +37,29 @@ namespace XIYUNTE
     public class Hediff_LiuAuraBuff : HediffWithComps
     {
         public override bool TryMergeWith(Hediff other) => false;
+
+        public override void PostAdd(DamageInfo? dinfo)
+        {
+            base.PostAdd(dinfo);
+            if (def == LiuSetDefOf.RK_LiuAuraBuff)
+                LiuSetUtility.SyncAuraStages(pawn);
+        }
+
+        public override void PostRemoved()
+        {
+            base.PostRemoved();
+            if (def == LiuSetDefOf.RK_LiuAuraBuff)
+                LiuSetUtility.SyncAuraStages(pawn);
+        }
+    }
+
+    // 继承原版 Hediff 阶段判定；提示仅输出阶段描述，避免追加来源段落。
+    public class ThoughtWorker_LiuAura : ThoughtWorker_Hediff
+    {
+        public override string PostProcessDescription(Pawn p, string description)
+        {
+            return description;
+        }
     }
 
     public class HediffCompProperties_LiuAuraLink : HediffCompProperties
@@ -90,6 +114,8 @@ namespace XIYUNTE
         public float rangePerExtraPawn = 2f;
         // 光环扫描间隔(tick)；0.5 秒 = 30 tick。
         public int scanIntervalTicks = 30;
+        // 目标筛选沿用原版领袖命令的 TargetingParameters。
+        public TargetingParameters targetingParameters = new TargetingParameters();
 
         public HediffCompProperties_LiuSetAura()
         {
@@ -98,7 +124,7 @@ namespace XIYUNTE
     }
 
     // 光环组件：挂在套装状态 Hediff 上；只有 2/2 的成员才向外提供增益。
-    // 每次扫描按自身周围的成员数算出自己的圈半径，再给圈内每个套装成员发放一份属于自己的增益。
+    // 每次扫描按自身周围的完整套装成员数计算半径，向圈内合格殖民者发放一份独立增益。
     public class HediffComp_LiuSetAura : HediffComp
     {
         public HediffCompProperties_LiuSetAura Props => (HediffCompProperties_LiuSetAura)props;
@@ -114,7 +140,7 @@ namespace XIYUNTE
             Pawn self = Pawn;
             if (self == null || self.Dead || !self.Spawned || self.Map == null)
                 return;
-            // 仅 2/2 成员发光；1/2 无任何效果。
+            // 仅 2/2 成员提供光环。
             if (!LiuSetUtility.IsTwoOfTwo(self))
                 return;
             if (LiuSetDefOf.RK_LiuAuraBuff == null)
@@ -124,17 +150,14 @@ namespace XIYUNTE
             if (!self.IsHashIntervalTick(interval))
                 return;
 
-            Map map = self.Map;
-            LiuSetUtility.CollectCandidates(self, candidatesBuffer);
+            LiuSetUtility.CollectCandidates(self, candidatesBuffer, Props.targetingParameters);
             LiuSetUtility.CollectWearers(candidatesBuffer, wearersBuffer);
 
             float range = LiuSetUtility.ComputeRange(self, wearersBuffer, Props.baseRange, Props.rangePerExtraPawn);
 
-            for (int i = 0; i < wearersBuffer.Count; i++)
+            for (int i = 0; i < candidatesBuffer.Count; i++)
             {
-                Pawn target = wearersBuffer[i];
-                if (!LiuSetUtility.IsValidTarget(target, map))
-                    continue;
+                Pawn target = candidatesBuffer[i];
                 // 方形光环：按绝对值判定，斜角与横竖同格数。
                 if (!LiuSetUtility.InAuraRange(self.Position, target.Position, range))
                     continue;
@@ -157,7 +180,7 @@ namespace XIYUNTE
         private static readonly Material LineMat = MaterialPool.MatFrom(GenDraw.LineTexPath, ShaderDatabase.Transparent, new Color(1f, 0.48f, 0.16f, 0.9f));
 
         private static int lastDrawnFrame = -1;
-        private static readonly List<Pawn> wearersBuffer = new List<Pawn>();
+        private static readonly List<Pawn> targetsBuffer = new List<Pawn>();
         // 方形光环的格子缓冲，复用避免每帧新建 List。
         private static readonly List<IntVec3> squareCells = new List<IntVec3>();
 
@@ -188,16 +211,16 @@ namespace XIYUNTE
             }
         }
 
-        // 画该成员的方形光环 + 到范围内每个成员的连线。
+        // 画该成员的方形光环与范围内合格受益者的连线。
         private static void DrawFor(Pawn pawn, Map map)
         {
-            float range = LiuSetUtility.GetCurrentAuraRange(pawn, wearersBuffer);
+            float range = LiuSetUtility.GetCurrentAuraRange(pawn, targetsBuffer);
             DrawSquare(map, pawn.Position, range);
 
             Vector3 from = pawn.DrawPos;
-            for (int i = 0; i < wearersBuffer.Count; i++)
+            for (int i = 0; i < targetsBuffer.Count; i++)
             {
-                Pawn other = wearersBuffer[i];
+                Pawn other = targetsBuffer[i];
                 if (other == null || other == pawn || other.Map != map)
                     continue;
                 if (!LiuSetUtility.InAuraRange(pawn.Position, other.Position, range))
@@ -258,6 +281,7 @@ namespace XIYUNTE
             {
                 set.Severity += 1f;
             }
+            SyncAuraStages(pawn);
         }
 
         // 套装进度 -1：降到 0 则移除，避免留下 0/2 的空状态。
@@ -275,6 +299,7 @@ namespace XIYUNTE
                 pawn.health.RemoveHediff(set);
             else
                 set.Severity = next;
+            SyncAuraStages(pawn);
         }
 
         public static Hediff GetSet(Pawn pawn)
@@ -292,8 +317,33 @@ namespace XIYUNTE
             return set != null && set.Severity >= PiecesForFullSet - Epsilon;
         }
 
-        // 光环候选者：同阵营角色；无阵营时退回地图全部角色(与原版领导者光环同语义)。
-        public static void CollectCandidates(Pawn self, List<Pawn> outBuffer)
+        // 第一份光环保存最多三来源的汇总阶段，其余实例保持单来源阶段。
+        // 同档位的三个阶段使用相同意识偏移，阶段汇总只改变原版心情映射。
+        public static void SyncAuraStages(Pawn pawn)
+        {
+            List<Hediff> hediffs = pawn.health.hediffSet.hediffs;
+            HediffDef auraDef = LiuSetDefOf.RK_LiuAuraBuff;
+            Hediff first = null;
+            int sources = 0;
+            float singleSeverity = IsTwoOfTwo(pawn) ? 4f : 1f;
+            for (int i = 0; i < hediffs.Count; i++)
+            {
+                Hediff hediff = hediffs[i];
+                if (hediff.def != auraDef)
+                    continue;
+                if (sources < 3)
+                    sources++;
+                if (first == null)
+                    first = hediff;
+                else if (hediff.Severity != singleSeverity)
+                    hediff.Severity = singleSeverity;
+            }
+            if (first != null && first.Severity != singleSeverity + sources - 1)
+                first.Severity = singleSeverity + sources - 1;
+        }
+
+        // 同阵营候选集沿用原版光环链路；提供目标参数时按原版 CanTarget 筛选。
+        public static void CollectCandidates(Pawn self, List<Pawn> outBuffer, TargetingParameters targetingParameters = null)
         {
             outBuffer.Clear();
             Map map = self?.Map;
@@ -304,16 +354,24 @@ namespace XIYUNTE
             {
                 List<Pawn> factionPawns = map.mapPawns.SpawnedPawnsInFaction(self.Faction);
                 for (int i = 0; i < factionPawns.Count; i++)
-                    outBuffer.Add(factionPawns[i]);
+                {
+                    Pawn pawn = factionPawns[i];
+                    if (targetingParameters == null || (IsValidTarget(pawn, map) && targetingParameters.CanTarget(pawn)))
+                        outBuffer.Add(pawn);
+                }
                 return;
             }
 
             IReadOnlyList<Pawn> all = map.mapPawns.AllPawnsSpawned;
             for (int i = 0; i < all.Count; i++)
-                outBuffer.Add(all[i]);
+            {
+                Pawn pawn = all[i];
+                if (targetingParameters == null || (IsValidTarget(pawn, map) && targetingParameters.CanTarget(pawn)))
+                    outBuffer.Add(pawn);
+            }
         }
 
-        // 从候选者中筛出 2/2 成员，供本 tick 内半径计算与发放共用。
+        // 从候选者中筛出 2/2 成员，供半径计算使用。
         public static void CollectWearers(List<Pawn> candidates, List<Pawn> outBuffer)
         {
             outBuffer.Clear();
@@ -347,23 +405,26 @@ namespace XIYUNTE
             return Mathf.Max(Mathf.Abs(a.x - b.x), Mathf.Abs(a.z - b.z)) <= range;
         }
 
-        // 供可视化使用：按当前成员分布算出 self 的当前范围值，并把范围内的成员写入 outBuffer。
+        // 按完整套装成员计算范围，向可视化返回同一候选集中的全部合格受益者。
         // 每帧会被调用，因此候选者缓冲复用静态字段，不新建 List。
         private static readonly List<Pawn> candidatesBufferForRange = new List<Pawn>();
 
         public static float GetCurrentAuraRange(Pawn self, List<Pawn> outBuffer)
         {
             outBuffer.Clear();
-            HediffCompProperties_LiuSetAura props = LiuSetDefOf.RK_LiuSet?.CompProps<HediffCompProperties_LiuSetAura>();
-            float baseRange = props?.baseRange ?? 6f;
-            float perExtra = props?.rangePerExtraPawn ?? 2f;
+            HediffCompProperties_LiuSetAura props = LiuSetDefOf.RK_LiuSet.CompProps<HediffCompProperties_LiuSetAura>();
+            float baseRange = props.baseRange;
+            float perExtra = props.rangePerExtraPawn;
 
             if (self?.Map == null)
                 return baseRange;
 
-            CollectCandidates(self, candidatesBufferForRange);
+            CollectCandidates(self, candidatesBufferForRange, props.targetingParameters);
             CollectWearers(candidatesBufferForRange, outBuffer);
-            return ComputeRange(self, outBuffer, baseRange, perExtra);
+            float range = ComputeRange(self, outBuffer, baseRange, perExtra);
+            outBuffer.Clear();
+            outBuffer.AddRange(candidatesBufferForRange);
+            return range;
         }
 
         // 范围值 = 基础范围 + (基础方形范围内的成员数 - 1) * 每人增量；人数含自身。
@@ -399,7 +460,7 @@ namespace XIYUNTE
             if (mine == null)
             {
                 mine = HediffMaker.MakeHediff(auraDef, target);
-                mine.Severity = 1f;
+                mine.Severity = IsTwoOfTwo(target) ? 4f : 1f;
                 HediffComp_LiuAuraLink link = mine.TryGetComp<HediffComp_LiuAuraLink>();
                 if (link == null)
                 {
@@ -409,7 +470,6 @@ namespace XIYUNTE
                 link.source = source;
                 target.health.AddHediff(mine);
             }
-
             HediffComp_Disappears disappears = mine.TryGetComp<HediffComp_Disappears>();
             if (disappears != null)
                 disappears.ticksToDisappear = lingerTicks;

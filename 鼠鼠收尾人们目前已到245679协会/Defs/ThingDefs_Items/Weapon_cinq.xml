@@ -55,6 +55,11 @@
 		<equippedStatOffsets>
 			<MeleeHitChance>2.5</MeleeHitChance>
 		</equippedStatOffsets>
+		<modExtensions>
+			<li Class="XIYUNTE.MeleeAttackEffectExtension">
+				<attackEffecter>RK_Cinq_AttackEffect</attackEffecter>
+			</li>
+		</modExtensions>
 		<recipeMaker>
 			<researchPrerequisite>RK_Research_SwordAndShield</researchPrerequisite>
 			<skillRequirements>
@@ -95,6 +100,9 @@
 					<angle>-220</angle>
 				</westOffset>
 			</li>
+			<!-- SYS手持四向参数：position=(X,Y,Z)，X正右负左，Y为绘制高度，Z正北负南。
+			     angle为绕Y轴旋转角（度），正值顺时针、负值逆时针；南/西向使用镜像网格。
+			     此分支用于征召待机手持，直接读取angle，不叠加equippedAngleOffset。 -->
 			<li Class="SYS.CompProperties_WeaponExtention">
 				<northOffset>
 					<position>(0.3,0,0.1)</position>
@@ -106,7 +114,8 @@
 				</eastOffset>
 				<southOffset>
 					<position>(-0.3,0.3,0)</position>
-					<angle>75</angle>
+					<!-- 南向镜像手持逆时针旋转90度，使剑尖朝画面左侧、远离身体。 -->
+					<angle>5</angle>
 				</southOffset>
 				<westOffset>
 					<position>(-0.3,-0.3,-0.15)</position>

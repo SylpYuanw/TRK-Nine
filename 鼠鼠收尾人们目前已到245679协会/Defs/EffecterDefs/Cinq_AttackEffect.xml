@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <FleckDef ParentName="RK_DeliveryBox_AttackFleckBase">
+    <defName>RK_Cinq_AttackFleck</defName>
+    <graphicData>
+      <texPath>VFX/Cinq_Weapon_AttackEffect</texPath>
+    </graphicData>
+  </FleckDef>
+
+  <!-- 贴图冲击端朝东；原版 A→B 连续角覆盖八向，沿目标方向偏移0.9格。 -->
+  <EffecterDef>
+    <defName>RK_Cinq_AttackEffect</defName>
+    <children>
+      <li>
+        <subEffecterClass>SubEffecter_SprayerTriggered</subEffecterClass>
+        <fleckDef>RK_Cinq_AttackFleck</fleckDef>
+        <burstCount>1</burstCount>
+        <scale>1.2~1.2</scale>
+        <spawnLocType>OnSource</spawnLocType>
+        <rotation>-90~-90</rotation>
+      </li>
+    </children>
+    <offsetTowardsTarget>2.0~2.0</offsetTowardsTarget>
+  </EffecterDef>
+</Defs>

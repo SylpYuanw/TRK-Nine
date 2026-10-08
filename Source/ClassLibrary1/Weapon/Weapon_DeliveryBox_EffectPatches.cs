@@ -7,6 +7,12 @@ using Verse;
 
 namespace XIYUNTE
 {
+    // 无形态武器在 Def 上配置近战攻击特效，复用原版 Effecter 的方向与偏移。
+    public class MeleeAttackEffectExtension : DefModExtension
+    {
+        public EffecterDef attackEffecter;
+    }
+
     // 派送箱形态特性补丁:多功能工具连击、崩解锤对建筑增伤、本体形态负重加成。
     // 三处都挂在原版结算链路上,不新增自定义 ManeuverDef/ToolCapacityDef,也不改变原版近战伤害与冷却的来源。
 
@@ -22,11 +28,13 @@ namespace XIYUNTE
 
         static void Postfix(Verb_MeleeAttack __instance)
         {
-            CompWeaponTransformer transformer = __instance.EquipmentSource?.GetComp<CompWeaponTransformer>();
+            ThingWithComps equipment = __instance.EquipmentSource;
+            CompWeaponTransformer transformer = equipment?.GetComp<CompWeaponTransformer>();
             WeaponMode mode = transformer?.CurrentMode;
-            // 攻击特效按「是否派送箱 -> 当前形态是否配置特效」短路:只有派送箱带本组件,mode 才有值;
-            // 形态未配置 attackEffecter 时直接跳过。不按 tool 判定,因此同一形态的任意近战动作都用该形态的 EffecterDef。
-            EffecterDef attackEffecter = mode?.attackEffecter;
+            // 多形态武器读取当前形态，其他武器读取 Def 扩展；同一武器的全部近战动作共用该特效。
+            EffecterDef attackEffecter = transformer != null
+                ? mode?.attackEffecter
+                : equipment?.def.GetModExtension<MeleeAttackEffectExtension>()?.attackEffecter;
             if (attackEffecter != null)
             {
                 Pawn caster = __instance.CasterPawn;

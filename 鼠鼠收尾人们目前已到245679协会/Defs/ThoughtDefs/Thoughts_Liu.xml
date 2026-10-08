@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- 阶段判定继承原版 Hediff Worker；前3阶段为非成员，后3阶段为完整套装成员。 -->
+  <ThoughtDef>
+    <defName>RK_Liu_AuraMoodThought</defName>
+    <workerClass>XIYUNTE.ThoughtWorker_LiuAura</workerClass>
+    <hediff>RK_LiuAuraBuff</hediff>
+    <stages>
+      <li>
+        <label>六协会之火</label>
+        <description>虽非六协会成员，火焰仍鼓舞着我。</description>
+        <baseMoodEffect>2</baseMoodEffect>
+      </li>
+      <li>
+        <label>六协会之火</label>
+        <description>虽非六协会成员，火焰仍鼓舞着我。</description>
+        <baseMoodEffect>4</baseMoodEffect>
+      </li>
+      <li>
+        <label>六协会之火</label>
+        <description>虽非六协会成员，火焰仍鼓舞着我。</description>
+        <baseMoodEffect>6</baseMoodEffect>
+      </li>
+      <li>
+        <label>六协会之火</label>
+        <description>同为六协会成员，火焰鼓舞着我。</description>
+        <baseMoodEffect>6</baseMoodEffect>
+      </li>
+      <li>
+        <label>六协会之火</label>
+        <description>同为六协会成员，火焰鼓舞着我。</description>
+        <baseMoodEffect>12</baseMoodEffect>
+      </li>
+      <li>
+        <label>六协会之火</label>
+        <description>同为六协会成员，火焰鼓舞着我。</description>
+        <baseMoodEffect>18</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+</Defs>
