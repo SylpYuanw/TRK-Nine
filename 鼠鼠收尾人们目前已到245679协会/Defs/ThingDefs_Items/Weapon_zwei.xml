@@ -105,21 +105,21 @@
            此分支用于征召待机手持，直接读取angle，不叠加equippedAngleOffset。 -->
       <li Class="SYS.CompProperties_WeaponExtention">
         <northOffset>
-          <position>(0.3,0,0.1)</position>
-          <angle>-75</angle>
+          <position>(0.3,0,-0.25)</position>
+          <angle>240</angle>
         </northOffset>
         <eastOffset>
-          <position>(0.3,0,-0.15)</position>
-          <angle>-20</angle>
+          <position>(-0.25,0,-0.15)</position>
+          <angle>30</angle>
         </eastOffset>
         <southOffset>
-          <position>(-0.3,0.3,0)</position>
+          <position>(-0.3,0.3,-0.25)</position>
           <!-- 南向镜像手持逆时针旋转90度，使剑尖朝画面左侧、远离身体。 -->
-          <angle>5</angle>
+          <angle>-240</angle>
         </southOffset>
         <westOffset>
-          <position>(-0.3,-0.3,-0.15)</position>
-          <angle>20</angle>
+          <position>(0.25,-0.3,-0.15)</position>
+          <angle>-30</angle>
         </westOffset>
       </li>
     </comps>
