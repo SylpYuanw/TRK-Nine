@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <PawnKindDef ParentName="RKBasePawnKind">
+    <defName>TRK_Special_CangYueCao</defName>
+    <label>苍月草</label>
+    <defaultFactionType>RK_PlayerFaction</defaultFactionType>
+    <fixedGender>Female</fixedGender>
+    <minGenerationAge>22</minGenerationAge>
+    <maxGenerationAge>22</maxGenerationAge>
+    <allowOldAgeInjuries>false</allowOldAgeInjuries>
+    <fixedChildBackstories>
+      <li>Ratkin_HumanAssistant</li>
+    </fixedChildBackstories>
+    <fixedAdultBackstories>
+      <li>Ratkin_Librarian</li>
+    </fixedAdultBackstories>
+    <forcedTraits>
+      <Neurotic>2</Neurotic>
+      <GreatMemory>0</GreatMemory>
+    </forcedTraits>
+    <forcedHair>RK_sidePonyA</forcedHair>
+    <forcedHairColor>(0.149,0.149,0.149,1.000)</forcedHairColor>
+    <invNutrition>0</invNutrition>
+    <invFoodDef IsNull="True" />
+    <xenotypeSet IsNull="True" />
+    <apparelMoney>0</apparelMoney>
+    <weaponMoney>0</weaponMoney>
+    <generateInitialNonFamilyRelations>false</generateInitialNonFamilyRelations>
+    <showInDebugSpawner>false</showInDebugSpawner>
+  </PawnKindDef>
+
+  <XIYUNTE.SpecialCharacter.SpecialCharacterDef>
+    <defName>TRK_Character_CangYueCao</defName>
+    <label>苍月草</label>
+    <description>苍月草是南部Seven协会的收尾人。她擅长整理情报与记住细节，却总担心遗漏了某个关键线索；浓茶和反复核对的笔记陪她度过了许多长夜。</description>
+    <detailedReport>22岁，女，苍月草，南部Seven协会成员。
+
+苍月草幼时在人类身边担任助手，后来成为鼠族图书馆的管理员。她能记住书架的位置、访客借走的册数，甚至某封旧信上被划掉的日期。一次整理归还记录时，她发现几名失踪者曾借阅过同一本不起眼的旅行手册。她将线索送交Seven协会，从此由保存记录的人变成了追索记录的人。
+
+她的记忆很好，休息却很差。已经确认过的细节也会让她在夜里起身再核对一遍，桌上的浓茶往往凉了才被想起。任务结束后，她习惯将零散笔记重新誊写，直到每个人名、每处地点都有能够相互印证的出处。
+
+Hana协会确认其派遣资料。苍月草愿意协助殖民地整理研究与调查工作；请给她一张安静的桌子，以及能够按时收工的理由。</detailedReport>
+    <pawnKind>TRK_Special_CangYueCao</pawnKind>
+    <association>七协会 · 南部Seven协会</association>
+    <iconPath>SpecialCharacter/CangYueCao</iconPath>
+    <price>2000</price>
+    <firstName>苍月草</firstName>
+    <nickname>苍月草</nickname>
+    <lastName></lastName>
+    <biologicalAge>22</biologicalAge>
+    <gender>Female</gender>
+    <bodyType>Thin</bodyType>
+    <headType>RK_HeadType_Head4</headType>
+    <hair>RK_sidePonyA</hair>
+    <hairColor>(0.149,0.149,0.149,1.000)</hairColor>
+    <hairColorSecond>(1.000,1.000,1.000,1.000)</hairColorSecond>
+    <favoriteColor>Structure_Green</favoriteColor>
+    <facialAnimation>
+      <head>Ratkin_Head</head>
+      <eyes>Ratkin_EyeGuruGuru</eyes>
+      <lids>Ratkin_LidPointy</lids>
+      <brows>Ratkin_BrowCool</brows>
+      <mouth>Ratkin_MouthNormal</mouth>
+      <skin>Ratkin_SkinNormal</skin>
+      <eyeColor>(0.004,0.420,0.718,1.000)</eyeColor>
+      <eyeColorSecond>(0.004,0.420,0.718,1.000)</eyeColorSecond>
+    </facialAnimation>
+    <addonVariants>
+      <li>0</li>
+      <li>0</li>
+      <li>0</li>
+    </addonVariants>
+    <xenotype>RK_XenoType_Ratkin</xenotype>
+    <endogenes>
+      <li>Skin_Melanin1</li>
+      <li>RK_Gene_SmallBody</li>
+      <li>RK_Gene_Nimble</li>
+      <li>RK_Gene_PoorEyesight</li>
+      <li>RK_Gene_FragilePain</li>
+      <li>RK_Gene_GoodGardening</li>
+      <li>Skin_SheerWhite</li>
+      <li>Beard_NoBeardOnly</li>
+      <li>RK_Gene_LargeEars</li>
+      <li>RK_Gene_ThinTail</li>
+      <li>RK_Gene_CuteFace</li>
+      <li>AptitudeStrong_Mining</li>
+      <li>AptitudeStrong_Plants</li>
+      <li>Hair_ReddishBrown</li>
+    </endogenes>
+    <skills>
+      <li><skill>Shooting</skill><level>5</level><passion>Minor</passion></li>
+      <li><skill>Melee</skill><level>7</level><passion>Minor</passion></li>
+      <li><skill>Construction</skill><level>0</level><passion>None</passion></li>
+      <li><skill>Mining</skill><level>4</level><passion>None</passion></li>
+      <li><skill>Cooking</skill><level>9</level><passion>Minor</passion></li>
+      <li><skill>Plants</skill><level>7</level><passion>None</passion></li>
+      <li><skill>Animals</skill><level>0</level><passion>None</passion></li>
+      <li><skill>Crafting</skill><level>2</level><passion>None</passion></li>
+      <li><skill>Artistic</skill><level>4</level><passion>None</passion></li>
+      <li><skill>Medicine</skill><level>7</level><passion>Minor</passion></li>
+      <li><skill>Social</skill><level>6</level><passion>None</passion></li>
+      <li><skill>Intellectual</skill><level>10</level><passion>Major</passion></li>
+    </skills>
+    <weapon>
+      <thing>sevenC</thing>
+      <stuff>Steel</stuff>
+      <count>1</count>
+      <quality>Excellent</quality>
+      <hitPoints>100</hitPoints>
+    </weapon>
+    <apparel>
+      <li>
+        <thing>sevenA</thing>
+        <stuff>Synthread</stuff>
+        <count>1</count>
+        <quality>Excellent</quality>
+        <hitPoints>390</hitPoints>
+        <color>(0.678,0.859,0.890,1.000)</color>
+      </li>
+      <li>
+        <thing>sevnB</thing>
+        <stuff>Synthread</stuff>
+        <count>1</count>
+        <quality>Excellent</quality>
+        <hitPoints>220</hitPoints>
+        <color>(0.678,0.859,0.890,1.000)</color>
+      </li>
+    </apparel>
+    <inventory>
+      <li>
+        <thing>RK_Food_Hardtack</thing>
+        <count>7</count>
+        <hitPoints>50</hitPoints>
+      </li>
+      <li>
+        <thing>WakeUp</thing>
+        <count>7</count>
+        <hitPoints>50</hitPoints>
+      </li>
+      <li>
+        <thing>PsychiteTea</thing>
+        <count>7</count>
+        <hitPoints>50</hitPoints>
+      </li>
+    </inventory>
+  </XIYUNTE.SpecialCharacter.SpecialCharacterDef>
+</Defs>

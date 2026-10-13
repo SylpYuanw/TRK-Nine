@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <PawnKindDef ParentName="RKBasePawnKind">
+    <defName>TRK_Special_WuYaGuo</defName>
+    <label>五桠果</label>
+    <defaultFactionType>RK_PlayerFaction</defaultFactionType>
+    <fixedGender>Female</fixedGender>
+    <minGenerationAge>24</minGenerationAge>
+    <maxGenerationAge>24</maxGenerationAge>
+    <allowOldAgeInjuries>false</allowOldAgeInjuries>
+    <fixedChildBackstories>
+      <li>Ratkin_GuardenerStudent</li>
+    </fixedChildBackstories>
+    <fixedAdultBackstories>
+      <li>Ratkin_Guardener</li>
+    </fixedAdultBackstories>
+    <forcedTraits>
+      <Faith>0</Faith>
+      <Nimble>0</Nimble>
+      <SpeedOffset>1</SpeedOffset>
+    </forcedTraits>
+    <forcedHair>RK_middl</forcedHair>
+    <forcedHairColor>(0.278,0.200,0.122,1.000)</forcedHairColor>
+    <invNutrition>0</invNutrition>
+    <invFoodDef IsNull="True" />
+    <xenotypeSet IsNull="True" />
+    <apparelMoney>0</apparelMoney>
+    <weaponMoney>0</weaponMoney>
+    <generateInitialNonFamilyRelations>false</generateInitialNonFamilyRelations>
+    <showInDebugSpawner>false</showInDebugSpawner>
+  </PawnKindDef>
+
+  <XIYUNTE.SpecialCharacter.SpecialCharacterDef>
+    <defName>TRK_Character_WuYaGuo</defName>
+    <label>五桠果</label>
+    <description>五桠果是南部Cinq协会的收尾人。她信任迅捷剑与自己的脚步，也始终相信，接受委托便意味着要将委托人平安送到终点。</description>
+    <detailedReport>24岁，女，五桠果，南部Cinq协会成员。
+
+五桠果曾在鼠族王国接受近卫训练。她最擅长的不是守在同一个位置，而是在局势变化前找到下一处落脚点。一次护送任务中，她将追兵引离车队，绕过两条巷道，最后比委托人更早赶到终点。Cinq协会看中了这份身手，也看中了她答应别人后便不肯退让的执拗。
+
+她喜欢把工作说成比赛，却从不拿委托人的安全当赌注。出发前会仔细检查迅捷剑和羽毛帽，再往口袋里塞几块巧克力。那些甜食通常会在途中分给疲惫的同行者；至于自己，她说到终点再吃也来得及。
+
+Hana协会确认其派遣资料。五桠果希望新殖民地有足够宽敞的训练场，也希望自己的下一份工作，能让更多人平安回家。</detailedReport>
+    <pawnKind>TRK_Special_WuYaGuo</pawnKind>
+    <association>五协会 · 南部Cinq协会</association>
+    <iconPath>SpecialCharacter/WuYaGuo</iconPath>
+    <price>2000</price>
+    <firstName>五桠果</firstName>
+    <nickname>五桠果</nickname>
+    <lastName></lastName>
+    <biologicalAge>24</biologicalAge>
+    <gender>Female</gender>
+    <bodyType>Thin</bodyType>
+    <headType>RK_HeadType_Head5</headType>
+    <hair>RK_middl</hair>
+    <hairColor>(0.278,0.200,0.122,1.000)</hairColor>
+    <hairColorSecond>(1.000,1.000,1.000,1.000)</hairColorSecond>
+    <favoriteColor>Sapphire</favoriteColor>
+    <facialAnimation>
+      <head>Ratkin_Head</head>
+      <eyes>Ratkin_EyeStare</eyes>
+      <lids>Ratkin_LidPointy</lids>
+      <brows>Ratkin_BrowNormal</brows>
+      <mouth>Ratkin_MouthNormal</mouth>
+      <skin>Ratkin_SkinNormal</skin>
+      <eyeColor>(0.451,0.463,0.290,1.000)</eyeColor>
+      <eyeColorSecond>(0.255,0.278,0.145,1.000)</eyeColorSecond>
+    </facialAnimation>
+    <addonVariants>
+      <li>0</li>
+      <li>0</li>
+      <li>0</li>
+    </addonVariants>
+    <xenotype>RK_XenoType_Ratkin</xenotype>
+    <endogenes>
+      <li>Skin_Melanin3</li>
+      <li>RK_Gene_SmallBody</li>
+      <li>RK_Gene_Nimble</li>
+      <li>RK_Gene_PoorEyesight</li>
+      <li>RK_Gene_FragilePain</li>
+      <li>RK_Gene_GoodGardening</li>
+      <li>Skin_SheerWhite</li>
+      <li>Beard_NoBeardOnly</li>
+      <li>RK_Gene_LargeEars</li>
+      <li>RK_Gene_ThinTail</li>
+      <li>RK_Gene_CuteFace</li>
+      <li>AptitudeStrong_Mining</li>
+      <li>AptitudeStrong_Plants</li>
+      <li>Hair_DarkBrown</li>
+    </endogenes>
+    <skills>
+      <li><skill>Shooting</skill><level>4</level><passion>None</passion></li>
+      <li><skill>Melee</skill><level>12</level><passion>Major</passion></li>
+      <li><skill>Construction</skill><level>0</level><passion>None</passion></li>
+      <li><skill>Mining</skill><level>5</level><passion>Minor</passion></li>
+      <li><skill>Cooking</skill><level>1</level><passion>None</passion></li>
+      <li><skill>Plants</skill><level>12</level><passion>Minor</passion></li>
+      <li><skill>Animals</skill><level>0</level><passion>None</passion></li>
+      <li><skill>Crafting</skill><level>0</level><passion>None</passion></li>
+      <li><skill>Artistic</skill><level>2</level><passion>None</passion></li>
+      <li><skill>Medicine</skill><level>4</level><passion>None</passion></li>
+      <li><skill>Social</skill><level>9</level><passion>Major</passion></li>
+      <li><skill>Intellectual</skill><level>1</level><passion>None</passion></li>
+    </skills>
+    <weapon>
+      <thing>cinq</thing>
+      <stuff>Steel</stuff>
+      <count>1</count>
+      <quality>Excellent</quality>
+      <hitPoints>100</hitPoints>
+    </weapon>
+    <apparel>
+      <li>
+        <thing>cinqsuit</thing>
+        <stuff>Synthread</stuff>
+        <count>1</count>
+        <quality>Excellent</quality>
+        <hitPoints>360</hitPoints>
+        <color>(0.678,0.859,0.890,1.000)</color>
+      </li>
+      <li>
+        <thing>cinqcloak</thing>
+        <stuff>Synthread</stuff>
+        <count>1</count>
+        <quality>Excellent</quality>
+        <hitPoints>360</hitPoints>
+        <color>(0.678,0.859,0.890,1.000)</color>
+      </li>
+      <li>
+        <thing>RK_cinqhat</thing>
+        <stuff>Synthread</stuff>
+        <count>1</count>
+        <quality>Excellent</quality>
+        <hitPoints>130</hitPoints>
+        <color>(0.678,0.859,0.890,1.000)</color>
+      </li>
+    </apparel>
+    <inventory>
+      <li>
+        <thing>Chocolate</thing>
+        <count>5</count>
+        <hitPoints>60</hitPoints>
+      </li>
+      <li>
+        <thing>RK_Food_Hardtack</thing>
+        <count>5</count>
+        <hitPoints>50</hitPoints>
+      </li>
+    </inventory>
+  </XIYUNTE.SpecialCharacter.SpecialCharacterDef>
+</Defs>

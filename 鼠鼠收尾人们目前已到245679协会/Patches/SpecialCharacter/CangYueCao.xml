@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+  <!-- 扩展发型加载时替换苍月草的固定发型，未加载时保留原鼠族侧马尾。 -->
+  <Operation Class="PatchOperationSequence">
+    <operations>
+      <li Class="PatchOperationReplace" MayRequire="momanacha.rkhairexpanded">
+        <xpath>/Defs/PawnKindDef[defName="TRK_Special_CangYueCao"]/forcedHair</xpath>
+        <value><forcedHair MayRequire="momanacha.rkhairexpanded">RK_SideponyO</forcedHair></value>
+      </li>
+      <li Class="PatchOperationReplace" MayRequire="momanacha.rkhairexpanded">
+        <xpath>/Defs/XIYUNTE.SpecialCharacter.SpecialCharacterDef[defName="TRK_Character_CangYueCao"]/hair</xpath>
+        <value><hair MayRequire="momanacha.rkhairexpanded">RK_SideponyO</hair></value>
+      </li>
+    </operations>
+  </Operation>
+</Patch>

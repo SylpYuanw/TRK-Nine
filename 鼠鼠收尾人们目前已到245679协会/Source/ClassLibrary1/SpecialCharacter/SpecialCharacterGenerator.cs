@@ -108,7 +108,7 @@ namespace XIYUNTE.SpecialCharacter
             {
                 pawn.style.FaceTattoo = DefDatabase<TattooDef>.GetNamed("NoTattoo_Face");
                 pawn.style.BodyTattoo = DefDatabase<TattooDef>.GetNamed("NoTattoo_Body");
-                pawn.story.favoriteColor = DefDatabase<ColorDef>.GetNamed("LightPurple");
+                pawn.story.favoriteColor = DefDatabase<ColorDef>.GetNamed(def.favoriteColor);
             }
             ThingComp alien = pawn.AllComps.Single(c => AlienCompType.IsInstanceOfType(c));
             // 首次访问 HAR 通道会初始化并写回 story 发色，固定发色在通道初始化完成后设置。

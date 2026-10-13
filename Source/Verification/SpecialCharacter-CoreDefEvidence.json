@@ -1,5 +1,5 @@
 {
-  "date": "2026-10-13",
+  "date": "2026-10-14",
   "source": "RIMSAGE get_def_details; RimWorld 1.6",
   "defs": [
     {
@@ -127,6 +127,82 @@
       "type": "ThingDef",
       "name": "DropPodIncoming",
       "namedTemplate": "DropPodIncoming"
+    },
+    {
+      "type": "TraitDef",
+      "name": "Nimble"
+    },
+    {
+      "type": "TraitDef",
+      "name": "SpeedOffset"
+    },
+    {
+      "type": "TraitDef",
+      "name": "Neurotic"
+    },
+    {
+      "type": "TraitDef",
+      "name": "GreatMemory"
+    },
+    {
+      "type": "GeneDef",
+      "name": "Skin_Melanin1"
+    },
+    {
+      "type": "GeneDef",
+      "name": "Hair_DarkBrown"
+    },
+    {
+      "type": "GeneDef",
+      "name": "Hair_ReddishBrown"
+    },
+    {
+      "type": "ThingDef",
+      "name": "Chocolate"
+    },
+    {
+      "type": "ThingDef",
+      "name": "WakeUp"
+    },
+    {
+      "type": "ThingDef",
+      "name": "PsychiteTea"
+    },
+    {
+      "type": "ColorDef",
+      "name": "Sapphire"
+    },
+    {
+      "type": "ColorDef",
+      "name": "Structure_Green"
+    },
+    {
+      "type": "TraitDef",
+      "name": "Nerves"
+    },
+    {
+      "type": "GeneDef",
+      "name": "Hair_MidBlack"
+    },
+    {
+      "type": "ColorDef",
+      "name": "LightPink"
+    },
+    {
+      "type": "TraitDef",
+      "name": "Tough"
+    },
+    {
+      "type": "TraitDef",
+      "name": "Brawler"
+    },
+    {
+      "type": "ThingDef",
+      "name": "SmokeleafJoint"
+    },
+    {
+      "type": "ColorDef",
+      "name": "Structure_Blue"
     }
   ]
 }

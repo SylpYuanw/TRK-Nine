@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <PawnKindDef ParentName="RKBasePawnKind">
+    <defName>TRK_Special_HuoYanLan</defName>
+    <label>火焰兰</label>
+    <defaultFactionType>RK_PlayerFaction</defaultFactionType>
+    <fixedGender>Female</fixedGender>
+    <minGenerationAge>29</minGenerationAge>
+    <maxGenerationAge>29</maxGenerationAge>
+    <allowOldAgeInjuries>false</allowOldAgeInjuries>
+    <fixedChildBackstories><li>RK_Backstory_WandererChild</li></fixedChildBackstories>
+    <fixedAdultBackstories><li>Ratkin_Soldier</li></fixedAdultBackstories>
+    <forcedTraits>
+      <Nerves>2</Nerves>
+      <SpeedOffset>2</SpeedOffset>
+    </forcedTraits>
+    <forcedHair>RK_LongB</forcedHair>
+    <forcedHairColor>(0.576,0.353,0.192,1.000)</forcedHairColor>
+    <invNutrition>0</invNutrition>
+    <invFoodDef IsNull="True" />
+    <xenotypeSet IsNull="True" />
+    <apparelMoney>0</apparelMoney>
+    <weaponMoney>0</weaponMoney>
+    <generateInitialNonFamilyRelations>false</generateInitialNonFamilyRelations>
+    <showInDebugSpawner>false</showInDebugSpawner>
+  </PawnKindDef>
+
+  <XIYUNTE.SpecialCharacter.SpecialCharacterDef>
+    <defName>TRK_Character_HuoYanLan</defName>
+    <label>火焰兰</label>
+    <description>火焰兰是南部Liu协会的收尾人。幼时的流浪和军中的经历让她习惯迅速行动，也让她懂得在混乱中守住同伴；她的长剑与笑声总能让身边的人重新振作。</description>
+    <detailedReport>29岁，女，火焰兰，南部Liu协会成员。
+
+火焰兰幼时随商队流浪，学会了修补行装、辨认道路，也学会了在出发前数清同行的人。后来她加入军队，第一次真正明白，队列里少掉的一个位置并不是到了下一个城镇就能补回来的。
+
+退役后，她选择了Liu协会。她喜欢这里热闹的饭桌，也愿意为桌边的人冲在前面。执行委托时，她会反复确认同伴的位置；回程时则把长剑收好，拿出随身的草莓酒，等最后一个人回来再打开。
+
+Hana协会确认其派遣资料。火焰兰愿意承担殖民地的战斗与救护工作，也希望新的同伴能够记住：需要帮忙时直接叫她，别独自撑到最后。</detailedReport>
+    <pawnKind>TRK_Special_HuoYanLan</pawnKind>
+    <association>六协会 · 南部Liu协会</association>
+    <iconPath>SpecialCharacter/HuoYanLan</iconPath>
+    <price>2000</price>
+    <firstName>火焰兰</firstName><nickname>火焰兰</nickname><lastName />
+    <biologicalAge>29</biologicalAge><gender>Female</gender>
+    <bodyType>Thin</bodyType><headType>RK_HeadType_Head5</headType><hair>RK_LongB</hair>
+    <hairColor>(0.576,0.353,0.192,1.000)</hairColor>
+    <hairColorSecond>(1.000,1.000,1.000,1.000)</hairColorSecond>
+    <favoriteColor>LightPink</favoriteColor>
+    <facialAnimation>
+      <head>Ratkin_Head</head><eyes>Ratkin_EyeStare</eyes><lids>Ratkin_LidPointy</lids>
+      <brows>Ratkin_Futomayu</brows><mouth>Ratkin_MouthNormal</mouth><skin>Ratkin_SkinNormal</skin>
+      <eyeColor>(0.580,0.373,0.427,1.000)</eyeColor>
+      <eyeColorSecond>(0.580,0.373,0.427,1.000)</eyeColorSecond>
+    </facialAnimation>
+    <addonVariants><li>0</li><li>0</li><li>0</li></addonVariants>
+    <xenotype>RK_XenoType_Ratkin</xenotype>
+    <endogenes>
+      <li>Skin_Melanin1</li><li>RK_Gene_SmallBody</li><li>RK_Gene_Nimble</li>
+      <li>RK_Gene_PoorEyesight</li><li>RK_Gene_FragilePain</li><li>RK_Gene_GoodGardening</li>
+      <li>Skin_SheerWhite</li><li>Beard_NoBeardOnly</li><li>RK_Gene_LargeEars</li>
+      <li>RK_Gene_ThinTail</li><li>RK_Gene_CuteFace</li><li>AptitudeStrong_Mining</li>
+      <li>AptitudeStrong_Plants</li><li>Hair_MidBlack</li>
+    </endogenes>
+    <skills>
+      <li><skill>Shooting</skill><level>8</level><passion>Minor</passion></li>
+      <li><skill>Melee</skill><level>10</level><passion>Major</passion></li>
+      <li><skill>Construction</skill><level>5</level><passion>None</passion></li>
+      <li><skill>Mining</skill><level>6</level><passion>Minor</passion></li>
+      <li><skill>Cooking</skill><level>6</level><passion>Minor</passion></li>
+      <li><skill>Plants</skill><level>5</level><passion>None</passion></li>
+      <li><skill>Animals</skill><level>2</level><passion>None</passion></li>
+      <li><skill>Crafting</skill><level>0</level><passion>None</passion></li>
+      <li><skill>Artistic</skill><level>2</level><passion>None</passion></li>
+      <li><skill>Medicine</skill><level>6</level><passion>Minor</passion></li>
+      <li><skill>Social</skill><level>7</level><passion>Minor</passion></li>
+      <li><skill>Intellectual</skill><level>0</level><passion>None</passion></li>
+    </skills>
+    <weapon>
+      <thing>liu_LongSword</thing><stuff>Steel</stuff><count>1</count><quality>Excellent</quality><hitPoints>100</hitPoints>
+    </weapon>
+    <apparel>
+      <li><thing>liuA</thing><stuff>Synthread</stuff><count>1</count><quality>Excellent</quality><hitPoints>390</hitPoints><color>(0.678,0.859,0.890,1.000)</color></li>
+      <li><thing>liuB</thing><stuff>Synthread</stuff><count>1</count><quality>Excellent</quality><hitPoints>390</hitPoints><color>(0.678,0.859,0.890,1.000)</color></li>
+    </apparel>
+    <inventory>
+      <li><thing>RK_Food_Hardtack</thing><count>6</count><hitPoints>50</hitPoints></li>
+      <li><thing>RK_StrawberryBeer</thing><count>6</count><hitPoints>50</hitPoints></li>
+    </inventory>
+  </XIYUNTE.SpecialCharacter.SpecialCharacterDef>
+</Defs>

@@ -8,6 +8,7 @@
     <fixedGender>Female</fixedGender>
     <minGenerationAge>25</minGenerationAge>
     <maxGenerationAge>25</maxGenerationAge>
+    <allowOldAgeInjuries>false</allowOldAgeInjuries>
     <fixedChildBackstories><li>Ratkin_ServentChild</li></fixedChildBackstories>
     <fixedAdultBackstories><li>Ratkin_Idol</li></fixedAdultBackstories>
     <forcedTraits>
@@ -114,10 +115,4 @@
       <li><thing>Silver</thing><count>300</count><hitPoints>100</hitPoints></li>
     </inventory>
   </XIYUNTE.SpecialCharacter.SpecialCharacterDef>
-
-  <ThingDef ParentName="ActiveDropPod">
-    <defName>TRK_SpecialCharacterPod</defName>
-    <label>特殊人员派遣舱</label>
-    <thingClass>XIYUNTE.SpecialCharacter.SpecialCharacterPod</thingClass>
-  </ThingDef>
 </Defs>

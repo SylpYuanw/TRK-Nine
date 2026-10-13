@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <PawnKindDef ParentName="RKBasePawnKind">
+    <defName>TRK_Special_ShanHeYe</defName>
+    <label>山荷叶</label>
+    <defaultFactionType>RK_PlayerFaction</defaultFactionType>
+    <fixedGender>Female</fixedGender>
+    <minGenerationAge>31</minGenerationAge>
+    <maxGenerationAge>31</maxGenerationAge>
+    <allowOldAgeInjuries>false</allowOldAgeInjuries>
+    <fixedChildBackstories><li>Ratkin_Kid</li></fixedChildBackstories>
+    <fixedAdultBackstories><li>Ratkin_Knight</li></fixedAdultBackstories>
+    <forcedTraits>
+      <Nerves>1</Nerves>
+      <Tough>0</Tough>
+      <Brawler>0</Brawler>
+    </forcedTraits>
+    <forcedHair>RK_LongA</forcedHair>
+    <forcedHairColor>(0.824,0.737,0.541,1.000)</forcedHairColor>
+    <invNutrition>0</invNutrition>
+    <invFoodDef IsNull="True" />
+    <xenotypeSet IsNull="True" />
+    <apparelMoney>0</apparelMoney>
+    <weaponMoney>0</weaponMoney>
+    <generateInitialNonFamilyRelations>false</generateInitialNonFamilyRelations>
+    <showInDebugSpawner>false</showInDebugSpawner>
+  </PawnKindDef>
+
+  <XIYUNTE.SpecialCharacter.SpecialCharacterDef>
+    <defName>TRK_Character_ShanHeYe</defName>
+    <label>山荷叶</label>
+    <description>山荷叶是南部Zwei协会的收尾人，曾在鼠族王国担任骑士。她喜欢直截了当的近身交锋，也习惯站在委托人与危险之间；沉稳的脾气和坚韧的体格让她成为可靠的护卫。</description>
+    <detailedReport>31岁，女，山荷叶，南部Zwei协会成员。
+
+山荷叶在普通的鼠族家庭长大，年轻时加入王国骑士团。她最早记住的训令不是怎样挥剑，而是怎样在队伍撤退时守住最后一段道路。多年的护卫任务让她学会了观察人群，也让她习惯先确认身后的人已经安全，再考虑自己还能站多久。
+
+离开骑士团后，她加入了Zwei协会。面对威胁，她更愿意用近身交锋迅速结束冲突；面对委托人，她却很少提高声音。休息时，她会找一处能看见出入口的位置坐下，直到同行的人回来，才慢慢卸下厚重的大衣。
+
+Hana协会确认其派遣资料。山荷叶愿意承担殖民地的巡逻、护卫和建设工作。她对新驻地没有太多要求，只希望每次说出“我们回去吧”的时候，身边的人都还在。</detailedReport>
+    <pawnKind>TRK_Special_ShanHeYe</pawnKind>
+    <association>二协会 · 南部Zwei协会</association>
+    <iconPath>SpecialCharacter/ShanHeYe</iconPath>
+    <price>2000</price>
+    <firstName>山荷叶</firstName><nickname>山荷叶</nickname><lastName />
+    <biologicalAge>31</biologicalAge><gender>Female</gender>
+    <bodyType>Thin</bodyType><headType>RK_HeadType_Head4</headType><hair>RK_LongA</hair>
+    <hairColor>(0.824,0.737,0.541,1.000)</hairColor>
+    <hairColorSecond>(1.000,1.000,1.000,1.000)</hairColorSecond>
+    <favoriteColor>Structure_Blue</favoriteColor>
+    <facialAnimation>
+      <head>Ratkin_Head</head><eyes>Ratkin_EyeStare</eyes><lids>Ratkin_LidSleepy</lids>
+      <brows>Ratkin_Futomayu</brows><mouth>Ratkin_MouthNormal</mouth><skin>Ratkin_SkinNormal</skin>
+      <eyeColor>(0.133,0.663,0.286,1.000)</eyeColor>
+      <eyeColorSecond>(0.133,0.663,0.286,1.000)</eyeColorSecond>
+    </facialAnimation>
+    <addonVariants><li>0</li><li>0</li><li>0</li></addonVariants>
+    <xenotype>RK_XenoType_Ratkin</xenotype>
+    <endogenes>
+      <li>Skin_Melanin3</li><li>RK_Gene_SmallBody</li><li>RK_Gene_Nimble</li>
+      <li>RK_Gene_PoorEyesight</li><li>RK_Gene_FragilePain</li><li>RK_Gene_GoodGardening</li>
+      <li>Skin_SheerWhite</li><li>Beard_NoBeardOnly</li><li>RK_Gene_LargeEars</li>
+      <li>RK_Gene_ThinTail</li><li>RK_Gene_CuteFace</li><li>AptitudeStrong_Mining</li>
+      <li>AptitudeStrong_Plants</li><li>Hair_DarkBrown</li>
+    </endogenes>
+    <skills>
+      <li><skill>Shooting</skill><level>0</level><passion>None</passion></li>
+      <li><skill>Melee</skill><level>14</level><passion>Major</passion></li>
+      <li><skill>Construction</skill><level>8</level><passion>Minor</passion></li>
+      <li><skill>Mining</skill><level>8</level><passion>Minor</passion></li>
+      <li><skill>Cooking</skill><level>2</level><passion>None</passion></li>
+      <li><skill>Plants</skill><level>6</level><passion>Minor</passion></li>
+      <li><skill>Animals</skill><level>6</level><passion>Minor</passion></li>
+      <li><skill>Crafting</skill><level>2</level><passion>None</passion></li>
+      <li><skill>Artistic</skill><level>1</level><passion>None</passion></li>
+      <li><skill>Medicine</skill><level>0</level><passion>None</passion></li>
+      <li><skill>Social</skill><level>5</level><passion>None</passion></li>
+      <li><skill>Intellectual</skill><level>0</level><passion>None</passion></li>
+    </skills>
+    <weapon>
+      <thing>zweiC</thing><stuff>Steel</stuff><count>1</count><quality>Excellent</quality><hitPoints>100</hitPoints>
+    </weapon>
+    <apparel>
+      <li><thing>zweiA</thing><stuff>Synthread</stuff><count>1</count><quality>Excellent</quality><hitPoints>415</hitPoints><color>(0.678,0.859,0.890,1.000)</color></li>
+      <li><thing>zweiB</thing><stuff>Synthread</stuff><count>1</count><quality>Excellent</quality><hitPoints>415</hitPoints><color>(0.678,0.859,0.890,1.000)</color></li>
+    </apparel>
+    <inventory>
+      <li><thing>RK_Food_Hardtack</thing><count>2</count><hitPoints>50</hitPoints></li>
+      <li><thing>SmokeleafJoint</thing><count>20</count><hitPoints>50</hitPoints></li>
+    </inventory>
+  </XIYUNTE.SpecialCharacter.SpecialCharacterDef>
+</Defs>

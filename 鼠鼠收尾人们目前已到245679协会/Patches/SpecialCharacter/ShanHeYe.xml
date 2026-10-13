@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+  <!-- 鼠族发型扩展加载时替换山荷叶的固定发型，未加载时保留原鼠族长发。 -->
+  <Operation Class="PatchOperationSequence">
+    <operations>
+      <li Class="PatchOperationReplace" MayRequire="rpowder.ratkinhairplus">
+        <xpath>/Defs/PawnKindDef[defName="TRK_Special_ShanHeYe"]/forcedHair</xpath>
+        <value><forcedHair MayRequire="rpowder.ratkinhairplus">RK_Long_I</forcedHair></value>
+      </li>
+      <li Class="PatchOperationReplace" MayRequire="rpowder.ratkinhairplus">
+        <xpath>/Defs/XIYUNTE.SpecialCharacter.SpecialCharacterDef[defName="TRK_Character_ShanHeYe"]/hair</xpath>
+        <value><hair MayRequire="rpowder.ratkinhairplus">RK_Long_I</hair></value>
+      </li>
+    </operations>
+  </Operation>
+</Patch>

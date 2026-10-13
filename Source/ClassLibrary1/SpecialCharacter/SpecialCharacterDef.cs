@@ -24,6 +24,7 @@ namespace XIYUNTE.SpecialCharacter
         public HairDef hair;
         public Color hairColor;
         public Color hairColorSecond;
+        public string favoriteColor = "LightPurple";
         public SpecialCharacterFacialAnimation facialAnimation;
         public List<int> addonVariants;
         public string xenotype;

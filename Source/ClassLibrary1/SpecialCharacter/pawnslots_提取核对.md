@@ -91,7 +91,7 @@ Skin_Melanin3、RK_Gene_SmallBody、RK_Gene_Nimble、RK_Gene_PoorEyesight、RK_G
 | 项目 | 特殊人物处理 |
 | --- | --- |
 | 心情、饱食、休息等需求 | 由原版创建实际适用的 Need，首次加入时填满；不恢复槽位小数、不永久锁满、不凭保存清单额外创建 Need |
-| Hediff | 健康字段为空不代表应清空健康系统。保留游戏、基因、种族和装备正常添加的 Hediff，额外指定项以后按用户指令增加 |
+| Hediff | 不导入 CE 健康快照；专用 PawnKind 的 allowOldAgeInjuries=false 关闭生成时随机旧伤／年龄旧病。保留基因、种族、装备和其他正常 Hediff 初始化，额外指定项以后按用户指令增加 |
 | 意识形态 | 交给原版分配；不导入保存时的文化、名称、扩展数据，也不使用 ForceNoIdeo 代替自动分配 |
 | 社交关系 | 无指定关系就不注入、不虚构关系；生成时关闭随机亲属，正常建立 tracker 和空集合，绝不赋 null；加入后正常社交 |
 | 记忆 | 不导入槽位记忆，不制造空 Thought 或悬空 otherPawn；保留 ThoughtHandler、MemoryThoughtHandler 和集合，游戏正常产生的记忆照常运行 |
@@ -101,7 +101,7 @@ Skin_Melanin3、RK_Gene_SmallBody、RK_Gene_Nimble、RK_Gene_PoorEyesight、RK_G
 
 没有额外条目与基础对象为空是不同情况。生成器必须建立完整 Pawn 组件；空字段表示不导入定制内容，不能用 null 替换已初始化的 tracker、集合或记忆对象。
 
-25 岁不是绝对无伤病保证：原版生成仍执行年龄伤病和生日 Hediff 检查。按用户要求保留自动健康机制，不在生成后统一清空 Hediff，也不为背景失忆自行添加脑损伤。
+2026-10-14 初始伤病规则：年龄本身不保证无疤痕，原版 PawnKindDef.allowOldAgeInjuries 默认 true，会在创建成年人物时模拟旧伤与历史生日疾病。五位特殊人物模板现显式设为 false，由 AgeInjuryUtility.GenerateRandomOldAgeInjuries 在入口直接退出；其他健康初始化、基因、装备状态及加入后的自然变化继续执行。没有生成后清空 Hediff、重新治疗或为失忆故事添加脑损伤。
 
 ## 扩展字段与依据
 

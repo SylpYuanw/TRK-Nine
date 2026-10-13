@@ -16,7 +16,7 @@ try {
     & dotnet $testExe $modRoot $FacialAnimationAssembly
     if ($LASTEXITCODE -ne 0) { throw '特殊人物状态快照与读档初始化验证失败。' }
 
-    [xml]$defs = Get-Content -LiteralPath 'Defs\SpecialCharacter\SpecialCharacters.xml' -Raw -Encoding UTF8
+    [xml]$defs = Get-Content -LiteralPath 'Defs\SpecialCharacter\ManTianXing.xml' -Raw -Encoding UTF8
     $profile = $defs.Defs.'XIYUNTE.SpecialCharacter.SpecialCharacterDef'
     $kind = $defs.Defs.PawnKindDef
     $slot = (Get-Content -LiteralPath 'pawnslots.txt' -Encoding UTF8 | Where-Object { $_.Trim() } | Select-Object -First 1).Split('*')
@@ -94,7 +94,15 @@ try {
     foreach ($reference in Get-Content -LiteralPath (Join-Path $testOutput 'SpecialCharacter-def-references.tsv') -Encoding UTF8) {
         [void]$references.Add($reference)
     }
-    foreach ($gene in $profile.endogenes.li) { [void]$references.Add("GeneDef`t" + $gene) }
+    $allProfiles = @(foreach ($file in Get-ChildItem -LiteralPath 'Defs\SpecialCharacter' -Filter '*.xml' -File) {
+        [xml]$definitions = Get-Content -LiteralPath $file.FullName -Raw -Encoding UTF8
+        $definitions.SelectNodes('/Defs/XIYUNTE.SpecialCharacter.SpecialCharacterDef')
+    })
+    foreach ($character in $allProfiles) {
+        foreach ($gene in $character.endogenes.li) { [void]$references.Add("GeneDef`t" + $gene) }
+        [void]$references.Add("XenotypeDef`t" + $character.xenotype)
+        if ($character.favoriteColor) { [void]$references.Add("ColorDef`t" + $character.favoriteColor) }
+    }
     foreach ($reference in @(
         ("XenotypeDef`t" + $profile.xenotype), "XenotypeDef`tBaseliner", "FactionDef`tRakinia",
         "ThingDef`tRatkin", "ThingDef`tTRK_SpecialCharacterPod", "ThingDef`tDropPodIncoming", "BeardDef`tNoBeard",
@@ -114,11 +122,12 @@ try {
     foreach ($node in $defs.SelectNodes('/Defs/*[@ParentName]')) {
         if (!$templates.Contains($node.GetAttribute('ParentName'))) { throw ('继承模板不存在：' + $node.GetAttribute('ParentName')) }
     }
-    foreach ($iconPath in @($profile.iconPath, 'SpecialCharacter/Hana_Association')) {
+    foreach ($iconPath in @($allProfiles.iconPath) + @('SpecialCharacter/Hana_Association')) {
         if (!(Test-Path -LiteralPath (Join-Path $modRoot ('Textures\' + $iconPath + '.png')))) { throw ('缺少图标：' + $iconPath) }
     }
     ('PASS: ' + $references.Count + ' 项唯一 Def 引用、继承模板和图标路径已核对；动态资质基因按原版模板验证。')
     'PASS: 人物身份、技能和装备按原始槽位核对；2000 白银、12 项技能、3 项特质、14 基因、6 件装备/库存及中文文本正确。肤色按最新规则保留基因结果。'
+    & (Join-Path $PSScriptRoot 'Verify-NewSpecialCharacters.ps1')
 } finally {
     Pop-Location
 }

@@ -77,6 +77,8 @@ public static class SpecialCharacterVerification
         VerifyCharacterIdentity();
         VerifyAppearanceOrder();
         VerifyDefFields(modRoot, output);
+        VerifyInitialOldInjuries(modRoot);
+        VerifyOptionalHairPatch(modRoot);
         VerifyFacialAnimation(modRoot, facialAnimationAssembly);
         Console.WriteLine("PASS: " + checks + " checks; compiled lifecycle, early load initialization, character identity/ownership transfer, appearance call order, XML snapshots, TraitRequirement custom loader, native silver splitting and Def field metadata.");
         Console.WriteLine("Scope: transitions, notification eligibility, empty component native Scribe loading, identity/ownership, trait reference registration and field metadata; complete pawn Scribe round trips, maps, generation and GUI are outside this automated run.");
@@ -123,10 +125,17 @@ public static class SpecialCharacterVerification
     private static void VerifyDefFields(string modRoot, string output)
     {
         XmlDocument document = new XmlDocument();
-        document.Load(Path.Combine(modRoot, "Defs/SpecialCharacter/SpecialCharacters.xml"));
+        document.Load(Path.Combine(modRoot, "Defs/SpecialCharacter/SpecialCharacterPod.xml"));
         HashSet<string> names = new HashSet<string>(StringComparer.Ordinal);
         HashSet<string> references = new HashSet<string>(StringComparer.Ordinal);
-        foreach (XmlElement node in document.SelectNodes("/Defs/*"))
+        IEnumerable<XmlElement> nodes = Directory.GetFiles(Path.Combine(modRoot, "Defs/SpecialCharacter"), "*.xml")
+            .SelectMany(file =>
+            {
+                XmlDocument definitions = new XmlDocument();
+                definitions.Load(file);
+                return definitions.SelectNodes("/Defs/*").Cast<XmlElement>();
+            });
+        foreach (XmlElement node in nodes)
         {
             Type type = node.Name == "PawnKindDef" ? typeof(PawnKindDef) :
                 node.Name == "ThingDef" ? typeof(ThingDef) : typeof(SpecialCharacterDef).Assembly.GetType(node.Name, true);
@@ -181,6 +190,34 @@ public static class SpecialCharacterVerification
             Check(field != null && fields.Add(child.Name), "XML 字段存在且未重复：" + type.Name + "." + child.Name);
             VerifyFields(child, field.FieldType, references);
         }
+    }
+
+    // 执行原版旧伤入口，验证各人物模板在生成阶段关闭随机伤病。
+    private static void VerifyInitialOldInjuries(string modRoot)
+    {
+        int templates = 0;
+        foreach (string file in Directory.GetFiles(Path.Combine(modRoot, "Defs/SpecialCharacter"), "*.xml"))
+        {
+            XmlDocument defs = new XmlDocument();
+            defs.Load(file);
+            foreach (XmlElement node in defs.SelectNodes("/Defs/PawnKindDef"))
+            {
+                string name = node["defName"].InnerText;
+                Check(node["allowOldAgeInjuries"] != null, "人物模板明确配置初始旧伤开关：" + name);
+                XmlDocument settings = new XmlDocument();
+                settings.LoadXml("<PawnKindDef />");
+                settings.DocumentElement.AppendChild(settings.ImportNode(node["allowOldAgeInjuries"], true));
+                PawnKindDef kind = DirectXmlToObject.ObjectFromXml<PawnKindDef>(settings.DocumentElement, false);
+                Check(!kind.allowOldAgeInjuries, "原版 XML 解析关闭初始随机旧伤：" + name);
+                Pawn pawn = new Pawn { kindDef = kind };
+                // 未建立年龄、种族和健康组件，旧伤入口必须在访问这些对象前退出。
+                AgeInjuryUtility.GenerateRandomOldAgeInjuries(pawn, true);
+                Check(pawn.ageTracker == null && pawn.health == null,
+                    "原版旧伤入口直接退出，不初始化或清理健康状态：" + name);
+                templates++;
+            }
+        }
+        Check(templates == 5, "五位特殊人物均覆盖初始旧伤限制");
     }
 
     private static string ReadTraitReference(XmlElement node, out TraitRequirement trait)
@@ -333,7 +370,7 @@ public static class SpecialCharacterVerification
     private static void VerifyFacialAnimation(string modRoot, string assemblyPath)
     {
         XmlDocument xml = new XmlDocument();
-        xml.Load(Path.Combine(modRoot, "Defs/SpecialCharacter/SpecialCharacters.xml"));
+        xml.Load(Path.Combine(modRoot, "Defs/SpecialCharacter/ManTianXing.xml"));
         SpecialCharacterFacialAnimation profile = DirectXmlToObject.ObjectFromXml<SpecialCharacterFacialAnimation>(
             xml.SelectSingleNode("/Defs/XIYUNTE.SpecialCharacter.SpecialCharacterDef/facialAnimation"), false);
         Check(!typeof(SpecialCharacterFacialAnimation).Assembly.GetReferencedAssemblies()
@@ -399,6 +436,36 @@ public static class SpecialCharacterVerification
         profile.head = head;
         Check(rejected, "缺失 FA Def 明确失败，不替换为随机面部");
         Console.WriteLine("PASS: 实际 FA 1.6 重复控制器下使用原版 GetComp，六项类型和两项眼色初始化保留；模组门控按 IL 检查，渲染和完整 Pawn Scribe 往返不在此验证范围。");
+    }
+
+    private static void VerifyOptionalHairPatch(string modRoot)
+    {
+        foreach (string[] config in new[] {
+            new[] { "CangYueCao", "RK_sidePonyA", "momanacha.rkhairexpanded", "RK_SideponyO" },
+            new[] { "ShanHeYe", "RK_LongA", "rpowder.ratkinhairplus", "RK_Long_I" } })
+            VerifyOptionalHairPatch(modRoot, config);
+    }
+
+    private static void VerifyOptionalHairPatch(string modRoot, string[] config)
+    {
+        XmlDocument baseline = new XmlDocument();
+        baseline.Load(Path.Combine(modRoot, "Defs/SpecialCharacter/" + config[0] + ".xml"));
+        string kindPath = "/Defs/PawnKindDef[defName='TRK_Special_" + config[0] + "']/forcedHair";
+        string profilePath = "/Defs/XIYUNTE.SpecialCharacter.SpecialCharacterDef[defName='TRK_Character_" + config[0] + "']/hair";
+        Check(baseline.SelectSingleNode(kindPath).InnerText == config[1] &&
+            baseline.SelectSingleNode(profilePath).InnerText == config[1], "无扩展发型时使用原鼠族发型：" + config[0]);
+        XmlDocument patch = new XmlDocument();
+        patch.Load(Path.Combine(modRoot, "Patches/SpecialCharacter/" + config[0] + ".xml"));
+        foreach (XmlElement node in patch.SelectNodes("/Patch/Operation/operations/li"))
+        {
+            Check(node.GetAttribute("MayRequire") == config[2], "发型替换使用指定模组 MayRequire 条件：" + config[0]);
+            PatchOperation operation = DirectXmlToObject.ObjectFromXml<PatchOperation>(node, false);
+            Check(operation.Apply(baseline), "原版 XML 替换成功：" + node["xpath"].InnerText);
+        }
+        Check(baseline.SelectSingleNode(kindPath).InnerText == config[3] &&
+            baseline.SelectSingleNode(profilePath).InnerText == config[3], "加载扩展发型时模板与人物配置同时替换：" + config[0]);
+        Check(baseline.SelectNodes(kindPath).Count == 1 && baseline.SelectNodes(profilePath).Count == 1,
+            "发型替换不产生重复字段");
     }
 
     private static void AddVerificationDef(Type type, Def def)

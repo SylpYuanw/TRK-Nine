@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <ThingDef ParentName="ActiveDropPod">
+    <defName>TRK_SpecialCharacterPod</defName>
+    <label>特殊人员派遣舱</label>
+    <thingClass>XIYUNTE.SpecialCharacter.SpecialCharacterPod</thingClass>
+  </ThingDef>
+</Defs>
