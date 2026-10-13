@@ -11,6 +11,7 @@ namespace XIYUNTE.SpecialCharacter
     {
         public PawnKindDef pawnKind;
         public string association;
+        [MustTranslate] public string detailedReport;
         public string iconPath;
         public int price;
         public string firstName;
@@ -23,8 +24,7 @@ namespace XIYUNTE.SpecialCharacter
         public HairDef hair;
         public Color hairColor;
         public Color hairColorSecond;
-        public Color skinColor;
-        public Color skinColorSecond;
+        public SpecialCharacterFacialAnimation facialAnimation;
         public List<int> addonVariants;
         public string xenotype;
         public List<string> endogenes;
@@ -43,6 +43,7 @@ namespace XIYUNTE.SpecialCharacter
             if (price <= 0) yield return "price must be positive.";
             if (firstName.NullOrEmpty() || nickname.NullOrEmpty()) yield return "Character name is required.";
             if (iconPath.NullOrEmpty() || association.NullOrEmpty()) yield return "Association and icon are required.";
+            if (detailedReport.NullOrEmpty()) yield return "A detailed character report is required.";
             if (biologicalAge <= 0 || bodyType == null || headType == null || hair == null)
                 yield return "Fixed age and appearance are required.";
             if (addonVariants == null || addonVariants.Any(i => i < 0)) yield return "Fixed addon variants are required.";

@@ -1,8 +1,8 @@
 # pawnslots：满天星当前配置与读取规则
 
-更新：2026-10-13。依据：2026-10-12 重新提供的 pawnslots.txt，修改时间 23:21:58。当前记录取代此前提取结果，不以旧截图补填新文件。固定人物配置已实现并通过自动数据核对，实际游戏外观仍待验收。
+更新：2026-10-13。身份、技能与装备依据 2026-10-12 重新提供的 pawnslots.txt，修改时间 23:21:58；FA 字段按 D:\QQFL\pawnslots.txt（2026-10-13 14:14:51）补充。此次新文件仅导入面部六项和两项眼色，不替换普通头型、技能等其他人物配置。固定人物配置已实现并通过自动数据核对，实际游戏外观仍待验收。
 
-新文件共 1 个非空人物槽、57 字段；拆分时保留空字段。异种为 RK_XenoType_Ratkin，内源基因 14 项，没有 OA 标识。已核对的 CE 1.5 公开参考定义 0—52 字段，53—56 扩展字段不猜解。
+新文件共 1 个非空人物槽、57 字段；拆分时保留空字段。异种为 RK_XenoType_Ratkin，内源基因 14 项，没有 OA 标识。2026-10-13 经用户授权核对本机实际 CE 1.6 的 PresetPawn，已确认 0—56 字段定义。
 
 ## 身份与外观
 
@@ -17,19 +17,24 @@
 | 原世界派系 | 新开端和 RK_PlayerFaction 不作为联络方配置；加入时使用玩家派系 |
 | 出生时间 | 原值 -89985000 是 BirthAbsTicks，不照搬原世界时钟；实际年龄按新世界原版流程初始化 |
 
-颜色统一按字节除以 255，四舍五入保留 3 位小数。
+颜色快照按字节除以 255，四舍五入保留 3 位小数。主副发色和衣物颜色作为固定配置；肤色快照仅保留提取证据，按用户最新规则不覆盖纯白肤色基因。
 
 | 通道 | 原始 RGBA 字节 | 采用的 Unity RGBA |
 | --- | --- | --- |
 | 主发色 | 87,87,90,255 | (0.341, 0.341, 0.353, 1.000) |
 | 副发色 | 255,255,255,255 | (1.000, 1.000, 1.000, 1.000) |
-| 主肤色 | 255,239,201,255 | (1.000, 0.937, 0.788, 1.000) |
-| 副肤色 | 0,0,0,0 | (0.000, 0.000, 0.000, 0.000) |
-| 眼色字段 | 255,255,255,255 | (1.000, 1.000, 1.000, 1.000) |
+| 主肤色快照，不导入 | 255,239,201,255 | (1.000, 0.937, 0.788, 1.000) |
+| 副肤色快照，不导入 | 0,0,0,0 | (0.000, 0.000, 0.000, 0.000) |
+| FA 主眼色 | 95,0,31,255 | (0.373, 0.000, 0.122, 1.000) |
+| FA 副眼色 | 95,0,31,255 | (0.373, 0.000, 0.122, 1.000) |
 | 三件衣着 | 174,219,228,255 | (0.682, 0.859, 0.894, 1.000) |
 | 喜爱颜色 | 227,115,255,255 | (0.890, 0.451, 1.000, 1.000) |
 
-鼠族颜色通过 HAR AlienComp 的 `OverwriteColorChannel` 写入 `hair`、`skin`、`skinBase`，story 发色与种族通道保持一致。CE 参考的眼色字段来自 Facial Animation 的眼部控制器；没有控制器时返回白色占位，不能据此创建或写入 HAR `eyes` 通道。本轮不导入该眼色字段。副通道数值不直接代表贴图最终像素颜色。melanin=-1 是参考编辑器保存的占位值，不作为黑色素配置。
+固定发色通过 HAR AlienComp 的 `OverwriteColorChannel` 写入 `hair`，随后设置 story.HairColor。HAR 首次初始化通道会将随机生成的通道发色写回 story，必须先完成通道写入再设置固定 story 发色。肤色不写 skin／skinBase，也不赋值 story.skinColorOverride；纯白肤色使用实际基因的正常结果。
+
+CE 的眼色字段来自 Facial Animation 眼部控制器；没有控制器时返回白色占位，不映射为 HAR eyes 通道。旧文件第 45 字段为空；新 D:\QQFL\pawnslots.txt 明确保存六项 FA 类型：Ratkin_Head、Ratkin_EyeStare、Ratkin_LidPointy、Ratkin_BrowNormal、Ratkin_MouthTooth、Ratkin_SkinNormal；第 19 和 53 字段均为 5F-00-1F-FF。首次生成时先写入类型与主副眼色，再执行 FA InitializeIfNeed/SetDirty，FA 的 PostExposeData 正常保存。仅在 Nals.FacialAnimation 和 fxz.Ratkin.FacialAnimation 同时加载时查询这些 Def，未加载时跳过面部导入。melanin=-1、P09_crowntype=0 是 CE 写入的占位，不作为黑色素或 HAR headVariant 配置。
+
+普通头型和 FA 头部类型是不同系统：旧文件第 47 字段为 RK_HeadType_Head1，新文件为 RK_HeadType_Head3；本轮仅导入 FA，因此普通头型继续采用 Head1。身体体型两份文件均为 Thin。Ratkin_Head 属于鼠族 FA 补丁的 FacialAnimation.HeadTypeDef，不是原鼠族 RK_HeadType_Head1，也不新增身体部件。
 
 ## 经历、特质和技能
 
@@ -64,7 +69,7 @@ AptitudeStrong_Mining、AptitudeStrong_Plants 各提供 +4。RK_Gene_GoodGardeni
 
 Skin_Melanin3、RK_Gene_SmallBody、RK_Gene_Nimble、RK_Gene_PoorEyesight、RK_Gene_FragilePain、RK_Gene_GoodGardening、Skin_SheerWhite、Beard_NoBeardOnly、RK_Gene_LargeEars、RK_Gene_ThinTail、RK_Gene_CuteFace、AptitudeStrong_Mining、AptitudeStrong_Plants、Hair_DarkReddish。
 
-外源基因字段为空，不添加外源基因。采用新文件实际清单，不重新随机挑选发色基因。RK 项属于 Ratkin；没有 OA 不等于只包含原版游戏基因。最终外观采用固定颜色表。
+外源基因字段为空，不添加外源基因。采用新文件实际清单，不重新随机挑选发色基因。RK 项属于 Ratkin；没有 OA 不等于只包含原版游戏基因。发色和衣物颜色固定，肤色保留纯白肤色基因的正常结果。
 
 ## 装备和物品
 
@@ -100,9 +105,12 @@ Skin_Melanin3、RK_Gene_SmallBody、RK_Gene_Nimble、RK_Gene_PoorEyesight、RK_G
 
 ## 扩展字段与依据
 
-字段 53=FF-FF-FF-FF，54、55为空，56=LightPurple。现有参考未定义其含义，保留为读取证据，不覆盖人物系统。
+本机 CE 1.6 已确认：53=P53_eyecolor2，旧文件值 FF-FF-FF-FF，新 FA 导出为 5F-00-1F-FF；54=P54_mutantDef、55=P55_rotStage 均为空；56=P56_favColorDef，值 LightPurple。控制器缺失时第二眼色会保存白色占位；面部类型以第 45 字段为准，不导入空变异人及腐烂状态。
 
 - 当前 pawnslots.txt 第1行：1个人物、57字段，OA标识0个；新文件不再使用旧截图校正。
+- 用户授权只读的本机 CE 1.6：D:\Steam\steamapps\workshop\content\294100\1874644848\v1.6\Assemblies\CharacterEditor.dll，CharacterEditor.PresetPawn.Param／SavePawnToSlot、HeadTool.GetEyeColor/GetEyeColor2，核对 57 字段及眼色占位。
+- 用户授权只读的 HAR 1.6：D:\Steam\steamapps\workshop\content\294100\839005762\1.6\Assemblies\AlienRace.dll，AlienPartGenerator.AlienComp.ColorChannels／OverwriteColorChannel，核对发色初始化顺序。
+- 用户授权只读的 Facial Animation 1.6 EyeballControllerComp.FaceSecondColor、ControllerBaseComp.FaceType/FaceColor/PostExposeData/InitializeIfNeed/SetDirty，以及鼠族适配 2852881266\1.6\Defs\FaceTypeDefs，核对六项类型、初始化顺序和原生保存。CE 1.6 FacialTool.GetFacialAnimationParams 确认第 45 字段顺序。
 - 用户本轮规则：需求满、Hediff自动、额外项以后指定、颜色三位小数、意识形态自动、无内容的社交／记忆不填入。
 - [CE PresetPawn 公开参考](https://github.com/FerrisComplex/Rimworld-CharacterEditor-1.5/blob/4e0523fccc563ebb8ed5be41cd8df50a9ae75431/Source/Main/PresetPawn.cs#L92)，同提交的 AgeTool、SkillTool、ThingTool、ColorTool、SkinTool、HairTool、AlienRaceTool。参考版本为1.5，不推断新版扩展字段。
 - RIMSAGE（2026-10-12）：SkillRecord.cs:57-184、SkillRecord.GetLevel、PawnGenerator.GenerateSkills/FinalLevelOfSkill、GeneTemplateDef:AptitudeStrong、GeneDefGenerator.GetFromTemplate，核对基础等级、经历与+4资质。

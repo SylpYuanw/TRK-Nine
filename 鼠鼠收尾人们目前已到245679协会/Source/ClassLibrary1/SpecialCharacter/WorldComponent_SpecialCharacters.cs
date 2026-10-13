@@ -44,16 +44,50 @@ namespace XIYUNTE.SpecialCharacter
     public sealed class WorldComponent_SpecialCharacters : WorldComponent, IThingHolder
     {
         private List<SpecialCharacterOrder> orders = new List<SpecialCharacterOrder>();
-        private ThingOwner<Thing> waitingPods;
+        private ThingOwner<Thing> pendingContents;
         private int nextArrivalTick = int.MaxValue;
         public IThingHolder ParentHolder => null;
 
         public WorldComponent_SpecialCharacters(World world) : base(world)
         {
-            waitingPods = new ThingOwner<Thing>(this);
+        }
+
+        // 首次联络建立空容器；实际人物仍在首次查看详情时生成。
+        public void InitializeForContact()
+        {
+            if (pendingContents == null) pendingContents = new ThingOwner<Thing>(this);
         }
 
         public SpecialCharacterOrder GetOrder(SpecialCharacterDef def) => orders.FirstOrDefault(o => o.character == def);
+
+        // 首次查看时创建实际人物；后续展示和购买返回同一对象，窗口不拥有其生命周期。
+        public Pawn GetCharacter(SpecialCharacterDef def, Map map)
+        {
+            SpecialCharacterOrder order = GetOrder(def);
+            if (order != null) return order.pawn;
+            InitializeForContact();
+            Pawn existing = pendingContents.OfType<Pawn>().FirstOrDefault(p => p.kindDef == def.pawnKind);
+            if (existing != null) return existing;
+            Pawn pawn = null;
+            Thing preparedItem = null;
+            bool retained = false;
+            try
+            {
+                SpecialCharacterGenerator.Generate(def, map, out pawn, out preparedItem);
+                if (!pendingContents.TryAdd(pawn, canMergeWithExistingStacks: false))
+                    throw new InvalidOperationException("Could not retain the prepared character.");
+                retained = true;
+                return pawn;
+            }
+            finally
+            {
+                if (!retained)
+                {
+                    if (preparedItem != null && !preparedItem.Destroyed) preparedItem.Destroy();
+                    SpecialCharacterGenerator.DiscardPreparedPawn(pawn);
+                }
+            }
+        }
 
         public override void ExposeData()
         {
@@ -63,38 +97,27 @@ namespace XIYUNTE.SpecialCharacter
                     if ((order.lifecycle.stage == DispatchStage.Waiting || order.lifecycle.stage == DispatchStage.InFlight) &&
                         (order.destination == null || !Find.Maps.Contains(order.destination)))
                         Fail(order, "The destination map was removed before the dispatch completed.");
-            Scribe_Deep.Look(ref waitingPods, "waitingPods", this);
-            Scribe_Collections.Look(ref orders, "orders", LookMode.Deep);
-            if (Scribe.mode == LoadSaveMode.PostLoadInit)
-                LongEventHandler.ExecuteWhenFinished(ValidateAndSchedule);
-        }
-
-        public override void FinalizeInit(bool fromLoad)
-        {
-            base.FinalizeInit(fromLoad);
-            if (!fromLoad) ValidateAndSchedule();
+            Scribe_Deep.Look(ref pendingContents, "pendingContents", this);
+            // 未保存订单节点表示尚无订单；已保存的记录继续由原版解析器恢复。
+            if (Scribe.mode != LoadSaveMode.LoadingVars || Scribe.loader.curXmlParent["orders"] != null)
+                Scribe_Collections.Look(ref orders, "orders", LookMode.Deep);
+            if (Scribe.mode == LoadSaveMode.PostLoadInit && orders.Count > 0)
+                LongEventHandler.ExecuteWhenFinished(RestoreOrders);
         }
 
         // 世界初始化早于地图加载；读档校验在引用恢复及地图生成完成后执行。
-        private void ValidateAndSchedule()
+        private void RestoreOrders()
         {
-            if (orders == null || waitingPods == null)
-                throw new InvalidOperationException("Special character storage was not restored.");
-            if (orders.Any(o => o == null || o.character == null) ||
-                orders.Select(o => o.character).Distinct().Count() != orders.Count)
-                throw new InvalidOperationException("Special character orders contain missing or duplicate definitions.");
             foreach (SpecialCharacterOrder order in orders)
             {
                 order.ParentHolder = this;
-                if (order.payment == null) throw new InvalidOperationException("Special character payment storage is missing.");
-                if (order.lifecycle.stage == DispatchStage.Arrived && !order.lifecycle.arrivalLetterSent)
-                    throw new InvalidOperationException("Completed special character order has no notification flag.");
                 if (order.lifecycle.stage == DispatchStage.Waiting || order.lifecycle.stage == DispatchStage.InFlight)
                 {
                     if (order.pawn == null || order.pawn.Destroyed || order.pod == null || order.pod.Destroyed ||
                         order.pod.Contents == null || !order.pod.Contents.innerContainer.Contains(order.pawn) ||
                         order.destination == null || !Find.Maps.Contains(order.destination) ||
-                        (order.lifecycle.stage == DispatchStage.Waiting && !waitingPods.Contains(order.pod)))
+                        (order.lifecycle.stage == DispatchStage.Waiting &&
+                            (pendingContents == null || !pendingContents.Contains(order.pod))))
                         Fail(order, "Pending dispatch references could not be restored.");
                 }
             }
@@ -139,14 +162,13 @@ namespace XIYUNTE.SpecialCharacter
             SpecialCharacterOrder order = null;
             Pawn pawn = null;
             SpecialCharacterPod pod = null;
-            Thing preparedItem = null;
             try
             {
-                SpecialCharacterGenerator.Generate(def, map, out pawn, out preparedItem);
+                pawn = GetCharacter(def, map);
                 pod = (SpecialCharacterPod)ThingMaker.MakeThing(DefDatabase<ThingDef>.GetNamed("TRK_SpecialCharacterPod"));
                 pod.character = def;
                 pod.Contents = new ActiveTransporterInfo(pod) { openDelay = 0, leaveSlag = false };
-                if (!pod.Contents.innerContainer.TryAdd(pawn, canMergeWithExistingStacks: false))
+                if (!pod.Contents.innerContainer.TryAddOrTransfer(pawn, canMergeWithExistingStacks: false))
                     throw new InvalidOperationException("Could not place the generated character into the delivery pod.");
                 order = new SpecialCharacterOrder
                 {
@@ -154,7 +176,7 @@ namespace XIYUNTE.SpecialCharacter
                     refundCell = negotiator.Position, ParentHolder = this,
                     lifecycle = new DispatchLifecycle { arrivalTick = checked(Find.TickManager.TicksGame + GenDate.TicksPerHour) }
                 };
-                if (!waitingPods.TryAdd(pod, canMergeWithExistingStacks: false))
+                if (!pendingContents.TryAdd(pod, canMergeWithExistingStacks: false))
                     throw new InvalidOperationException("Could not store the prepared delivery pod.");
                 // 生成依赖可能改变地图物品，扣款前再次读取当前余额。
                 silver = AvailableSilver(map);
@@ -183,10 +205,14 @@ namespace XIYUNTE.SpecialCharacter
                     if (!orders.Contains(order)) orders.Add(order);
                     Fail(order, ex.ToString());
                 }
-                else Log.Error("[TRK SpecialCharacter] Purchase failed: " + ex);
-                if (preparedItem != null && !preparedItem.Destroyed) preparedItem.Destroy();
+                else
+                {
+                    Log.Error("[TRK SpecialCharacter] Purchase failed: " + ex);
+                    if (pawn != null && !pawn.Destroyed &&
+                        !pendingContents.TryAddOrTransfer(pawn, canMergeWithExistingStacks: false))
+                        throw new InvalidOperationException("Could not retain the character after an unpaid purchase failed.", ex);
+                }
                 if (pod != null && !pod.Destroyed) pod.Destroy();
-                if (pawn != null && !pawn.Spawned) SpecialCharacterGenerator.DiscardPreparedPawn(pawn);
                 RefreshSchedule();
                 response = "TRK_SC_PurchaseFailed".Translate();
                 return false;
@@ -207,7 +233,7 @@ namespace XIYUNTE.SpecialCharacter
                     if (order.destination == null || !Find.Maps.Contains(order.destination) ||
                         !order.destination.IsPlayerHome || !TryDropCell(order.destination, order.refundCell, out cell))
                         throw new InvalidOperationException("The destination colony or a safe drop location is unavailable.");
-                    if (!waitingPods.Contains(order.pod))
+                    if (!pendingContents.Contains(order.pod))
                         throw new InvalidOperationException("The prepared delivery pod is missing.");
                     incoming = SkyfallerMaker.MakeSkyfaller(ThingDefOf.DropPodIncoming);
                     if (!incoming.innerContainer.TryAddOrTransfer(order.pod, canMergeWithExistingStacks: false))
@@ -240,6 +266,7 @@ namespace XIYUNTE.SpecialCharacter
                 return;
             }
             Pawn pawn = order.pawn;
+            pawn.SetFaction(Faction.OfPlayer);
             foreach (Need need in pawn.needs.AllNeeds) need.CurLevelPercentage = 1f;
             // 完成标记先于通知写入；终态不保存已销毁载体及不再使用的地图引用。
             if (order.lifecycle.Complete())
@@ -251,17 +278,6 @@ namespace XIYUNTE.SpecialCharacter
                     "TRK_SC_ArrivalText".Translate(pawn.LabelShort, order.character.association),
                     LetterDefOf.PositiveEvent, pawn);
             }
-        }
-
-        public void PodFailed(SpecialCharacterPod pod, string reason)
-        {
-            SpecialCharacterOrder order = GetOrder(pod.character);
-            if (order == null || order.lifecycle.stage == DispatchStage.Arrived || order.lifecycle.stage == DispatchStage.Failed)
-            {
-                Log.Error("[TRK SpecialCharacter] " + reason);
-                return;
-            }
-            Fail(order, reason);
         }
 
         private void Fail(SpecialCharacterOrder order, string reason)
@@ -310,10 +326,10 @@ namespace XIYUNTE.SpecialCharacter
                     nextArrivalTick = Math.Min(nextArrivalTick, order.lifecycle.arrivalTick);
         }
 
-        public ThingOwner GetDirectlyHeldThings() => waitingPods;
+        public ThingOwner GetDirectlyHeldThings() => pendingContents;
         public void GetChildHolders(List<IThingHolder> outChildren)
         {
-            ThingOwnerUtility.AppendThingHoldersFromThings(outChildren, waitingPods);
+            ThingOwnerUtility.AppendThingHoldersFromThings(outChildren, pendingContents);
             outChildren.AddRange(orders);
         }
     }

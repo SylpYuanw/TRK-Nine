@@ -1,3 +1,5 @@
+param([string]$FacialAnimationAssembly)
+
 $ErrorActionPreference = 'Stop'
 $modRoot = [IO.Path]::GetFullPath((Join-Path $PSScriptRoot '..\..'))
 $testOutput = Join-Path $PSScriptRoot 'bin'
@@ -11,7 +13,7 @@ try {
     # 游戏解析器使用新版 BCL 接口，独立验证在 .NET 8 运行，不使用旧 Framework CLR。
     @{ runtimeOptions = @{ tfm = 'net8.0'; framework = @{ name = 'Microsoft.NETCore.App'; version = '8.0.0' } } } |
         ConvertTo-Json -Depth 4 | Set-Content -LiteralPath (Join-Path $testOutput 'SpecialCharacterVerification.runtimeconfig.json') -Encoding UTF8
-    & dotnet $testExe $modRoot
+    & dotnet $testExe $modRoot $FacialAnimationAssembly
     if ($LASTEXITCODE -ne 0) { throw '特殊人物状态快照与读档初始化验证失败。' }
 
     [xml]$defs = Get-Content -LiteralPath 'Defs\SpecialCharacter\SpecialCharacters.xml' -Raw -Encoding UTF8
@@ -116,7 +118,7 @@ try {
         if (!(Test-Path -LiteralPath (Join-Path $modRoot ('Textures\' + $iconPath + '.png')))) { throw ('缺少图标：' + $iconPath) }
     }
     ('PASS: ' + $references.Count + ' 项唯一 Def 引用、继承模板和图标路径已核对；动态资质基因按原版模板验证。')
-    'PASS: 人物 XML 与原始槽位数据一致；2000 白银、12 项技能、3 项特质、14 基因、6 件装备/库存及中文文本均已核对。'
+    'PASS: 人物身份、技能和装备按原始槽位核对；2000 白银、12 项技能、3 项特质、14 基因、6 件装备/库存及中文文本正确。肤色按最新规则保留基因结果。'
 } finally {
     Pop-Location
 }

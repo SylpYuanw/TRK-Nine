@@ -12,13 +12,13 @@ namespace XIYUNTE.SpecialCharacter
 {
     public static class SpecialCharacterGenerator
     {
-        // HAR 已由鼠族依赖加载；只在人物首次生成时调用其已核对的外观接口。
+        // HAR 外观接口只在正式人物首次生成时应用。
         private static readonly Type AlienCompType = AccessTools.TypeByName("AlienRace.AlienPartGenerator+AlienComp");
         private static readonly MethodInfo SetChannel = AlienCompType == null ? null :
             AlienCompType.GetMethod("OverwriteColorChannel", new[] { typeof(string), typeof(Color?), typeof(Color?) });
         private static readonly FieldInfo AddonVariants = AlienCompType == null ? null : AlienCompType.GetField("addonVariants");
 
-        // 生成对象立即交给购买事务持有，初始化失败时由该事务统一清理。
+        // 生成对象立即交给世界组件持有，初始化失败时由创建事务统一清理。
         public static void Generate(SpecialCharacterDef def, Map map, out Pawn preparedPawn, out Thing preparedItem)
         {
             preparedPawn = null;
@@ -28,11 +28,9 @@ namespace XIYUNTE.SpecialCharacter
             if (errors.Length != 0) throw new InvalidOperationException(def.defName + ": " + string.Join("; ", errors));
             List<GeneDef> genes = def.endogenes.Select(n => DefDatabase<GeneDef>.GetNamed(n)).ToList();
             XenotypeDef xenotype = DefDatabase<XenotypeDef>.GetNamed(def.xenotype);
-            if (AlienCompType == null || SetChannel == null || AddonVariants == null)
-                throw new InvalidOperationException("Required HAR AlienComp appearance API is missing.");
 
             // 异种提供种族基因，人物清单只追加异种未包含的固定基因。
-            PawnGenerationRequest request = new PawnGenerationRequest(def.pawnKind, Faction.OfPlayer,
+            PawnGenerationRequest request = new PawnGenerationRequest(def.pawnKind,
                 tile: map.Tile, forceGenerateNewPawn: true, canGeneratePawnRelations: false,
                 allowFood: false, fixedBiologicalAge: def.biologicalAge, fixedGender: def.gender,
                 forcedXenotype: xenotype, forcedEndogenes: genes.Except(xenotype.genes).ToList(),
@@ -66,43 +64,11 @@ namespace XIYUNTE.SpecialCharacter
                 pawn.story.Adulthood != def.pawnKind.fixedAdultBackstories.Single())
                 throw new InvalidOperationException("Generated backstories differ from the fixed configuration.");
 
-            pawn.story.bodyType = def.bodyType;
-            pawn.story.headType = def.headType;
-            pawn.story.hairDef = def.hair;
-            pawn.story.HairColor = def.hairColor;
-            pawn.story.SkinColorBase = def.skinColor;
-            pawn.story.skinColorOverride = def.skinColor;
-            pawn.style.beardDef = BeardDefOf.NoBeard;
-            if (ModsConfig.IdeologyActive)
-            {
-                pawn.style.FaceTattoo = DefDatabase<TattooDef>.GetNamed("NoTattoo_Face");
-                pawn.style.BodyTattoo = DefDatabase<TattooDef>.GetNamed("NoTattoo_Body");
-                pawn.story.favoriteColor = DefDatabase<ColorDef>.GetNamed("LightPurple");
-            }
-            ThingComp alien = pawn.AllComps.Single(c => AlienCompType.IsInstanceOfType(c));
-            SetChannel.Invoke(alien, new object[] { "hair", def.hairColor, def.hairColorSecond });
-            SetChannel.Invoke(alien, new object[] { "skin", def.skinColor, def.skinColorSecond });
-            SetChannel.Invoke(alien, new object[] { "skinBase", def.skinColor, def.skinColorSecond });
-            AddonVariants.SetValue(alien, new List<int>(def.addonVariants));
-
+            ApplyAppearance(pawn, def);
             if (pawn.equipment.AllEquipmentListForReading.Any() || pawn.apparel.WornApparel.Any() ||
                 pawn.inventory.innerContainer.Any())
                 throw new InvalidOperationException("A dependency generated unexpected automatic gear.");
-            ThingWithComps weapon = (ThingWithComps)MakeItem(def.weapon, ref preparedItem);
-            pawn.equipment.AddEquipment(weapon);
-            if (pawn.equipment.Primary != weapon)
-                throw new InvalidOperationException("Could not equip fixed weapon.");
-            preparedItem = null;
-            foreach (SpecialCharacterItem spec in def.apparel)
-            {
-                if (pawn.apparel.WornApparel.Any(a => !ApparelUtility.CanWearTogether(a.def, spec.thing, pawn.RaceProps.body)))
-                    throw new InvalidOperationException("Fixed apparel layers are incompatible.");
-                Apparel apparel = (Apparel)MakeItem(spec, ref preparedItem);
-                pawn.apparel.Wear(apparel, dropReplacedApparel: false);
-                if (!pawn.apparel.WornApparel.Contains(apparel))
-                    throw new InvalidOperationException("Could not wear " + spec.thing.defName);
-                preparedItem = null;
-            }
+            ApplyOutfit(pawn, def, ref preparedItem);
             foreach (SpecialCharacterItem spec in def.inventory)
             {
                 Thing item = MakeItem(spec, ref preparedItem);
@@ -128,6 +94,47 @@ namespace XIYUNTE.SpecialCharacter
                     throw new InvalidOperationException("Final skill level mismatch: " + spec.skill.defName);
             }
             pawn.Drawer.renderer.SetAllGraphicsDirty();
+        }
+
+        private static void ApplyAppearance(Pawn pawn, SpecialCharacterDef def)
+        {
+            if (AlienCompType == null || SetChannel == null || AddonVariants == null)
+                throw new InvalidOperationException("Required HAR AlienComp appearance API is missing.");
+            pawn.story.bodyType = def.bodyType;
+            pawn.story.headType = def.headType;
+            pawn.story.hairDef = def.hair;
+            pawn.style.beardDef = BeardDefOf.NoBeard;
+            if (ModsConfig.IdeologyActive)
+            {
+                pawn.style.FaceTattoo = DefDatabase<TattooDef>.GetNamed("NoTattoo_Face");
+                pawn.style.BodyTattoo = DefDatabase<TattooDef>.GetNamed("NoTattoo_Body");
+                pawn.story.favoriteColor = DefDatabase<ColorDef>.GetNamed("LightPurple");
+            }
+            ThingComp alien = pawn.AllComps.Single(c => AlienCompType.IsInstanceOfType(c));
+            // 首次访问 HAR 通道会初始化并写回 story 发色，固定发色在通道初始化完成后设置。
+            SetChannel.Invoke(alien, new object[] { "hair", def.hairColor, def.hairColorSecond });
+            pawn.story.HairColor = def.hairColor;
+            AddonVariants.SetValue(alien, new List<int>(def.addonVariants));
+            def.facialAnimation?.Apply(pawn);
+        }
+
+        private static void ApplyOutfit(Pawn pawn, SpecialCharacterDef def, ref Thing preparedItem)
+        {
+            ThingWithComps weapon = (ThingWithComps)MakeItem(def.weapon, ref preparedItem);
+            pawn.equipment.AddEquipment(weapon);
+            if (pawn.equipment.Primary != weapon)
+                throw new InvalidOperationException("Could not equip fixed weapon.");
+            preparedItem = null;
+            foreach (SpecialCharacterItem spec in def.apparel)
+            {
+                if (pawn.apparel.WornApparel.Any(a => !ApparelUtility.CanWearTogether(a.def, spec.thing, pawn.RaceProps.body)))
+                    throw new InvalidOperationException("Fixed apparel layers are incompatible.");
+                Apparel apparel = (Apparel)MakeItem(spec, ref preparedItem);
+                pawn.apparel.Wear(apparel, dropReplacedApparel: false);
+                if (!pawn.apparel.WornApparel.Contains(apparel))
+                    throw new InvalidOperationException("Could not wear " + spec.thing.defName);
+                preparedItem = null;
+            }
         }
 
         // 原版 Destroy 会转交 WorldPawns；撤销生成使用原版 Discard 完成销毁和解除引用。

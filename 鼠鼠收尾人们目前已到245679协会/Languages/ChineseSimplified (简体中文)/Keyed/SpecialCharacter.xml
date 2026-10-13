@@ -5,8 +5,11 @@
   <TRK_SC_Contact>联系人：Hana 协会派遣负责人</TRK_SC_Contact>
   <TRK_SC_Greeting>Hana 协会派遣处。请选择需要联络的协会成员，我们将核验费用并安排该成员前往你的殖民地。</TRK_SC_Greeting>
   <TRK_SC_Balance>通电交易信标范围内可用白银：{0}</TRK_SC_Balance>
-  <TRK_SC_Buy>购买 · {0} 白银</TRK_SC_Buy>
-  <TRK_SC_Purchased>已购买</TRK_SC_Purchased>
+  <TRK_SC_Details>详细信息</TRK_SC_Details>
+  <TRK_SC_Back>返回</TRK_SC_Back>
+  <TRK_SC_PortraitUnavailable>该成员当前无法显示。</TRK_SC_PortraitUnavailable>
+  <TRK_SC_Buy>请求派遣成员 · {0}</TRK_SC_Buy>
+  <TRK_SC_Purchased>已派遣</TRK_SC_Purchased>
   <TRK_SC_Dispatching>派遣中</TRK_SC_Dispatching>
   <TRK_SC_Failed>派遣失败</TRK_SC_Failed>
   <TRK_SC_AlreadyPurchased>这位成员已接受过本殖民地的派遣，不再重复受理。</TRK_SC_AlreadyPurchased>
@@ -21,9 +24,11 @@
   <TRK_SC_Refunded>退款已交回。该订单已经结束。</TRK_SC_Refunded>
   <TRK_SC_RefundFailed>退款落点不可用，费用仍保存在订单中。</TRK_SC_RefundFailed>
   <TRK_SC_ArrivalLabel>{0}已抵达</TRK_SC_ArrivalLabel>
-  <TRK_SC_ArrivalText>Hana 协会派遣处通知：{1}成员{0}已乘空投舱抵达你的殖民地，并正式加入。
-
-本次特殊人员派遣已经完成。</TRK_SC_ArrivalText>
-  <TRK_SC_FixedProfile>固定初始资料：{0}，{1}岁。技能等级与热情：</TRK_SC_FixedProfile>
-  <TRK_SC_OneTimeRule>每个世界仅派遣一次。死亡、离开殖民地或远行归来均不会补发人物或重复发送到达通知。</TRK_SC_OneTimeRule>
+  <TRK_SC_ArrivalText>Hana 协会派遣处通知：{1}成员{0}已乘空投舱抵达你的殖民地，并正式加入，人员所属权已正式转交，请善待她们。\n\n本次特殊人员派遣已经完成。</TRK_SC_ArrivalText>
+  <TRK_SC_FixedProfile>资料：{0}，{1}岁。种族：{2}。</TRK_SC_FixedProfile>
+  <TRK_SC_Traits>特质：{0}</TRK_SC_Traits>
+  <TRK_SC_Report>来自Hana协会的详细报告："{0}"</TRK_SC_Report>
+  <TRK_SC_Equipment>携带装备：</TRK_SC_Equipment>
+  <TRK_SC_Inventory>携带物品：</TRK_SC_Inventory>
+  <TRK_SC_OneTimeRule>注意：此个体具有特殊唯一性，一旦意外丢失无法再次派遣。\n</TRK_SC_OneTimeRule>
 </LanguageData>
