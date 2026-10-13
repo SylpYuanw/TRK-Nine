@@ -71,6 +71,7 @@
     <Compile Include="Abilities\**\*.cs" />
     <Compile Include="Hediff\**\*.cs" />
     <Compile Include="Combat\**\*.cs" />
+    <Compile Include="SpecialCharacter\**\*.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Weapon\" />

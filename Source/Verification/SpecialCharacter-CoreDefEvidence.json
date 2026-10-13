@@ -1,0 +1,132 @@
+{
+  "date": "2026-10-13",
+  "source": "RIMSAGE get_def_details; RimWorld 1.6",
+  "defs": [
+    {
+      "type": "ThingDef",
+      "name": "Silver"
+    },
+    {
+      "type": "ThingDef",
+      "name": "Steel"
+    },
+    {
+      "type": "ThingDef",
+      "name": "Synthread"
+    },
+    {
+      "type": "BodyTypeDef",
+      "name": "Thin"
+    },
+    {
+      "type": "SkillDef",
+      "name": "Animals"
+    },
+    {
+      "type": "SkillDef",
+      "name": "Artistic"
+    },
+    {
+      "type": "SkillDef",
+      "name": "Construction"
+    },
+    {
+      "type": "SkillDef",
+      "name": "Cooking"
+    },
+    {
+      "type": "SkillDef",
+      "name": "Crafting"
+    },
+    {
+      "type": "SkillDef",
+      "name": "Intellectual"
+    },
+    {
+      "type": "SkillDef",
+      "name": "Medicine"
+    },
+    {
+      "type": "SkillDef",
+      "name": "Melee"
+    },
+    {
+      "type": "SkillDef",
+      "name": "Mining"
+    },
+    {
+      "type": "SkillDef",
+      "name": "Plants"
+    },
+    {
+      "type": "SkillDef",
+      "name": "Shooting"
+    },
+    {
+      "type": "SkillDef",
+      "name": "Social"
+    },
+    {
+      "type": "TraitDef",
+      "name": "Beauty"
+    },
+    {
+      "type": "TraitDef",
+      "name": "Industriousness"
+    },
+    {
+      "type": "TraitDef",
+      "name": "Kind"
+    },
+    {
+      "type": "GeneDef",
+      "name": "Skin_Melanin3"
+    },
+    {
+      "type": "GeneDef",
+      "name": "Skin_SheerWhite"
+    },
+    {
+      "type": "GeneDef",
+      "name": "Beard_NoBeardOnly"
+    },
+    {
+      "type": "GeneDef",
+      "name": "Hair_DarkReddish"
+    },
+    {
+      "type": "XenotypeDef",
+      "name": "Baseliner"
+    },
+    {
+      "type": "BeardDef",
+      "name": "NoBeard"
+    },
+    {
+      "type": "TattooDef",
+      "name": "NoTattoo_Face"
+    },
+    {
+      "type": "TattooDef",
+      "name": "NoTattoo_Body"
+    },
+    {
+      "type": "ColorDef",
+      "name": "LightPurple"
+    },
+    {
+      "type": "GeneTemplateDef",
+      "name": "AptitudeStrong"
+    },
+    {
+      "type": "ThingDef",
+      "name": "ActiveDropPod",
+      "namedTemplate": "ActiveDropPod"
+    },
+    {
+      "type": "ThingDef",
+      "name": "DropPodIncoming",
+      "namedTemplate": "DropPodIncoming"
+    }
+  ]
+}

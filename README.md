@@ -7,4 +7,5 @@ GitHub仓库文件
 
 - `鼠鼠收尾人们目前已到245679协会/`：MOD 本体，可直接放入 RimWorld 的 `Mods` 目录（About / Assemblies / Defs / Languages / Patches / Sounds / Textures）。
 - `Source/`：C# 源码工程与设计文档。
+- Mods下的Source也上传，同时上传一份备份在主main
 

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+  <!-- 将收尾人服装登记为鼠族专属衣物，由 HAR 执行生成与穿戴的种族检查。 -->
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/AlienRace.ThingDef_AlienRace[defName="Ratkin"]/alienRace/raceRestriction/apparelList</xpath>
+    <value>
+      <li>RK_cinqhat</li>
+      <li>cinqsuit</li>
+      <li>cinqcloak</li>
+      <li>liuA</li>
+      <li>liuB</li>
+      <li>nineja</li>
+      <li>Apparel_ninec</li>
+      <li>sevenA</li>
+      <li>sevnB</li>
+      <li>si_uniform</li>
+      <li>si_quiver</li>
+      <li>zweiA</li>
+      <li>zweiB</li>
+      <li>RK_nineh</li>
+    </value>
+  </Operation>
+</Patch>

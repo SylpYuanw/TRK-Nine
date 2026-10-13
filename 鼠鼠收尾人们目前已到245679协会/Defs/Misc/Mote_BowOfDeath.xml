@@ -1,4 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+
+
+
+
+
+
+
+
+
+
+
+
 <Defs>
   <!-- 死之弓蓄力阶切换的浮现印迹:切换完成时由 XIYUNTE.CompEquippable_DeathBow 在装备者身上生成。
        生命周期完全走原版 Mote 机制:fadeInTime → solidTime → fadeOutTime 三段结束后自行销毁,不入存档;
@@ -111,11 +124,9 @@
        最右侧的头部贴在箭头上,四条红色向后(角色背后)飘散。
        朝向与位置由 XIYUNTE.Mote_DeathBowAimChargeVfx 按瞄准方向给出:朝向 = 瞄准角 - 90,attachedDrawOffset 按同一角度旋转,
        因此朝正上方瞄准时整块画布落在角色正下方、朝右上方瞄准时落在左下方。
-       Shader Trk/BowOfDeathAimCharge 只把贴图整图沿画布 -X 逐份向后推移(平移,不缩放、不压缩),
-       每份副本在头部停留后向后推移 _FlowSpan 的画布比例并在终点完全淡出。
-       画布 0.8×0.8 格:_FlowSpan 0.5 即向后推移 0.4 格,对应贴图四条红色的后飘距离;
-       _CopyCount 控制同时可见的副本份数,_FlowPeriod 控制单份副本从头部走到终点的秒数;
-       _HeadHold 取 1/_CopyCount 以上时任意时刻都有一份副本停在头部,头部因此完全不动。
+       Shader Trk/BowOfDeathAimCharge 以固定弓头锚点生成多条独立流线，沿画布 -X 向身后扩散;
+       下游通过发散宽度、低频弯曲和边缘侵蚀形成分岔、断续与淡出，弓头核心保持定位。
+       _HeadU/_HeadV 控制发射核心，_FlowLength/_Divergence 控制扩散范围，噪声参数控制流线形态。
        图层 Gas 高于主体层(MoteOverhead)、低于流线层(VisEffects),避免同层同位置深度打架。 -->
   <ThingDef ParentName="MoteBase">
     <defName>BowOfDeath_AimChargeVfx</defName>
@@ -129,19 +140,25 @@
       <fadeOutUnmaintained>true</fadeOutUnmaintained>
       <!-- 局部偏移(单位:格):X 为瞄准方向偏移,0.3 表示画布中心落在角色前方 0.3 格,贴图头部因此贴近箭头;
            由 Mote_DeathBowAimChargeVfx 按瞄准角旋转后生效,Z 为画布纵向偏移。 -->
-      <attachedDrawOffset>(-0.152,0,0)</attachedDrawOffset>
+      <attachedDrawOffset>(-0.2,0,0)</attachedDrawOffset>
     </mote>
     <graphicData>
       <texPath>VFX/Bow_of_Death_Aim_Charge_Vfx</texPath>
       <shaderType>Trk_BowOfDeathAimCharge</shaderType>
       <drawSize>(4,4)</drawSize>
       <shaderParameters>
-        <_FlowSpan>0.35</_FlowSpan>
-        <_FlowPeriod>1</_FlowPeriod>
-        <_HeadHold>0.15</_HeadHold>
-        <_FadeStart>0.5</_FadeStart>
-        <_FlowEase>0.5</_FlowEase>
-        <_Brightness>1</_Brightness>
+        <_HeadU>0.79</_HeadU>
+        <_HeadV>0.5</_HeadV>
+        <_FlowLength>0.5</_FlowLength>
+        <_Divergence>0.8</_Divergence>
+        <_FlowSpeed>1.2</_FlowSpeed>
+        <_NoiseScale>2.5</_NoiseScale>
+        <_NoiseStrength>0.24</_NoiseStrength>
+        <_NoiseSpeed>0.9</_NoiseSpeed>
+        <_Erosion>0.5</_Erosion>
+        <_CoreRadius>0.1</_CoreRadius>
+        <_CoreBrightness>0</_CoreBrightness>
+        <_Brightness>0.4</_Brightness>
         <_UseRealTime>1</_UseRealTime>
       </shaderParameters>
     </graphicData>

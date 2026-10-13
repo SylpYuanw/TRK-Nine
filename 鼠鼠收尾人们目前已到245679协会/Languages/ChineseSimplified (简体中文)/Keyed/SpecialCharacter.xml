@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <TRK_SC_OpenDispatch>转接 Hana 协会：特殊人员派遣</TRK_SC_OpenDispatch>
+  <TRK_SC_Title>Hana 协会 · 特殊人员派遣</TRK_SC_Title>
+  <TRK_SC_Contact>联系人：Hana 协会派遣负责人</TRK_SC_Contact>
+  <TRK_SC_Greeting>Hana 协会派遣处。请选择需要联络的协会成员，我们将核验费用并安排该成员前往你的殖民地。</TRK_SC_Greeting>
+  <TRK_SC_Balance>通电交易信标范围内可用白银：{0}</TRK_SC_Balance>
+  <TRK_SC_Buy>购买 · {0} 白银</TRK_SC_Buy>
+  <TRK_SC_Purchased>已购买</TRK_SC_Purchased>
+  <TRK_SC_Dispatching>派遣中</TRK_SC_Dispatching>
+  <TRK_SC_Failed>派遣失败</TRK_SC_Failed>
+  <TRK_SC_AlreadyPurchased>这位成员已接受过本殖民地的派遣，不再重复受理。</TRK_SC_AlreadyPurchased>
+  <TRK_SC_HomeMapRequired>请从殖民地通讯台申请派遣。</TRK_SC_HomeMapRequired>
+  <TRK_SC_BiotechRequired>此人物的固定基因配置需要启用 Biotech。</TRK_SC_BiotechRequired>
+  <TRK_SC_InsufficientSilver>费用尚未备齐。请在通电交易信标范围内存放足够的白银。</TRK_SC_InsufficientSilver>
+  <TRK_SC_NoDropSpot>殖民地目前没有安全的露天空投落点，暂不受理派遣。</TRK_SC_NoDropSpot>
+  <TRK_SC_PurchaseAccepted>费用核验完成，{0}的派遣已登记。该成员将在约一小时后乘空投舱抵达本殖民地。</TRK_SC_PurchaseAccepted>
+  <TRK_SC_PurchaseFailed>本次派遣未能完成登记。已停止处理，请检查错误日志及退款状态。</TRK_SC_PurchaseFailed>
+  <TRK_SC_DispatchFailed>{0}的派遣失败，系统已停止处理。费用已退回，或保留在订单中等待领取；请查看错误日志。</TRK_SC_DispatchFailed>
+  <TRK_SC_Refund>领取退款</TRK_SC_Refund>
+  <TRK_SC_Refunded>退款已交回。该订单已经结束。</TRK_SC_Refunded>
+  <TRK_SC_RefundFailed>退款落点不可用，费用仍保存在订单中。</TRK_SC_RefundFailed>
+  <TRK_SC_ArrivalLabel>{0}已抵达</TRK_SC_ArrivalLabel>
+  <TRK_SC_ArrivalText>Hana 协会派遣处通知：{1}成员{0}已乘空投舱抵达你的殖民地，并正式加入。
+
+本次特殊人员派遣已经完成。</TRK_SC_ArrivalText>
+  <TRK_SC_FixedProfile>固定初始资料：{0}，{1}岁。技能等级与热情：</TRK_SC_FixedProfile>
+  <TRK_SC_OneTimeRule>每个世界仅派遣一次。死亡、离开殖民地或远行归来均不会补发人物或重复发送到达通知。</TRK_SC_OneTimeRule>
+</LanguageData>

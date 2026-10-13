@@ -95,7 +95,7 @@
         <loadSound>Bow_Large</loadSound>
         <!-- 可选按钮图标(相对 Textures,不含扩展名);留空时模式用武器图标、装填用死之箭图标。 -->
         <modeIconPath>Ability/Bow_of_Death_Ability</modeIconPath>
-        <!-- <loadIconPath>Weapon/Bow_of_Death_Arrow</loadIconPath> -->
+        <loadIconPath>Ability/Bow_of_Death_ArrowReload</loadIconPath>
         <!-- 每阶独立:瞄准时间为该阶总值(基础 4 秒 + 该阶蓄力增量),精度加成为该阶总值。 -->
         <stages>
           <li>

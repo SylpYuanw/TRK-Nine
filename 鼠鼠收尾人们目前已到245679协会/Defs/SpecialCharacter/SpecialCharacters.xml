@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- 专用人物模板不加入袭击、商队或普通人物生成池。 -->
+  <PawnKindDef ParentName="RKBasePawnKind">
+    <defName>TRK_Special_ManTianXing</defName>
+    <label>满天星</label>
+    <defaultFactionType>RK_PlayerFaction</defaultFactionType>
+    <fixedGender>Female</fixedGender>
+    <minGenerationAge>25</minGenerationAge>
+    <maxGenerationAge>25</maxGenerationAge>
+    <fixedChildBackstories><li>Ratkin_ServentChild</li></fixedChildBackstories>
+    <fixedAdultBackstories><li>Ratkin_Idol</li></fixedAdultBackstories>
+    <forcedTraits>
+      <Beauty>2</Beauty>
+      <Industriousness>1</Industriousness>
+      <Kind>0</Kind>
+    </forcedTraits>
+    <forcedHair>RK_WavelongA</forcedHair>
+    <forcedHairColor>(0.341,0.341,0.353,1.000)</forcedHairColor>
+    <invNutrition>0</invNutrition>
+    <invFoodDef IsNull="True" />
+    <xenotypeSet IsNull="True" />
+    <apparelMoney>0</apparelMoney>
+    <weaponMoney>0</weaponMoney>
+    <generateInitialNonFamilyRelations>false</generateInitialNonFamilyRelations>
+    <showInDebugSpawner>false</showInDebugSpawner>
+  </PawnKindDef>
+
+  <XIYUNTE.SpecialCharacter.SpecialCharacterDef>
+    <defName>TRK_Character_ManTianXing</defName>
+    <label>满天星</label>
+    <description>满天星曾是一名小有名气的偶像。车祸使她失去演艺工作的记忆，公司因此主动解约，留下了尚未偿还的费用与债务。为了还债，她进入北部Девять协会从事派送工作，并依靠派送箱中的波鲁德尼察应对边缘世界的威胁。</description>
+    <pawnKind>TRK_Special_ManTianXing</pawnKind>
+    <association>九协会 · 北部Девять协会</association>
+    <iconPath>SpecialCharacter/ManTianXing</iconPath>
+    <price>2000</price>
+    <firstName>满天星</firstName><nickname>满天星</nickname><lastName />
+    <biologicalAge>25</biologicalAge><gender>Female</gender>
+    <bodyType>Thin</bodyType><headType>RK_HeadType_Head1</headType><hair>RK_WavelongA</hair>
+    <hairColor>(0.341,0.341,0.353,1.000)</hairColor>
+    <hairColorSecond>(1.000,1.000,1.000,1.000)</hairColorSecond>
+    <skinColor>(1.000,0.937,0.788,1.000)</skinColor>
+    <skinColorSecond>(0.000,0.000,0.000,0.000)</skinColorSecond>
+    <addonVariants><li>0</li><li>0</li><li>0</li></addonVariants>
+    <xenotype>RK_XenoType_Ratkin</xenotype>
+    <endogenes>
+      <li>Skin_Melanin3</li><li>RK_Gene_SmallBody</li><li>RK_Gene_Nimble</li>
+      <li>RK_Gene_PoorEyesight</li><li>RK_Gene_FragilePain</li><li>RK_Gene_GoodGardening</li>
+      <li>Skin_SheerWhite</li><li>Beard_NoBeardOnly</li><li>RK_Gene_LargeEars</li>
+      <li>RK_Gene_ThinTail</li><li>RK_Gene_CuteFace</li><li>AptitudeStrong_Mining</li>
+      <li>AptitudeStrong_Plants</li><li>Hair_DarkReddish</li>
+    </endogenes>
+    <skills>
+      <li><skill>Shooting</skill><level>0</level><passion>None</passion></li>
+      <li><skill>Melee</skill><level>6</level><passion>Minor</passion></li>
+      <li><skill>Construction</skill><level>1</level><passion>None</passion></li>
+      <li><skill>Mining</skill><level>4</level><passion>None</passion></li>
+      <li><skill>Cooking</skill><level>2</level><passion>None</passion></li>
+      <li><skill>Plants</skill><level>8</level><passion>Minor</passion></li>
+      <li><skill>Animals</skill><level>8</level><passion>Minor</passion></li>
+      <li><skill>Crafting</skill><level>1</level><passion>None</passion></li>
+      <li><skill>Artistic</skill><level>7</level><passion>Major</passion></li>
+      <li><skill>Medicine</skill><level>0</level><passion>None</passion></li>
+      <li><skill>Social</skill><level>15</level><passion>Major</passion></li>
+      <li><skill>Intellectual</skill><level>0</level><passion>None</passion></li>
+    </skills>
+    <weapon>
+      <thing>RK_DeliveryBox</thing><stuff>Steel</stuff><quality>Excellent</quality><hitPoints>100</hitPoints>
+    </weapon>
+    <apparel>
+      <li><thing>Apparel_ninec</thing><stuff>Synthread</stuff><quality>Excellent</quality><hitPoints>375</hitPoints><color>(0.682,0.859,0.894,1.000)</color></li>
+      <li><thing>nineja</thing><stuff>Synthread</stuff><quality>Excellent</quality><hitPoints>375</hitPoints><color>(0.682,0.859,0.894,1.000)</color></li>
+      <li><thing>RK_nineh</thing><stuff>Synthread</stuff><quality>Excellent</quality><hitPoints>104</hitPoints><color>(0.682,0.859,0.894,1.000)</color></li>
+    </apparel>
+    <inventory>
+      <li><thing>RK_Food_Hardtack</thing><count>9</count><hitPoints>50</hitPoints></li>
+      <li><thing>Silver</thing><count>300</count><hitPoints>100</hitPoints></li>
+    </inventory>
+  </XIYUNTE.SpecialCharacter.SpecialCharacterDef>
+
+  <ThingDef ParentName="ActiveDropPod">
+    <defName>TRK_SpecialCharacterPod</defName>
+    <label>特殊人员派遣舱</label>
+    <thingClass>XIYUNTE.SpecialCharacter.SpecialCharacterPod</thingClass>
+  </ThingDef>
+</Defs>
