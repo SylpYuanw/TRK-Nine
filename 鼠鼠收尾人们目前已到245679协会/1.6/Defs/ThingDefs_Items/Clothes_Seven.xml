@@ -1,0 +1,198 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- 南部Seven协会西装：贴身层衣物，提供调查效率与骇入速度偏移。 -->
+  <ThingDef ParentName="RK_ApparelMakeableBase">
+    <defName>sevenA</defName>
+    <label>Southern Seven Association Suit</label>
+    <description>Though the association deals in intelligence great and small and sells it to outsiders, members won't pry into matters that could threaten the very survival of the Seven Association.</description>
+    <recipeMaker>
+      <researchPrerequisite>RK_Research_AdvancedApparel</researchPrerequisite>
+      <recipeUsers Inherit="false">
+        <li>RK_ElectricTailoringBench</li>
+        <li>RK_HandTailoringBench</li>
+      </recipeUsers>
+      <displayPriority>208</displayPriority>
+    </recipeMaker>
+    <graphicData>
+      <texPath>Clothing/sevenA</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <ignoreThingDrawColor>true</ignoreThingDrawColor>
+    </graphicData>
+    <costStuffCount>70</costStuffCount>
+    <stuffCategories>
+      <li>Fabric</li>
+      <li>Leathery</li>
+    </stuffCategories>
+    <thingCategories>
+      <li>ApparelMisc</li>
+    </thingCategories>
+    <techLevel>Industrial</techLevel>
+    <statBases>
+      <MaxHitPoints>300</MaxHitPoints>
+      <WorkToMake>5000</WorkToMake>
+      <Mass>0.5</Mass>
+      <!-- 固定护甲值；材料护甲贡献按材料系数缩放后叠加。 -->
+      <ArmorRating_Blunt>0.30</ArmorRating_Blunt>
+      <ArmorRating_Sharp>0.30</ArmorRating_Sharp>
+      <ArmorRating_Heat>0.20</ArmorRating_Heat>
+      <StuffEffectMultiplierArmor>0.20</StuffEffectMultiplierArmor>
+      <StuffEffectMultiplierInsulation_Cold>0.70</StuffEffectMultiplierInsulation_Cold>
+      <StuffEffectMultiplierInsulation_Heat>0.70</StuffEffectMultiplierInsulation_Heat>
+      <Flammability>1.00</Flammability>
+      <EquipDelay>2.7</EquipDelay>
+    </statBases>
+    <!-- 装备时属性偏移：调查效率 +30%(需异常 DLC)，骇入速度 +30%。 -->
+    <equippedStatOffsets>
+      <StudyEfficiency MayRequire="Ludeon.RimWorld.Anomaly">0.30</StudyEfficiency>
+      <HackingSpeed>0.30</HackingSpeed>
+    </equippedStatOffsets>
+    <apparel>
+      <drawData>
+        <defaultData>
+          <offset>(-0.004,-0.001,0)</offset>
+        </defaultData>
+        <scale>1.0</scale>
+      </drawData>
+      <developmentalStageFilter>Adult</developmentalStageFilter>
+      <bodyPartGroups>
+        <li>Torso</li>
+        <li>Neck</li>
+        <li>Shoulders</li>
+        <li>Arms</li>
+        <li>Legs</li>
+        <li>Hands</li>
+        <li>Feet</li>
+      </bodyPartGroups>
+      <wornGraphicPath>Clothing/sevenA</wornGraphicPath>
+      <layers>
+        <li>OnSkin</li>
+      </layers>
+      <tags>
+        <li>IndustrialBasic</li>
+      </tags>
+      <defaultOutfitTags>
+        <li>Worker</li>
+        <li>Soldier</li>
+        <li>Spacefarer</li>
+      </defaultOutfitTags>
+    </apparel>
+    <colorGenerator Class="ColorGenerator_StandardApparel" />
+    <tradeTags>
+      <li>BasicClothing</li>
+    </tradeTags>
+    <comps>
+      <li Class="XIYUNTE.CompProperties_SetPiece">
+        <setHediff>RK_SevenSet</setHediff>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <!-- 南部Seven协会外套：贴身层衣物，提供调查效率与骇入速度偏移。 -->
+  <ThingDef ParentName="RK_ApparelMakeableBase">
+    <defName>sevnB</defName>
+    <label>Southern Seven Association Coat</label>
+    <description>A golden Seven Association emblem sits at the collar.\nAs the association mainly responsible for intelligence, its members travel the world gathering information or taking over others' leads; cooperating with combat-focused organizations is common.</description>
+    <recipeMaker>
+      <researchPrerequisite>RK_Research_AdvancedApparel</researchPrerequisite>
+      <recipeUsers Inherit="false">
+        <li>RK_ElectricTailoringBench</li>
+        <li>RK_HandTailoringBench</li>
+      </recipeUsers>
+      <displayPriority>215</displayPriority>
+    </recipeMaker>
+    <graphicData>
+      <texPath>Clothing/sevenB</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <ignoreThingDrawColor>true</ignoreThingDrawColor>
+      <drawSize>1.05</drawSize>
+    </graphicData>
+    <costStuffCount>75</costStuffCount>
+    <stuffCategories>
+      <li>Fabric</li>
+      <li>Leathery</li>
+    </stuffCategories>
+    <thingCategories>
+      <li>ApparelMisc</li>
+    </thingCategories>
+    <techLevel>Industrial</techLevel>
+    <statBases>
+      <MaxHitPoints>170</MaxHitPoints>
+      <WorkToMake>12000</WorkToMake>
+      <Mass>0.5</Mass>
+      <!-- 固定护甲值；材料护甲贡献按材料系数缩放后叠加。 -->
+      <ArmorRating_Blunt>0.20</ArmorRating_Blunt>
+      <ArmorRating_Sharp>0.40</ArmorRating_Sharp>
+      <ArmorRating_Heat>0.20</ArmorRating_Heat>
+      <StuffEffectMultiplierArmor>0.30</StuffEffectMultiplierArmor>
+      <StuffEffectMultiplierInsulation_Cold>1.70</StuffEffectMultiplierInsulation_Cold>
+      <StuffEffectMultiplierInsulation_Heat>0.70</StuffEffectMultiplierInsulation_Heat>
+      <Flammability>1.00</Flammability>
+      <EquipDelay>1.7</EquipDelay>
+    </statBases>
+    <!-- 装备时属性偏移：调查效率 +40%(需异常 DLC)，骇入速度 +40%。 -->
+    <equippedStatOffsets>
+      <StudyEfficiency MayRequire="Ludeon.RimWorld.Anomaly">0.40</StudyEfficiency>
+      <HackingSpeed>0.40</HackingSpeed>
+    </equippedStatOffsets>
+    <apparel>
+      <drawData>
+        <defaultData>
+          <offset>(-0.002,0,0)</offset>
+        </defaultData>
+      </drawData>
+      <developmentalStageFilter>Adult</developmentalStageFilter>
+      <bodyPartGroups>
+        <li>Torso</li>
+        <li>Neck</li>
+        <li>Shoulders</li>
+        <li>Arms</li>
+        <li>Legs</li>
+      </bodyPartGroups>
+      <wornGraphicPath>Clothing/sevenB</wornGraphicPath>
+      <layers>
+        <li>Shell</li>
+      </layers>
+      <tags>
+        <li>IndustrialAdvanced</li>
+      </tags>
+      <defaultOutfitTags>
+        <li>Worker</li>
+      </defaultOutfitTags>
+      <canBeDesiredForIdeo>false</canBeDesiredForIdeo>
+    </apparel>
+    <colorGenerator Class="ColorGenerator_Options">
+      <options>
+        <li>
+          <weight>10</weight>
+          <only>(0.33,0.33,0.33)</only>
+        </li>
+        <li>
+          <weight>10</weight>
+          <only>(0.65,0.65,0.65)</only>
+        </li>
+        <li>
+          <weight>30</weight>
+          <only>(0.4,0.3,0.15)</only>
+        </li>
+        <li>
+          <weight>6</weight>
+          <min>(0.3,0.3,0.3)</min>
+          <max>(0.5,0.5,0.5)</max>
+        </li>
+        <li>
+          <weight>2</weight>
+          <min>(0.5,0.5,0.5)</min>
+          <max>(1,1,1)</max>
+        </li>
+      </options>
+    </colorGenerator>
+    <tradeTags>
+      <li>BasicClothing</li>
+    </tradeTags>
+    <comps>
+      <li Class="XIYUNTE.CompProperties_SetPiece">
+        <setHediff>RK_SevenSet</setHediff>
+      </li>
+    </comps>
+  </ThingDef>
+</Defs>

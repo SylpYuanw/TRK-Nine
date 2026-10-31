@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<loadFolders>
+  <!-- 1.6/Fufu、1.7/Fufu 为软前置目录：仅当前置模组 Mya's fufu（packageId fxz.myafufu）激活时加载，
+       其中每条 ThingDef 另有 MayRequire 兜底；前置缺失时整目录不读取，不产生缺失父 Def 的报错。 -->
+  <v1.6><li>/</li><li>1.6</li><li IfModActive="fxz.myafufu">1.6/Fufu</li></v1.6>
+  <v1.7><li>/</li><li>1.7</li><li IfModActive="fxz.myafufu">1.7/Fufu</li></v1.7>
+</loadFolders>

@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- Seven套装进度：两件衣物共用此Hediff，severity为1/2、2/2。 -->
+  <HediffDef>
+    <defName>RK_SevenSet</defName>
+    <label>Seven Association Set</label>
+    <defaultLabelColor>(0.25,0.75,0.65)</defaultLabelColor>
+    <description>Intelligence interlocks like gears; the final answer is delivered by the blade that sees through it.\nWearing both Southern Seven Association uniform pieces causes melee or ranged attacks to inflict Weakness Analysis.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <isBad>false</isBad>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <tendable>false</tendable>
+    <everCurableByItem>false</everCurableByItem>
+    <initialSeverity>1</initialSeverity>
+    <maxSeverity>2</maxSeverity>
+    <stages>
+      <li>
+        <minSeverity>1</minSeverity>
+        <label>1/2</label>
+        <overrideTooltip>Only one Seven Association uniform piece is worn; the set is incomplete.</overrideTooltip>
+      </li>
+      <li>
+        <minSeverity>2</minSeverity>
+        <label>2/2</label>
+        <overrideTooltip>The full Seven Association set is worn; melee or ranged attacks inflict Weakness Analysis.</overrideTooltip>
+      </li>
+    </stages>
+    <comps>
+      <li Class="XIYUNTE.HediffCompProperties_SevenWeaknessAnalysis">
+        <weaknessHediff>RK_SevenWeaknessAnalysis</weaknessHediff>
+        <durationTicks>7500</durationTicks>
+      </li>
+    </comps>
+  </HediffDef>
+
+  <!-- 弱点解析：目标的钝击、尖锐与热能护甲均乘以0.8；重复命中只刷新持续时间。 -->
+  <HediffDef>
+    <defName>RK_SevenWeaknessAnalysis</defName>
+    <label>Weakness Analysis</label>
+    <defaultLabelColor>(0.25,0.75,0.65)</defaultLabelColor>
+    <description>The opening has been precisely marked.\nLasts 3 hours; does not stack.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <isBad>true</isBad>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <tendable>false</tendable>
+    <everCurableByItem>false</everCurableByItem>
+    <initialSeverity>1</initialSeverity>
+    <maxSeverity>1</maxSeverity>
+    <stages>
+      <li>
+        <minSeverity>1</minSeverity>
+        <statFactors>
+          <ArmorRating_Blunt>0.8</ArmorRating_Blunt>
+          <ArmorRating_Sharp>0.8</ArmorRating_Sharp>
+          <ArmorRating_Heat>0.8</ArmorRating_Heat>
+        </statFactors>
+      </li>
+    </stages>
+    <comps>
+      <li Class="HediffCompProperties_Disappears">
+        <disappearsAfterTicks>7500</disappearsAfterTicks>
+        <showRemainingTime>true</showRemainingTime>
+      </li>
+      <li Class="HediffCompProperties_DisappearsOnDeath" />
+    </comps>
+  </HediffDef>
+</Defs>

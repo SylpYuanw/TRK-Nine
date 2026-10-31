@@ -1,0 +1,14 @@
+C:\Users\Administrator\Desktop\天翼种\鼠鼠收尾人们目前已到245679协会\迁移记录\运行验证\ModShaderChainProbe\bin\Debug\net10.0\ModShaderChainProbe.exe
+C:\Users\Administrator\Desktop\天翼种\鼠鼠收尾人们目前已到245679协会\迁移记录\运行验证\ModShaderChainProbe\bin\Debug\net10.0\ModShaderChainProbe.deps.json
+C:\Users\Administrator\Desktop\天翼种\鼠鼠收尾人们目前已到245679协会\迁移记录\运行验证\ModShaderChainProbe\bin\Debug\net10.0\ModShaderChainProbe.runtimeconfig.json
+C:\Users\Administrator\Desktop\天翼种\鼠鼠收尾人们目前已到245679协会\迁移记录\运行验证\ModShaderChainProbe\bin\Debug\net10.0\ModShaderChainProbe.dll
+C:\Users\Administrator\Desktop\天翼种\鼠鼠收尾人们目前已到245679协会\迁移记录\运行验证\ModShaderChainProbe\bin\Debug\net10.0\ModShaderChainProbe.pdb
+C:\Users\Administrator\Desktop\天翼种\鼠鼠收尾人们目前已到245679协会\迁移记录\运行验证\ModShaderChainProbe\obj\Debug\net10.0\ModShaderChainProbe.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Administrator\Desktop\天翼种\鼠鼠收尾人们目前已到245679协会\迁移记录\运行验证\ModShaderChainProbe\obj\Debug\net10.0\ModShaderChainProbe.AssemblyInfoInputs.cache
+C:\Users\Administrator\Desktop\天翼种\鼠鼠收尾人们目前已到245679协会\迁移记录\运行验证\ModShaderChainProbe\obj\Debug\net10.0\ModShaderChainProbe.AssemblyInfo.cs
+C:\Users\Administrator\Desktop\天翼种\鼠鼠收尾人们目前已到245679协会\迁移记录\运行验证\ModShaderChainProbe\obj\Debug\net10.0\ModShaderChainProbe.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\天翼种\鼠鼠收尾人们目前已到245679协会\迁移记录\运行验证\ModShaderChainProbe\obj\Debug\net10.0\ModShaderChainProbe.dll
+C:\Users\Administrator\Desktop\天翼种\鼠鼠收尾人们目前已到245679协会\迁移记录\运行验证\ModShaderChainProbe\obj\Debug\net10.0\refint\ModShaderChainProbe.dll
+C:\Users\Administrator\Desktop\天翼种\鼠鼠收尾人们目前已到245679协会\迁移记录\运行验证\ModShaderChainProbe\obj\Debug\net10.0\ModShaderChainProbe.pdb
+C:\Users\Administrator\Desktop\天翼种\鼠鼠收尾人们目前已到245679协会\迁移记录\运行验证\ModShaderChainProbe\obj\Debug\net10.0\ModShaderChainProbe.genruntimeconfig.cache
+C:\Users\Administrator\Desktop\天翼种\鼠鼠收尾人们目前已到245679协会\迁移记录\运行验证\ModShaderChainProbe\obj\Debug\net10.0\ref\ModShaderChainProbe.dll

@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- 死之弓蓄力阶切换的浮现印迹:切换完成时由 XIYUNTE.CompEquippable_DeathBow 在装备者身上生成。
+       生命周期完全走原版 Mote 机制:fadeInTime → solidTime → fadeOutTime 三段结束后自行销毁,不入存档;
+       archHeight/archDuration 使印迹在显示期间先上浮再回落,archDuration 必须不超过三段之和(即 Lifespan)。 -->
+  <ThingDef ParentName="MoteBase">
+    <defName>BowOfDeath_StageVfx</defName>
+    <!-- MoteAttached 每 tick 把自身位置同步到宿主(装备者)的绘制位置,宿主移动时印迹跟随。 -->
+    <!-- Pawn层级23,MoteOverheadLow在Pawn之上ItemImportant 19 是Pawn之下 -->
+    <thingClass>MoteAttached</thingClass>
+    <altitudeLayer>MoteOverheadLow</altitudeLayer>
+    <mote>
+      <fadeInTime>0.08</fadeInTime>
+      <solidTime>0.6</solidTime>
+      <fadeOutTime>0.5</fadeOutTime>
+      <!-- 相对宿主绘制位置的偏移:z 为画面上下方向,0.6 表示显示在头顶上方约 0.6 格。 -->
+      <attachedDrawOffset>(0,0,0)</attachedDrawOffset>
+      <archHeight>0</archHeight>
+      <archDuration>1</archDuration>
+    </mote>
+    <graphicData>
+      <texPath>VFX/Bow_of_Death_Stage_Vfx</texPath>
+      <shaderType>MoteGlow</shaderType>
+      <drawSize>1</drawSize>
+    </graphicData>
+  </ThingDef>
+
+  <!-- 四阶蓄力身体层：完整风形宽片从脚边沿身体上卷，空间节点错峰侵蚀、清空和再生。
+       画布保持直立；东西镜像保持脚源高度，上下瞄准收拢为竖直上卷。
+       _SourceU/_SourceV 定位脚边起点，_FlowAngle/_FlowLength/_FlowWidth 控制贴身流场范围。
+       _RibbonWidth 控制各股风带厚度，_StartFeather 控制错开起点的噪声渐入范围；尾部平滑淡出。
+       attachedDrawOffset 的X随朝向镜像，Z保持画面高度；画布恒定。
+       _DissolveSpeed仅推进空间节点生命周期；实例朝向和种子通过PropertyBlock传递。 -->
+  <ThingDef ParentName="MoteBase">
+    <defName>BowOfDeath_AimVfx</defName>
+    <thingClass>XIYUNTE.Mote_DeathBowAimVfx</thingClass>
+    <altitudeLayer>MoteOverhead</altitudeLayer>
+    <mote>
+      <fadeInTime>1</fadeInTime>
+      <solidTime>99999</solidTime>
+      <fadeOutTime>1</fadeOutTime>
+      <needsMaintenance>true</needsMaintenance>
+      <fadeOutUnmaintained>true</fadeOutUnmaintained>
+      <attachedDrawOffset>(0,0,0)</attachedDrawOffset>
+    </mote>
+    <graphicData>
+      <texPath>VFX/DeathBow_ChargeWind</texPath>
+      <graphicClass>XIYUNTE.Graphic_DeathBowWindMote</graphicClass>
+      <shaderType>Trk_BowOfDeathAimWind</shaderType>
+      <drawSize>(2.4,2.8)</drawSize>
+      <shaderParameters>
+        <_DeepColor>(0.065,0.002,0.009,1)</_DeepColor>
+        <_FlameColor>(0.38,0.012,0.035,1)</_FlameColor>
+        <_HotColor>(0.82,0.065,0.085,1)</_HotColor>
+        <_SourceU>0.5</_SourceU>
+        <_SourceV>0.4</_SourceV>
+        <_FlowAngle>60</_FlowAngle>
+        <_FlowLength>0.5</_FlowLength>
+        <_FlowWidth>0.10</_FlowWidth>
+        <_RibbonWidth>0.03</_RibbonWidth>
+        <_RibbonCount>4</_RibbonCount>
+        <_StartFeather>0.22</_StartFeather>
+        <_FlowSpeed>1.25</_FlowSpeed>
+        <_NoiseScale>1</_NoiseScale>
+        <_Curl>0.55</_Curl>
+        <_Erosion>0.65</_Erosion>
+        <_FadeStart>0.12</_FadeStart>
+        <_DissolveSpeed>1.1</_DissolveSpeed>
+        <_DissolveNodes>6</_DissolveNodes>
+        <_Heat>1.15</_Heat>
+        <_Brightness>1</_Brightness>
+        <_Glow>0.12</_Glow>
+        <_UseRealTime>1</_UseRealTime>
+      </shaderParameters>
+    </graphicData>
+  </ThingDef>
+  <!-- 四阶流线层：长轴随瞄准旋转，使用原MoteGlow材质与原贴图。
+       长度为原值70%，宽度不变；以弓身实际绘制中心为界，后侧与前侧各占50%。
+       弓身中心包含持握距离、生命阶段距离系数及武器四向世界偏移。
+       VisEffects层位于身体和弓头之上。 -->
+  <ThingDef ParentName="MoteBase">
+    <defName>BowOfDeath_AimStreakVfx</defName>
+    <thingClass>XIYUNTE.Mote_DeathBowAimStreakVfx</thingClass>
+    <altitudeLayer>VisEffects</altitudeLayer>
+    <mote>
+      <fadeInTime>1</fadeInTime>
+      <solidTime>99999</solidTime>
+      <fadeOutTime>0</fadeOutTime>
+      <needsMaintenance>true</needsMaintenance>
+      <fadeOutUnmaintained>true</fadeOutUnmaintained>
+      <attachedDrawOffset>(0,0,0)</attachedDrawOffset>
+    </mote>
+    <graphicData>
+      <texPath>VFX/Bow_of_Death_Aim_Streak_Vfx</texPath>
+      <shaderType>MoteGlow</shaderType>
+      <drawSize>(2.8,2)</drawSize>
+    </graphicData>
+  </ThingDef>
+
+  <!-- 弓头收束层：完整风形通过曲线UV形成向后展开、中段向内收的上下风片。
+       各层保留完整原图，独立空间节点控制局部消失和再生，双包络错峰输送。
+       _FlowLength沿各层方向控制长度，_FlowWidth独立控制厚度，_AngleOffset增减上下开口角度。
+       _InwardCurve控制中段向箭轴内凹；_PannerX/Y为内部噪声UV速度。
+       _DissolveSpeed 只改变尾部消散播放快慢；_Brightness 只改变RGB，_Opacity 独立控制Alpha。
+       素材放在MOD共用Textures/VFX；噪声由Mote在生成时绑定到_StartTex。 -->
+  <ThingDef ParentName="MoteBase">
+    <defName>BowOfDeath_AimChargeVfx</defName>
+    <thingClass>XIYUNTE.Mote_DeathBowAimChargeVfx</thingClass>
+    <altitudeLayer>Gas</altitudeLayer>
+    <mote>
+      <fadeInTime>1</fadeInTime>
+      <solidTime>99999</solidTime>
+      <fadeOutTime>1</fadeOutTime>
+      <needsMaintenance>true</needsMaintenance>
+      <fadeOutUnmaintained>true</fadeOutUnmaintained>
+      <!-- 2.8格画布的HeadU=0.79对应局部前移0.812；中心前移0.419，使根部落在流线有效红线前端1.231。
+           Mote叠加武器实际瞄准距离相对成人默认0.4的变化及四向世界偏移。 -->
+      <attachedDrawOffset>(0.419,0,0)</attachedDrawOffset>
+    </mote>
+    <graphicData>
+      <texPath>VFX/DeathBow_ChargeWind</texPath>
+      <graphicClass>XIYUNTE.Graphic_DeathBowWindMote</graphicClass>
+      <shaderType>Trk_BowOfDeathAimCharge</shaderType>
+      <drawSize>(2.8,2.8)</drawSize>
+      <shaderParameters>
+        <_DeepColor>(0.1,0.002,0.009,1)</_DeepColor>
+        <_HotColor>(0.8,0.035,0.055,1)</_HotColor>
+        <_HeadU>0.79</_HeadU>
+        <_HeadV>0.5</_HeadV>
+        <_FlowLength>0.55</_FlowLength>
+        <_FlowWidth>0.2</_FlowWidth>
+        <_InwardCurve>0.025</_InwardCurve>
+        <_GroupSeparation>0</_GroupSeparation>
+        <_LayerCount>3</_LayerCount>
+        <_AngleOffset>10</_AngleOffset>
+        <_PannerX>0.3333333</_PannerX>
+        <_PannerY>0.04</_PannerY>
+        <_NoiseScale>2.5</_NoiseScale>
+        <_NoiseStrength>0.055</_NoiseStrength>
+        <_Erosion>0.45</_Erosion>
+        <_FadeStart>0.2</_FadeStart>
+        <_DissolveSpeed>0.75</_DissolveSpeed>
+        <_DissolveNodes>6</_DissolveNodes>
+        <_ShapeContrast>1.4</_ShapeContrast>
+        <_Opacity>0.85</_Opacity>
+        <_CoreRadius>0.1</_CoreRadius>
+        <_CoreBrightness>0</_CoreBrightness>
+        <_Brightness>0.34</_Brightness>
+        <_UseRealTime>1</_UseRealTime>
+      </shaderParameters>
+    </graphicData>
+  </ThingDef>
+</Defs>

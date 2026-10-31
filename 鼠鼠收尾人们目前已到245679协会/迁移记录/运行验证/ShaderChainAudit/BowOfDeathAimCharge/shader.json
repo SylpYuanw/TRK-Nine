@@ -1,0 +1,267 @@
+{
+  "version": 1,
+  "shaderName": "Trk/BowOfDeathAimCharge",
+  "profile": "world",
+  "uiMasks": false,
+  "colorSpace": "Gamma",
+  "grabTexture": null,
+  "vertexEntry": "vert",
+  "fragmentEntry": "frag",
+  "vertexFile": "shader.vert.glsl",
+  "fragmentFile": "shader.frag.glsl",
+  "arrays": {},
+  "properties": [
+    {
+      "name": "_MainTex",
+      "displayName": "Diffusion texture",
+      "type": "2D",
+      "attributes": [],
+      "defaultValue": null,
+      "defaultTexture": "white",
+      "range": null
+    },
+    {
+      "name": "_StartTex",
+      "displayName": "Head texture",
+      "type": "2D",
+      "attributes": [],
+      "defaultValue": null,
+      "defaultTexture": "white",
+      "range": null
+    },
+    {
+      "name": "_Color",
+      "displayName": "Layer tint and alpha",
+      "type": "Color",
+      "attributes": [],
+      "defaultValue": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "defaultTexture": null,
+      "range": null
+    },
+    {
+      "name": "_HeadU",
+      "displayName": "Head anchor U",
+      "type": "Range",
+      "attributes": [],
+      "defaultValue": [
+        0.79
+      ],
+      "defaultTexture": null,
+      "range": [
+        0.6,
+        0.95
+      ]
+    },
+    {
+      "name": "_HeadV",
+      "displayName": "Head anchor V",
+      "type": "Range",
+      "attributes": [],
+      "defaultValue": [
+        0.5
+      ],
+      "defaultTexture": null,
+      "range": [
+        0.15,
+        0.85
+      ]
+    },
+    {
+      "name": "_FlowLength",
+      "displayName": "Backward flow length",
+      "type": "Range",
+      "attributes": [],
+      "defaultValue": [
+        0.68
+      ],
+      "defaultTexture": null,
+      "range": [
+        0.2,
+        0.95
+      ]
+    },
+    {
+      "name": "_Divergence",
+      "displayName": "Downstream divergence",
+      "type": "Range",
+      "attributes": [],
+      "defaultValue": [
+        0.48
+      ],
+      "defaultTexture": null,
+      "range": [
+        0.05,
+        0.8
+      ]
+    },
+    {
+      "name": "_FlowSpeed",
+      "displayName": "Flow speed",
+      "type": "Range",
+      "attributes": [],
+      "defaultValue": [
+        1.2
+      ],
+      "defaultTexture": null,
+      "range": [
+        0,
+        3
+      ]
+    },
+    {
+      "name": "_NoiseScale",
+      "displayName": "Noise scale",
+      "type": "Range",
+      "attributes": [],
+      "defaultValue": [
+        2.5
+      ],
+      "defaultTexture": null,
+      "range": [
+        0.5,
+        8
+      ]
+    },
+    {
+      "name": "_NoiseStrength",
+      "displayName": "Bend strength",
+      "type": "Range",
+      "attributes": [],
+      "defaultValue": [
+        0.24
+      ],
+      "defaultTexture": null,
+      "range": [
+        0,
+        0.5
+      ]
+    },
+    {
+      "name": "_NoiseSpeed",
+      "displayName": "Noise speed",
+      "type": "Range",
+      "attributes": [],
+      "defaultValue": [
+        0.9
+      ],
+      "defaultTexture": null,
+      "range": [
+        0,
+        3
+      ]
+    },
+    {
+      "name": "_Erosion",
+      "displayName": "Edge erosion",
+      "type": "Range",
+      "attributes": [],
+      "defaultValue": [
+        0.5
+      ],
+      "defaultTexture": null,
+      "range": [
+        0,
+        1
+      ]
+    },
+    {
+      "name": "_CoreRadius",
+      "displayName": "Core radius",
+      "type": "Range",
+      "attributes": [],
+      "defaultValue": [
+        0.1
+      ],
+      "defaultTexture": null,
+      "range": [
+        0.02,
+        0.25
+      ]
+    },
+    {
+      "name": "_CoreBrightness",
+      "displayName": "Core brightness",
+      "type": "Range",
+      "attributes": [],
+      "defaultValue": [
+        1.25
+      ],
+      "defaultTexture": null,
+      "range": [
+        0,
+        3
+      ]
+    },
+    {
+      "name": "_Brightness",
+      "displayName": "Layer brightness",
+      "type": "Range",
+      "attributes": [],
+      "defaultValue": [
+        1
+      ],
+      "defaultTexture": null,
+      "range": [
+        0,
+        3
+      ]
+    },
+    {
+      "name": "_UseRealTime",
+      "displayName": "Animate while game paused",
+      "type": "Float",
+      "attributes": [
+        "Toggle"
+      ],
+      "defaultValue": [
+        1
+      ],
+      "defaultTexture": null,
+      "range": null
+    },
+    {
+      "name": "_PreviewClockEnabled",
+      "displayName": "Preview clock enabled",
+      "type": "Float",
+      "attributes": [],
+      "defaultValue": [
+        0
+      ],
+      "defaultTexture": null,
+      "range": null
+    },
+    {
+      "name": "_PreviewSeconds",
+      "displayName": "Preview seconds",
+      "type": "Float",
+      "attributes": [],
+      "defaultValue": [
+        0
+      ],
+      "defaultTexture": null,
+      "range": null
+    }
+  ],
+  "tags": {
+    "Queue": "Transparent",
+    "RenderType": "Transparent",
+    "IgnoreProjector": "True",
+    "PreviewType": "Plane"
+  },
+  "states": {
+    "Blend": "SrcAlpha OneMinusSrcAlpha, One OneMinusSrcAlpha",
+    "ZWrite": "Off",
+    "Cull": "Off"
+  },
+  "keywords": [],
+  "keywordGroups": [],
+  "approximations": [
+    "常量正整数幂 2～64 使用乘法展开；负底数按整数幂计算，属于旧 Shader 写法的兼容处理，并非 HLSL pow 的负底数语义保证。",
+    "smoothstep 按 HLSL 饱和 Hermite 公式展开，支持反向边界；相等边界仍要求作者避免除零。"
+  ]
+}

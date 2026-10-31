@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <PawnKindDef ParentName="RKBasePawnKind">
+    <defName>TRK_Special_WuYaGuo</defName>
+    <label>Dillenia indica</label>
+    <defaultFactionType>RK_PlayerFaction</defaultFactionType>
+    <fixedGender>Female</fixedGender>
+    <minGenerationAge>24</minGenerationAge>
+    <maxGenerationAge>24</maxGenerationAge>
+    <allowOldAgeInjuries>false</allowOldAgeInjuries>
+    <fixedChildBackstories>
+      <li>Ratkin_GuardenerStudent</li>
+    </fixedChildBackstories>
+    <fixedAdultBackstories>
+      <li>Ratkin_Guardener</li>
+    </fixedAdultBackstories>
+    <forcedTraits>
+      <Faith>0</Faith>
+      <Nimble>0</Nimble>
+      <SpeedOffset>1</SpeedOffset>
+    </forcedTraits>
+    <forcedHair>RK_middl</forcedHair>
+    <forcedHairColor>(0.278,0.200,0.122,1.000)</forcedHairColor>
+    <invNutrition>0</invNutrition>
+    <invFoodDef IsNull="True" />
+    <xenotypeSet IsNull="True" />
+    <apparelMoney>0</apparelMoney>
+    <weaponMoney>0</weaponMoney>
+    <generateInitialNonFamilyRelations>false</generateInitialNonFamilyRelations>
+    <showInDebugSpawner>false</showInDebugSpawner>
+  </PawnKindDef>
+
+  <XIYUNTE.SpecialCharacter.SpecialCharacterDef>
+    <defName>TRK_Character_WuYaGuo</defName>
+    <label>Dillenia indica</label>
+    <description>Dillenia indica is a Fixer of the Southern Cinq Association. She trusts her rapier and her own footwork, and salutes every opponent with proper courtesy.</description>
+    <detailedReport>24 years old, female, Dillenia indica, member of the Southern Cinq Association.\n\nDillenia indica once trained as a flower-guard in the Ratkin kingdom. Focus only on your sword and your enemy, hold the advantageous distance, find the opening, and drive the blade into their body.\n\nDisputes are settled through duels—make the other side concede, or simply finish them. Before setting out she checks her sword and plumed hat carefully, then slips a few pieces of chocolate into her pocket as a reward for winning.\n\nThe 하나 Association has verified her dispatch records. Dillenia indica hopes the new colony has enough activity, and that her next job is not one that wastes her gloves.</detailedReport>
+    <arrivalGreeting>So you're a client with a long-term need for duel representation. Thank you for your recognition—I express my gratitude for it as well.</arrivalGreeting>
+    <pawnKind>TRK_Special_WuYaGuo</pawnKind>
+    <association>Cinq Association · Southern Cinq Association</association>
+    <iconPath>SpecialCharacter/WuYaGuo</iconPath>
+    <price>2000</price>
+    <firstName>Dillenia indica</firstName>
+    <nickname>Dillenia indica</nickname>
+    <lastName></lastName>
+    <biologicalAge>24</biologicalAge>
+    <gender>Female</gender>
+    <bodyType>Thin</bodyType>
+    <headType>RK_HeadType_Head5</headType>
+    <hair>RK_middl</hair>
+    <hairColor>(0.278,0.200,0.122,1.000)</hairColor>
+    <hairColorSecond>(1.000,1.000,1.000,1.000)</hairColorSecond>
+    <favoriteColor>Sapphire</favoriteColor>
+    <facialAnimation>
+      <head>Ratkin_Head</head>
+      <eyes>Ratkin_EyeStare</eyes>
+      <lids>Ratkin_LidPointy</lids>
+      <brows>Ratkin_BrowNormal</brows>
+      <mouth>Ratkin_MouthNormal</mouth>
+      <skin>Ratkin_SkinNormal</skin>
+      <eyeColor>(0.451,0.463,0.290,1.000)</eyeColor>
+      <eyeColorSecond>(0.255,0.278,0.145,1.000)</eyeColorSecond>
+    </facialAnimation>
+    <addonVariants>
+      <li>0</li>
+      <li>0</li>
+      <li>0</li>
+    </addonVariants>
+    <xenotype>RK_XenoType_Ratkin</xenotype>
+    <endogenes>
+      <li>Skin_Melanin3</li>
+      <li>RK_Gene_SmallBody</li>
+      <li>RK_Gene_Nimble</li>
+      <li>RK_Gene_PoorEyesight</li>
+      <li>RK_Gene_FragilePain</li>
+      <li>RK_Gene_GoodGardening</li>
+      <li>Skin_SheerWhite</li>
+      <li>Beard_NoBeardOnly</li>
+      <li>RK_Gene_LargeEars</li>
+      <li>RK_Gene_ThinTail</li>
+      <li>RK_Gene_CuteFace</li>
+      <li>AptitudeStrong_Mining</li>
+      <li>AptitudeStrong_Plants</li>
+      <li>Hair_DarkBrown</li>
+    </endogenes>
+    <skills>
+      <li><skill>Shooting</skill><level>4</level><passion>None</passion></li>
+      <li><skill>Melee</skill><level>12</level><passion>Major</passion></li>
+      <li><skill>Construction</skill><level>0</level><passion>None</passion></li>
+      <li><skill>Mining</skill><level>5</level><passion>Minor</passion></li>
+      <li><skill>Cooking</skill><level>1</level><passion>None</passion></li>
+      <li><skill>Plants</skill><level>12</level><passion>Minor</passion></li>
+      <li><skill>Animals</skill><level>0</level><passion>None</passion></li>
+      <li><skill>Crafting</skill><level>0</level><passion>None</passion></li>
+      <li><skill>Artistic</skill><level>2</level><passion>None</passion></li>
+      <li><skill>Medicine</skill><level>4</level><passion>None</passion></li>
+      <li><skill>Social</skill><level>9</level><passion>Major</passion></li>
+      <li><skill>Intellectual</skill><level>1</level><passion>None</passion></li>
+    </skills>
+    <weapon>
+      <thing>cinq</thing>
+      <stuff>Steel</stuff>
+      <count>1</count>
+      <quality>Excellent</quality>
+      <hitPoints>100</hitPoints>
+    </weapon>
+    <apparel>
+      <li>
+        <thing>cinqsuit</thing>
+        <stuff>Synthread</stuff>
+        <count>1</count>
+        <quality>Excellent</quality>
+        <hitPoints>360</hitPoints>
+        <color>(0.678,0.859,0.890,1.000)</color>
+      </li>
+      <li>
+        <thing>cinqcloak</thing>
+        <stuff>Synthread</stuff>
+        <count>1</count>
+        <quality>Excellent</quality>
+        <hitPoints>360</hitPoints>
+        <color>(0.678,0.859,0.890,1.000)</color>
+      </li>
+      <li>
+        <thing>RK_cinqhat</thing>
+        <stuff>Synthread</stuff>
+        <count>1</count>
+        <quality>Excellent</quality>
+        <hitPoints>130</hitPoints>
+        <color>(0.678,0.859,0.890,1.000)</color>
+      </li>
+    </apparel>
+    <inventory>
+      <li>
+        <thing>Chocolate</thing>
+        <count>5</count>
+        <hitPoints>60</hitPoints>
+      </li>
+      <li>
+        <thing>RK_Food_Hardtack</thing>
+        <count>5</count>
+        <hitPoints>50</hitPoints>
+      </li>
+      <li MayRequire="fxz.myafufu">
+        <thing>FuFu_WuYaGuo</thing>
+        <count>1</count>
+        <hitPoints>300</hitPoints>
+      </li>
+    </inventory>
+  </XIYUNTE.SpecialCharacter.SpecialCharacterDef>
+</Defs>

@@ -1,0 +1,12 @@
+{
+  "checked": "2026-10-16T04:41:42.2182908+08:00",
+  "log": "C:\\Users\\Administrator\\Desktop\\天翼种\\鼠鼠收尾人们目前已到245679协会\\迁移记录\\运行验证\\EarlyShaderPatch\\Player-after.log",
+  "logSHA256": "07C507F904FC1CE75C8865385945321E56BE312C6B271FEB46F74DE9546E1E77",
+  "passed": true,
+  "fallbacks": [],
+  "preparationCount": 1,
+  "prefixStackCount": 4,
+  "limitation": "检查启动材质初始化的默认回退与两个 Shader 经 Prefix 首次加载的四条兼容诊断栈，不代替特效画面验收。",
+  "dll": "D:\\Steam\\steamapps\\common\\RimWorld\\Mods\\鼠鼠收尾人们目前已到245679协会\\1.7\\Assemblies\\ClassLibrary1.dll",
+  "dllSHA256": "7FC429C10FF631C721F12F9F7B405973248B4C44EB4FD404FDC80AFC33274C3B"
+}

@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <HediffDef>
+    <defName>Shin_OverloadBurn</defName>
+    <label>灵骸灼伤</label>
+    <description>精灵回路超负荷运转导致精灵变为黑灰造成的内燃灼伤。</description>
+    <hediffClass>Hediff_Injury</hediffClass>
+    <displayWound>true</displayWound>
+    <tendable>true</tendable>
+    <comps>
+      <li Class="HediffCompProperties_TendDuration">
+        <labelTendedWell>bandaged</labelTendedWell>
+        <labelTendedWellInner>tended</labelTendedWellInner>
+        <labelSolidTendedWell>tended</labelSolidTendedWell>
+      </li>
+    </comps>
+    <injuryProps>
+      <painPerSeverity>0.005</painPerSeverity>
+      <canMerge>true</canMerge>
+      <destroyedLabel>Burned off</destroyedLabel>
+      <destroyedOutLabel>Burned out</destroyedOutLabel>
+    </injuryProps>
+  </HediffDef>
+
+  <HediffDef>
+    <defName>Shin_Hediff</defName>
+    <label>精灵回廊过载</label>
+    <description>精灵回路强制超频运转，全身能力大幅提升，回路持续承受巨大负荷。</description>
+    <hediffClass>FlugelLibrary.Hediff_Shin</hediffClass>
+    <defaultLabelColor>(0.45, 0.85, 0.52)</defaultLabelColor>
+    <isBad>false</isBad>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <tendable>false</tendable>
+    <everCurableByItem>false</everCurableByItem>
+    <initialSeverity>0</initialSeverity>
+    <maxSeverity>1.0</maxSeverity>
+
+    <stages>
+      <li>
+        <minSeverity>0</minSeverity>
+        <label>初燃</label>
+        <overrideTooltip>精灵回路开始加速运转，体内沉寂的力量如初火般点燃。身体能力小幅提升。</overrideTooltip>
+        <painFactor>0.95</painFactor>
+        <statOffsets>
+          <MoveSpeed>0.15</MoveSpeed>
+        </statOffsets>
+        <capMods>
+          <li><capacity>Consciousness</capacity><offset>0.05</offset></li>
+          <li><capacity>Sight</capacity><offset>0.10</offset></li>
+          <li><capacity>Moving</capacity><offset>0.05</offset></li>
+        </capMods>
+      </li>
+      <li>
+        <minSeverity>0.25</minSeverity>
+        <label>奔流</label>
+        <overrideTooltip>精灵回路全速运转，高密度精灵如潮水般涌遍全身。移动变得轻盈迅捷。</overrideTooltip>
+        <painFactor>0.85</painFactor>
+        <statOffsets>
+          <MoveSpeed>0.30</MoveSpeed>
+          <MeleeDodgeChance>1.0</MeleeDodgeChance>
+          <MeleeHitChance>1.0</MeleeHitChance>
+        </statOffsets>
+        <capMods>
+          <li><capacity>Consciousness</capacity><offset>0.10</offset></li>
+          <li><capacity>Sight</capacity><offset>0.20</offset></li>
+          <li><capacity>Moving</capacity><offset>0.10</offset></li>
+        </capMods>
+      </li>
+      <li>
+        <minSeverity>0.5</minSeverity>
+        <label>燎原</label>
+        <overrideTooltip>精灵能量浸透每一寸血肉，回路负荷已逼近安全阈值。</overrideTooltip>
+        <painFactor>0.70</painFactor>
+        <statOffsets>
+          <MoveSpeed>0.50</MoveSpeed>
+          <MeleeDodgeChance>3.0</MeleeDodgeChance>
+          <MeleeHitChance>3.0</MeleeHitChance>
+          <AimingDelayFactor>-0.25</AimingDelayFactor>
+        </statOffsets>
+        <capMods>
+          <li><capacity>Consciousness</capacity><offset>0.15</offset></li>
+          <li><capacity>Sight</capacity><offset>0.30</offset></li>
+          <li><capacity>Moving</capacity><offset>0.15</offset></li>
+          <li><capacity>Breathing</capacity><offset>0.10</offset></li>
+        </capMods>
+      </li>
+      <li>
+        <minSeverity>0.75</minSeverity>
+        <label>"心"-神谕之锋刃</label>
+        <overrideTooltip>燃烧精灵产生的灵骸&lt;color=#FF1A1A&gt;灼烧&lt;/color&gt;着她，同时身体机能大幅提升。\n&lt;color=#B496DC&gt;"直到羽翼燃尽之前，我将无所不能。"&lt;/color&gt;\n持续受到&lt;color=#FF1A1A&gt;灼烧&lt;/color&gt;，造成伤害的10%将用于治疗自身，状态可以维持60秒，运转30秒后&lt;color=#FF1A1A&gt;无法关闭&lt;/color&gt;。</overrideTooltip>
+        <painFactor>0.50</painFactor>
+        <statOffsets>
+          <MoveSpeed>1.0</MoveSpeed>
+          <MeleeDodgeChance>5.0</MeleeDodgeChance>
+          <MeleeHitChance>5.0</MeleeHitChance>
+          <AimingDelayFactor>-0.40</AimingDelayFactor>
+        </statOffsets>
+        <capMods>
+          <li><capacity>Consciousness</capacity><offset>0.3</offset></li>
+          <li><capacity>Sight</capacity><offset>0.5</offset></li>
+          <li><capacity>Moving</capacity><offset>0.25</offset></li>
+          <li><capacity>Breathing</capacity><offset>0.3</offset></li>
+          <li><capacity>Hearing</capacity><offset>0.3</offset></li>
+        </capMods>
+      </li>
+    </stages>
+
+    <comps>
+      <li Class="FlugelLibrary.HediffCompProperties_FlugelShin">
+        <severityGainPerDay>8.34</severityGainPerDay>
+        <spiritCostPerSecond>0.5</spiritCostPerSecond>
+        <stage4MaxTicks>3600</stage4MaxTicks>
+        <onAbilityDef>Flugel_Shin</onAbilityDef>
+        <offAbilityDef>Flugel_ShinOff</offAbilityDef>
+        <debuffHediffDef>Shin_Debuff</debuffHediffDef>
+        <collapseHediffDef>Shin_Collapse</collapseHediffDef>
+        <overloadBurnDef>Shin_OverloadBurn</overloadBurnDef>
+        <preBurnEffectMaterial>Flugel_ShinPreBurnEnergyConvergence</preBurnEffectMaterial>
+        <preBurnEffectDrawSize>(2.24, 2.24)</preBurnEffectDrawSize>
+        <preBurnEffectHorizontalOffset>0</preBurnEffectHorizontalOffset>
+        <preBurnEffectVerticalOffset>0</preBurnEffectVerticalOffset>
+        <preBurnEffectAltitudeLayer>-10</preBurnEffectAltitudeLayer>
+        <stage4FlameMaterial>Flugel_ShinStage4NaturalPurpleFlame</stage4FlameMaterial>
+        <stage4FlameDrawSize>(11.8, 11.8)</stage4FlameDrawSize>
+        <stage4FlameHorizontalOffset>0</stage4FlameHorizontalOffset>
+        <stage4FlameVerticalOffset>4.2</stage4FlameVerticalOffset>
+        <stage4FlameAltitudeLayer>-10</stage4FlameAltitudeLayer>
+        <stage4FrontMaterial>Flugel_ShinStage4EnergyConvergenceFlow</stage4FrontMaterial>
+        <stage4FrontDrawSize>(2.36, 2.36)</stage4FrontDrawSize>
+        <stage4FrontHorizontalOffset>0</stage4FrontHorizontalOffset>
+        <stage4FrontVerticalOffset>0</stage4FrontVerticalOffset>
+        <stage4FrontAltitudeLayer>100</stage4FrontAltitudeLayer>
+        <stageLabelColors>
+          <li>(1.0, 0.75, 0.70)</li>
+          <li>(1.0, 0.45, 0.30)</li>
+          <li>(0.95, 0.20, 0.08)</li>
+          <li>(1.0, 0.05, 0.00)</li>
+        </stageLabelColors>
+      </li>
+      <li Class="HediffCompProperties_Disappears">
+        <disappearsAfterTicks>9000~9000</disappearsAfterTicks>
+        <showRemainingTime>true</showRemainingTime>
+      </li>
+    </comps>
+  </HediffDef>
+
+  <HediffDef>
+    <defName>Shin_Debuff</defName>
+    <label>回廊过载反噬</label>
+    <description>精灵回路因过度负荷而严重受损，全身能力暂时下降。</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defaultLabelColor>(1.0, 0.4, 0.4)</defaultLabelColor>
+    <isBad>true</isBad>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <tendable>false</tendable>
+    <everCurableByItem>false</everCurableByItem>
+    <initialSeverity>0</initialSeverity>
+    <maxSeverity>1.0</maxSeverity>
+
+    <comps>
+      <li Class="HediffCompProperties_Disappears">
+        <disappearsAfterTicks>1800~1800</disappearsAfterTicks>
+        <showRemainingTime>true</showRemainingTime>
+      </li>
+    </comps>
+
+    <stages>
+      <li>
+        <minSeverity>0</minSeverity>
+        <label>轻度反噬</label>
+        <statOffsets>
+          <MoveSpeed>-0.10</MoveSpeed>
+        </statOffsets>
+        <capMods>
+          <li><capacity>Consciousness</capacity><offset>-0.05</offset></li>
+        </capMods>
+      </li>
+      <li>
+        <minSeverity>0.25</minSeverity>
+        <label>中度反噬</label>
+        <statOffsets>
+          <MoveSpeed>-0.20</MoveSpeed>
+        </statOffsets>
+        <capMods>
+          <li><capacity>Consciousness</capacity><offset>-0.10</offset></li>
+          <li><capacity>Moving</capacity><offset>-0.05</offset></li>
+        </capMods>
+      </li>
+      <li>
+        <minSeverity>0.5</minSeverity>
+        <label>重度反噬</label>
+        <statOffsets>
+          <MoveSpeed>-0.35</MoveSpeed>
+        </statOffsets>
+        <capMods>
+          <li><capacity>Consciousness</capacity><offset>-0.15</offset></li>
+          <li><capacity>Moving</capacity><offset>-0.15</offset></li>
+          <li><capacity>Manipulation</capacity><offset>-0.10</offset></li>
+        </capMods>
+      </li>
+      <li>
+        <minSeverity>0.75</minSeverity>
+        <label>崩解反噬</label>
+        <statOffsets>
+          <MoveSpeed>-0.50</MoveSpeed>
+        </statOffsets>
+        <capMods>
+          <li><capacity>Consciousness</capacity><offset>-0.25</offset></li>
+          <li><capacity>Moving</capacity><offset>-0.25</offset></li>
+          <li><capacity>Manipulation</capacity><offset>-0.15</offset></li>
+          <li><capacity>Sight</capacity><offset>-0.15</offset></li>
+        </capMods>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <HediffDef>
+    <defName>Shin_Collapse</defName>
+    <label>回廊崩解</label>
+    <description>精灵回廊超负荷运转超过承受极限，全身机能大幅下降。</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defaultLabelColor>(1.0, 0.2, 0.2)</defaultLabelColor>
+    <isBad>true</isBad>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <tendable>false</tendable>
+    <everCurableByItem>false</everCurableByItem>
+    <initialSeverity>1.0</initialSeverity>
+    <maxSeverity>1.0</maxSeverity>
+
+    <comps>
+      <li Class="HediffCompProperties_Disappears">
+        <disappearsAfterTicks>3000~3000</disappearsAfterTicks>
+        <showRemainingTime>true</showRemainingTime>
+      </li>
+    </comps>
+
+    <stages>
+      <li>
+        <minSeverity>0</minSeverity>
+        <capMods>
+          <li><capacity>Moving</capacity><setMax>0.30</setMax></li>
+          <li><capacity>Consciousness</capacity><setMax>0.30</setMax></li>
+        </capMods>
+      </li>
+    </stages>
+  </HediffDef>
+
+</Defs>

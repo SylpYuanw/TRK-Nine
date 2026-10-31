@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- 高功率·开启(独立于武器形态,所有形态共用持续时间与冷却;冷却在关闭时手动进入,故此处冷却为0) -->
+  <AbilityDef>
+    <defName>RK_DeliveryBox_HighPower</defName>
+    <label>Delivery Box - High Power Mode</label>
+    <description>Activates the Delivery Box's High Power Mode for 12 hours.\nWhile active: immune to stagger and greatly increased movement speed.\nOn activation: grants a 20-point shield that regenerates 5 points per second.\nAt 3 hours: shield improves to 40 points, regenerating 10 points per second.\nAt 9 hours: chemical burns begin.\nAt 12 hours: &lt;color=#FF1A1A&gt;the Delivery Box kills its wielder outright.&lt;/color&gt;\nCan be disabled at any time; disabling puts it on a 24-hour cooldown.</description>
+    <abilityClass>XIYUNTE.Ability_DeliveryBoxHighPower</abilityClass>
+    <iconPath>Ability/Box_Ability_Enable</iconPath>
+    <targetRequired>false</targetRequired>
+    <hostile>false</hostile>
+    <displayGizmoWhileUndrafted>true</displayGizmoWhileUndrafted>
+    <disableGizmoWhileUndrafted>false</disableGizmoWhileUndrafted>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <range>-1</range>
+      <hasStandardCommand>true</hasStandardCommand>
+      <drawAimPie>false</drawAimPie>
+      <requireLineOfSight>false</requireLineOfSight>
+      <warmupTime>0.5</warmupTime>
+      <soundCast>Interact_ZeusHammer</soundCast>
+      <targetParams>
+        <canTargetSelf>true</canTargetSelf>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="XIYUNTE.CompProperties_DeliveryBoxHighPower">
+        <hediffDef>RK_DeliveryBox_HighPower</hediffDef>
+      </li>
+    </comps>
+    <cooldownTicksRange>60000</cooldownTicksRange>
+  </AbilityDef>
+
+  <!-- 高功率·关闭(高功率激活时由武器组件显示;移除状态并为开启能力进入24小时冷却) -->
+  <AbilityDef>
+    <defName>RK_DeliveryBox_HighPower_Off</defName>
+    <label>Disable High Power Mode</label>
+    <description>Ends High Power Mode and puts it on a 24-hour cooldown.</description>
+    <abilityClass>XIYUNTE.Ability_DeliveryBoxHighPowerOff</abilityClass>
+    <iconPath>Ability/Box_Ability_Disable</iconPath>
+    <targetRequired>false</targetRequired>
+    <hostile>false</hostile>
+    <displayGizmoWhileUndrafted>true</displayGizmoWhileUndrafted>
+    <disableGizmoWhileUndrafted>false</disableGizmoWhileUndrafted>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <range>-1</range>
+      <hasStandardCommand>true</hasStandardCommand>
+      <drawAimPie>false</drawAimPie>
+      <requireLineOfSight>false</requireLineOfSight>
+      <warmupTime>0.5</warmupTime>
+      <soundCast>Interact_ZeusHammer</soundCast>
+      <targetParams>
+        <canTargetSelf>true</canTargetSelf>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="XIYUNTE.CompProperties_DeliveryBoxHighPowerOff">
+        <mainHediffDef>RK_DeliveryBox_HighPower</mainHediffDef>
+        <shieldDef>RK_DeliveryBox_HighPower_Shield</shieldDef>
+        <cooldownTicks>60000</cooldownTicks>
+      </li>
+    </comps>
+    <cooldownTicksRange>0</cooldownTicksRange>
+  </AbilityDef>
+</Defs>

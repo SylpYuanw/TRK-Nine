@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "passedCalls": 8,
+  "programSource": "迁移记录/ApiProbe/Program.cs",
+  "programSHA256": "67B2A25CD5D6185E1C9A660FC56271A970DEC76EEF69BF8D0F57A72C37676F64",
+  "loadFoldersSHA256": "7D89ECE9F3986BC24945A8C6DFD5AB5F7BCEF966C502385EEB414400924D6A39",
+  "gameAssembly": "D:\\Steam\\steamapps\\common\\RimWorld\\Assembly-CSharp.dll",
+  "gameAssemblySHA256": "A97A01C4319414414C0CA39F3565215E83300DC608DC94B69A27720095B4E751",
+  "scope": "实际1.7程序集的 XML 加载目录解析与资源文件索引；未启动游戏或执行完整业务。"
+}

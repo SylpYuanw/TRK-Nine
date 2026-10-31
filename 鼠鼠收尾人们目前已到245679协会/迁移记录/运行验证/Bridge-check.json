@@ -1,0 +1,134 @@
+{
+  "scope": "临时 quick test 地图与启动验证；用户要求特效自行检查后停止",
+  "debugStart": {
+    "entry": {
+      "attempts": 1,
+      "elapsedMs": 5,
+      "message": "RimWorld entry scene can queue a debug game.",
+      "probeFailureCount": 0,
+      "satisfied": true,
+      "state": {
+        "automationReady": false,
+        "hasCurrentGame": false,
+        "inEntryScene": true,
+        "longEventPending": false,
+        "paused": false,
+        "playable": false,
+        "programState": "Entry",
+        "visualReady": false
+      },
+      "success": true,
+      "targetReadiness": "entryScene"
+    },
+    "message": "RimWorld has a loaded visual-ready game and is paused for automation.",
+    "operation": {
+      "DurationMs": 8807,
+      "OperationId": "op_f606bd5a07d44864803c78cdd6b7fce5",
+      "Status": "Completed",
+      "Success": true
+    },
+    "start": {
+      "difficulty": "Rough",
+      "mapSize": 250,
+      "message": "Queued RimWorld quick test start.",
+      "pauseOnLoad": true,
+      "scenario": "Crashlanded",
+      "state": {
+        "automationReady": false,
+        "hasCurrentGame": false,
+        "inEntryScene": true,
+        "longEventPending": true,
+        "paused": false,
+        "playable": false,
+        "programState": "Entry",
+        "visualReady": false
+      },
+      "status": "queued",
+      "storyteller": "Cassandra",
+      "success": true
+    },
+    "state": {
+      "automationReady": true,
+      "currentMapId": "Map_0",
+      "hasCurrentGame": true,
+      "inEntryScene": false,
+      "longEventPending": false,
+      "paused": true,
+      "playable": true,
+      "programState": "Playing",
+      "tick": 1,
+      "timeSpeed": "Paused",
+      "visualReady": true
+    },
+    "success": true,
+    "wait": {
+      "attempts": 125,
+      "elapsedMs": 8794,
+      "message": "RimWorld has a loaded visual-ready game and is paused for automation.",
+      "probeFailureCount": 0,
+      "satisfied": true,
+      "state": {
+        "automationReady": true,
+        "currentMapId": "Map_0",
+        "hasCurrentGame": true,
+        "inEntryScene": false,
+        "longEventPending": false,
+        "paused": true,
+        "playable": true,
+        "programState": "Playing",
+        "timeSpeed": "Paused",
+        "visualReady": true
+      },
+      "success": true,
+      "targetReadiness": "visual"
+    }
+  },
+  "deliveryBoxSpawn": {
+    "cell": {
+      "x": 130,
+      "z": 136
+    },
+    "defName": "RK_DeliveryBox",
+    "label": "派送箱 (一般)",
+    "operation": {
+      "DurationMs": 20,
+      "OperationId": "op_ef531d71a8d544f884c6b4d4e4f000f3",
+      "Status": "Completed",
+      "Success": true
+    },
+    "stackCount": 1,
+    "state": {
+      "hasCurrentGame": true,
+      "paused": true,
+      "programState": "Playing",
+      "tick": 1,
+      "timeSpeed": "Paused"
+    },
+    "success": true,
+    "thingId": "Thing_RK_DeliveryBox53808"
+  },
+  "submenuExpansion": {
+    "content": [
+      {
+        "type": "text",
+        "text": "GABP tool call failed: request timeout after 30s."
+      }
+    ],
+    "structuredContent": {
+      "causeClass": "state",
+      "gameId": "rimworld",
+      "nextActions": [
+        {
+          "arguments": {
+            "gameId": "rimworld"
+          },
+          "reason": "Resolve the runtime state first (already running, in-flight operation, or unverified termination).",
+          "tool": "games_status"
+        }
+      ],
+      "trackRecord": "no successful starts recorded for this context"
+    },
+    "isError": true
+  },
+  "stopped": true
+}

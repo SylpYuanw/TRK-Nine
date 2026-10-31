@@ -1,0 +1,2274 @@
+{
+  "created": "2026-10-16T03:10:32.0302139+08:00",
+  "modRoot": "C:\\Users\\Administrator\\Desktop\\鼠鼠收尾人们目前已到245679协会",
+  "unity16": "D:\\UnityTest\\unity_trk_35",
+  "unity17": "D:\\UnityTest\\unity_trk_35_1.7",
+  "rimUnityCommit": "c0e241a6848ddedffe5d7e41bd101e9fd140acf6",
+  "aboutHash": "6C60B0E125D0273557AD3109CD570FBAFDD06F515FB28847EB4763510914F32C",
+  "runtime": [
+    {
+      "path": "Assemblies/ClassLibrary1.dll",
+      "sha256": "74E4B8CFA194A75BC44AF01C248FE5DDDE9375EFBE6A3C18CB41E5FA58CBF85A",
+      "bytes": 124416
+    },
+    {
+      "path": "Assemblies/ClassLibrary1.pdb",
+      "sha256": "69A83E351991B957E52BA7C5072F7B51100EA7BE1AD6E3ED5BE42A3CC4E5326C",
+      "bytes": 331264
+    },
+    {
+      "path": "AssetBundles/trk_bowofdeath_win",
+      "sha256": "7F789EF854D4633A1AA9FFD421E0575E479747B5AF16CE1F6FF2CDE2D752317A",
+      "bytes": 27221
+    },
+    {
+      "path": "AssetBundles/trk_bowofdeath_win.manifest",
+      "sha256": "656373A12C089611D8F1BFC741E0FC2366548FB61022AC59430C1D5EEB2F30B0",
+      "bytes": 564
+    },
+    {
+      "path": "Defs/AbilityDefs/Ability_BreakthroughTool.xml",
+      "sha256": "3E0E6A6C0FC75F10B84F50B89E9CE8DB52A1A552F6727F9BB29D61F711867BC8",
+      "bytes": 5117
+    },
+    {
+      "path": "Defs/AbilityDefs/Ability_Cinq.xml",
+      "sha256": "2553AF48F848A3195DE362C06240D5B5C56506D73D6A3634971E8269DE922F95",
+      "bytes": 1811
+    },
+    {
+      "path": "Defs/AbilityDefs/Ability_DeliveryBox.xml",
+      "sha256": "8788608B695BC446C970DD397D1AD7FFBBB20489DEEF22C7519B92265F95DC11",
+      "bytes": 2567
+    },
+    {
+      "path": "Defs/AbilityDefs/Ability_ZweiAura.xml",
+      "sha256": "C6556EC07B093DDDBC765B11A42EEB1AFEE57400E6E460A3AA21FFC1184F8A5B",
+      "bytes": 2138
+    },
+    {
+      "path": "Defs/EffecterDefs/Cinq_AttackEffect.xml",
+      "sha256": "29E7AB07A21F3054A7BCE365A8D84884BBA2E0F50124084C076DADE63BE5EC4B",
+      "bytes": 821
+    },
+    {
+      "path": "Defs/EffecterDefs/DeliveryBox_AttackEffect.xml",
+      "sha256": "812D0626FFCB2610FB694DF91013D08EF814696E9B09B46DF6C0CAB742705F6C",
+      "bytes": 4145
+    },
+    {
+      "path": "Defs/HediffDefs/Hediffs_BowOfDeath.xml",
+      "sha256": "E4CEC9380E537F1682A3C07E43E067A91762814DF0502838C044B04EDBAA5AA7",
+      "bytes": 1846
+    },
+    {
+      "path": "Defs/HediffDefs/Hediffs_Cinq.xml",
+      "sha256": "6B7C5F042E8763DCFA1B81970CBFFE949E92F83122F04A53711B78D70D95F9B9",
+      "bytes": 3080
+    },
+    {
+      "path": "Defs/HediffDefs/Hediffs_DeliveryBox.xml",
+      "sha256": "152DBA00C5225A8CECEAF2FB89D500D25967E379BA76A158AC175A30A06FB36B",
+      "bytes": 3813
+    },
+    {
+      "path": "Defs/HediffDefs/Hediffs_LiuSet.xml",
+      "sha256": "65B937BA33FBD9D2C1048DD53F92F0192C5A352DD3F9F098AA7802696E33A2B1",
+      "bytes": 4862
+    },
+    {
+      "path": "Defs/HediffDefs/Hediffs_LiuWeapons.xml",
+      "sha256": "995C78C50BCD016D7D248A8A7D9ED625F591D7476839656AAF0B7D4C9731418B",
+      "bytes": 996
+    },
+    {
+      "path": "Defs/HediffDefs/Hediffs_Seven.xml",
+      "sha256": "CE6EECCB7F6B6F4A2AB2F89B1FC826F25A1487D28E3C32D69B6CE919AAA37AD3",
+      "bytes": 2623
+    },
+    {
+      "path": "Defs/HediffDefs/Hediffs_ZweiAura.xml",
+      "sha256": "82EA9ACAF19646D71BD9C975AA839CF11A3DC3258B19FAC1DCCE6384ABE0AFF9",
+      "bytes": 3450
+    },
+    {
+      "path": "Defs/HediffDefs/Hediffs_ZweiClothes.xml",
+      "sha256": "622C6C224A57F5EC2D27E54BBC1231B1495C1CA69C4F46626067F2151180F952",
+      "bytes": 2234
+    },
+    {
+      "path": "Defs/HediffDefs/Hediffs_ZweiWeapons.xml",
+      "sha256": "4D2D2E8F9DABA0C1B43570A7D9E35551EEBCD127944410C6FDB6008FB34F8CF1",
+      "bytes": 897
+    },
+    {
+      "path": "Defs/Misc/Mote_BowOfDeath.xml",
+      "sha256": "98AAB19E9F5868A84A94E016AE85788C9E1A9EE5FB6A3F0E197D5FE77D5DB769",
+      "bytes": 8940
+    },
+    {
+      "path": "Defs/Misc/Mote_ZweiAura.xml",
+      "sha256": "26DB1790FF25A8DC945FA72DE6E96ECFC96216192DABBC2D098164F5AC6AF773",
+      "bytes": 1190
+    },
+    {
+      "path": "Defs/Misc/OrderedTakeGroupDefs_BowOfDeath.xml",
+      "sha256": "0D12793B64FD55A19DA7BCEACBBD8D2B394BDBED893F58D94A0B6016723F7E4F",
+      "bytes": 441
+    },
+    {
+      "path": "Defs/Misc/StatDef_RangeDodge.xml",
+      "sha256": "07F9252DA52FFC2E81403168A2504F2FCE46511D2C980914747ED9CE4D496E60",
+      "bytes": 828
+    },
+    {
+      "path": "Defs/Projectiles/Projectiles_BowOfDeath.xml",
+      "sha256": "DDE926A36B40F7E96E4D3A9BE21E641CE3658EDA413D991E9D192AB3C79B8188",
+      "bytes": 2649
+    },
+    {
+      "path": "Defs/RecipeDefs/Recipes_BowOfDeath.xml",
+      "sha256": "DA94C6B7F291F39F032DF855034D2F648FE3BCFC189844A51051FF0186295C89",
+      "bytes": 2475
+    },
+    {
+      "path": "Defs/ShaderTypeDefs/BowOfDeath_Shaders.xml",
+      "sha256": "43A13874AC24982D203043E93C58D4A78324444131F970AD0A77AB94034DD104",
+      "bytes": 636
+    },
+    {
+      "path": "Defs/SoundDefs/Sounds_BowOfDeath.xml",
+      "sha256": "F654E9771BAAA7B32BEE7CA610561C589D5DE8B3BD637E5F05749B2A460E70B0",
+      "bytes": 2833
+    },
+    {
+      "path": "Defs/SpecialCharacter/CangYueCao.xml",
+      "sha256": "A2D0FE2B9AC49C352A7B6293C0C823BAF147E40D0E69AC7503E77178A8A69ABB",
+      "bytes": 6233
+    },
+    {
+      "path": "Defs/SpecialCharacter/HuoYanLan.xml",
+      "sha256": "FE77A8D3FEAEB69E2BAC9A2816C42F0E2A83DE15244C3FB5DE270D21AE9A3A3B",
+      "bytes": 5447
+    },
+    {
+      "path": "Defs/SpecialCharacter/ManTianXing.xml",
+      "sha256": "5632A8AFAF0588DC341B261CD7449CC70E246627BF90A065D8D462BAB748938C",
+      "bytes": 6959
+    },
+    {
+      "path": "Defs/SpecialCharacter/ShanHeYe.xml",
+      "sha256": "4581E34A64AE18228CE053915F26D731C358249202F23D9F7CA0DA6E36065E61",
+      "bytes": 5580
+    },
+    {
+      "path": "Defs/SpecialCharacter/SpecialCharacterPod.xml",
+      "sha256": "9049C49857CFD7096B64AC9DC74151B22DAD262E566C643537B838ADF73D56E6",
+      "bytes": 274
+    },
+    {
+      "path": "Defs/SpecialCharacter/WuYaGuo.xml",
+      "sha256": "C8B74F7B34D396BB63B27C89CAD8E5177BF28DB43BF328C9FF824EE4DA079C48",
+      "bytes": 6283
+    },
+    {
+      "path": "Defs/ThingDefs_Items/245679装备数据.txt",
+      "sha256": "6330957BBAEFF8F46EE53C28E1E9F924900E7D9205CA6734BD513F3B6D17E671",
+      "bytes": 3984
+    },
+    {
+      "path": "Defs/ThingDefs_Items/2567协会武器企划书.txt",
+      "sha256": "F1C936B842F65448B68045B6B3653C3AD13C8D9773556CC8A6EA18599DAFCA5E",
+      "bytes": 6409
+    },
+    {
+      "path": "Defs/ThingDefs_Items/新装备数据.txt",
+      "sha256": "3EEE7DA78EFD736F92EF9A5A1E89371087B37084BAB79F23A11AA98D377A74B1",
+      "bytes": 13147
+    },
+    {
+      "path": "Defs/ThingDefs_Items/Ammo_BowOfDeath.xml",
+      "sha256": "A123E2B188FF3AAC16A4C032EFFF47909E162F9E0278C42EBE7797127ADD58D5",
+      "bytes": 1742
+    },
+    {
+      "path": "Defs/ThingDefs_Items/Clothes_Cinq.xml",
+      "sha256": "627AA24001938E41323DA85A83C8CCB075F1E661368EB06D369679B2690DE854",
+      "bytes": 10073
+    },
+    {
+      "path": "Defs/ThingDefs_Items/Clothes_Liu.xml",
+      "sha256": "EEBB02733106C1E048D06F530E13453EBE2AEC6F5068D54C89F5C5D9C10AF3AA",
+      "bytes": 6908
+    },
+    {
+      "path": "Defs/ThingDefs_Items/Clothes_Nine.xml",
+      "sha256": "E9D42B0A1A126F3038B3E7A629BAAAB9CE34EDE42F4704D270A8E599C1052536",
+      "bytes": 6497
+    },
+    {
+      "path": "Defs/ThingDefs_Items/Clothes_Seven.xml",
+      "sha256": "DC58E7A8E8844625702BF2EE4A1B2A2E35573CB8E4E87856C792C8C1AA6F06E5",
+      "bytes": 6915
+    },
+    {
+      "path": "Defs/ThingDefs_Items/Clothes_Si.xml",
+      "sha256": "3A411342A92152FD62AAAFC64B29A2AB8BE75EA0810B2EB2CE775C7401A0B27E",
+      "bytes": 5629
+    },
+    {
+      "path": "Defs/ThingDefs_Items/Clothes_zwei.xml",
+      "sha256": "838F460460F3D9EED1534D4E0BACD7BF444DF531175ABEE2958DDC7DBB0D53AA",
+      "bytes": 7056
+    },
+    {
+      "path": "Defs/ThingDefs_Items/RK_fixers Clothing.xml",
+      "sha256": "E91F6B3E88473CD96A48183F2E53BF454DDB9FB8C253D974479FD2ACB0DBCDE8",
+      "bytes": 2345
+    },
+    {
+      "path": "Defs/ThingDefs_Items/Weapon_BowOfDeath.xml",
+      "sha256": "F08865D543CFDF4AA95CA04F10A55D5427A3372B70B7C1047DCCBF468CA2FDCF",
+      "bytes": 8201
+    },
+    {
+      "path": "Defs/ThingDefs_Items/Weapon_Box.xml",
+      "sha256": "E64E4E56C09CE69C616415668EB40EB26EE93C3254078A0A335F1851157312B8",
+      "bytes": 15849
+    },
+    {
+      "path": "Defs/ThingDefs_Items/Weapon_cinq.xml",
+      "sha256": "A7AE91A93CA9A96F069D473E3C6C6C732395D979FE90BCD148D063D857320C9F",
+      "bytes": 3784
+    },
+    {
+      "path": "Defs/ThingDefs_Items/Weapon_liu.xml",
+      "sha256": "66F3CCF78C5E6F20F386D90671D8EEEA6BD4D263B94F663B0A7A426A6EECDA27",
+      "bytes": 3381
+    },
+    {
+      "path": "Defs/ThingDefs_Items/Weapon_seven.xml",
+      "sha256": "3B1D63112DA6596851AEBAE1EBFA18E5C45AB8AA7A0004BDFA878D9DCB33ED67",
+      "bytes": 2376
+    },
+    {
+      "path": "Defs/ThingDefs_Items/Weapon_zwei.xml",
+      "sha256": "5B3A67889B2B63F05F77C49FC44CF4269A8F9723273261C619631116FCA8C57E",
+      "bytes": 4200
+    },
+    {
+      "path": "Defs/ThoughtDefs/Thoughts_Cinq.xml",
+      "sha256": "4C83B46BA93ABCB216098496356759536A5F89C5A9D0A84697F47145BD062CD9",
+      "bytes": 610
+    },
+    {
+      "path": "Defs/ThoughtDefs/Thoughts_Liu.xml",
+      "sha256": "8436BB24169D96227F63AB8C1D331897CD7C46AFC208BEA1C371756BADAE7414",
+      "bytes": 1494
+    },
+    {
+      "path": "Languages/ChineseSimplified (简体中文)/DefInjected/HediffDef/Hediffs_DeliveryBox.xml",
+      "sha256": "0EBC5A953995D5416AC91280A22905C0C5D0C5266214698B0B426CD4D505DB08",
+      "bytes": 690
+    },
+    {
+      "path": "Languages/ChineseSimplified (简体中文)/DefInjected/ThingDef/Weapon_Box.xml",
+      "sha256": "388BCDB9CE7741326A23FD2C18F5730C11EB3B7B1BFBD52CA4C8C3AAD2FE5D60",
+      "bytes": 3637
+    },
+    {
+      "path": "Languages/ChineseSimplified (简体中文)/Keyed/BowOfDeath.xml",
+      "sha256": "121AAFEE0BA95578CA12F3C9334E89F3358962E94909EB9268789D1000285FA3",
+      "bytes": 1720
+    },
+    {
+      "path": "Languages/ChineseSimplified (简体中文)/Keyed/SpecialCharacter.xml",
+      "sha256": "5506F8E3FB1C1C2928161E2A5AFEF769E46EF01E27FB655553E17D7AA4DFD603",
+      "bytes": 2918
+    },
+    {
+      "path": "Languages/ChineseSimplified (简体中文)/Keyed/WeaponForms.xml",
+      "sha256": "E45AE3EEB350B77A913543592659A85DB113CAF4838974B16C0490145F124761",
+      "bytes": 2335
+    },
+    {
+      "path": "Patches/Apparel_RatkinRestriction.xml",
+      "sha256": "5A74C40D74C26E0EC9993243A009B298C39368835C859A11FC20262EF730E7F5",
+      "bytes": 678
+    },
+    {
+      "path": "Patches/BowOfDeath_RecipeUsers.xml",
+      "sha256": "C85FDE21A955E627DD494479C9C6D8EB1BE8EA1E20AA4C5963C90175CA686B5E",
+      "bytes": 628
+    },
+    {
+      "path": "Patches/StatParts_DeliveryBox.xml",
+      "sha256": "CC85B35E821A4E5AE496769BC7A2B8934768550B5026B35EE395088FB2FAF442",
+      "bytes": 974
+    },
+    {
+      "path": "Patches/SpecialCharacter/CangYueCao.xml",
+      "sha256": "CE8A972DF8F76BEEEF12B114E333FD1B5FEC769F831A4CFEE5140C8892C0305C",
+      "bytes": 825
+    },
+    {
+      "path": "Patches/SpecialCharacter/ShanHeYe.xml",
+      "sha256": "0B54CF26AEFF7EB3D18C3D51276BCB3874E016EF9198DABDF3BEE173456E14CA",
+      "bytes": 810
+    },
+    {
+      "path": "Sounds/Bow_of_Death_Draw.wav",
+      "sha256": "853FAF68C02BAD80174C32EA5F78592528B9472A2921E9D690E1E3373DC9E6B0",
+      "bytes": 385098
+    },
+    {
+      "path": "Sounds/Bow_of_Death_Shot.wav",
+      "sha256": "78A17172AA88590A21EEA1A8CB625435970AFC64846057D4F4B77618026B3DAA",
+      "bytes": 230810
+    },
+    {
+      "path": "Sounds/Bow_of_Death_Switch.wav",
+      "sha256": "922B22F5CF2140C6B1583641B8268F4F779EE23007E3158FB741AB4DAE549C78",
+      "bytes": 438258
+    },
+    {
+      "path": "Textures/Ability/Bow_of_Death_Ability_1.png",
+      "sha256": "57E7EA63D8E0F3759078F499F8C016F877021DE17D5FE849CD7A6F437CA3311A",
+      "bytes": 25394
+    },
+    {
+      "path": "Textures/Ability/Bow_of_Death_Ability_2.png",
+      "sha256": "00AC01B4D6698C3C52CE298651EB7C96948A7812C51B2A8A2A73DA840D14F2A3",
+      "bytes": 25230
+    },
+    {
+      "path": "Textures/Ability/Bow_of_Death_Ability_3.png",
+      "sha256": "810DA00830B55E24D823E218F227EFF52F863AE1D4382A043ACA493B587BDB4A",
+      "bytes": 25301
+    },
+    {
+      "path": "Textures/Ability/Bow_of_Death_Ability_4.png",
+      "sha256": "B72D54E8D9B20993D56DAA59421B677E1880FFF7071D5B04284FA945104CDA9E",
+      "bytes": 25741
+    },
+    {
+      "path": "Textures/Ability/Bow_of_Death_Ability.png",
+      "sha256": "6CE13194C789D17872875C16D3DD13D5E52E4A24C6D1F64EF559006E6604B304",
+      "bytes": 21317
+    },
+    {
+      "path": "Textures/Ability/Bow_of_Death_ArrowReload.png",
+      "sha256": "36E4D3405002010B51FEA3E5D94C6F81D2CBFC893DA09179A590BADF7FCDE9C5",
+      "bytes": 15946
+    },
+    {
+      "path": "Textures/Ability/Box_Abi.png",
+      "sha256": "9595B307442927523CC5D7E9FB1A8A1916533B5DD89F056DB786B66C864DCD87",
+      "bytes": 337244
+    },
+    {
+      "path": "Textures/Ability/Box_Ability_Disable.png",
+      "sha256": "42C7A334A33A6421165C4B1A7C8076FA5D433D64E252F15D6489E23D7ABCFCC1",
+      "bytes": 26791
+    },
+    {
+      "path": "Textures/Ability/Box_Ability_Enable.png",
+      "sha256": "DC1D57DE5D5A51AFC7CB990D36E37EDEFE245FF5F88EDE1B3BAC5802B4907863",
+      "bytes": 16768
+    },
+    {
+      "path": "Textures/Ability/Breakthrough_Tool.png",
+      "sha256": "66CF18C8591A271BB35250505992EFF4DE28347E947183FC1AF6AD9ABB45CCA6",
+      "bytes": 25491
+    },
+    {
+      "path": "Textures/Ability/Cinq.png",
+      "sha256": "A390B54EE873CFAA568676EB8112828A4B79E5DD46806BEF1F1C89132FED6ADE",
+      "bytes": 23492
+    },
+    {
+      "path": "Textures/Ability/Seven_Clothes_Ability.png",
+      "sha256": "4081634C8A20AC19F952C3EE01D5F1F6CEA61C22F8D2E4D1C26575F76DE72523",
+      "bytes": 9503
+    },
+    {
+      "path": "Textures/Ability/Zwei_Clothes_Ability.png",
+      "sha256": "DF6F73BC13CB4674FE0AC55D787563850C4944ED237F35D9C477799C63239370",
+      "bytes": 35079
+    },
+    {
+      "path": "Textures/Clothing/7协会外套展示-02.png",
+      "sha256": "7FBAA64FD37E969B3C0CA45FF36E8A9FF67691BF255F9BCE54FCC0DA0E70BB71",
+      "bytes": 7697
+    },
+    {
+      "path": "Textures/Clothing/cinqcloak_Thin_east.png",
+      "sha256": "AFA9774A98F413A70D7A087485A6E2A3A255472C108A114C6B1AF3F3F217BFDF",
+      "bytes": 8177
+    },
+    {
+      "path": "Textures/Clothing/cinqcloak_Thin_north.png",
+      "sha256": "4B613963B91BC640F4E361898508E03BF1A4D3B538E736462D63D1E883F5C73C",
+      "bytes": 9015
+    },
+    {
+      "path": "Textures/Clothing/cinqcloak_Thin_south.png",
+      "sha256": "8326094D1B8DC79EF0F265F10272E3C100FC3A2F315D2E8CAF36C94773CAE483",
+      "bytes": 7921
+    },
+    {
+      "path": "Textures/Clothing/cinqcloak.png",
+      "sha256": "EB4601589764F5D35DB4B61E613C8EBEE6E6AC1F86F2368AE00B65880365C70F",
+      "bytes": 7710
+    },
+    {
+      "path": "Textures/Clothing/cinqhat_east.png",
+      "sha256": "2482DC6903D0947FE38C5DE3408F2E94441903747958DAADDDE8C643860A3BEE",
+      "bytes": 3705
+    },
+    {
+      "path": "Textures/Clothing/cinqhat_north.png",
+      "sha256": "ADD5FEB88918C92D131B3B3560F32782932F2B646138F2A17D4BA585D89F3623",
+      "bytes": 3810
+    },
+    {
+      "path": "Textures/Clothing/cinqhat_south.png",
+      "sha256": "D6C19C488D6AB03FB9AEA169E3C91249D04ADCCF9EA22E4B4D422C66675F9F7D",
+      "bytes": 4110
+    },
+    {
+      "path": "Textures/Clothing/cinqhat.png",
+      "sha256": "C425F5992BF6235BDA2CBB056C4E052C9B161A6F676DB8D0242F7F737EA0A936",
+      "bytes": 5976
+    },
+    {
+      "path": "Textures/Clothing/cinqsuit_Thin_east.png",
+      "sha256": "4A2A00C1C9405082FFACCA11A78D264CAD2BB2CDC08D6CC45A5D2C1445D60F98",
+      "bytes": 6637
+    },
+    {
+      "path": "Textures/Clothing/cinqsuit_Thin_north.png",
+      "sha256": "1E54E23A958634D1D1F13BB68F44A781ABB51A5DDFC11E5311608120D5B12C1A",
+      "bytes": 5656
+    },
+    {
+      "path": "Textures/Clothing/cinqsuit_Thin_south.png",
+      "sha256": "4260C915F8B1DF70FFA6C24E9662A5F6F2532025749108FE51C99A460818E07A",
+      "bytes": 8490
+    },
+    {
+      "path": "Textures/Clothing/cinqsuit_Thin_west.png",
+      "sha256": "2E5AD2BCB66FACAC15ECF3BB5E2D266C874C56A8BC07C54132BD8E56B0851C3C",
+      "bytes": 7064
+    },
+    {
+      "path": "Textures/Clothing/cinqsuit.png",
+      "sha256": "48D8F904E02C7041D3A5660FCC0AB1440C972CBF6BBAE897B3934052EBDF0495",
+      "bytes": 7467
+    },
+    {
+      "path": "Textures/Clothing/hmj_east.png",
+      "sha256": "72956EE49BA1C423BF1638AAFCD665A0571461F0BDD9320E9D2E5884E94FACAE",
+      "bytes": 1791
+    },
+    {
+      "path": "Textures/Clothing/hmj_north.png",
+      "sha256": "2BA772FF64DDAB3943D3816640BC5411E0062479F75AD576E568E2A48DDA902D",
+      "bytes": 1175
+    },
+    {
+      "path": "Textures/Clothing/hmj_south.png",
+      "sha256": "352F382D3FA2B449722E3C7E75726F2E1E1F690F2F65B477DAE418D6139B372B",
+      "bytes": 2309
+    },
+    {
+      "path": "Textures/Clothing/hmj.png",
+      "sha256": "E033AAEAEA2F3B30A71750BE01192822C11C373FCF73B900B6FD35AB36D4CE9A",
+      "bytes": 1163
+    },
+    {
+      "path": "Textures/Clothing/liuA_Thin_east.png",
+      "sha256": "0CB2F8893B9980C7A1F1C014E298C2EF88EDED6C493B92944F6CC230CE29E147",
+      "bytes": 9641
+    },
+    {
+      "path": "Textures/Clothing/liuA_Thin_north.png",
+      "sha256": "F4130451D85802EA43056D247A8D9C6C0F0C34FDFE59C55AE351BFEDCAC22F94",
+      "bytes": 5843
+    },
+    {
+      "path": "Textures/Clothing/liuA_Thin_south.png",
+      "sha256": "9B4B80C6503F859717B8CDCA94A71F47C88CCC6199932F734E0FC7D41D21F2EB",
+      "bytes": 10412
+    },
+    {
+      "path": "Textures/Clothing/liuA_Thin_west.png",
+      "sha256": "612FC211B47EBF4CABF16DB1FB7A5512E48C6320A3A2220A270C27A2D85553CC",
+      "bytes": 8012
+    },
+    {
+      "path": "Textures/Clothing/liuA.png",
+      "sha256": "0199C5EBFFD03A32B5DB75B469FCECC8C1EC1EFAA20874EE8302C8776AC562EA",
+      "bytes": 13498
+    },
+    {
+      "path": "Textures/Clothing/liuB_Thin_east.png",
+      "sha256": "A8AA7C2668E34EEE12C667D8AFD071582D068970510BDA5C031B894BAE7D2E84",
+      "bytes": 11006
+    },
+    {
+      "path": "Textures/Clothing/liuB_Thin_north.png",
+      "sha256": "A7E8E6DBA3FD66D1526E8AE2ECAD2AF168D664C696BCA8E4F50F9D6C0B1434FF",
+      "bytes": 11385
+    },
+    {
+      "path": "Textures/Clothing/liuB_Thin_south.png",
+      "sha256": "97FE37670481AEFE1ABD37C017595E9A5855E5565946E46F892D9E26FB44ACDB",
+      "bytes": 13938
+    },
+    {
+      "path": "Textures/Clothing/liuB.png",
+      "sha256": "1FEC87D828A29C1617A765099D27BDDFAC6701E594270555CA1C3CA1BEA53379",
+      "bytes": 19484
+    },
+    {
+      "path": "Textures/Clothing/ninec_Female_east.png",
+      "sha256": "153451341CE7317799A20AE9E1885BAF6C01DBADEBB4CCC7BA6708307127AA8B",
+      "bytes": 11522
+    },
+    {
+      "path": "Textures/Clothing/ninec_Female_north.png",
+      "sha256": "3875A96C2E8DA77AE75755CA1A554A35357D7E4B003BE71812C0A84F266AD8FC",
+      "bytes": 9742
+    },
+    {
+      "path": "Textures/Clothing/ninec_Female_south.png",
+      "sha256": "B675382D60CB10CEC03253466A44B298F7B0E59788FCE7AACA3061DAC100EA9F",
+      "bytes": 18253
+    },
+    {
+      "path": "Textures/Clothing/ninec_Female_west.png",
+      "sha256": "FD628439675500045D83E588E2506EAB7C2397730836150FB18DE1355CFF1DF3",
+      "bytes": 9136
+    },
+    {
+      "path": "Textures/Clothing/ninec_Hulk_east.png",
+      "sha256": "153451341CE7317799A20AE9E1885BAF6C01DBADEBB4CCC7BA6708307127AA8B",
+      "bytes": 11522
+    },
+    {
+      "path": "Textures/Clothing/ninec_Hulk_north.png",
+      "sha256": "3875A96C2E8DA77AE75755CA1A554A35357D7E4B003BE71812C0A84F266AD8FC",
+      "bytes": 9742
+    },
+    {
+      "path": "Textures/Clothing/ninec_Hulk_south.png",
+      "sha256": "B675382D60CB10CEC03253466A44B298F7B0E59788FCE7AACA3061DAC100EA9F",
+      "bytes": 18253
+    },
+    {
+      "path": "Textures/Clothing/ninec_Hulk_west.png",
+      "sha256": "FD628439675500045D83E588E2506EAB7C2397730836150FB18DE1355CFF1DF3",
+      "bytes": 9136
+    },
+    {
+      "path": "Textures/Clothing/ninec_Male_east.png",
+      "sha256": "153451341CE7317799A20AE9E1885BAF6C01DBADEBB4CCC7BA6708307127AA8B",
+      "bytes": 11522
+    },
+    {
+      "path": "Textures/Clothing/ninec_Male_north.png",
+      "sha256": "3875A96C2E8DA77AE75755CA1A554A35357D7E4B003BE71812C0A84F266AD8FC",
+      "bytes": 9742
+    },
+    {
+      "path": "Textures/Clothing/ninec_Male_south.png",
+      "sha256": "B675382D60CB10CEC03253466A44B298F7B0E59788FCE7AACA3061DAC100EA9F",
+      "bytes": 18253
+    },
+    {
+      "path": "Textures/Clothing/ninec_Male_west.png",
+      "sha256": "FD628439675500045D83E588E2506EAB7C2397730836150FB18DE1355CFF1DF3",
+      "bytes": 9136
+    },
+    {
+      "path": "Textures/Clothing/ninec_Thin_east.png",
+      "sha256": "153451341CE7317799A20AE9E1885BAF6C01DBADEBB4CCC7BA6708307127AA8B",
+      "bytes": 11522
+    },
+    {
+      "path": "Textures/Clothing/ninec_Thin_north.png",
+      "sha256": "3875A96C2E8DA77AE75755CA1A554A35357D7E4B003BE71812C0A84F266AD8FC",
+      "bytes": 9742
+    },
+    {
+      "path": "Textures/Clothing/ninec_Thin_south.png",
+      "sha256": "B675382D60CB10CEC03253466A44B298F7B0E59788FCE7AACA3061DAC100EA9F",
+      "bytes": 18253
+    },
+    {
+      "path": "Textures/Clothing/ninec_Thin_west.png",
+      "sha256": "FD628439675500045D83E588E2506EAB7C2397730836150FB18DE1355CFF1DF3",
+      "bytes": 9136
+    },
+    {
+      "path": "Textures/Clothing/ninec.png",
+      "sha256": "68338C18AF7403C0CBB5E4B222F5D8C17ADBCFA9D0E732832641460FF927198B",
+      "bytes": 4381
+    },
+    {
+      "path": "Textures/Clothing/nineja_Thin_east.png",
+      "sha256": "F913F0FEAD7F52B610AF62599B80A77D8F8866BEE5C86A38B394B3E5BEBF3181",
+      "bytes": 10822
+    },
+    {
+      "path": "Textures/Clothing/nineja_Thin_north.png",
+      "sha256": "AD226EF6F9B5266C8E43459038FE34D0314F7EAA9AE41D3C0FE668D934E05BBD",
+      "bytes": 9461
+    },
+    {
+      "path": "Textures/Clothing/nineja_Thin_south.png",
+      "sha256": "5FC18E88869543D5B7B75B75D535A34BBF0F5A7B29FCBF20222A75BD042E5FF4",
+      "bytes": 20460
+    },
+    {
+      "path": "Textures/Clothing/nineja_Thin_west.png",
+      "sha256": "DB6B6E000DB3FFC9A1BE67C9AF256E5A770EE1707DCF99D989BEAD1DD6BECAA8",
+      "bytes": 8836
+    },
+    {
+      "path": "Textures/Clothing/nineja.png",
+      "sha256": "FA352C68A7CFFBEDC71FE7BEE5DCFDEDD9B877CF728460D3C3B1457A070E8FD5",
+      "bytes": 6267
+    },
+    {
+      "path": "Textures/Clothing/sevenA_Thin_east.png",
+      "sha256": "C2A8DC0F31954D9D043805A3FEA95BCE031C712155ABC63CBE601B0C5D89124B",
+      "bytes": 9049
+    },
+    {
+      "path": "Textures/Clothing/sevenA_Thin_north.png",
+      "sha256": "DB4A64ED70A8D024113DF26E933B449CCCC665A0D441651AEAB23FA2AA871B81",
+      "bytes": 8730
+    },
+    {
+      "path": "Textures/Clothing/sevenA_Thin_south.png",
+      "sha256": "A062F6A4FB1C603708C4A1CF796F714C70D894F122B458FA6FB4AD7611430F60",
+      "bytes": 11344
+    },
+    {
+      "path": "Textures/Clothing/sevenA_Thin_west.png",
+      "sha256": "2F04AE26BBDCC23E1B9C23B25CD071D021189968ABC587A0C4647FA5BD294DF1",
+      "bytes": 8699
+    },
+    {
+      "path": "Textures/Clothing/sevenA.png",
+      "sha256": "1380E3E73C7D1DECDE4160AE09196F8C33E1AF21CA0480909D598B5D3388A9CD",
+      "bytes": 9021
+    },
+    {
+      "path": "Textures/Clothing/sevenB_Thin_east.png",
+      "sha256": "95273E9E17C505E8C19BE279189FC7253B32E85989A512C9EF4DFD8E48CA1EC2",
+      "bytes": 8028
+    },
+    {
+      "path": "Textures/Clothing/sevenB_Thin_north.png",
+      "sha256": "520AC8DF15228F963E2897EFE7A0652B4F26883CBAC0CB91F1D689CF54A4D689",
+      "bytes": 4531
+    },
+    {
+      "path": "Textures/Clothing/sevenB_Thin_south.png",
+      "sha256": "DA850C2A5CBF6AA0BD08DF5D144D3DB825D09796BF1A8825C50BD9E3E82A986F",
+      "bytes": 7363
+    },
+    {
+      "path": "Textures/Clothing/sevenB_Thin_west.png",
+      "sha256": "1C6CF163E1D6A731387314AFD2782BE7BCFF645D76E5DEE8DEF811D5BC64E426",
+      "bytes": 8250
+    },
+    {
+      "path": "Textures/Clothing/sevenB.png",
+      "sha256": "10A7979FF1014ADCC57591525DB5C556D8114FF71FD3F349F74E1B6F47DB663E",
+      "bytes": 5933
+    },
+    {
+      "path": "Textures/Clothing/si_quiver_east.png",
+      "sha256": "57F2697BE5102535D74CB1057D877862099FB0C3BC9F4CB5E97D5A8519B9A598",
+      "bytes": 4594
+    },
+    {
+      "path": "Textures/Clothing/si_quiver_north.png",
+      "sha256": "63462F35E230921CE1FCC06E9BD8DBCFFADA80FA8C74759F943D3BD2206342C6",
+      "bytes": 10943
+    },
+    {
+      "path": "Textures/Clothing/si_quiver_south.png",
+      "sha256": "19BEE63DD7855FCB1C66FE2AE51F519226E0AAB62FFE5C71A481CDD7354D643A",
+      "bytes": 10295
+    },
+    {
+      "path": "Textures/Clothing/si_quiver_west.png",
+      "sha256": "5712C55F172806C4BDA1407B6CB95C2EF1C3338B5CED4E2B7867049E66AD4012",
+      "bytes": 5014
+    },
+    {
+      "path": "Textures/Clothing/si_quiver.png",
+      "sha256": "B5861D3DA59DA6807F9B2AE0473597D5A33F0DC20B6377B0715D9936837F4A0F",
+      "bytes": 8970
+    },
+    {
+      "path": "Textures/Clothing/si_uniform_Thin_east.png",
+      "sha256": "D6FACC6B49B04E4D30935D7730900D24C0AF125981AA104C56E02AD55FA03790",
+      "bytes": 13771
+    },
+    {
+      "path": "Textures/Clothing/si_uniform_Thin_north.png",
+      "sha256": "95D2C9BF587566A9016BF6217492A296BFF5639B68A27732C68373F27FED3C67",
+      "bytes": 9863
+    },
+    {
+      "path": "Textures/Clothing/si_uniform_Thin_south.png",
+      "sha256": "31BDECEE37B9A541764BE8577038F471068BC8A8E89B4EE28B7B914A6DE72A18",
+      "bytes": 12453
+    },
+    {
+      "path": "Textures/Clothing/si_uniform_Thin_west.png",
+      "sha256": "B02BDCF59B501E355411EAC9DFF25D6E55A23C7F59C5563133CB39B12251ECA1",
+      "bytes": 15788
+    },
+    {
+      "path": "Textures/Clothing/si_uniform.png",
+      "sha256": "A603DDEBB213A54F19051FD7D3B393762E60452BC52470DC19FA17A9807C89B3",
+      "bytes": 11474
+    },
+    {
+      "path": "Textures/Clothing/zwei1_Thin_north.png",
+      "sha256": "5C380336B6B120FA43CA3F00E87683DF03AA0497648399B80F98339D39D80C52",
+      "bytes": 6524
+    },
+    {
+      "path": "Textures/Clothing/zwei1_Thin_south.png",
+      "sha256": "02DD1F1D5F79A9B50D7C22A4AA1E88E546A232A67645FB74AF0A8D9786CCECE9",
+      "bytes": 9313
+    },
+    {
+      "path": "Textures/Clothing/zwei1_Thin_west.png",
+      "sha256": "4006641A1C4F8CDE4E534DF5C8E1390AA1AF2541BDEE96C3395E9CA4289D7025",
+      "bytes": 8916
+    },
+    {
+      "path": "Textures/Clothing/zwei1.png",
+      "sha256": "07AFE72DCD0ECCCF576FD5F8BB3F40F2DF4AEF7D519D9E72D3CFC5A4D7F6F494",
+      "bytes": 8195
+    },
+    {
+      "path": "Textures/Clothing/zwei2_Thin_east.png",
+      "sha256": "FD766AA82EDCEE5313457D551DBB5AB94918C9D142298B3FF724853C05DE80DA",
+      "bytes": 9549
+    },
+    {
+      "path": "Textures/Clothing/zwei2_Thin_north.png",
+      "sha256": "4FC4AD9FFB5C7642D35D901CD5297BCEF52E094D4B4CE59EB31592B491FF60E7",
+      "bytes": 8584
+    },
+    {
+      "path": "Textures/Clothing/zwei2_Thin_south.png",
+      "sha256": "283E9FFCDD72BAC26A313DA7D3DBB780D0B290492263C62BCED0B3AE533D3A3D",
+      "bytes": 11812
+    },
+    {
+      "path": "Textures/Clothing/zwei2_Thin_west.png",
+      "sha256": "697591646411202DAF73E7DC2FB56282AD245457796933F329A3C7B9043B7E78",
+      "bytes": 7759
+    },
+    {
+      "path": "Textures/Clothing/zwei2.png",
+      "sha256": "956BCADB4450C37EFC947423D0537C34D1CC954B71FA21A288A6D759183D036B",
+      "bytes": 10593
+    },
+    {
+      "path": "Textures/Item/Bow_of_Death_Arrow/Bow_of_Death_Arrow_a.png",
+      "sha256": "C100A46ACD28CF7C0FC712BEF7238063C7319D9B90F3D98584D3E4A70D1D5DDC",
+      "bytes": 11583
+    },
+    {
+      "path": "Textures/Item/Bow_of_Death_Arrow/Bow_of_Death_Arrow_b.png",
+      "sha256": "09A96CF87A465FC21CBA8D4ABA9696CC81B8D29F65C50A640AA540B7ED4553F5",
+      "bytes": 13717
+    },
+    {
+      "path": "Textures/Item/Bow_of_Death_Arrow/Bow_of_Death_Arrow_c.png",
+      "sha256": "551000175B6183AE6768B56EFAD2F1378E029A2F9AF82845DB94286B76A44EE1",
+      "bytes": 14107
+    },
+    {
+      "path": "Textures/SpecialCharacter/CangYueCao.png",
+      "sha256": "47088AAE56678B1EF0634908DD0F11D0415B2ED419B964FC4152FEDAD3539A3D",
+      "bytes": 27304
+    },
+    {
+      "path": "Textures/SpecialCharacter/Hana_Association.png",
+      "sha256": "13ED5981EF46C47C2EEEEEAACA13EC23E983CC0C2468E55B6B41CBE2F7BBE32A",
+      "bytes": 70999
+    },
+    {
+      "path": "Textures/SpecialCharacter/HuoYanLan.png",
+      "sha256": "F82E93B87DAF6776D3458372344757FB51412207A4F3801D87BBA090C7771701",
+      "bytes": 31404
+    },
+    {
+      "path": "Textures/SpecialCharacter/ManTianXing.png",
+      "sha256": "DDB3738605159E6B65073D1DA0EBB3AF231D3A433253AB965D9C0AD69589910E",
+      "bytes": 33570
+    },
+    {
+      "path": "Textures/SpecialCharacter/ShanHeYe.png",
+      "sha256": "E2C1E3D104F7CF94EF9060FA92B2D1BF90D18D2AD623953ECA632E2C00F94993",
+      "bytes": 33081
+    },
+    {
+      "path": "Textures/SpecialCharacter/WuYaGuo.png",
+      "sha256": "2E1AF3F9E038009A9029BD169E20931C0411AD12BBDF86B751A5446C090B1920",
+      "bytes": 32873
+    },
+    {
+      "path": "Textures/VFX/Bow_of_Death_Aim_Base_Vfx.png",
+      "sha256": "634B6B2435DD037CD617384D581E4E5FCFEBD610486EEB5A0AB66AFC8DD19645",
+      "bytes": 17541
+    },
+    {
+      "path": "Textures/VFX/Bow_of_Death_Aim_Charge_Flow_Vfx.png",
+      "sha256": "ABA30028A192EE03A7490AA1ADF7543AFA670AF633163C9C8C55C2B0E480ABCB",
+      "bytes": 61380
+    },
+    {
+      "path": "Textures/VFX/Bow_of_Death_Aim_Charge_Start_Vfx.png",
+      "sha256": "57B04A163E6C35A9EC5C1EA71A3BB41B693E803565CE1970D3A97ED317851306",
+      "bytes": 16708
+    },
+    {
+      "path": "Textures/VFX/Bow_of_Death_Aim_Charge_Vfx.png",
+      "sha256": "65DB27F174FE3099222741B8E90938495CD1246AD42B63146C94148FE5773ED0",
+      "bytes": 42787
+    },
+    {
+      "path": "Textures/VFX/Bow_of_Death_Aim_Streak_Vfx.png",
+      "sha256": "49F10C74A4BB5FC6A2B91127E201A1C17E3A816CC3CAC66142043254BA00ACA6",
+      "bytes": 7315
+    },
+    {
+      "path": "Textures/VFX/Bow_of_Death_Aim_Vfx.png",
+      "sha256": "79DD1C42CB97B43E1BEAA9A2CF3743CB08F07469F2640DD2F57FE729DC63AAF5",
+      "bytes": 1471938
+    },
+    {
+      "path": "Textures/VFX/Bow_of_Death_Stage_Vfx.png",
+      "sha256": "13F37796D43AFB684B2454515744EB0D898388A20AD39C0DBC7FF66229A5EFA5",
+      "bytes": 20958
+    },
+    {
+      "path": "Textures/VFX/Box_Blade_AttackEffect.png",
+      "sha256": "7E7865245E59ADE5419187D9EA6F204DD50BBB1B6F91EC4A1943C15D8D35FEF7",
+      "bytes": 219584
+    },
+    {
+      "path": "Textures/VFX/Box_Breakthrough_AttackEffect.png",
+      "sha256": "514A6456CD092BBC10D81FB2A37E827ED55559126D5D4400712A4E9A3F64D759",
+      "bytes": 139174
+    },
+    {
+      "path": "Textures/VFX/Box_Hammer_AttackEffect.png",
+      "sha256": "F19CF290D59641952FE1E8F39711AF30D7FB61640A416E5DCABDA265982E1F07",
+      "bytes": 182044
+    },
+    {
+      "path": "Textures/VFX/Box_Tool_AttackEffect.png",
+      "sha256": "351C8F79DECC9DB1A2E2090FA8E6A7E618F5B992850D357734367610EC7F57CB",
+      "bytes": 89841
+    },
+    {
+      "path": "Textures/VFX/Cinq_Weapon_AttackEffect.png",
+      "sha256": "76EC314837F5C2690FD569B3C4ACBF81712A205F4EA5E7E9FF9F191276EB076B",
+      "bytes": 113848
+    },
+    {
+      "path": "Textures/VFX/Zwei_Aura_Circle.png",
+      "sha256": "5EE91C75150CD8CF3FDD1158DB6B655A0FEFF23BF64F9209494195F4B2B8953C",
+      "bytes": 20206
+    },
+    {
+      "path": "Textures/Weapon/.png",
+      "sha256": "7ED932467F3E0B969EECB601F2059283AF22A45B08D30C5C45BEFF5D8F985BE6",
+      "bytes": 82882
+    },
+    {
+      "path": "Textures/Weapon/10协会钥匙_画板 1.png",
+      "sha256": "2380D50694A531E3BCCD6545F6258D21A7C6922CC1FEE9ED999DEA32D6068781",
+      "bytes": 48647
+    },
+    {
+      "path": "Textures/Weapon/11协会-2_画板 1.png",
+      "sha256": "8802865D50614071D24F73211F8F3F7D9499FDE0050BB329AF42C670E6443F1C",
+      "bytes": 23927
+    },
+    {
+      "path": "Textures/Weapon/2D218FA4E35AEC7D267405326E0252EB.png",
+      "sha256": "12999B9675CAE0D64649C6787A1F2235BA1992500D8CA3036A22A569CA256126",
+      "bytes": 86637
+    },
+    {
+      "path": "Textures/Weapon/四协会剑-1_画板 1.png",
+      "sha256": "55DD32DB75C507B41F6ED6540F4E2FE1E19AEFF8D18BCE4608355FD3D02E41E3",
+      "bytes": 18192
+    },
+    {
+      "path": "Textures/Weapon/憎恶女王_画板 1.png",
+      "sha256": "24D32625DE981462DB4F9BB47C4360F383C7A2D1BA89905231FB95158BFFDB49",
+      "bytes": 49555
+    },
+    {
+      "path": "Textures/Weapon/Bow_of_Death_Arrow.png",
+      "sha256": "E9FF69A54DD235F356A3245C5C1240BDC7D77FC79B51CFAE6BBAC37336F9829B",
+      "bytes": 3897
+    },
+    {
+      "path": "Textures/Weapon/Bow_of_Death_HeldSouth.png",
+      "sha256": "3F692FF188CCD177FA522BA46C596ACA308D85E400FE2492FB9F2044E770ED91",
+      "bytes": 81908
+    },
+    {
+      "path": "Textures/Weapon/Bow_of_Death.png",
+      "sha256": "12999B9675CAE0D64649C6787A1F2235BA1992500D8CA3036A22A569CA256126",
+      "bytes": 86637
+    },
+    {
+      "path": "Textures/Weapon/Box_Blade.png",
+      "sha256": "3F2AFEF86F537AA90025BB0053AD54E3AB28B3EFAA4269B3364E15DDEBDB89FE",
+      "bytes": 108064
+    },
+    {
+      "path": "Textures/Weapon/Box_Core.png",
+      "sha256": "0958F432544B6E77C295DFEB10ACAEA92B2C3F4E32FD7A421A0BC8EE7AC3EB45",
+      "bytes": 60157
+    },
+    {
+      "path": "Textures/Weapon/Box_DemolitionGadget.png",
+      "sha256": "A2E8ED53708AEC3483AA3D7C161C248A8B25E76B5FB67BD2CB2246B039899146",
+      "bytes": 70654
+    },
+    {
+      "path": "Textures/Weapon/box_Full_east..png",
+      "sha256": "C0C649FCE8236F7A6323B99A919D17BA31FFA1D72AF300D3371B767606736033",
+      "bytes": 13424
+    },
+    {
+      "path": "Textures/Weapon/box_Full_east.png",
+      "sha256": "A929F5A0A21EFFC64C98C55AF77B18FCAB4ED3B082751DF5C1A2E1574636BB3A",
+      "bytes": 12823
+    },
+    {
+      "path": "Textures/Weapon/box_Full_north.png",
+      "sha256": "0958F432544B6E77C295DFEB10ACAEA92B2C3F4E32FD7A421A0BC8EE7AC3EB45",
+      "bytes": 60157
+    },
+    {
+      "path": "Textures/Weapon/box_Full_south.png",
+      "sha256": "0A8ACC2A7C84E05BED1C5FD413E98072055BD9F87FA640BA826F29F6A1575402",
+      "bytes": 98193
+    },
+    {
+      "path": "Textures/Weapon/Box_Hammer.png",
+      "sha256": "EAA5E79111EB8E685333D84625833A87BF1FE01934E61EA226C4C7E0EE8DF1BE",
+      "bytes": 55714
+    },
+    {
+      "path": "Textures/Weapon/Box_Tool.png",
+      "sha256": "7A4CA437FD135ECDEF70234558820ABC4AB11EA9AADE635A23B04D12F52CE8EF",
+      "bytes": 100277
+    },
+    {
+      "path": "Textures/Weapon/cinqA.png",
+      "sha256": "4194A405F76C2463891747638F25E59EE2BE4CB096553D07E1FDCCE103B5E403",
+      "bytes": 15671
+    },
+    {
+      "path": "Textures/Weapon/cinqb_Full_east.png",
+      "sha256": "EACD67D686F14B29DC47994AA347187AE0EB233B6AA7812C29A071772A77C7E5",
+      "bytes": 20154
+    },
+    {
+      "path": "Textures/Weapon/cinqb_Sheath_north.png",
+      "sha256": "58D3AD9A7BBCE7E2F8BFDCBDE313B49D147F869AE94837A5985FDC72866E9E76",
+      "bytes": 9280
+    },
+    {
+      "path": "Textures/Weapon/liuC.png",
+      "sha256": "C8A4E225AC7D2742164EE7A0F400B6FFE265F7C3BBC8F3A5927DC0BEEA4BFFFF",
+      "bytes": 5664
+    },
+    {
+      "path": "Textures/Weapon/liuCE.png",
+      "sha256": "585BA845F2A770D60901D9649C32157489C3932D7761D26A2BABD6A436A78CE6",
+      "bytes": 6023
+    },
+    {
+      "path": "Textures/Weapon/sevenC_Full_east.png",
+      "sha256": "DFDCD8D07155A96AAC5F2FFEF9173CAD1C2D26B046BB21B77BBF400132F90F9C",
+      "bytes": 8105
+    },
+    {
+      "path": "Textures/Weapon/sevenC_Sheath_north.png",
+      "sha256": "3BC47473D9684B715AA5FA063E83A7B0261BA302E960D568543520CE04C1CE5C",
+      "bytes": 5405
+    },
+    {
+      "path": "Textures/Weapon/sevenC.png",
+      "sha256": "8465F00A4136C9C4EBEE27E29FEFC7C51D994A1DB0C9D044D66DB3302CDF9C25",
+      "bytes": 7511
+    },
+    {
+      "path": "Textures/Weapon/zweiC_Full_east.png",
+      "sha256": "FCFBDA7170DCB96BB31B68E63B85D7AA15833AF170360BCB929DAC15AB6EB64E",
+      "bytes": 19570
+    },
+    {
+      "path": "Textures/Weapon/zweiC_Sheath_north.png",
+      "sha256": "248A0044BEAF333BE1DAA41C0EC26E2F2FA8D7736D01E7EDEF17307B0C92449F",
+      "bytes": 409
+    },
+    {
+      "path": "Textures/Weapon/zweiC.png",
+      "sha256": "AFBE17079425341A534CDDEAB87E7825A178EDE43DA70C011EDD450D1C623BE6",
+      "bytes": 8680
+    }
+  ],
+  "source": [
+    {
+      "path": "ClassLibrary1/ClassLibrary1.csproj",
+      "sha256": "D216B2E59217044098110C69BF21F1A9F9A4CF533895E6E62A3D09B6698C67A6",
+      "bytes": 3573
+    },
+    {
+      "path": "ClassLibrary1/ClassLibrary1.slnx",
+      "sha256": "309B866C0124C6EFC781925F0B6C9FF2A9EB31226EBF17A186BF2D4211971CED",
+      "bytes": 110
+    },
+    {
+      "path": "ClassLibrary1/StatWorker_MeleeAveragePatches.cs",
+      "sha256": "2A4C6A9694FE0137A722D66A3CEB678631C76A3DB93F7649A2E6A063AD968CD7",
+      "bytes": 8326
+    },
+    {
+      "path": "ClassLibrary1/.vs/ClassLibrary1.slnx/FileContentIndex/26ee6e08-3bcf-445a-b431-727b6b8b1b05.vsidx",
+      "sha256": "6C9B253CE5F40CC86E44A835F082C10F909870C7200905232F561E2849899FEA",
+      "bytes": 5073
+    },
+    {
+      "path": "ClassLibrary1/.vs/ClassLibrary1.slnx/FileContentIndex/dfc3ed5e-5eba-402e-a6d3-5551322857ca.vsidx",
+      "sha256": "3B6E851D59EC0ADED4F107FA9E5CA00DAA6E0638476BE2A195EF7C68247290AA",
+      "bytes": 91192
+    },
+    {
+      "path": "ClassLibrary1/.vs/ClassLibrary1.slnx/v18/.suo",
+      "sha256": "9578284A4B1A7E3F0A6FEA9882C6A670CA8653F7A3F5C1D488D6CDCC78C1ED0E",
+      "bytes": 34304
+    },
+    {
+      "path": "ClassLibrary1/.vs/ClassLibrary1.slnx/v18/DocumentLayout.json",
+      "sha256": "002AE150C1F9423A702601DADB4C8FB253411BE735C8A293B1BE39C466A924AD",
+      "bytes": 367
+    },
+    {
+      "path": "ClassLibrary1/Abilities/Ability_BreakthroughTool.cs",
+      "sha256": "9094480C3C2BF79B96DA8F275724ACB1B20A3633563FD9E1A029D350DEEC6788",
+      "bytes": 18957
+    },
+    {
+      "path": "ClassLibrary1/Abilities/Ability_DeliveryBoxHighPower.cs",
+      "sha256": "397D5F139F3395B774F873D72AAF05EE6F53495F65A2352312D94BD266AB6902",
+      "bytes": 23056
+    },
+    {
+      "path": "ClassLibrary1/Abilities/Gizmo_DeliveryBoxHighPower.cs",
+      "sha256": "A932C7D2621654F566832A75551A32B93409312CCB5FB650E8C43F962AD99C29",
+      "bytes": 6023
+    },
+    {
+      "path": "ClassLibrary1/Abilities/Hediff_CinqDuelDeclaration.cs",
+      "sha256": "504EA01CAC9249DC356C255437A27220BB1890ECF712E3C3A9C915368609E09C",
+      "bytes": 2494
+    },
+    {
+      "path": "ClassLibrary1/Abilities/Hediff_LiuSet.cs",
+      "sha256": "E721A6FEB8E03D2B63378D5D34031032BCB9EAC7C9013EB9D96695D578887495",
+      "bytes": 19991
+    },
+    {
+      "path": "ClassLibrary1/Abilities/Hediff_SevenWeaknessAnalysis.cs",
+      "sha256": "C5CCA6FC21247E357F50785B80802896601043E004BACDA4AD1FD060C4C8A249",
+      "bytes": 1491
+    },
+    {
+      "path": "ClassLibrary1/Abilities/Hediff_ZweiAura.cs",
+      "sha256": "7A6797FEB2724BB2ECD74ECDEACC6BE5FFFA7F8954F8A68633B6DE5A13B8D74D",
+      "bytes": 7396
+    },
+    {
+      "path": "ClassLibrary1/bin/Debug/0Harmony.dll",
+      "sha256": "353DAAFEC180BB8E7BBE4DA78F2A7CDC78067392E3A4E79DC8E7AF295F2371E6",
+      "bytes": 2456064
+    },
+    {
+      "path": "ClassLibrary1/bin/Debug/Assembly-CSharp-firstpass.dll",
+      "sha256": "57EDFA421EFA3DE8C7DF4D4DBB5085E9A53E4A240E6584E22AF549D2246A2002",
+      "bytes": 80384
+    },
+    {
+      "path": "ClassLibrary1/bin/Debug/Assembly-CSharp.dll",
+      "sha256": "5CF1B5BE399D5B1C9C56CA72C9D35B4ECF307FEACF5859D04AC5A1AA5926356A",
+      "bytes": 15777280
+    },
+    {
+      "path": "ClassLibrary1/bin/Debug/ClassLibrary1.dll",
+      "sha256": "D1B100951AD76B366036E425ACDD05B12DF11A0D2E11A21F90A6BB151BCC1CEE",
+      "bytes": 4608
+    },
+    {
+      "path": "ClassLibrary1/bin/Debug/ClassLibrary1.pdb",
+      "sha256": "F7D069E41C6A5E46DEC578C254CA2DE6E5F9A4611371F0EC0AE21048A0FD1535",
+      "bytes": 22016
+    },
+    {
+      "path": "ClassLibrary1/bin/Debug/com.rlabrecque.steamworks.net.dll",
+      "sha256": "2CB2EADF79F31510A2668C3A4FFE484C121238680600A141C2FBE6DAE8BEAB39",
+      "bytes": 396800
+    },
+    {
+      "path": "ClassLibrary1/bin/Debug/ISharpZipLib.dll",
+      "sha256": "C517EB6C2185942758325CBD6B0CEBA01C705CA0BF2C5827D81C0D008F2B5D1C",
+      "bytes": 54272
+    },
+    {
+      "path": "ClassLibrary1/bin/Debug/NAudio.dll",
+      "sha256": "0DF62F4E48776870EE22450D1735F00A69493D3C2C6DFB91CC4FEAB27150D6F1",
+      "bytes": 451072
+    },
+    {
+      "path": "ClassLibrary1/bin/Debug/netstandard.dll",
+      "sha256": "6AE62E082DC494A2433984177F60CA4DB5FAE69B1F360A8B33754172B310B8C5",
+      "bytes": 90112
+    },
+    {
+      "path": "ClassLibrary1/bin/Debug/NVorbis.dll",
+      "sha256": "255DE9AC2A2A4DD71306B82784DBD067EDBED5810564CCAEB2EA2F1994378339",
+      "bytes": 68096
+    },
+    {
+      "path": "ClassLibrary1/bin/Debug/SYS.dll",
+      "sha256": "8EE21292E2C8000E5D34077A87B07ED62D2B85B9D39790EE5FE6A9156E38F8EF",
+      "bytes": 11776
+    },
+    {
+      "path": "ClassLibrary1/bin/Debug/Unity.Burst.dll",
+      "sha256": "F94BB0E6F16200EB24FA32565D00EC741E30E4A15350E4A4ACDD1E437F5E6637",
+      "bytes": 301056
+    },
+    {
+      "path": "ClassLibrary1/bin/Debug/Unity.Burst.Unsafe.dll",
+      "sha256": "9D9C1FF52411DECBEE5D9F0D1CD61EBEAA222077AA77A52101EA3DEBAFAE98E2",
+      "bytes": 5632
+    },
+    {
+      "path": "ClassLibrary1/bin/Debug/Unity.Collections.dll",
+      "sha256": "DD3D7121936C8E20C1B41618C7FC3111657B79E9E11A6A4E94FB28AD555651BE",
+      "bytes": 452096
+    },
+    {
+      "path": "ClassLibrary1/bin/Debug/Unity.Collections.LowLevel.ILSupport.dll",
+      "sha256": "FF50383F807F9692E4913B97E47D86FEFCB8FAA33D6D48CD3E3FD6FC7FFB448D",
+      "bytes": 5120
+    },
+    {
+      "path": "ClassLibrary1/bin/Debug/Unity.Mathematics.dll",
+      "sha256": "E29EEF5D2C9D8356F97EEE214A7D6E1BFA9B1074BF66B53653E8B934222F86C3",
+      "bytes": 735232
+    },
+    {
+      "path": "ClassLibrary1/bin/Debug/Unity.TextMeshPro.dll",
+      "sha256": "6C4BCC51015DD19E2F7D0C372C94CC62F2023230CC6801668885150110840152",
+      "bytes": 379392
+    },
+    {
+      "path": "ClassLibrary1/bin/Debug/UnityEngine.AnimationModule.dll",
+      "sha256": "848E0EE48E17FD445BC46ADD54AB42A614F8C2019FD4504C3976F6F623A41616",
+      "bytes": 162496
+    },
+    {
+      "path": "ClassLibrary1/bin/Debug/UnityEngine.AssetBundleModule.dll",
+      "sha256": "4FE205393AAF9ED24F358DE9FD0F04B6C4C908AF5C231A0B89F6BB0BD66413B6",
+      "bytes": 31424
+    },
+    {
+      "path": "ClassLibrary1/bin/Debug/UnityEngine.AudioModule.dll",
+      "sha256": "ABC57AC9F40D0B5151C248726549F5470C338BBD03183D5146B61D486512B797",
+      "bytes": 69312
+    },
+    {
+      "path": "ClassLibrary1/bin/Debug/UnityEngine.CoreModule.dll",
+      "sha256": "C5C58EA254834291780A1D6C388C241443D07167B4A4B890A23C9494F626DDBA",
+      "bytes": 1386688
+    },
+    {
+      "path": "ClassLibrary1/bin/Debug/UnityEngine.ImageConversionModule.dll",
+      "sha256": "3D5BC897D8BEB44A0DE2F853995B9AFE5E5D2398B0D62DB72A3FF54F850F4840",
+      "bytes": 22720
+    },
+    {
+      "path": "ClassLibrary1/bin/Debug/UnityEngine.IMGUIModule.dll",
+      "sha256": "C6C39327211BE8299E2E9FFDEE7A979F228736C99B84FD54BC73F563456865D9",
+      "bytes": 188608
+    },
+    {
+      "path": "ClassLibrary1/bin/Debug/UnityEngine.InputLegacyModule.dll",
+      "sha256": "BE3F8C860D15E1B00611E454871B1E1E0041EFA843E9BAE4F77C227A59D10AC8",
+      "bytes": 37568
+    },
+    {
+      "path": "ClassLibrary1/bin/Debug/UnityEngine.PerformanceReportingModule.dll",
+      "sha256": "2E23F55AAC0459FA17A0653FBFA6D7A36EF48662E4A96B13AD391CFB309BD44C",
+      "bytes": 19136
+    },
+    {
+      "path": "ClassLibrary1/bin/Debug/UnityEngine.Physics2DModule.dll",
+      "sha256": "E098F7B20250E24B4FCBC4537D3BAB939FD408A0DCA0C0604E73CF6EAD35E9AD",
+      "bytes": 139968
+    },
+    {
+      "path": "ClassLibrary1/bin/Debug/UnityEngine.PhysicsModule.dll",
+      "sha256": "D2AE62A32DA71E77BF38C215024DF521BE284206641DA49DBEA24003F0E48FB5",
+      "bytes": 136896
+    },
+    {
+      "path": "ClassLibrary1/bin/Debug/UnityEngine.PropertiesModule.dll",
+      "sha256": "5F4D7FC1F30779464AD368D96E08B3930DC5D8FA3B47C8485F3F292F18C571AE",
+      "bytes": 153792
+    },
+    {
+      "path": "ClassLibrary1/bin/Debug/UnityEngine.ScreenCaptureModule.dll",
+      "sha256": "D03D9881419CEBCED07E8AC45E3AADBB866948670071FE95BED404B758274FF3",
+      "bytes": 19648
+    },
+    {
+      "path": "ClassLibrary1/bin/Debug/UnityEngine.SharedInternalsModule.dll",
+      "sha256": "D8E138ECD7913D250798129EEBEB33B6F8B2CC84CD500187AD0A8B18EF68F426",
+      "bytes": 31424
+    },
+    {
+      "path": "ClassLibrary1/bin/Debug/UnityEngine.SpriteShapeModule.dll",
+      "sha256": "5568208BB7BB9F9876B801E395DFAA1DB831DD785E98F8E7E3E23C4FC991AD64",
+      "bytes": 24768
+    },
+    {
+      "path": "ClassLibrary1/bin/Debug/UnityEngine.TextCoreFontEngineModule.dll",
+      "sha256": "C0FD2C118502B24B69B0F3114B66B2405EC495E216417CE76A451EE987D993D1",
+      "bytes": 70848
+    },
+    {
+      "path": "ClassLibrary1/bin/Debug/UnityEngine.TextCoreTextEngineModule.dll",
+      "sha256": "94B048606785E373D2DC570C4661D38F165276F2D5C75F3D0125FBE72C562B15",
+      "bytes": 247488
+    },
+    {
+      "path": "ClassLibrary1/bin/Debug/UnityEngine.TextRenderingModule.dll",
+      "sha256": "B63769AD71C7FC79034CF6C3A1EBFCF79D4591F0B1F5CD4A9823E6ED7B5816F8",
+      "bytes": 37568
+    },
+    {
+      "path": "ClassLibrary1/bin/Debug/UnityEngine.UI.dll",
+      "sha256": "5E7B0031F7F06F01F01512891C41FEF53E2C4EFB5C1919BB6F872BE05751434A",
+      "bytes": 251392
+    },
+    {
+      "path": "ClassLibrary1/bin/Debug/UnityEngine.UIModule.dll",
+      "sha256": "101B232C26BDBBE887B1D15108389BA473FA09891C925F4C7C31D3A40C51DFEF",
+      "bytes": 35008
+    },
+    {
+      "path": "ClassLibrary1/bin/Release/Assembly-CSharp-firstpass.dll",
+      "sha256": "57EDFA421EFA3DE8C7DF4D4DBB5085E9A53E4A240E6584E22AF549D2246A2002",
+      "bytes": 80384
+    },
+    {
+      "path": "ClassLibrary1/bin/Release/Assembly-CSharp.dll",
+      "sha256": "5CF1B5BE399D5B1C9C56CA72C9D35B4ECF307FEACF5859D04AC5A1AA5926356A",
+      "bytes": 15777280
+    },
+    {
+      "path": "ClassLibrary1/bin/Release/ClassLibrary1.dll",
+      "sha256": "3BC5A8A0DEE5EDE29C7F0F83F4A5CD216084597725F7EC40EFBB0391E76BE617",
+      "bytes": 4608
+    },
+    {
+      "path": "ClassLibrary1/bin/Release/ClassLibrary1.pdb",
+      "sha256": "63EF9B1B0BF113FF1122E759D4D4C8E4D8E97E8BE9BE209F9A58C71C38DA03C6",
+      "bytes": 22016
+    },
+    {
+      "path": "ClassLibrary1/bin/Release/com.rlabrecque.steamworks.net.dll",
+      "sha256": "2CB2EADF79F31510A2668C3A4FFE484C121238680600A141C2FBE6DAE8BEAB39",
+      "bytes": 396800
+    },
+    {
+      "path": "ClassLibrary1/bin/Release/ISharpZipLib.dll",
+      "sha256": "C517EB6C2185942758325CBD6B0CEBA01C705CA0BF2C5827D81C0D008F2B5D1C",
+      "bytes": 54272
+    },
+    {
+      "path": "ClassLibrary1/bin/Release/NAudio.dll",
+      "sha256": "0DF62F4E48776870EE22450D1735F00A69493D3C2C6DFB91CC4FEAB27150D6F1",
+      "bytes": 451072
+    },
+    {
+      "path": "ClassLibrary1/bin/Release/netstandard.dll",
+      "sha256": "6AE62E082DC494A2433984177F60CA4DB5FAE69B1F360A8B33754172B310B8C5",
+      "bytes": 90112
+    },
+    {
+      "path": "ClassLibrary1/bin/Release/NVorbis.dll",
+      "sha256": "255DE9AC2A2A4DD71306B82784DBD067EDBED5810564CCAEB2EA2F1994378339",
+      "bytes": 68096
+    },
+    {
+      "path": "ClassLibrary1/bin/Release/Unity.Burst.dll",
+      "sha256": "F94BB0E6F16200EB24FA32565D00EC741E30E4A15350E4A4ACDD1E437F5E6637",
+      "bytes": 301056
+    },
+    {
+      "path": "ClassLibrary1/bin/Release/Unity.Burst.Unsafe.dll",
+      "sha256": "9D9C1FF52411DECBEE5D9F0D1CD61EBEAA222077AA77A52101EA3DEBAFAE98E2",
+      "bytes": 5632
+    },
+    {
+      "path": "ClassLibrary1/bin/Release/Unity.Collections.dll",
+      "sha256": "DD3D7121936C8E20C1B41618C7FC3111657B79E9E11A6A4E94FB28AD555651BE",
+      "bytes": 452096
+    },
+    {
+      "path": "ClassLibrary1/bin/Release/Unity.Collections.LowLevel.ILSupport.dll",
+      "sha256": "FF50383F807F9692E4913B97E47D86FEFCB8FAA33D6D48CD3E3FD6FC7FFB448D",
+      "bytes": 5120
+    },
+    {
+      "path": "ClassLibrary1/bin/Release/Unity.Mathematics.dll",
+      "sha256": "E29EEF5D2C9D8356F97EEE214A7D6E1BFA9B1074BF66B53653E8B934222F86C3",
+      "bytes": 735232
+    },
+    {
+      "path": "ClassLibrary1/bin/Release/Unity.TextMeshPro.dll",
+      "sha256": "6C4BCC51015DD19E2F7D0C372C94CC62F2023230CC6801668885150110840152",
+      "bytes": 379392
+    },
+    {
+      "path": "ClassLibrary1/bin/Release/UnityEngine.AnimationModule.dll",
+      "sha256": "848E0EE48E17FD445BC46ADD54AB42A614F8C2019FD4504C3976F6F623A41616",
+      "bytes": 162496
+    },
+    {
+      "path": "ClassLibrary1/bin/Release/UnityEngine.AssetBundleModule.dll",
+      "sha256": "4FE205393AAF9ED24F358DE9FD0F04B6C4C908AF5C231A0B89F6BB0BD66413B6",
+      "bytes": 31424
+    },
+    {
+      "path": "ClassLibrary1/bin/Release/UnityEngine.AudioModule.dll",
+      "sha256": "ABC57AC9F40D0B5151C248726549F5470C338BBD03183D5146B61D486512B797",
+      "bytes": 69312
+    },
+    {
+      "path": "ClassLibrary1/bin/Release/UnityEngine.CoreModule.dll",
+      "sha256": "C5C58EA254834291780A1D6C388C241443D07167B4A4B890A23C9494F626DDBA",
+      "bytes": 1386688
+    },
+    {
+      "path": "ClassLibrary1/bin/Release/UnityEngine.ImageConversionModule.dll",
+      "sha256": "3D5BC897D8BEB44A0DE2F853995B9AFE5E5D2398B0D62DB72A3FF54F850F4840",
+      "bytes": 22720
+    },
+    {
+      "path": "ClassLibrary1/bin/Release/UnityEngine.IMGUIModule.dll",
+      "sha256": "C6C39327211BE8299E2E9FFDEE7A979F228736C99B84FD54BC73F563456865D9",
+      "bytes": 188608
+    },
+    {
+      "path": "ClassLibrary1/bin/Release/UnityEngine.InputLegacyModule.dll",
+      "sha256": "BE3F8C860D15E1B00611E454871B1E1E0041EFA843E9BAE4F77C227A59D10AC8",
+      "bytes": 37568
+    },
+    {
+      "path": "ClassLibrary1/bin/Release/UnityEngine.PerformanceReportingModule.dll",
+      "sha256": "2E23F55AAC0459FA17A0653FBFA6D7A36EF48662E4A96B13AD391CFB309BD44C",
+      "bytes": 19136
+    },
+    {
+      "path": "ClassLibrary1/bin/Release/UnityEngine.Physics2DModule.dll",
+      "sha256": "E098F7B20250E24B4FCBC4537D3BAB939FD408A0DCA0C0604E73CF6EAD35E9AD",
+      "bytes": 139968
+    },
+    {
+      "path": "ClassLibrary1/bin/Release/UnityEngine.PhysicsModule.dll",
+      "sha256": "D2AE62A32DA71E77BF38C215024DF521BE284206641DA49DBEA24003F0E48FB5",
+      "bytes": 136896
+    },
+    {
+      "path": "ClassLibrary1/bin/Release/UnityEngine.PropertiesModule.dll",
+      "sha256": "5F4D7FC1F30779464AD368D96E08B3930DC5D8FA3B47C8485F3F292F18C571AE",
+      "bytes": 153792
+    },
+    {
+      "path": "ClassLibrary1/bin/Release/UnityEngine.ScreenCaptureModule.dll",
+      "sha256": "D03D9881419CEBCED07E8AC45E3AADBB866948670071FE95BED404B758274FF3",
+      "bytes": 19648
+    },
+    {
+      "path": "ClassLibrary1/bin/Release/UnityEngine.SharedInternalsModule.dll",
+      "sha256": "D8E138ECD7913D250798129EEBEB33B6F8B2CC84CD500187AD0A8B18EF68F426",
+      "bytes": 31424
+    },
+    {
+      "path": "ClassLibrary1/bin/Release/UnityEngine.SpriteShapeModule.dll",
+      "sha256": "5568208BB7BB9F9876B801E395DFAA1DB831DD785E98F8E7E3E23C4FC991AD64",
+      "bytes": 24768
+    },
+    {
+      "path": "ClassLibrary1/bin/Release/UnityEngine.TextCoreFontEngineModule.dll",
+      "sha256": "C0FD2C118502B24B69B0F3114B66B2405EC495E216417CE76A451EE987D993D1",
+      "bytes": 70848
+    },
+    {
+      "path": "ClassLibrary1/bin/Release/UnityEngine.TextCoreTextEngineModule.dll",
+      "sha256": "94B048606785E373D2DC570C4661D38F165276F2D5C75F3D0125FBE72C562B15",
+      "bytes": 247488
+    },
+    {
+      "path": "ClassLibrary1/bin/Release/UnityEngine.TextRenderingModule.dll",
+      "sha256": "B63769AD71C7FC79034CF6C3A1EBFCF79D4591F0B1F5CD4A9823E6ED7B5816F8",
+      "bytes": 37568
+    },
+    {
+      "path": "ClassLibrary1/bin/Release/UnityEngine.UI.dll",
+      "sha256": "5E7B0031F7F06F01F01512891C41FEF53E2C4EFB5C1919BB6F872BE05751434A",
+      "bytes": 251392
+    },
+    {
+      "path": "ClassLibrary1/bin/Release/UnityEngine.UIModule.dll",
+      "sha256": "101B232C26BDBBE887B1D15108389BA473FA09891C925F4C7C31D3A40C51DFEF",
+      "bytes": 35008
+    },
+    {
+      "path": "ClassLibrary1/Combat/Patch_Pawn_PreApplyDamage_RangeDodge.cs",
+      "sha256": "D523DF15AA8D6FD6DDDEA5FD790A3DAF8BEB589BA4A4ECA4622C37A32AD21D6F",
+      "bytes": 1420
+    },
+    {
+      "path": "ClassLibrary1/Hediff/Comp_EquippedHediff.cs",
+      "sha256": "6F84956F3E31A200B03E2E2E4E89E1F5A70800FB2CD0EA874A756ED42ED7EE00",
+      "bytes": 3139
+    },
+    {
+      "path": "ClassLibrary1/Hediff/Comp_SetPiece.cs",
+      "sha256": "8E12F739399BFF8C7295837AAC4CE1058E4ADEDCD724C216F4D777C33728F520",
+      "bytes": 3171
+    },
+    {
+      "path": "ClassLibrary1/obj/Debug/.NETFramework,Version=v4.7.2.AssemblyAttributes.cs",
+      "sha256": "621199557E90FB1661E401CC9A973163C850B4B7E65BBC8D100F67F6699EEF70",
+      "bytes": 214
+    },
+    {
+      "path": "ClassLibrary1/obj/Debug/ClassLibrary1.csproj.FileListAbsolute.txt",
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "bytes": 0
+    },
+    {
+      "path": "ClassLibrary1/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache",
+      "sha256": "52228C74BFEF55D31D17D373415BB0A485ABE3D7111C60D806583290FEC4ACF5",
+      "bytes": 2661
+    },
+    {
+      "path": "ClassLibrary1/obj/Release/.NETFramework,Version=v4.7.2.AssemblyAttributes.cs",
+      "sha256": "621199557E90FB1661E401CC9A973163C850B4B7E65BBC8D100F67F6699EEF70",
+      "bytes": 214
+    },
+    {
+      "path": "ClassLibrary1/obj/Release/ClassLibrary1.csproj.AssemblyReference.cache",
+      "sha256": "FC9ED7CAC31F08E37968260DCA1B7D834557B35E38E9257D11F235BD5EDE3FF7",
+      "bytes": 24718
+    },
+    {
+      "path": "ClassLibrary1/obj/Release/ClassLibrary1.csproj.CoreCompileInputs.cache",
+      "sha256": "086CFC6F48490631A4106AF094C7E70F77FD8660614E9E282BE67945710869CF",
+      "bytes": 66
+    },
+    {
+      "path": "ClassLibrary1/obj/Release/ClassLibrary1.csproj.FileListAbsolute.txt",
+      "sha256": "605CD51021DA5B503925EC36938DFA84283129ECD16D32175213E8FBADB2020A",
+      "bytes": 826
+    },
+    {
+      "path": "ClassLibrary1/obj/Release/ClassLibrary1.dll",
+      "sha256": "74E4B8CFA194A75BC44AF01C248FE5DDDE9375EFBE6A3C18CB41E5FA58CBF85A",
+      "bytes": 124416
+    },
+    {
+      "path": "ClassLibrary1/obj/Release/ClassLibrary1.pdb",
+      "sha256": "69A83E351991B957E52BA7C5072F7B51100EA7BE1AD6E3ED5BE42A3CC4E5326C",
+      "bytes": 331264
+    },
+    {
+      "path": "ClassLibrary1/Properties/AssemblyInfo.cs",
+      "sha256": "2118EF1A8661D15C81774565B71ACA3E01B5358AC6D08E76612C703E015E8F6B",
+      "bytes": 1147
+    },
+    {
+      "path": "ClassLibrary1/SpecialCharacter/任务书.md",
+      "sha256": "5906F52E069ED9B70D785B6104EC71AB4C018C20E6EB38971B2A44681ADFAA37",
+      "bytes": 18548
+    },
+    {
+      "path": "ClassLibrary1/SpecialCharacter/实现与验证.md",
+      "sha256": "7B8D189C87AB26B25031B6E4AFEACFB120FFCBDD24DC0BE7F280DD7868A46B0B",
+      "bytes": 26785
+    },
+    {
+      "path": "ClassLibrary1/SpecialCharacter/新人物_五桠果_苍月草.md",
+      "sha256": "5BC32574B362D6F5359EA8F7E9FC5FBD46C36B7EE94CDC2AE5A953F90D3974F1",
+      "bytes": 4519
+    },
+    {
+      "path": "ClassLibrary1/SpecialCharacter/Dialog_SpecialCharacters.cs",
+      "sha256": "D241C46583AC3A7EC2D300D7CFC62B73A08A672A646EB71B0766C1FC451300A5",
+      "bytes": 12185
+    },
+    {
+      "path": "ClassLibrary1/SpecialCharacter/DispatchLifecycle.cs",
+      "sha256": "993433BA1DD921B3E0B779EB4DEDDA73FCE0DB3065AB59F36656D0583C9C96BC",
+      "bytes": 1347
+    },
+    {
+      "path": "ClassLibrary1/SpecialCharacter/HuoYanLan.md",
+      "sha256": "825CBAB684FBF29DC7409CFF54CFDC7555AE72FDD1449C473E09868E8ED12897",
+      "bytes": 2868
+    },
+    {
+      "path": "ClassLibrary1/SpecialCharacter/pawnslots_提取核对.md",
+      "sha256": "9E0395C6E34B8B4D5F575E975B63502517F5F50E9E365F9030170892ABA73328",
+      "bytes": 12979
+    },
+    {
+      "path": "ClassLibrary1/SpecialCharacter/pawnslots_五桠果_苍月草.txt",
+      "sha256": "91C3F2C54BF70430FB4277D1C1556B022CAB1B0C480D1F7A1AF7639B2D99E4E2",
+      "bytes": 7009
+    },
+    {
+      "path": "ClassLibrary1/SpecialCharacter/pawnslots_HuoYanLan.txt",
+      "sha256": "73F8EBCAC6F85C5882AEBC4B01DAF9EFFC5A290902F30E0E95B4ACA538FA3742",
+      "bytes": 3218
+    },
+    {
+      "path": "ClassLibrary1/SpecialCharacter/pawnslots_ShanHeYe.txt",
+      "sha256": "1DB73B563BDD43224C2EF88BAC65B80C7451998D69BBCDE5EA0742A7BF045234",
+      "bytes": 3207
+    },
+    {
+      "path": "ClassLibrary1/SpecialCharacter/ShanHeYe.md",
+      "sha256": "29470E1764E42C78EB74F687F3FF011648DFF80E81F7106672CECA78B8D6A5B0",
+      "bytes": 3690
+    },
+    {
+      "path": "ClassLibrary1/SpecialCharacter/SpecialCharacterDef.cs",
+      "sha256": "AA480F029449B5F6B7394FDC447C4C510E535082F57B4F8FECB15FF3FBFBD267",
+      "bytes": 3913
+    },
+    {
+      "path": "ClassLibrary1/SpecialCharacter/SpecialCharacterFacialAnimation.cs",
+      "sha256": "0287EACF134771C27C4621FEDAB919EF521D8DB881CE9571E7DCDB83C23D4473",
+      "bytes": 2658
+    },
+    {
+      "path": "ClassLibrary1/SpecialCharacter/SpecialCharacterGenerator.cs",
+      "sha256": "C29B1F400882307EB7B1A7288CFC3584AB81B1A1E48E76AC7D72AE46C0855427",
+      "bytes": 10617
+    },
+    {
+      "path": "ClassLibrary1/SpecialCharacter/SpecialCharacterPod.cs",
+      "sha256": "46EDEA3DA65FCCBB95414D1A294FC0DF02FD2F69B0D6D7F6315AC3450C430D1D",
+      "bytes": 729
+    },
+    {
+      "path": "ClassLibrary1/SpecialCharacter/WorldComponent_SpecialCharacters.cs",
+      "sha256": "DEF2B0B14642FEF255378E5E34AA035CB3801067FC43F257823EC5891BD6E1DA",
+      "bytes": 16592
+    },
+    {
+      "path": "ClassLibrary1/Weapon/Weapon_DeliveryBox_DisplayPatches.cs",
+      "sha256": "73B4915B492020D3334DDEC9F3DC0926B0F2852D66311EE6D640E692A54599F1",
+      "bytes": 1386
+    },
+    {
+      "path": "ClassLibrary1/Weapon/Weapon_DeliveryBox_EffectPatches.cs",
+      "sha256": "2726AA23F21E85F5A9460014C16EEA73F01F14AA21DB0A6FB3F422104DFDFC57",
+      "bytes": 5780
+    },
+    {
+      "path": "ClassLibrary1/Weapon/Weapon_DeliveryBox.cs",
+      "sha256": "DA51EB326D043439A6043E809E6FF0A96F4A2A0F00D5DB49394DBEE6B4B99D0E",
+      "bytes": 29258
+    },
+    {
+      "path": "ClassLibrary1/Weapon/BowOfDeath/CompEquippable_DeathBow.cs",
+      "sha256": "6213A561F503FC41C404B52E39E02B389ABF4E30F22E8281D7E659F603551354",
+      "bytes": 22804
+    },
+    {
+      "path": "ClassLibrary1/Weapon/BowOfDeath/DeathBowAimDrawOffsetPatch.cs",
+      "sha256": "9934DCF4577AE0EA18BEB01A916E744D6C5C8DC4E0A9D5D5DD98BD17FC07D2C8",
+      "bytes": 1227
+    },
+    {
+      "path": "ClassLibrary1/Weapon/BowOfDeath/DeathBowDefOf.cs",
+      "sha256": "6C42988754EAC42BA3A3A5641278EEC60A5161E178B813C0924D6A5935EAE25D",
+      "bytes": 1167
+    },
+    {
+      "path": "ClassLibrary1/Weapon/BowOfDeath/DeathBowStatPatches.cs",
+      "sha256": "CC85EEC7666D7A469B5C9698E9C9F424F01ACC47A6B57AA3B644F310FEABB6F6",
+      "bytes": 1616
+    },
+    {
+      "path": "ClassLibrary1/Weapon/BowOfDeath/Mote_DeathBowAimVfx.cs",
+      "sha256": "BA643234C053A7E33386B35ECD926BC1CA1111FCBA4B64C269EEF8A00D9CD331",
+      "bytes": 12622
+    },
+    {
+      "path": "ClassLibrary1/Weapon/BowOfDeath/Projectile_DeathBowArrow.cs",
+      "sha256": "A4D63196877CA7F3B062599EC827A0F476DCAF2C445F55A3CCAFE2BA94E9F622",
+      "bytes": 1010
+    },
+    {
+      "path": "ClassLibrary1/Weapon/BowOfDeath/Properties_DeathBow.cs",
+      "sha256": "2CA398000FF20F2AFF83E5C144915A87D30583890C09239D57FF64B6ECD10C76",
+      "bytes": 4342
+    },
+    {
+      "path": "ClassLibrary1/Weapon/BowOfDeath/Thing_DeathBow.cs",
+      "sha256": "EE487DFEC312A6F16E2CF2D8D8AD7213D66B0F31325AEC30FF0E08CF6EA7AFE9",
+      "bytes": 4673
+    },
+    {
+      "path": "ClassLibrary1/Weapon/BowOfDeath/Verb_DeathBowShot.cs",
+      "sha256": "94295EB33A0308556B54986AAA392B5FCB7D4113294F95ADA606B81EB6FEF2DC",
+      "bytes": 2368
+    },
+    {
+      "path": "WeaponAbility/Ability_Shin.cs",
+      "sha256": "CAE3894EE30CFF8F34D8056197E7525B982F88E52578024295A52C1A77AA0125",
+      "bytes": 5444
+    },
+    {
+      "path": "WeaponAbility/BoxAbility.cs",
+      "sha256": "CF00E3A33B84DAA19FFBCA8A82F49E4288B7CF1B90E43C1CE6FBAFF8A3126681",
+      "bytes": 247
+    },
+    {
+      "path": "WeaponAbility/Hediff_Shin.cs",
+      "sha256": "2184ECA5ECE08E6D9B3F1824059B9E8F222ED0B738AF840C8B8D97ECEFED650A",
+      "bytes": 8770
+    },
+    {
+      "path": "WeaponAbility/Shin.xml",
+      "sha256": "DCE1ADFE1CB589DD42A4021769DEACF75B4723C1C8E05990083EDAE424731784",
+      "bytes": 10136
+    },
+    {
+      "path": "Verification/六协会与Cinq自测记录.md",
+      "sha256": "8D7C6C9A038192693ADCA090F061D6C95FCFDCA851021057D77CFF5956994F9B",
+      "bytes": 6934
+    },
+    {
+      "path": "Verification/baseline-results.txt",
+      "sha256": "F8370B25ADC8F9D10BC5E2F9F1E3E3954D913093AA4E939A0AB7B423356EBDDB",
+      "bytes": 301
+    },
+    {
+      "path": "Verification/LiuAuraCinqSimulation.cs",
+      "sha256": "23A0DE7C639F07049C280B53600C7FE6CFD9DDAD5FE1158B0F13C5445D02B8A2",
+      "bytes": 25778
+    },
+    {
+      "path": "Verification/Run-LiuAuraCinqSimulation.ps1",
+      "sha256": "ACDABC947356E3792CEED567FEFE6CE00B506CF47A273FC33E26D6B5E97E7E83",
+      "bytes": 1033
+    },
+    {
+      "path": "Verification/Run-SpecialCharacterVerification.ps1",
+      "sha256": "2F1A794F7DCA539125E348CCE79F4FBAF33893C70BB8E18437478222223D15C5",
+      "bytes": 9917
+    },
+    {
+      "path": "Verification/simulation-results.txt",
+      "sha256": "C5468DD7CE4783BDC828062EB1B5C2014ED418DC5EB53E1A845C5AA800737DD8",
+      "bytes": 1908
+    },
+    {
+      "path": "Verification/SpecialCharacter-CoreDefEvidence.json",
+      "sha256": "AE991581B321438700FC23D1E25B4939E80A1685FCEC5C0435F5CD308AB841C8",
+      "bytes": 3687
+    },
+    {
+      "path": "Verification/SpecialCharacterVerification.cs",
+      "sha256": "D1679F937446E9EBAFB41F1BE13AFF6F543B68884D3C8520A9A783CAE35E8D65",
+      "bytes": 30220
+    },
+    {
+      "path": "Verification/Verify-NewSpecialCharacters.ps1",
+      "sha256": "6EDC72D7BFFA68AA982D46CF4D0A0DA484CD135BBF4B8C7BFD87B255F90E821C",
+      "bytes": 7254
+    },
+    {
+      "path": "Verification/bin/LiuAuraCinqSimulation.exe",
+      "sha256": "F91A0588B4219CD72237F41212A9E3EEEF8049096925DB0D46F4AC31845F3E7F",
+      "bytes": 30720
+    },
+    {
+      "path": "Verification/bin/SpecialCharacter-arrived.xml",
+      "sha256": "B2C71FE788DB8C50E50F229A81E513D95952DCEA4040459C8E777E416A0D52AE",
+      "bytes": 288
+    },
+    {
+      "path": "Verification/bin/SpecialCharacter-def-references.tsv",
+      "sha256": "F1233F4C60B63765171F8431DBD224D9CAA079CDECB746CD0B74A874F2A7483B",
+      "bytes": 1666
+    },
+    {
+      "path": "Verification/bin/SpecialCharacter-failed.xml",
+      "sha256": "45D92EBC18F3A523A0E23810E1A9D55873D3BDE80A6810E06157094D22802624",
+      "bytes": 288
+    },
+    {
+      "path": "Verification/bin/SpecialCharacter-inflight.xml",
+      "sha256": "4A78983B4F1958433DED7915D8ACCEB76674CACDAE7CDB94BED33158E2EEB12D",
+      "bytes": 290
+    },
+    {
+      "path": "Verification/bin/SpecialCharacter-waiting.xml",
+      "sha256": "B519F80DF3AD7C0137FAAABFE68C3B63BA9F122073B4253C74508E9DAFFB4A9A",
+      "bytes": 289
+    },
+    {
+      "path": "Verification/bin/SpecialCharacterVerification.exe",
+      "sha256": "C694F3A8075CD79D6289086A9E99D06C05E54436F84031DEC1157188254B95F3",
+      "bytes": 28672
+    },
+    {
+      "path": "Verification/bin/SpecialCharacterVerification.runtimeconfig.json",
+      "sha256": "BA8B8E7A8B72C9A473BB32D457F387EBD6EC24243BF91DAF9A17B99657BB2360",
+      "bytes": 149
+    },
+    {
+      "path": "Verification/bin/Appearance/AlienRace.dll",
+      "sha256": "9B5DC05932E9DFAA963C2FA5253127E050B074686468E03C145831DCF2D7F626",
+      "bytes": 420864
+    },
+    {
+      "path": "Verification/bin/Appearance/AlienRace.pdb",
+      "sha256": "5C6EF17FFAAF415FA3B3335A88C0E1FC41A98744253E55757360C3FFFA5CC622",
+      "bytes": 93736
+    },
+    {
+      "path": "Verification/bin/Appearance/Assembly-CSharp-firstpass.dll",
+      "sha256": "57EDFA421EFA3DE8C7DF4D4DBB5085E9A53E4A240E6584E22AF549D2246A2002",
+      "bytes": 80384
+    },
+    {
+      "path": "Verification/bin/Appearance/Assembly-CSharp.dll",
+      "sha256": "5CF1B5BE399D5B1C9C56CA72C9D35B4ECF307FEACF5859D04AC5A1AA5926356A",
+      "bytes": 15777280
+    },
+    {
+      "path": "Verification/bin/Appearance/ClassLibrary1.dll",
+      "sha256": "5410DC88BADE4038F5C323B34530D7884D44838EE6810A8DB2C9FAE4A79CDE18",
+      "bytes": 123392
+    },
+    {
+      "path": "Verification/bin/Appearance/ClassLibrary1.pdb",
+      "sha256": "0ED1011F5350A46676EE9F260931DC7242A09C6448D5D12158A41C3F1A2692C6",
+      "bytes": 327168
+    },
+    {
+      "path": "Verification/bin/Appearance/com.rlabrecque.steamworks.net.dll",
+      "sha256": "2CB2EADF79F31510A2668C3A4FFE484C121238680600A141C2FBE6DAE8BEAB39",
+      "bytes": 396800
+    },
+    {
+      "path": "Verification/bin/Appearance/ISharpZipLib.dll",
+      "sha256": "C517EB6C2185942758325CBD6B0CEBA01C705CA0BF2C5827D81C0D008F2B5D1C",
+      "bytes": 54272
+    },
+    {
+      "path": "Verification/bin/Appearance/NAudio.dll",
+      "sha256": "0DF62F4E48776870EE22450D1735F00A69493D3C2C6DFB91CC4FEAB27150D6F1",
+      "bytes": 451072
+    },
+    {
+      "path": "Verification/bin/Appearance/NVorbis.dll",
+      "sha256": "255DE9AC2A2A4DD71306B82784DBD067EDBED5810564CCAEB2EA2F1994378339",
+      "bytes": 68096
+    },
+    {
+      "path": "Verification/bin/Appearance/SpecialCharacterAppearanceVerification.deps.json",
+      "sha256": "DCCEDC43335DBB9FC58F136812F2767D5FA4979E476756ABF13306C7ABA0EB39",
+      "bytes": 12379
+    },
+    {
+      "path": "Verification/bin/Appearance/SpecialCharacterAppearanceVerification.dll",
+      "sha256": "E7388570669563CF004472B4941BBDAE3EF654C027A5284FAA698996672128D6",
+      "bytes": 11776
+    },
+    {
+      "path": "Verification/bin/Appearance/SpecialCharacterAppearanceVerification.pdb",
+      "sha256": "E982C6068406B33F13FF2EBC1BC84B8AE16855F66B6C828D79FA14DB2B92DEC8",
+      "bytes": 11992
+    },
+    {
+      "path": "Verification/bin/Appearance/SpecialCharacterAppearanceVerification.runtimeconfig.json",
+      "sha256": "162D81F468BEC570EC15E527433F4DE5D5729FFE338AB79B22671F38760D34BD",
+      "bytes": 268
+    },
+    {
+      "path": "Verification/bin/Appearance/Unity.Burst.dll",
+      "sha256": "F94BB0E6F16200EB24FA32565D00EC741E30E4A15350E4A4ACDD1E437F5E6637",
+      "bytes": 301056
+    },
+    {
+      "path": "Verification/bin/Appearance/Unity.Burst.Unsafe.dll",
+      "sha256": "9D9C1FF52411DECBEE5D9F0D1CD61EBEAA222077AA77A52101EA3DEBAFAE98E2",
+      "bytes": 5632
+    },
+    {
+      "path": "Verification/bin/Appearance/Unity.Collections.dll",
+      "sha256": "DD3D7121936C8E20C1B41618C7FC3111657B79E9E11A6A4E94FB28AD555651BE",
+      "bytes": 452096
+    },
+    {
+      "path": "Verification/bin/Appearance/Unity.Collections.LowLevel.ILSupport.dll",
+      "sha256": "FF50383F807F9692E4913B97E47D86FEFCB8FAA33D6D48CD3E3FD6FC7FFB448D",
+      "bytes": 5120
+    },
+    {
+      "path": "Verification/bin/Appearance/Unity.Mathematics.dll",
+      "sha256": "E29EEF5D2C9D8356F97EEE214A7D6E1BFA9B1074BF66B53653E8B934222F86C3",
+      "bytes": 735232
+    },
+    {
+      "path": "Verification/bin/Appearance/Unity.TextMeshPro.dll",
+      "sha256": "6C4BCC51015DD19E2F7D0C372C94CC62F2023230CC6801668885150110840152",
+      "bytes": 379392
+    },
+    {
+      "path": "Verification/bin/Appearance/UnityEngine.AnimationModule.dll",
+      "sha256": "848E0EE48E17FD445BC46ADD54AB42A614F8C2019FD4504C3976F6F623A41616",
+      "bytes": 162496
+    },
+    {
+      "path": "Verification/bin/Appearance/UnityEngine.AssetBundleModule.dll",
+      "sha256": "4FE205393AAF9ED24F358DE9FD0F04B6C4C908AF5C231A0B89F6BB0BD66413B6",
+      "bytes": 31424
+    },
+    {
+      "path": "Verification/bin/Appearance/UnityEngine.AudioModule.dll",
+      "sha256": "ABC57AC9F40D0B5151C248726549F5470C338BBD03183D5146B61D486512B797",
+      "bytes": 69312
+    },
+    {
+      "path": "Verification/bin/Appearance/UnityEngine.CoreModule.dll",
+      "sha256": "C5C58EA254834291780A1D6C388C241443D07167B4A4B890A23C9494F626DDBA",
+      "bytes": 1386688
+    },
+    {
+      "path": "Verification/bin/Appearance/UnityEngine.ImageConversionModule.dll",
+      "sha256": "3D5BC897D8BEB44A0DE2F853995B9AFE5E5D2398B0D62DB72A3FF54F850F4840",
+      "bytes": 22720
+    },
+    {
+      "path": "Verification/bin/Appearance/UnityEngine.IMGUIModule.dll",
+      "sha256": "C6C39327211BE8299E2E9FFDEE7A979F228736C99B84FD54BC73F563456865D9",
+      "bytes": 188608
+    },
+    {
+      "path": "Verification/bin/Appearance/UnityEngine.InputLegacyModule.dll",
+      "sha256": "BE3F8C860D15E1B00611E454871B1E1E0041EFA843E9BAE4F77C227A59D10AC8",
+      "bytes": 37568
+    },
+    {
+      "path": "Verification/bin/Appearance/UnityEngine.PerformanceReportingModule.dll",
+      "sha256": "2E23F55AAC0459FA17A0653FBFA6D7A36EF48662E4A96B13AD391CFB309BD44C",
+      "bytes": 19136
+    },
+    {
+      "path": "Verification/bin/Appearance/UnityEngine.Physics2DModule.dll",
+      "sha256": "E098F7B20250E24B4FCBC4537D3BAB939FD408A0DCA0C0604E73CF6EAD35E9AD",
+      "bytes": 139968
+    },
+    {
+      "path": "Verification/bin/Appearance/UnityEngine.PhysicsModule.dll",
+      "sha256": "D2AE62A32DA71E77BF38C215024DF521BE284206641DA49DBEA24003F0E48FB5",
+      "bytes": 136896
+    },
+    {
+      "path": "Verification/bin/Appearance/UnityEngine.PropertiesModule.dll",
+      "sha256": "5F4D7FC1F30779464AD368D96E08B3930DC5D8FA3B47C8485F3F292F18C571AE",
+      "bytes": 153792
+    },
+    {
+      "path": "Verification/bin/Appearance/UnityEngine.ScreenCaptureModule.dll",
+      "sha256": "D03D9881419CEBCED07E8AC45E3AADBB866948670071FE95BED404B758274FF3",
+      "bytes": 19648
+    },
+    {
+      "path": "Verification/bin/Appearance/UnityEngine.SharedInternalsModule.dll",
+      "sha256": "D8E138ECD7913D250798129EEBEB33B6F8B2CC84CD500187AD0A8B18EF68F426",
+      "bytes": 31424
+    },
+    {
+      "path": "Verification/bin/Appearance/UnityEngine.SpriteShapeModule.dll",
+      "sha256": "5568208BB7BB9F9876B801E395DFAA1DB831DD785E98F8E7E3E23C4FC991AD64",
+      "bytes": 24768
+    },
+    {
+      "path": "Verification/bin/Appearance/UnityEngine.TextCoreFontEngineModule.dll",
+      "sha256": "C0FD2C118502B24B69B0F3114B66B2405EC495E216417CE76A451EE987D993D1",
+      "bytes": 70848
+    },
+    {
+      "path": "Verification/bin/Appearance/UnityEngine.TextCoreTextEngineModule.dll",
+      "sha256": "94B048606785E373D2DC570C4661D38F165276F2D5C75F3D0125FBE72C562B15",
+      "bytes": 247488
+    },
+    {
+      "path": "Verification/bin/Appearance/UnityEngine.TextRenderingModule.dll",
+      "sha256": "B63769AD71C7FC79034CF6C3A1EBFCF79D4591F0B1F5CD4A9823E6ED7B5816F8",
+      "bytes": 37568
+    },
+    {
+      "path": "Verification/bin/Appearance/UnityEngine.UI.dll",
+      "sha256": "5E7B0031F7F06F01F01512891C41FEF53E2C4EFB5C1919BB6F872BE05751434A",
+      "bytes": 251392
+    },
+    {
+      "path": "Verification/bin/Appearance/UnityEngine.UIModule.dll",
+      "sha256": "101B232C26BDBBE887B1D15108389BA473FA09891C925F4C7C31D3A40C51DFEF",
+      "bytes": 35008
+    },
+    {
+      "path": "Verification/obj/project.assets.json",
+      "sha256": "F6851EF81CD037B0AFA22E5E4FB75E428791600F1182421E80C6DFF515AD43C6",
+      "bytes": 2771
+    },
+    {
+      "path": "Verification/obj/project.nuget.cache",
+      "sha256": "4F73D5A0226F77C28D0E733781AE488A1C271757DC87AB4D2D64BF5AE28E057D",
+      "bytes": 302
+    },
+    {
+      "path": "Verification/obj/SpecialCharacterAppearanceVerification.csproj.nuget.dgspec.json",
+      "sha256": "E5F94051E0E3810FB7BA206D4F5FB60D6598EE816A43D3CDA5BBA4265BE0993D",
+      "bytes": 2978
+    },
+    {
+      "path": "Verification/obj/SpecialCharacterAppearanceVerification.csproj.nuget.g.props",
+      "sha256": "063AD93A2156B84AF891458D0CE37E43848EFF1D1E7BD80A32807D974E70F868",
+      "bytes": 1318
+    },
+    {
+      "path": "Verification/obj/SpecialCharacterAppearanceVerification.csproj.nuget.g.targets",
+      "sha256": "971CC9B535384849B5C661D776CD7A80833A416265E32E8968E06C367368B8B5",
+      "bytes": 150
+    },
+    {
+      "path": "Verification/obj/Debug/.NETCoreApp,Version=v8.0.AssemblyAttributes.cs",
+      "sha256": "F7A5D9789C863625E139FF99E1113A503830F6B85A88F6129916DF83AC76B49E",
+      "bytes": 198
+    },
+    {
+      "path": "Verification/obj/Debug/SpecialC.AE56D263.Up2Date",
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "bytes": 0
+    },
+    {
+      "path": "Verification/obj/Debug/SpecialCharacterAppearanceVerification.AssemblyInfo.cs",
+      "sha256": "FDB7CF396BA6ED572461ED19DC4C5BFD8BC69085DDE50E409486E7097A0E6776",
+      "bytes": 1047
+    },
+    {
+      "path": "Verification/obj/Debug/SpecialCharacterAppearanceVerification.AssemblyInfoInputs.cache",
+      "sha256": "2BDD8711562AC686DAEAB00AC782BD3EBBB08E7B881ED9C03E6B88A17A9E6A31",
+      "bytes": 66
+    },
+    {
+      "path": "Verification/obj/Debug/SpecialCharacterAppearanceVerification.assets.cache",
+      "sha256": "DD2FF2FBA78245BF5604184D00E478CA6B893487984DA471865035F7063EFACA",
+      "bytes": 236
+    },
+    {
+      "path": "Verification/obj/Debug/SpecialCharacterAppearanceVerification.csproj.AssemblyReference.cache",
+      "sha256": "171509D60592FA7B93C62781C805754F17CBCF2276F90A54B3DB1C3BDA70B0D0",
+      "bytes": 21673
+    },
+    {
+      "path": "Verification/obj/Debug/SpecialCharacterAppearanceVerification.csproj.CoreCompileInputs.cache",
+      "sha256": "1591973284152DAF0AA2CE34E98E8C0A1306209A889AE11015A4E59AF6F93F76",
+      "bytes": 66
+    },
+    {
+      "path": "Verification/obj/Debug/SpecialCharacterAppearanceVerification.csproj.FileListAbsolute.txt",
+      "sha256": "53B1F75E71155414CD81AE5A4B20F97F93C2B3E14B78881100B0AD49A4FD8385",
+      "bytes": 7712
+    },
+    {
+      "path": "Verification/obj/Debug/SpecialCharacterAppearanceVerification.dll",
+      "sha256": "E7388570669563CF004472B4941BBDAE3EF654C027A5284FAA698996672128D6",
+      "bytes": 11776
+    },
+    {
+      "path": "Verification/obj/Debug/SpecialCharacterAppearanceVerification.GeneratedMSBuildEditorConfig.editorconfig",
+      "sha256": "7FF657C003BF8C9AA629B11AF54B5B74464B987CAB95701D542B1D583AD6A8C7",
+      "bytes": 913
+    },
+    {
+      "path": "Verification/obj/Debug/SpecialCharacterAppearanceVerification.genruntimeconfig.cache",
+      "sha256": "C0899DCA8215D81A7D56CF43F672B041BC0BB81CE03E0A752CB543DB238F2FE1",
+      "bytes": 66
+    },
+    {
+      "path": "Verification/obj/Debug/SpecialCharacterAppearanceVerification.pdb",
+      "sha256": "E982C6068406B33F13FF2EBC1BC84B8AE16855F66B6C828D79FA14DB2B92DEC8",
+      "bytes": 11992
+    },
+    {
+      "path": "Verification/obj/Debug/ref/SpecialCharacterAppearanceVerification.dll",
+      "sha256": "9E3E5043B80F1166EFAA9A456CD2BD1F001E8C4246DDD85FF27A2E16CAB00F30",
+      "bytes": 6144
+    },
+    {
+      "path": "Verification/obj/Debug/refint/SpecialCharacterAppearanceVerification.dll",
+      "sha256": "9E3E5043B80F1166EFAA9A456CD2BD1F001E8C4246DDD85FF27A2E16CAB00F30",
+      "bytes": 6144
+    }
+  ],
+  "unity": [
+    {
+      "path": "Assets/Data.meta",
+      "sha256": "C6CCEB2F5861FB25889C62A4E4DEA7C4AB5AD17823ADF6769CA6BF9873F554C5",
+      "bytes": 172
+    },
+    {
+      "path": "Assets/Editor.meta",
+      "sha256": "BDA669B2D8C2F87B1FBB3312501FEC33F58E04B3A830DEEF12B79C333F83D7D2",
+      "bytes": 172
+    },
+    {
+      "path": "Assets/Data/Trk.Nine.meta",
+      "sha256": "17FCBAC4F48BDBD4E9C373535C7A606D4E4573EE6817B188B3384DA99B2EED7F",
+      "bytes": 172
+    },
+    {
+      "path": "Assets/Data/Trk.Nine/Materials.meta",
+      "sha256": "F8407648798496FCD094778AE0A399A9616924B8216870B3FB9312A5F6F1464B",
+      "bytes": 172
+    },
+    {
+      "path": "Assets/Data/Trk.Nine/Materials/Trk.meta",
+      "sha256": "5D6A81EFD4991EF663D60B99C4208746F27767E45299906BF59B403F7A1F93C4",
+      "bytes": 172
+    },
+    {
+      "path": "Assets/Data/Trk.Nine/Materials/Trk/BowOfDeathAimBase.shader",
+      "sha256": "9A7FF8DCF64C631B0E9DBCB830E09C094994C308448D06C9EFAEDF3D459117C2",
+      "bytes": 6000
+    },
+    {
+      "path": "Assets/Data/Trk.Nine/Materials/Trk/BowOfDeathAimBase.shader.meta",
+      "sha256": "E770F104324DD8278EB850461C2E9EBB02F067780BB5278E5EE0A1F45F01A8BA",
+      "bytes": 204
+    },
+    {
+      "path": "Assets/Data/Trk.Nine/Materials/Trk/BowOfDeathAimCharge.shader",
+      "sha256": "EF70914407155F3EA526A609C5F0ECD751D2F7188C76C44773FDFF2F03580A70",
+      "bytes": 7555
+    },
+    {
+      "path": "Assets/Data/Trk.Nine/Materials/Trk/BowOfDeathAimCharge.shader.meta",
+      "sha256": "070CC8D39BEC63EB12FF1A955DE7B66885F1521479EDD4F5F4A99EFADC81127D",
+      "bytes": 222
+    },
+    {
+      "path": "Assets/Data/Trk.Nine/Materials/Trk/BowOfDeathAimStreak.shader",
+      "sha256": "03CFB4212FA15B6A598FD9F9767746C6E39260C0A4B0F6A78BF66A9EBC439713",
+      "bytes": 2068
+    },
+    {
+      "path": "Assets/Data/Trk.Nine/Materials/Trk/BowOfDeathAimStreak.shader.meta",
+      "sha256": "6F901E00A6F43B860DB5B46DE3F8DF5D3C365C8067F8F0D2B70E4F7F88AE8E4A",
+      "bytes": 204
+    },
+    {
+      "path": "Assets/Data/Trk.Nine/Materials/Trk/BowOfDeathAimWind.shader",
+      "sha256": "C9C0BD1DDC24754DD20146A019254110B9D9C74B07CD5A6AD679B3FB5D401399",
+      "bytes": 8144
+    },
+    {
+      "path": "Assets/Data/Trk.Nine/Materials/Trk/BowOfDeathAimWind.shader.meta",
+      "sha256": "4F4767D1FEA70F74F606E7861D6B348FFC0D759EE00AAD3D0C68430B89F7B20D",
+      "bytes": 222
+    },
+    {
+      "path": "Assets/Editor/BowOfDeathBundleBuilder.cs",
+      "sha256": "2E4B728A272EEDFE9B187CE1F8EEC89F668304CDB023DFD00F48EDC68FB45097",
+      "bytes": 6450
+    },
+    {
+      "path": "Assets/Editor/BowOfDeathBundleBuilder.cs.meta",
+      "sha256": "F0E9EBF0A9E05A1D92E493A5BFF88DEF3CE1F26C9BBFC99C6C7B7F6E1C80841D",
+      "bytes": 243
+    },
+    {
+      "path": "Assets/Editor/BowOfDeathPreviewWindow.cs",
+      "sha256": "3F20E392688DBA218B10D6558C0D9FD85EF5E80BE2D7985835528AD2C32D1B21",
+      "bytes": 32451
+    },
+    {
+      "path": "Assets/Editor/BowOfDeathPreviewWindow.cs.meta",
+      "sha256": "AF461E916C6D98F7DF30223DF1A43D492EA7579C2B2CD165753B56EE37CC595F",
+      "bytes": 243
+    },
+    {
+      "path": "Assets/Editor/BowOfDeathVerification.cs",
+      "sha256": "997F95671AC9B359A510931E35113B3D5E3A9EF852858D36E283A13BDEE53379",
+      "bytes": 51958
+    },
+    {
+      "path": "Assets/Editor/BowOfDeathVerification.cs.meta",
+      "sha256": "56F2BFF57C2D86F4AA9F9C23D4940519B1A0895DFEE85E2321197946DCE766B6",
+      "bytes": 243
+    },
+    {
+      "path": "Packages/manifest.json",
+      "sha256": "AEA97162640997C89CD378F227146A2E9308C3B09523FD7097F84D7D83F198B9",
+      "bytes": 73
+    },
+    {
+      "path": "Packages/packages-lock.json",
+      "sha256": "79A19A351A7696C281037ACD18768E4F1F58B27E57AAEDB60D1B1501A63BC76C",
+      "bytes": 169
+    },
+    {
+      "path": "ProjectSettings/AudioManager.asset",
+      "sha256": "9A554916FE138EBCAD8443EE9B079363ECC72795C39D0E80F5F7CA99E2C6F5E7",
+      "bytes": 443
+    },
+    {
+      "path": "ProjectSettings/ClusterInputManager.asset",
+      "sha256": "40E65DD214BF254955D2C8829CA8CE2130FD3510485560CE012E9A1DDD93E623",
+      "bytes": 114
+    },
+    {
+      "path": "ProjectSettings/DynamicsManager.asset",
+      "sha256": "62FD35DA36080A098D3E9F90CF4AF6C655FE582091C33E505B812CF9AA36FEE1",
+      "bytes": 1394
+    },
+    {
+      "path": "ProjectSettings/EditorBuildSettings.asset",
+      "sha256": "1942C088DDFEEEF348FDF12390E2A2D6DA51056E197458D67969D44E7B2CBBD3",
+      "bytes": 160
+    },
+    {
+      "path": "ProjectSettings/EditorSettings.asset",
+      "sha256": "6F8761B516F06FF2F0373B6310571CF7951F63AFB86C56BFD7BE832E06A9987B",
+      "bytes": 1502
+    },
+    {
+      "path": "ProjectSettings/GraphicsSettings.asset",
+      "sha256": "96FBEC3A726513347293FB201477836277ADE290A0BD7BD473CEA90FFE896820",
+      "bytes": 2392
+    },
+    {
+      "path": "ProjectSettings/InputManager.asset",
+      "sha256": "D0F454DDB880912ABCAE92E3E12957A7446786BA89E24937E019FF3BBC0D4300",
+      "bytes": 5816
+    },
+    {
+      "path": "ProjectSettings/MemorySettings.asset",
+      "sha256": "1E8379A461B10AE09F3F696911088C16875D63E87ED5F2D95DF9E1892703F9FD",
+      "bytes": 1192
+    },
+    {
+      "path": "ProjectSettings/NavMeshAreas.asset",
+      "sha256": "7EBBF8F53B8033104E1878B95CA07A28D0954092D81C220F14196A42F651E658",
+      "bytes": 1361
+    },
+    {
+      "path": "ProjectSettings/PackageManagerSettings.asset",
+      "sha256": "C4A6D0B1616D3C38D6AA850B30CA67F963EF774AB7A1CCAF0A767320F7544C6A",
+      "bytes": 952
+    },
+    {
+      "path": "ProjectSettings/Physics2DSettings.asset",
+      "sha256": "531861618163B01648A075414F6E864506AD8FE0A0D4D0096AA1FBBFCD3937DC",
+      "bytes": 1635
+    },
+    {
+      "path": "ProjectSettings/PresetManager.asset",
+      "sha256": "29C125923FE6E29F90190D4FCE1C82D660E7051546E2C9D02908D18C9CF2436C",
+      "bytes": 146
+    },
+    {
+      "path": "ProjectSettings/ProjectSettings.asset",
+      "sha256": "AC2641B465E9E0252B265285021F1B5AF2EF146AACC92C36C98B395C2C66C01A",
+      "bytes": 19417
+    },
+    {
+      "path": "ProjectSettings/ProjectVersion.txt",
+      "sha256": "3C7D1C1DA72CAE728E44D5F19414EAB2AD684CA44B3DB1F2DF4B21417CB6B819",
+      "bytes": 85
+    },
+    {
+      "path": "ProjectSettings/QualitySettings.asset",
+      "sha256": "944B52D523BCB15B945BC80924B9289F59185AB19BCE8A00E99EEC345BDE6440",
+      "bytes": 9183
+    },
+    {
+      "path": "ProjectSettings/TagManager.asset",
+      "sha256": "8E18B1C820E9C09E16BBD1F1B7842E9FB3B0158A0921B0964E0B8FA12C6E2C01",
+      "bytes": 378
+    },
+    {
+      "path": "ProjectSettings/TimeManager.asset",
+      "sha256": "1A83E54ADBBDA7C9F4851103A0C6AB7F6448A3343D4EA5B7620452FA08416ECD",
+      "bytes": 202
+    },
+    {
+      "path": "ProjectSettings/UnityConnectSettings.asset",
+      "sha256": "D6034ACBEF6C9E3179866486C31EAB81FCBE5E7ED350CE71E0FA2B1449B77109",
+      "bytes": 943
+    },
+    {
+      "path": "ProjectSettings/VersionControlSettings.asset",
+      "sha256": "E7BDA45BF7A394745FEE1316E6C71FA676004D591AD1F3AA247FD3E4CEB86071",
+      "bytes": 188
+    },
+    {
+      "path": "ProjectSettings/VFXManager.asset",
+      "sha256": "3F31266C7C1910447586E71B041DABD58D8371715AC3142D3E38ACE46121F4AB",
+      "bytes": 465
+    }
+  ]
+}

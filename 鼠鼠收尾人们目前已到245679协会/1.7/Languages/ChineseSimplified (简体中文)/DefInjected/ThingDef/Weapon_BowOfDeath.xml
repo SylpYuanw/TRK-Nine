@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <Bow_of_Death.label>四协会——死之弓</Bow_of_Death.label>
+  <Bow_of_Death.description>四协会使用的弓刀。弓臂本身可作利器劈砍，拉动弓弦后能射出死之箭。\n拉动弓弦需要消耗死之箭，箭矢用尽时只能近身作战。</Bow_of_Death.description>
+  <Bow_of_Death.tools.0.label>弓臂</Bow_of_Death.tools.0.label>
+  <Bow_of_Death.verbs.0.label>闪弓</Bow_of_Death.verbs.0.label>
+  <Bow_of_Death.comps.4.stages.0.description>一阶蓄力：伤害 24，护甲穿透 34%，瞄准时间 4 秒，精度加成 +4%。</Bow_of_Death.comps.4.stages.0.description>
+  <Bow_of_Death.comps.4.stages.1.description>二阶蓄力：伤害 34，护甲穿透 47.6%，瞄准时间 5.4 秒，精度加成 +8%。</Bow_of_Death.comps.4.stages.1.description>
+  <Bow_of_Death.comps.4.stages.2.description>三阶蓄力：伤害 47，护甲穿透 66.64%，瞄准时间 6.8 秒，精度加成 +12%。</Bow_of_Death.comps.4.stages.2.description>
+  <Bow_of_Death.comps.4.stages.3.description>四阶蓄力：伤害 66，护甲穿透 93.3%，瞄准时间 8.2 秒，精度加成 +16%。</Bow_of_Death.comps.4.stages.3.description>
+</LanguageData>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+  <!-- 取出箭矢:按原版豪猪棘刺的方式,把手术配方挂到种族 Def 的 recipes 列表。
+       人类与动物各自的父定义在此追加,子种族经定义继承后同样获得该手术。 -->
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/ThingDef[defName="Human"]/recipes</xpath>
+    <value>
+      <li>RemoveBowOfDeathArrow</li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/ThingDef[@Name="AnimalThingBase"]/recipes</xpath>
+    <value>
+      <li>RemoveBowOfDeathArrow</li>
+    </value>
+  </Operation>
+</Patch>

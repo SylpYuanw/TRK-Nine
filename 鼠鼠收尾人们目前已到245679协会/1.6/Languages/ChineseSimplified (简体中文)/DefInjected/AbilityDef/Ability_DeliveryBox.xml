@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <RK_DeliveryBox_HighPower.label>派送箱-高功率模式</RK_DeliveryBox_HighPower.label>
+  <RK_DeliveryBox_HighPower.description>激活派送箱的高功率模式，持续 12 小时。\n持续期间：免疫受击硬直并大幅提升移动速度\n激活时：获得 20 点护盾，5 点/秒回复\n运行至 3 小时：护盾提升至 40 点，10 点/秒回复\n运行至 9 小时：开始受到化学灼伤\n运行至 12 小时：&lt;color=#FF1A1A&gt;派送箱会击杀持有者，直接死亡&lt;/color&gt;\n可在期间随时关闭，关闭后进入 24 小时冷却。</RK_DeliveryBox_HighPower.description>
+  <RK_DeliveryBox_HighPower_Off.label>关闭高功率模式</RK_DeliveryBox_HighPower_Off.label>
+  <RK_DeliveryBox_HighPower_Off.description>结束高功率模式，并让进入 24 小时冷却。</RK_DeliveryBox_HighPower_Off.description>
+</LanguageData>

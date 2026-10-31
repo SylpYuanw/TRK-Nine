@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <RK_Cinq_DuelDeclaration.label>决斗宣告</RK_Cinq_DuelDeclaration.label>
+  <RK_Cinq_DuelDeclaration.description>手套划过空气，宣告一场只属于两人的较量。\n意识提高15%，心情提高15；每次成功完成近战攻击获得 1 层决斗节奏，每层使近战冷却降低10%，最多 4 层。</RK_Cinq_DuelDeclaration.description>
+</LanguageData>

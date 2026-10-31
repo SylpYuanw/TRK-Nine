@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- 死之箭:补充"闪弓"次数的弹药,在机械加工台或锻造台用钢铁制作。 -->
+  <ThingDef ParentName="ResourceBase">
+    <defName>Bow_of_Death_Arrow</defName>
+    <label>Arrow of Death</label>
+    <description>Arrows prepared by the Si Association for the Bow of Death. Loading one into the Bow of Death grants one Bow's Glimmer shot.</description>
+    <graphicData>
+      <texPath>Item/Bow_of_Death_Arrow</texPath>
+      <!-- 堆叠显示:texPath 指向只含该物品贴图的文件夹,文件夹内按文件名排序取 _a/_b/_c 三张;
+           原版 Graphic_StackCount 的取图语义为"堆叠 1 取 a、堆叠达到 stackLimit 取 c、其余取 b"。 -->
+      <graphicClass>Graphic_StackCount</graphicClass>
+      <drawSize>(2,2)</drawSize>
+    </graphicData>
+    <!-- UI 图标固定用单支贴图:原版 Widgets.GetIconFor 对堆叠物品按当前 stackCount 取图,会显示"两支"贴图。 -->
+    <uiIconPath>Item/Bow_of_Death_Arrow/Bow_of_Death_Arrow_a</uiIconPath>
+    <altitudeLayer>Item</altitudeLayer>
+    <alwaysHaulable>true</alwaysHaulable>
+    <category>Item</category>
+    <comps>
+      <li Class="CompProperties_Forbiddable" />
+    </comps>
+    <drawGUIOverlay>true</drawGUIOverlay>
+    <drawerType>MapMeshOnly</drawerType>
+    <pathCost>14</pathCost>
+    <rotatable>false</rotatable>
+    <selectable>true</selectable>
+    <stackLimit>75</stackLimit>
+    <orderedTakeGroup>BowOfDeath_ArrowTakeGroup</orderedTakeGroup>
+    <statBases>
+      <Mass>0.3</Mass>
+      <MarketValue>47</MarketValue>
+    </statBases>
+    <thingCategories>
+      <li>Manufactured</li>
+    </thingCategories>
+    <thingClass>ThingWithComps</thingClass>
+    <useHitPoints>false</useHitPoints>
+  </ThingDef>
+</Defs>

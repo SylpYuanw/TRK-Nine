@@ -1,0 +1,12 @@
+C:\Users\Administrator\Desktop\鼠鼠收尾人们目前已到245679协会\迁移记录\ShaderBridgeCompile\bin\Release\net10.0\ShaderBridgeCompile.deps.json
+C:\Users\Administrator\Desktop\鼠鼠收尾人们目前已到245679协会\迁移记录\ShaderBridgeCompile\bin\Release\net10.0\ShaderBridgeCompile.dll
+C:\Users\Administrator\Desktop\鼠鼠收尾人们目前已到245679协会\迁移记录\ShaderBridgeCompile\bin\Release\net10.0\ShaderBridgeCompile.pdb
+C:\Users\Administrator\Desktop\鼠鼠收尾人们目前已到245679协会\迁移记录\ShaderBridgeCompile\obj\Release\net10.0\ShaderBridgeCompile.csproj.AssemblyReference.cache
+C:\Users\Administrator\Desktop\鼠鼠收尾人们目前已到245679协会\迁移记录\ShaderBridgeCompile\obj\Release\net10.0\ShaderBridgeCompile.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Administrator\Desktop\鼠鼠收尾人们目前已到245679协会\迁移记录\ShaderBridgeCompile\obj\Release\net10.0\ShaderBridgeCompile.AssemblyInfoInputs.cache
+C:\Users\Administrator\Desktop\鼠鼠收尾人们目前已到245679协会\迁移记录\ShaderBridgeCompile\obj\Release\net10.0\ShaderBridgeCompile.AssemblyInfo.cs
+C:\Users\Administrator\Desktop\鼠鼠收尾人们目前已到245679协会\迁移记录\ShaderBridgeCompile\obj\Release\net10.0\ShaderBridgeCompile.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\鼠鼠收尾人们目前已到245679协会\迁移记录\ShaderBridgeCompile\obj\Release\net10.0\ShaderBridgeCompile.dll
+C:\Users\Administrator\Desktop\鼠鼠收尾人们目前已到245679协会\迁移记录\ShaderBridgeCompile\obj\Release\net10.0\refint\ShaderBridgeCompile.dll
+C:\Users\Administrator\Desktop\鼠鼠收尾人们目前已到245679协会\迁移记录\ShaderBridgeCompile\obj\Release\net10.0\ShaderBridgeCompile.pdb
+C:\Users\Administrator\Desktop\鼠鼠收尾人们目前已到245679协会\迁移记录\ShaderBridgeCompile\obj\Release\net10.0\ref\ShaderBridgeCompile.dll

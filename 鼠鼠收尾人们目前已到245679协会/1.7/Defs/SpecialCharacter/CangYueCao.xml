@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <PawnKindDef ParentName="RKBasePawnKind">
+    <defName>TRK_Special_CangYueCao</defName>
+    <label>Baby Blue Eyes</label>
+    <defaultFactionType>RK_PlayerFaction</defaultFactionType>
+    <fixedGender>Female</fixedGender>
+    <minGenerationAge>22</minGenerationAge>
+    <maxGenerationAge>22</maxGenerationAge>
+    <allowOldAgeInjuries>false</allowOldAgeInjuries>
+    <fixedChildBackstories>
+      <li>Ratkin_HumanAssistant</li>
+    </fixedChildBackstories>
+    <fixedAdultBackstories>
+      <li>Ratkin_Librarian</li>
+    </fixedAdultBackstories>
+    <forcedTraits>
+      <Neurotic>2</Neurotic>
+      <GreatMemory>0</GreatMemory>
+    </forcedTraits>
+    <forcedHair>RK_sidePonyA</forcedHair>
+    <forcedHairColor>(0.149,0.149,0.149,1.000)</forcedHairColor>
+    <invNutrition>0</invNutrition>
+    <invFoodDef IsNull="True" />
+    <xenotypeSet IsNull="True" />
+    <apparelMoney>0</apparelMoney>
+    <weaponMoney>0</weaponMoney>
+    <generateInitialNonFamilyRelations>false</generateInitialNonFamilyRelations>
+    <showInDebugSpawner>false</showInDebugSpawner>
+  </PawnKindDef>
+
+  <XIYUNTE.SpecialCharacter.SpecialCharacterDef>
+    <defName>TRK_Character_CangYueCao</defName>
+    <label>Baby Blue Eyes</label>
+    <description>Baby Blue Eyes is a Fixer of the Southern Seven Association. She excels at organizing intelligence and remembering details, yet constantly worries about missing a crucial clue; strong tea and carefully cross-checked notes have seen her through many long nights.</description>
+    <detailedReport>22 years old, female, Baby Blue Eyes, member of the Southern Seven Association.\n\nAs a child, Baby Blue Eyes served as an assistant to humans, and later became a librarian of the Ratkin library. She could remember where every shelf stood, how many volumes each visitor borrowed, even the crossed-out date on an old letter. While sorting return records, she noticed that several missing persons had borrowed the same inconspicuous travel guide. She passed the lead to the Seven Association, and from then on she went from keeping records to pursuing them.\n\nHer memory is excellent; her rest is not. Even details she has already confirmed make her get up at night to check again, and the strong tea on her desk is usually remembered only after it has gone cold. After a mission she rewrites her scattered notes until every name and every location has a source that corroborates another.\n\nThe 하나 Association has verified her dispatch records. Baby Blue Eyes is willing to assist the colony with research and investigation; please give her a quiet desk, and a reason to clock off on time.</detailedReport>
+    <arrivalGreeting>Do you have any Wake-up? Ah, no—I'm not addicted. It just helps me work more efficiently. If you don't have any, or don't allow it, never mind...</arrivalGreeting>
+    <pawnKind>TRK_Special_CangYueCao</pawnKind>
+    <association>Seven Association · Southern Seven Association</association>
+    <iconPath>SpecialCharacter/CangYueCao</iconPath>
+    <price>2000</price>
+    <firstName>Baby Blue Eyes</firstName>
+    <nickname>Baby Blue Eyes</nickname>
+    <lastName></lastName>
+    <biologicalAge>22</biologicalAge>
+    <gender>Female</gender>
+    <bodyType>Thin</bodyType>
+    <headType>RK_HeadType_Head4</headType>
+    <hair>RK_sidePonyA</hair>
+    <hairColor>(0.149,0.149,0.149,1.000)</hairColor>
+    <hairColorSecond>(1.000,1.000,1.000,1.000)</hairColorSecond>
+    <favoriteColor>Structure_Green</favoriteColor>
+    <facialAnimation>
+      <head>Ratkin_Head</head>
+      <eyes>Ratkin_EyeGuruGuru</eyes>
+      <lids>Ratkin_LidPointy</lids>
+      <brows>Ratkin_BrowCool</brows>
+      <mouth>Ratkin_MouthNormal</mouth>
+      <skin>Ratkin_SkinNormal</skin>
+      <eyeColor>(0.004,0.420,0.718,1.000)</eyeColor>
+      <eyeColorSecond>(0.004,0.420,0.718,1.000)</eyeColorSecond>
+    </facialAnimation>
+    <addonVariants>
+      <li>0</li>
+      <li>0</li>
+      <li>0</li>
+    </addonVariants>
+    <xenotype>RK_XenoType_Ratkin</xenotype>
+    <endogenes>
+      <li>Skin_Melanin1</li>
+      <li>RK_Gene_SmallBody</li>
+      <li>RK_Gene_Nimble</li>
+      <li>RK_Gene_PoorEyesight</li>
+      <li>RK_Gene_FragilePain</li>
+      <li>RK_Gene_GoodGardening</li>
+      <li>Skin_SheerWhite</li>
+      <li>Beard_NoBeardOnly</li>
+      <li>RK_Gene_LargeEars</li>
+      <li>RK_Gene_ThinTail</li>
+      <li>RK_Gene_CuteFace</li>
+      <li>AptitudeStrong_Mining</li>
+      <li>AptitudeStrong_Plants</li>
+      <li>Hair_ReddishBrown</li>
+    </endogenes>
+    <skills>
+      <li><skill>Shooting</skill><level>5</level><passion>Minor</passion></li>
+      <li><skill>Melee</skill><level>7</level><passion>Minor</passion></li>
+      <li><skill>Construction</skill><level>0</level><passion>None</passion></li>
+      <li><skill>Mining</skill><level>4</level><passion>None</passion></li>
+      <li><skill>Cooking</skill><level>9</level><passion>Minor</passion></li>
+      <li><skill>Plants</skill><level>7</level><passion>None</passion></li>
+      <li><skill>Animals</skill><level>0</level><passion>None</passion></li>
+      <li><skill>Crafting</skill><level>2</level><passion>None</passion></li>
+      <li><skill>Artistic</skill><level>4</level><passion>None</passion></li>
+      <li><skill>Medicine</skill><level>7</level><passion>Minor</passion></li>
+      <li><skill>Social</skill><level>6</level><passion>None</passion></li>
+      <li><skill>Intellectual</skill><level>10</level><passion>Major</passion></li>
+    </skills>
+    <weapon>
+      <thing>sevenC</thing>
+      <stuff>Steel</stuff>
+      <count>1</count>
+      <quality>Excellent</quality>
+      <hitPoints>100</hitPoints>
+    </weapon>
+    <apparel>
+      <li>
+        <thing>sevenA</thing>
+        <stuff>Synthread</stuff>
+        <count>1</count>
+        <quality>Excellent</quality>
+        <hitPoints>390</hitPoints>
+        <color>(0.678,0.859,0.890,1.000)</color>
+      </li>
+      <li>
+        <thing>sevnB</thing>
+        <stuff>Synthread</stuff>
+        <count>1</count>
+        <quality>Excellent</quality>
+        <hitPoints>220</hitPoints>
+        <color>(0.678,0.859,0.890,1.000)</color>
+      </li>
+    </apparel>
+    <inventory>
+      <li>
+        <thing>RK_Food_Hardtack</thing>
+        <count>7</count>
+        <hitPoints>50</hitPoints>
+      </li>
+      <li>
+        <thing>WakeUp</thing>
+        <count>7</count>
+        <hitPoints>50</hitPoints>
+      </li>
+      <li>
+        <thing>PsychiteTea</thing>
+        <count>7</count>
+        <hitPoints>50</hitPoints>
+      </li>
+      <li MayRequire="fxz.myafufu">
+        <thing>FuFu_CangYueCao</thing>
+        <count>1</count>
+        <hitPoints>300</hitPoints>
+      </li>
+    </inventory>
+  </XIYUNTE.SpecialCharacter.SpecialCharacterDef>
+</Defs>

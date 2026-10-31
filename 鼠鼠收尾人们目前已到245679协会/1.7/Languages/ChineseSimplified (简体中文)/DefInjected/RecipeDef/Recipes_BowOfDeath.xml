@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <Make_BowOfDeath_Arrow.label>制作死之箭</Make_BowOfDeath_Arrow.label>
+  <Make_BowOfDeath_Arrow.description>用钢铁加工一根死之箭。</Make_BowOfDeath_Arrow.description>
+  <Make_BowOfDeath_Arrow.jobString>正在制作死之箭。</Make_BowOfDeath_Arrow.jobString>
+  <RemoveBowOfDeathArrow.label>取出箭矢</RemoveBowOfDeathArrow.label>
+  <RemoveBowOfDeathArrow.description>取出嵌入体内的死之箭。</RemoveBowOfDeathArrow.description>
+  <RemoveBowOfDeathArrow.jobString>正在取出箭矢。</RemoveBowOfDeathArrow.jobString>
+</LanguageData>

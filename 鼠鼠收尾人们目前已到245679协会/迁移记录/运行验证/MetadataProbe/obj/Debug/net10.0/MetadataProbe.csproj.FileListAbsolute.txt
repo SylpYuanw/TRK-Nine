@@ -1,0 +1,14 @@
+C:\Users\Administrator\Desktop\天翼种\鼠鼠收尾人们目前已到245679协会\迁移记录\运行验证\MetadataProbe\bin\Debug\net10.0\MetadataProbe.exe
+C:\Users\Administrator\Desktop\天翼种\鼠鼠收尾人们目前已到245679协会\迁移记录\运行验证\MetadataProbe\bin\Debug\net10.0\MetadataProbe.deps.json
+C:\Users\Administrator\Desktop\天翼种\鼠鼠收尾人们目前已到245679协会\迁移记录\运行验证\MetadataProbe\bin\Debug\net10.0\MetadataProbe.runtimeconfig.json
+C:\Users\Administrator\Desktop\天翼种\鼠鼠收尾人们目前已到245679协会\迁移记录\运行验证\MetadataProbe\bin\Debug\net10.0\MetadataProbe.dll
+C:\Users\Administrator\Desktop\天翼种\鼠鼠收尾人们目前已到245679协会\迁移记录\运行验证\MetadataProbe\bin\Debug\net10.0\MetadataProbe.pdb
+C:\Users\Administrator\Desktop\天翼种\鼠鼠收尾人们目前已到245679协会\迁移记录\运行验证\MetadataProbe\obj\Debug\net10.0\MetadataProbe.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Administrator\Desktop\天翼种\鼠鼠收尾人们目前已到245679协会\迁移记录\运行验证\MetadataProbe\obj\Debug\net10.0\MetadataProbe.AssemblyInfoInputs.cache
+C:\Users\Administrator\Desktop\天翼种\鼠鼠收尾人们目前已到245679协会\迁移记录\运行验证\MetadataProbe\obj\Debug\net10.0\MetadataProbe.AssemblyInfo.cs
+C:\Users\Administrator\Desktop\天翼种\鼠鼠收尾人们目前已到245679协会\迁移记录\运行验证\MetadataProbe\obj\Debug\net10.0\MetadataProbe.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\天翼种\鼠鼠收尾人们目前已到245679协会\迁移记录\运行验证\MetadataProbe\obj\Debug\net10.0\MetadataProbe.dll
+C:\Users\Administrator\Desktop\天翼种\鼠鼠收尾人们目前已到245679协会\迁移记录\运行验证\MetadataProbe\obj\Debug\net10.0\refint\MetadataProbe.dll
+C:\Users\Administrator\Desktop\天翼种\鼠鼠收尾人们目前已到245679协会\迁移记录\运行验证\MetadataProbe\obj\Debug\net10.0\MetadataProbe.pdb
+C:\Users\Administrator\Desktop\天翼种\鼠鼠收尾人们目前已到245679协会\迁移记录\运行验证\MetadataProbe\obj\Debug\net10.0\MetadataProbe.genruntimeconfig.cache
+C:\Users\Administrator\Desktop\天翼种\鼠鼠收尾人们目前已到245679协会\迁移记录\运行验证\MetadataProbe\obj\Debug\net10.0\ref\MetadataProbe.dll

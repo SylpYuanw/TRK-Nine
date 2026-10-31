@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <RK_DeliveryBox_SwitchWeaponForm>Switch weapon form</RK_DeliveryBox_SwitchWeaponForm>
+  <RK_DeliveryBox_SelectWeaponForm>Choose the form this weapon uses.</RK_DeliveryBox_SelectWeaponForm>
+  <RK_DeliveryBox_CurrentForm>Current form</RK_DeliveryBox_CurrentForm>
+  <RK_DeliveryBox_Equipped>Equipped</RK_DeliveryBox_Equipped>
+  <RK_DeliveryBox_HighPower_RequiresWeapon>A Delivery Box must be equipped.</RK_DeliveryBox_HighPower_RequiresWeapon>
+  <RK_DeliveryBox_HighPower_AlreadyActive>High Power Mode is already active.</RK_DeliveryBox_HighPower_AlreadyActive>
+  <RK_DeliveryBox_HighPower_NotActive>High Power Mode is not active.</RK_DeliveryBox_HighPower_NotActive>
+  <RK_DeliveryBox_HighPower_Stage3>&lt;color=#3EB489&gt;[ We, the Девять Association's Porudnitsa, avoid meaningless killing. Execute the delivery immediately to safeguard your life. ]&lt;/color&gt;</RK_DeliveryBox_HighPower_Stage3>
+  <RK_DeliveryBox_HighPower_StatusTitle>High Power Mode</RK_DeliveryBox_HighPower_StatusTitle>
+  <RK_DeliveryBox_HighPower_RemainingTime>{0} h remaining</RK_DeliveryBox_HighPower_RemainingTime>
+  <RK_DeliveryBox_HighPower_ShieldValue>{0} / {1}</RK_DeliveryBox_HighPower_ShieldValue>
+  <RK_BreakthroughTool_RequiresMode>Only a Delivery Box in Breakthrough Tool form can be used.</RK_BreakthroughTool_RequiresMode>
+  <RK_BreakthroughTool_NeedsWeapon>You must equip a Delivery Box to use the Breakthrough Tool.</RK_BreakthroughTool_NeedsWeapon>
+  <RK_BreakthroughTool_NeedsPawn>The Breakthrough Tool can only target characters.</RK_BreakthroughTool_NeedsPawn>
+  <RK_BreakthroughTool_NotSelf>You cannot use the Breakthrough Tool on yourself.</RK_BreakthroughTool_NotSelf>
+  <RK_BreakthroughTool_TargetDead>The target is already dead.</RK_BreakthroughTool_TargetDead>
+  <RK_BreakthroughTool_NotFriendly>You cannot use the Breakthrough Tool on allies.</RK_BreakthroughTool_NotFriendly>
+  <RK_BreakthroughTool_NoStandCell>There is no valid cell to charge to around the target.</RK_BreakthroughTool_NoStandCell>
+</LanguageData>

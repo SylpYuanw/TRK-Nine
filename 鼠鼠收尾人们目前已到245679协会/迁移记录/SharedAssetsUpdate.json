@@ -1,0 +1,761 @@
+{
+  "modRoot": "C:\\Users\\Administrator\\Desktop\\天翼种\\鼠鼠收尾人们目前已到245679协会",
+  "files": [
+    {
+      "path": "Textures/Ability/Bow_of_Death_Ability_1.png",
+      "sha256": "57E7EA63D8E0F3759078F499F8C016F877021DE17D5FE849CD7A6F437CA3311A",
+      "bytes": 25394
+    },
+    {
+      "path": "Textures/Ability/Bow_of_Death_Ability_2.png",
+      "sha256": "00AC01B4D6698C3C52CE298651EB7C96948A7812C51B2A8A2A73DA840D14F2A3",
+      "bytes": 25230
+    },
+    {
+      "path": "Textures/Ability/Bow_of_Death_Ability_3.png",
+      "sha256": "810DA00830B55E24D823E218F227EFF52F863AE1D4382A043ACA493B587BDB4A",
+      "bytes": 25301
+    },
+    {
+      "path": "Textures/Ability/Bow_of_Death_Ability_4.png",
+      "sha256": "B72D54E8D9B20993D56DAA59421B677E1880FFF7071D5B04284FA945104CDA9E",
+      "bytes": 25741
+    },
+    {
+      "path": "Textures/Ability/Bow_of_Death_Ability.png",
+      "sha256": "6CE13194C789D17872875C16D3DD13D5E52E4A24C6D1F64EF559006E6604B304",
+      "bytes": 21317
+    },
+    {
+      "path": "Textures/Ability/Bow_of_Death_ArrowReload.png",
+      "sha256": "36E4D3405002010B51FEA3E5D94C6F81D2CBFC893DA09179A590BADF7FCDE9C5",
+      "bytes": 15946
+    },
+    {
+      "path": "Textures/Ability/Box_Abi.png",
+      "sha256": "9595B307442927523CC5D7E9FB1A8A1916533B5DD89F056DB786B66C864DCD87",
+      "bytes": 337244
+    },
+    {
+      "path": "Textures/Ability/Box_Ability_Disable.png",
+      "sha256": "42C7A334A33A6421165C4B1A7C8076FA5D433D64E252F15D6489E23D7ABCFCC1",
+      "bytes": 26791
+    },
+    {
+      "path": "Textures/Ability/Box_Ability_Enable.png",
+      "sha256": "DC1D57DE5D5A51AFC7CB990D36E37EDEFE245FF5F88EDE1B3BAC5802B4907863",
+      "bytes": 16768
+    },
+    {
+      "path": "Textures/Ability/Breakthrough_Tool.png",
+      "sha256": "66CF18C8591A271BB35250505992EFF4DE28347E947183FC1AF6AD9ABB45CCA6",
+      "bytes": 25491
+    },
+    {
+      "path": "Textures/Ability/Cinq.png",
+      "sha256": "A390B54EE873CFAA568676EB8112828A4B79E5DD46806BEF1F1C89132FED6ADE",
+      "bytes": 23492
+    },
+    {
+      "path": "Textures/Ability/Seven_Clothes_Ability.png",
+      "sha256": "4081634C8A20AC19F952C3EE01D5F1F6CEA61C22F8D2E4D1C26575F76DE72523",
+      "bytes": 9503
+    },
+    {
+      "path": "Textures/Ability/Zwei_Clothes_Ability.png",
+      "sha256": "DF6F73BC13CB4674FE0AC55D787563850C4944ED237F35D9C477799C63239370",
+      "bytes": 35079
+    },
+    {
+      "path": "Textures/Clothing/7协会外套展示-02.png",
+      "sha256": "7FBAA64FD37E969B3C0CA45FF36E8A9FF67691BF255F9BCE54FCC0DA0E70BB71",
+      "bytes": 7697
+    },
+    {
+      "path": "Textures/Clothing/cinqcloak_Thin_east.png",
+      "sha256": "AFA9774A98F413A70D7A087485A6E2A3A255472C108A114C6B1AF3F3F217BFDF",
+      "bytes": 8177
+    },
+    {
+      "path": "Textures/Clothing/cinqcloak_Thin_north.png",
+      "sha256": "4B613963B91BC640F4E361898508E03BF1A4D3B538E736462D63D1E883F5C73C",
+      "bytes": 9015
+    },
+    {
+      "path": "Textures/Clothing/cinqcloak_Thin_south.png",
+      "sha256": "8326094D1B8DC79EF0F265F10272E3C100FC3A2F315D2E8CAF36C94773CAE483",
+      "bytes": 7921
+    },
+    {
+      "path": "Textures/Clothing/cinqcloak.png",
+      "sha256": "EB4601589764F5D35DB4B61E613C8EBEE6E6AC1F86F2368AE00B65880365C70F",
+      "bytes": 7710
+    },
+    {
+      "path": "Textures/Clothing/cinqhat_east.png",
+      "sha256": "2482DC6903D0947FE38C5DE3408F2E94441903747958DAADDDE8C643860A3BEE",
+      "bytes": 3705
+    },
+    {
+      "path": "Textures/Clothing/cinqhat_north.png",
+      "sha256": "ADD5FEB88918C92D131B3B3560F32782932F2B646138F2A17D4BA585D89F3623",
+      "bytes": 3810
+    },
+    {
+      "path": "Textures/Clothing/cinqhat_south.png",
+      "sha256": "D6C19C488D6AB03FB9AEA169E3C91249D04ADCCF9EA22E4B4D422C66675F9F7D",
+      "bytes": 4110
+    },
+    {
+      "path": "Textures/Clothing/cinqhat.png",
+      "sha256": "C425F5992BF6235BDA2CBB056C4E052C9B161A6F676DB8D0242F7F737EA0A936",
+      "bytes": 5976
+    },
+    {
+      "path": "Textures/Clothing/cinqsuit_Thin_east.png",
+      "sha256": "4A2A00C1C9405082FFACCA11A78D264CAD2BB2CDC08D6CC45A5D2C1445D60F98",
+      "bytes": 6637
+    },
+    {
+      "path": "Textures/Clothing/cinqsuit_Thin_north.png",
+      "sha256": "1E54E23A958634D1D1F13BB68F44A781ABB51A5DDFC11E5311608120D5B12C1A",
+      "bytes": 5656
+    },
+    {
+      "path": "Textures/Clothing/cinqsuit_Thin_south.png",
+      "sha256": "4260C915F8B1DF70FFA6C24E9662A5F6F2532025749108FE51C99A460818E07A",
+      "bytes": 8490
+    },
+    {
+      "path": "Textures/Clothing/cinqsuit_Thin_west.png",
+      "sha256": "2E5AD2BCB66FACAC15ECF3BB5E2D266C874C56A8BC07C54132BD8E56B0851C3C",
+      "bytes": 7064
+    },
+    {
+      "path": "Textures/Clothing/cinqsuit.png",
+      "sha256": "48D8F904E02C7041D3A5660FCC0AB1440C972CBF6BBAE897B3934052EBDF0495",
+      "bytes": 7467
+    },
+    {
+      "path": "Textures/Clothing/hmj_east.png",
+      "sha256": "72956EE49BA1C423BF1638AAFCD665A0571461F0BDD9320E9D2E5884E94FACAE",
+      "bytes": 1791
+    },
+    {
+      "path": "Textures/Clothing/hmj_north.png",
+      "sha256": "2BA772FF64DDAB3943D3816640BC5411E0062479F75AD576E568E2A48DDA902D",
+      "bytes": 1175
+    },
+    {
+      "path": "Textures/Clothing/hmj_south.png",
+      "sha256": "352F382D3FA2B449722E3C7E75726F2E1E1F690F2F65B477DAE418D6139B372B",
+      "bytes": 2309
+    },
+    {
+      "path": "Textures/Clothing/hmj.png",
+      "sha256": "E033AAEAEA2F3B30A71750BE01192822C11C373FCF73B900B6FD35AB36D4CE9A",
+      "bytes": 1163
+    },
+    {
+      "path": "Textures/Clothing/liuA_Thin_east.png",
+      "sha256": "0CB2F8893B9980C7A1F1C014E298C2EF88EDED6C493B92944F6CC230CE29E147",
+      "bytes": 9641
+    },
+    {
+      "path": "Textures/Clothing/liuA_Thin_north.png",
+      "sha256": "F4130451D85802EA43056D247A8D9C6C0F0C34FDFE59C55AE351BFEDCAC22F94",
+      "bytes": 5843
+    },
+    {
+      "path": "Textures/Clothing/liuA_Thin_south.png",
+      "sha256": "9B4B80C6503F859717B8CDCA94A71F47C88CCC6199932F734E0FC7D41D21F2EB",
+      "bytes": 10412
+    },
+    {
+      "path": "Textures/Clothing/liuA_Thin_west.png",
+      "sha256": "612FC211B47EBF4CABF16DB1FB7A5512E48C6320A3A2220A270C27A2D85553CC",
+      "bytes": 8012
+    },
+    {
+      "path": "Textures/Clothing/liuA.png",
+      "sha256": "0199C5EBFFD03A32B5DB75B469FCECC8C1EC1EFAA20874EE8302C8776AC562EA",
+      "bytes": 13498
+    },
+    {
+      "path": "Textures/Clothing/liuB_Thin_east.png",
+      "sha256": "A8AA7C2668E34EEE12C667D8AFD071582D068970510BDA5C031B894BAE7D2E84",
+      "bytes": 11006
+    },
+    {
+      "path": "Textures/Clothing/liuB_Thin_north.png",
+      "sha256": "A7E8E6DBA3FD66D1526E8AE2ECAD2AF168D664C696BCA8E4F50F9D6C0B1434FF",
+      "bytes": 11385
+    },
+    {
+      "path": "Textures/Clothing/liuB_Thin_south.png",
+      "sha256": "97FE37670481AEFE1ABD37C017595E9A5855E5565946E46F892D9E26FB44ACDB",
+      "bytes": 13938
+    },
+    {
+      "path": "Textures/Clothing/liuB.png",
+      "sha256": "1FEC87D828A29C1617A765099D27BDDFAC6701E594270555CA1C3CA1BEA53379",
+      "bytes": 19484
+    },
+    {
+      "path": "Textures/Clothing/ninec_Female_east.png",
+      "sha256": "153451341CE7317799A20AE9E1885BAF6C01DBADEBB4CCC7BA6708307127AA8B",
+      "bytes": 11522
+    },
+    {
+      "path": "Textures/Clothing/ninec_Female_north.png",
+      "sha256": "3875A96C2E8DA77AE75755CA1A554A35357D7E4B003BE71812C0A84F266AD8FC",
+      "bytes": 9742
+    },
+    {
+      "path": "Textures/Clothing/ninec_Female_south.png",
+      "sha256": "B675382D60CB10CEC03253466A44B298F7B0E59788FCE7AACA3061DAC100EA9F",
+      "bytes": 18253
+    },
+    {
+      "path": "Textures/Clothing/ninec_Female_west.png",
+      "sha256": "FD628439675500045D83E588E2506EAB7C2397730836150FB18DE1355CFF1DF3",
+      "bytes": 9136
+    },
+    {
+      "path": "Textures/Clothing/ninec_Hulk_east.png",
+      "sha256": "153451341CE7317799A20AE9E1885BAF6C01DBADEBB4CCC7BA6708307127AA8B",
+      "bytes": 11522
+    },
+    {
+      "path": "Textures/Clothing/ninec_Hulk_north.png",
+      "sha256": "3875A96C2E8DA77AE75755CA1A554A35357D7E4B003BE71812C0A84F266AD8FC",
+      "bytes": 9742
+    },
+    {
+      "path": "Textures/Clothing/ninec_Hulk_south.png",
+      "sha256": "B675382D60CB10CEC03253466A44B298F7B0E59788FCE7AACA3061DAC100EA9F",
+      "bytes": 18253
+    },
+    {
+      "path": "Textures/Clothing/ninec_Hulk_west.png",
+      "sha256": "FD628439675500045D83E588E2506EAB7C2397730836150FB18DE1355CFF1DF3",
+      "bytes": 9136
+    },
+    {
+      "path": "Textures/Clothing/ninec_Male_east.png",
+      "sha256": "153451341CE7317799A20AE9E1885BAF6C01DBADEBB4CCC7BA6708307127AA8B",
+      "bytes": 11522
+    },
+    {
+      "path": "Textures/Clothing/ninec_Male_north.png",
+      "sha256": "3875A96C2E8DA77AE75755CA1A554A35357D7E4B003BE71812C0A84F266AD8FC",
+      "bytes": 9742
+    },
+    {
+      "path": "Textures/Clothing/ninec_Male_south.png",
+      "sha256": "B675382D60CB10CEC03253466A44B298F7B0E59788FCE7AACA3061DAC100EA9F",
+      "bytes": 18253
+    },
+    {
+      "path": "Textures/Clothing/ninec_Male_west.png",
+      "sha256": "FD628439675500045D83E588E2506EAB7C2397730836150FB18DE1355CFF1DF3",
+      "bytes": 9136
+    },
+    {
+      "path": "Textures/Clothing/ninec_Thin_east.png",
+      "sha256": "153451341CE7317799A20AE9E1885BAF6C01DBADEBB4CCC7BA6708307127AA8B",
+      "bytes": 11522
+    },
+    {
+      "path": "Textures/Clothing/ninec_Thin_north.png",
+      "sha256": "3875A96C2E8DA77AE75755CA1A554A35357D7E4B003BE71812C0A84F266AD8FC",
+      "bytes": 9742
+    },
+    {
+      "path": "Textures/Clothing/ninec_Thin_south.png",
+      "sha256": "B675382D60CB10CEC03253466A44B298F7B0E59788FCE7AACA3061DAC100EA9F",
+      "bytes": 18253
+    },
+    {
+      "path": "Textures/Clothing/ninec_Thin_west.png",
+      "sha256": "FD628439675500045D83E588E2506EAB7C2397730836150FB18DE1355CFF1DF3",
+      "bytes": 9136
+    },
+    {
+      "path": "Textures/Clothing/ninec.png",
+      "sha256": "68338C18AF7403C0CBB5E4B222F5D8C17ADBCFA9D0E732832641460FF927198B",
+      "bytes": 4381
+    },
+    {
+      "path": "Textures/Clothing/nineja_Thin_east.png",
+      "sha256": "F913F0FEAD7F52B610AF62599B80A77D8F8866BEE5C86A38B394B3E5BEBF3181",
+      "bytes": 10822
+    },
+    {
+      "path": "Textures/Clothing/nineja_Thin_north.png",
+      "sha256": "AD226EF6F9B5266C8E43459038FE34D0314F7EAA9AE41D3C0FE668D934E05BBD",
+      "bytes": 9461
+    },
+    {
+      "path": "Textures/Clothing/nineja_Thin_south.png",
+      "sha256": "5FC18E88869543D5B7B75B75D535A34BBF0F5A7B29FCBF20222A75BD042E5FF4",
+      "bytes": 20460
+    },
+    {
+      "path": "Textures/Clothing/nineja_Thin_west.png",
+      "sha256": "DB6B6E000DB3FFC9A1BE67C9AF256E5A770EE1707DCF99D989BEAD1DD6BECAA8",
+      "bytes": 8836
+    },
+    {
+      "path": "Textures/Clothing/nineja.png",
+      "sha256": "FA352C68A7CFFBEDC71FE7BEE5DCFDEDD9B877CF728460D3C3B1457A070E8FD5",
+      "bytes": 6267
+    },
+    {
+      "path": "Textures/Clothing/sevenA_Thin_east.png",
+      "sha256": "C2A8DC0F31954D9D043805A3FEA95BCE031C712155ABC63CBE601B0C5D89124B",
+      "bytes": 9049
+    },
+    {
+      "path": "Textures/Clothing/sevenA_Thin_north.png",
+      "sha256": "DB4A64ED70A8D024113DF26E933B449CCCC665A0D441651AEAB23FA2AA871B81",
+      "bytes": 8730
+    },
+    {
+      "path": "Textures/Clothing/sevenA_Thin_south.png",
+      "sha256": "A062F6A4FB1C603708C4A1CF796F714C70D894F122B458FA6FB4AD7611430F60",
+      "bytes": 11344
+    },
+    {
+      "path": "Textures/Clothing/sevenA_Thin_west.png",
+      "sha256": "2F04AE26BBDCC23E1B9C23B25CD071D021189968ABC587A0C4647FA5BD294DF1",
+      "bytes": 8699
+    },
+    {
+      "path": "Textures/Clothing/sevenA.png",
+      "sha256": "1380E3E73C7D1DECDE4160AE09196F8C33E1AF21CA0480909D598B5D3388A9CD",
+      "bytes": 9021
+    },
+    {
+      "path": "Textures/Clothing/sevenB_Thin_east.png",
+      "sha256": "95273E9E17C505E8C19BE279189FC7253B32E85989A512C9EF4DFD8E48CA1EC2",
+      "bytes": 8028
+    },
+    {
+      "path": "Textures/Clothing/sevenB_Thin_north.png",
+      "sha256": "520AC8DF15228F963E2897EFE7A0652B4F26883CBAC0CB91F1D689CF54A4D689",
+      "bytes": 4531
+    },
+    {
+      "path": "Textures/Clothing/sevenB_Thin_south.png",
+      "sha256": "DA850C2A5CBF6AA0BD08DF5D144D3DB825D09796BF1A8825C50BD9E3E82A986F",
+      "bytes": 7363
+    },
+    {
+      "path": "Textures/Clothing/sevenB_Thin_west.png",
+      "sha256": "1C6CF163E1D6A731387314AFD2782BE7BCFF645D76E5DEE8DEF811D5BC64E426",
+      "bytes": 8250
+    },
+    {
+      "path": "Textures/Clothing/sevenB.png",
+      "sha256": "10A7979FF1014ADCC57591525DB5C556D8114FF71FD3F349F74E1B6F47DB663E",
+      "bytes": 5933
+    },
+    {
+      "path": "Textures/Clothing/si_quiver_east.png",
+      "sha256": "57F2697BE5102535D74CB1057D877862099FB0C3BC9F4CB5E97D5A8519B9A598",
+      "bytes": 4594
+    },
+    {
+      "path": "Textures/Clothing/si_quiver_north.png",
+      "sha256": "63462F35E230921CE1FCC06E9BD8DBCFFADA80FA8C74759F943D3BD2206342C6",
+      "bytes": 10943
+    },
+    {
+      "path": "Textures/Clothing/si_quiver_south.png",
+      "sha256": "19BEE63DD7855FCB1C66FE2AE51F519226E0AAB62FFE5C71A481CDD7354D643A",
+      "bytes": 10295
+    },
+    {
+      "path": "Textures/Clothing/si_quiver_west.png",
+      "sha256": "5712C55F172806C4BDA1407B6CB95C2EF1C3338B5CED4E2B7867049E66AD4012",
+      "bytes": 5014
+    },
+    {
+      "path": "Textures/Clothing/si_quiver.png",
+      "sha256": "B5861D3DA59DA6807F9B2AE0473597D5A33F0DC20B6377B0715D9936837F4A0F",
+      "bytes": 8970
+    },
+    {
+      "path": "Textures/Clothing/si_uniform_Thin_east.png",
+      "sha256": "D6FACC6B49B04E4D30935D7730900D24C0AF125981AA104C56E02AD55FA03790",
+      "bytes": 13771
+    },
+    {
+      "path": "Textures/Clothing/si_uniform_Thin_north.png",
+      "sha256": "95D2C9BF587566A9016BF6217492A296BFF5639B68A27732C68373F27FED3C67",
+      "bytes": 9863
+    },
+    {
+      "path": "Textures/Clothing/si_uniform_Thin_south.png",
+      "sha256": "31BDECEE37B9A541764BE8577038F471068BC8A8E89B4EE28B7B914A6DE72A18",
+      "bytes": 12453
+    },
+    {
+      "path": "Textures/Clothing/si_uniform_Thin_west.png",
+      "sha256": "B02BDCF59B501E355411EAC9DFF25D6E55A23C7F59C5563133CB39B12251ECA1",
+      "bytes": 15788
+    },
+    {
+      "path": "Textures/Clothing/si_uniform.png",
+      "sha256": "A603DDEBB213A54F19051FD7D3B393762E60452BC52470DC19FA17A9807C89B3",
+      "bytes": 11474
+    },
+    {
+      "path": "Textures/Clothing/zwei1_Thin_north.png",
+      "sha256": "5C380336B6B120FA43CA3F00E87683DF03AA0497648399B80F98339D39D80C52",
+      "bytes": 6524
+    },
+    {
+      "path": "Textures/Clothing/zwei1_Thin_south.png",
+      "sha256": "02DD1F1D5F79A9B50D7C22A4AA1E88E546A232A67645FB74AF0A8D9786CCECE9",
+      "bytes": 9313
+    },
+    {
+      "path": "Textures/Clothing/zwei1_Thin_west.png",
+      "sha256": "4006641A1C4F8CDE4E534DF5C8E1390AA1AF2541BDEE96C3395E9CA4289D7025",
+      "bytes": 8916
+    },
+    {
+      "path": "Textures/Clothing/zwei1.png",
+      "sha256": "07AFE72DCD0ECCCF576FD5F8BB3F40F2DF4AEF7D519D9E72D3CFC5A4D7F6F494",
+      "bytes": 8195
+    },
+    {
+      "path": "Textures/Clothing/zwei2_Thin_east.png",
+      "sha256": "FD766AA82EDCEE5313457D551DBB5AB94918C9D142298B3FF724853C05DE80DA",
+      "bytes": 9549
+    },
+    {
+      "path": "Textures/Clothing/zwei2_Thin_north.png",
+      "sha256": "4FC4AD9FFB5C7642D35D901CD5297BCEF52E094D4B4CE59EB31592B491FF60E7",
+      "bytes": 8584
+    },
+    {
+      "path": "Textures/Clothing/zwei2_Thin_south.png",
+      "sha256": "283E9FFCDD72BAC26A313DA7D3DBB780D0B290492263C62BCED0B3AE533D3A3D",
+      "bytes": 11812
+    },
+    {
+      "path": "Textures/Clothing/zwei2_Thin_west.png",
+      "sha256": "697591646411202DAF73E7DC2FB56282AD245457796933F329A3C7B9043B7E78",
+      "bytes": 7759
+    },
+    {
+      "path": "Textures/Clothing/zwei2.png",
+      "sha256": "956BCADB4450C37EFC947423D0537C34D1CC954B71FA21A288A6D759183D036B",
+      "bytes": 10593
+    },
+    {
+      "path": "Textures/Item/Bow_of_Death_Arrow/Bow_of_Death_Arrow_a.png",
+      "sha256": "C100A46ACD28CF7C0FC712BEF7238063C7319D9B90F3D98584D3E4A70D1D5DDC",
+      "bytes": 11583
+    },
+    {
+      "path": "Textures/Item/Bow_of_Death_Arrow/Bow_of_Death_Arrow_b.png",
+      "sha256": "09A96CF87A465FC21CBA8D4ABA9696CC81B8D29F65C50A640AA540B7ED4553F5",
+      "bytes": 13717
+    },
+    {
+      "path": "Textures/Item/Bow_of_Death_Arrow/Bow_of_Death_Arrow_c.png",
+      "sha256": "551000175B6183AE6768B56EFAD2F1378E029A2F9AF82845DB94286B76A44EE1",
+      "bytes": 14107
+    },
+    {
+      "path": "Textures/SpecialCharacter/CangYueCao.png",
+      "sha256": "47088AAE56678B1EF0634908DD0F11D0415B2ED419B964FC4152FEDAD3539A3D",
+      "bytes": 27304
+    },
+    {
+      "path": "Textures/SpecialCharacter/Hana_Association.png",
+      "sha256": "13ED5981EF46C47C2EEEEEAACA13EC23E983CC0C2468E55B6B41CBE2F7BBE32A",
+      "bytes": 70999
+    },
+    {
+      "path": "Textures/SpecialCharacter/HuoYanLan.png",
+      "sha256": "F82E93B87DAF6776D3458372344757FB51412207A4F3801D87BBA090C7771701",
+      "bytes": 31404
+    },
+    {
+      "path": "Textures/SpecialCharacter/ManTianXing.png",
+      "sha256": "DDB3738605159E6B65073D1DA0EBB3AF231D3A433253AB965D9C0AD69589910E",
+      "bytes": 33570
+    },
+    {
+      "path": "Textures/SpecialCharacter/ShanHeYe.png",
+      "sha256": "E2C1E3D104F7CF94EF9060FA92B2D1BF90D18D2AD623953ECA632E2C00F94993",
+      "bytes": 33081
+    },
+    {
+      "path": "Textures/SpecialCharacter/WuYaGuo.png",
+      "sha256": "2E1AF3F9E038009A9029BD169E20931C0411AD12BBDF86B751A5446C090B1920",
+      "bytes": 32873
+    },
+    {
+      "path": "Textures/VFX/Bow_of_Death_Aim_Base_Vfx.png",
+      "sha256": "634B6B2435DD037CD617384D581E4E5FCFEBD610486EEB5A0AB66AFC8DD19645",
+      "bytes": 17541
+    },
+    {
+      "path": "Textures/VFX/Bow_of_Death_Aim_Charge_Flow_Vfx.png",
+      "sha256": "ABA30028A192EE03A7490AA1ADF7543AFA670AF633163C9C8C55C2B0E480ABCB",
+      "bytes": 61380
+    },
+    {
+      "path": "Textures/VFX/Bow_of_Death_Aim_Charge_Start_Vfx.png",
+      "sha256": "57B04A163E6C35A9EC5C1EA71A3BB41B693E803565CE1970D3A97ED317851306",
+      "bytes": 16708
+    },
+    {
+      "path": "Textures/VFX/Bow_of_Death_Aim_Charge_Vfx.png",
+      "sha256": "65DB27F174FE3099222741B8E90938495CD1246AD42B63146C94148FE5773ED0",
+      "bytes": 42787
+    },
+    {
+      "path": "Textures/VFX/Bow_of_Death_Aim_Streak_Vfx.png",
+      "sha256": "49F10C74A4BB5FC6A2B91127E201A1C17E3A816CC3CAC66142043254BA00ACA6",
+      "bytes": 7315
+    },
+    {
+      "path": "Textures/VFX/Bow_of_Death_Aim_Vfx.png",
+      "sha256": "79DD1C42CB97B43E1BEAA9A2CF3743CB08F07469F2640DD2F57FE729DC63AAF5",
+      "bytes": 1471938
+    },
+    {
+      "path": "Textures/VFX/Bow_of_Death_Stage_Vfx.png",
+      "sha256": "13F37796D43AFB684B2454515744EB0D898388A20AD39C0DBC7FF66229A5EFA5",
+      "bytes": 20958
+    },
+    {
+      "path": "Textures/VFX/Box_Blade_AttackEffect.png",
+      "sha256": "7E7865245E59ADE5419187D9EA6F204DD50BBB1B6F91EC4A1943C15D8D35FEF7",
+      "bytes": 219584
+    },
+    {
+      "path": "Textures/VFX/Box_Breakthrough_AttackEffect.png",
+      "sha256": "514A6456CD092BBC10D81FB2A37E827ED55559126D5D4400712A4E9A3F64D759",
+      "bytes": 139174
+    },
+    {
+      "path": "Textures/VFX/Box_Hammer_AttackEffect.png",
+      "sha256": "F19CF290D59641952FE1E8F39711AF30D7FB61640A416E5DCABDA265982E1F07",
+      "bytes": 182044
+    },
+    {
+      "path": "Textures/VFX/Box_Tool_AttackEffect.png",
+      "sha256": "351C8F79DECC9DB1A2E2090FA8E6A7E618F5B992850D357734367610EC7F57CB",
+      "bytes": 89841
+    },
+    {
+      "path": "Textures/VFX/Cinq_Weapon_AttackEffect.png",
+      "sha256": "76EC314837F5C2690FD569B3C4ACBF81712A205F4EA5E7E9FF9F191276EB076B",
+      "bytes": 113848
+    },
+    {
+      "path": "Textures/VFX/Zwei_Aura_Circle.png",
+      "sha256": "5EE91C75150CD8CF3FDD1158DB6B655A0FEFF23BF64F9209494195F4B2B8953C",
+      "bytes": 20206
+    },
+    {
+      "path": "Textures/Weapon/.png",
+      "sha256": "7ED932467F3E0B969EECB601F2059283AF22A45B08D30C5C45BEFF5D8F985BE6",
+      "bytes": 82882
+    },
+    {
+      "path": "Textures/Weapon/10协会钥匙_画板 1.png",
+      "sha256": "2380D50694A531E3BCCD6545F6258D21A7C6922CC1FEE9ED999DEA32D6068781",
+      "bytes": 48647
+    },
+    {
+      "path": "Textures/Weapon/11协会-2_画板 1.png",
+      "sha256": "8802865D50614071D24F73211F8F3F7D9499FDE0050BB329AF42C670E6443F1C",
+      "bytes": 23927
+    },
+    {
+      "path": "Textures/Weapon/2D218FA4E35AEC7D267405326E0252EB.png",
+      "sha256": "12999B9675CAE0D64649C6787A1F2235BA1992500D8CA3036A22A569CA256126",
+      "bytes": 86637
+    },
+    {
+      "path": "Textures/Weapon/四协会剑-1_画板 1.png",
+      "sha256": "55DD32DB75C507B41F6ED6540F4E2FE1E19AEFF8D18BCE4608355FD3D02E41E3",
+      "bytes": 18192
+    },
+    {
+      "path": "Textures/Weapon/憎恶女王_画板 1.png",
+      "sha256": "24D32625DE981462DB4F9BB47C4360F383C7A2D1BA89905231FB95158BFFDB49",
+      "bytes": 49555
+    },
+    {
+      "path": "Textures/Weapon/Bow_of_Death_Arrow.png",
+      "sha256": "E9FF69A54DD235F356A3245C5C1240BDC7D77FC79B51CFAE6BBAC37336F9829B",
+      "bytes": 3897
+    },
+    {
+      "path": "Textures/Weapon/Bow_of_Death_HeldSouth.png",
+      "sha256": "3F692FF188CCD177FA522BA46C596ACA308D85E400FE2492FB9F2044E770ED91",
+      "bytes": 81908
+    },
+    {
+      "path": "Textures/Weapon/Bow_of_Death.png",
+      "sha256": "12999B9675CAE0D64649C6787A1F2235BA1992500D8CA3036A22A569CA256126",
+      "bytes": 86637
+    },
+    {
+      "path": "Textures/Weapon/Box_Blade.png",
+      "sha256": "3F2AFEF86F537AA90025BB0053AD54E3AB28B3EFAA4269B3364E15DDEBDB89FE",
+      "bytes": 108064
+    },
+    {
+      "path": "Textures/Weapon/Box_Core.png",
+      "sha256": "0958F432544B6E77C295DFEB10ACAEA92B2C3F4E32FD7A421A0BC8EE7AC3EB45",
+      "bytes": 60157
+    },
+    {
+      "path": "Textures/Weapon/Box_DemolitionGadget.png",
+      "sha256": "A2E8ED53708AEC3483AA3D7C161C248A8B25E76B5FB67BD2CB2246B039899146",
+      "bytes": 70654
+    },
+    {
+      "path": "Textures/Weapon/box_Full_east..png",
+      "sha256": "C0C649FCE8236F7A6323B99A919D17BA31FFA1D72AF300D3371B767606736033",
+      "bytes": 13424
+    },
+    {
+      "path": "Textures/Weapon/box_Full_east.png",
+      "sha256": "A929F5A0A21EFFC64C98C55AF77B18FCAB4ED3B082751DF5C1A2E1574636BB3A",
+      "bytes": 12823
+    },
+    {
+      "path": "Textures/Weapon/box_Full_north.png",
+      "sha256": "0958F432544B6E77C295DFEB10ACAEA92B2C3F4E32FD7A421A0BC8EE7AC3EB45",
+      "bytes": 60157
+    },
+    {
+      "path": "Textures/Weapon/box_Full_south.png",
+      "sha256": "0A8ACC2A7C84E05BED1C5FD413E98072055BD9F87FA640BA826F29F6A1575402",
+      "bytes": 98193
+    },
+    {
+      "path": "Textures/Weapon/Box_Hammer.png",
+      "sha256": "EAA5E79111EB8E685333D84625833A87BF1FE01934E61EA226C4C7E0EE8DF1BE",
+      "bytes": 55714
+    },
+    {
+      "path": "Textures/Weapon/Box_Tool.png",
+      "sha256": "7A4CA437FD135ECDEF70234558820ABC4AB11EA9AADE635A23B04D12F52CE8EF",
+      "bytes": 100277
+    },
+    {
+      "path": "Textures/Weapon/cinqA.png",
+      "sha256": "4194A405F76C2463891747638F25E59EE2BE4CB096553D07E1FDCCE103B5E403",
+      "bytes": 15671
+    },
+    {
+      "path": "Textures/Weapon/cinqb_Full_east.png",
+      "sha256": "EACD67D686F14B29DC47994AA347187AE0EB233B6AA7812C29A071772A77C7E5",
+      "bytes": 20154
+    },
+    {
+      "path": "Textures/Weapon/cinqb_Sheath_north.png",
+      "sha256": "58D3AD9A7BBCE7E2F8BFDCBDE313B49D147F869AE94837A5985FDC72866E9E76",
+      "bytes": 9280
+    },
+    {
+      "path": "Textures/Weapon/liuC.png",
+      "sha256": "C8A4E225AC7D2742164EE7A0F400B6FFE265F7C3BBC8F3A5927DC0BEEA4BFFFF",
+      "bytes": 5664
+    },
+    {
+      "path": "Textures/Weapon/liuCE.png",
+      "sha256": "585BA845F2A770D60901D9649C32157489C3932D7761D26A2BABD6A436A78CE6",
+      "bytes": 6023
+    },
+    {
+      "path": "Textures/Weapon/sevenC_Full_east.png",
+      "sha256": "DFDCD8D07155A96AAC5F2FFEF9173CAD1C2D26B046BB21B77BBF400132F90F9C",
+      "bytes": 8105
+    },
+    {
+      "path": "Textures/Weapon/sevenC_Sheath_north.png",
+      "sha256": "3BC47473D9684B715AA5FA063E83A7B0261BA302E960D568543520CE04C1CE5C",
+      "bytes": 5405
+    },
+    {
+      "path": "Textures/Weapon/sevenC.png",
+      "sha256": "8465F00A4136C9C4EBEE27E29FEFC7C51D994A1DB0C9D044D66DB3302CDF9C25",
+      "bytes": 7511
+    },
+    {
+      "path": "Textures/Weapon/zweiC_Full_east.png",
+      "sha256": "FCFBDA7170DCB96BB31B68E63B85D7AA15833AF170360BCB929DAC15AB6EB64E",
+      "bytes": 19570
+    },
+    {
+      "path": "Textures/Weapon/zweiC_Sheath_north.png",
+      "sha256": "248A0044BEAF333BE1DAA41C0EC26E2F2FA8D7736D01E7EDEF17307B0C92449F",
+      "bytes": 409
+    },
+    {
+      "path": "Textures/Weapon/zweiC.png",
+      "sha256": "AFBE17079425341A534CDDEAB87E7825A178EDE43DA70C011EDD450D1C623BE6",
+      "bytes": 8680
+    },
+    {
+      "path": "Sounds/Bow_of_Death_Draw.wav",
+      "sha256": "853FAF68C02BAD80174C32EA5F78592528B9472A2921E9D690E1E3373DC9E6B0",
+      "bytes": 385098
+    },
+    {
+      "path": "Sounds/Bow_of_Death_Shot.wav",
+      "sha256": "78A17172AA88590A21EEA1A8CB625435970AFC64846057D4F4B77618026B3DAA",
+      "bytes": 230810
+    },
+    {
+      "path": "Sounds/Bow_of_Death_Switch.wav",
+      "sha256": "922B22F5CF2140C6B1583641B8268F4F779EE23007E3158FB741AB4DAE549C78",
+      "bytes": 438258
+    }
+  ],
+  "unityChanges": [
+    {
+      "version": "1.6",
+      "root": "D:\\UnityTest\\unity_trk_35",
+      "path": "Assets/Editor/BowOfDeathPreviewWindow.cs",
+      "beforeSHA256": "87B9DDEE52A1E3EC4A21E88D7C6915A5EA5645720E42FE9DD6674212ACF8CDF3",
+      "afterSHA256": "E1959FB6ADC39CB25063734E519D3352BA52722EE9040EF44AD55E18F52D277F"
+    },
+    {
+      "version": "1.6",
+      "root": "D:\\UnityTest\\unity_trk_35",
+      "path": "Assets/Editor/BowOfDeathVerification.cs",
+      "beforeSHA256": "6E8244D05A02B383CF12B4C33F7062D3E8C625307D1DEDBE56E2330E3C7D8552",
+      "afterSHA256": "C8CE9D114B133C3CF3D7251473CEBBBBA859A04389D2A2E7D16CD9AC67030A4E"
+    },
+    {
+      "version": "1.7",
+      "root": "D:\\UnityTest\\unity_trk_35_1.7",
+      "path": "Assets/Editor/BowOfDeathPreviewWindow.cs",
+      "beforeSHA256": "3CBB5DD1BB099701C99316BC35563A205588365F8F4E6E88328A63F66A8F3FC3",
+      "afterSHA256": "4680B4AA3029F79D03DAC8B23D5BCC91DB2CAA9DB7B0C87A6909F800F457D1D5"
+    },
+    {
+      "version": "1.7",
+      "root": "D:\\UnityTest\\unity_trk_35_1.7",
+      "path": "Assets/Editor/BowOfDeathVerification.cs",
+      "beforeSHA256": "1879BE6B88A8B4C6A1EE0608AB8E6828282ACED8090EE5BD0A0F78A8CBA19E98",
+      "afterSHA256": "5C6D5936ACABC1FB2D933A529588EF49110AAC300E86BAF2CC7B0F2F345C74E0"
+    }
+  ],
+  "note": "仅合并已逐项核对一致的共享资源；既有版本数据和编译产物保持分隔。"
+}

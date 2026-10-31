@@ -1,0 +1,48 @@
+{
+  "reason": "用户将 Mod 移回工作区，Unity 工具按版本指向工作区目录。",
+  "modRoot": "C:\\Users\\Administrator\\Desktop\\天翼种\\鼠鼠收尾人们目前已到245679协会",
+  "changes": [
+    {
+      "version": "1.6",
+      "root": "D:\\UnityTest\\unity_trk_35",
+      "path": "Assets/Editor/BowOfDeathBundleBuilder.cs",
+      "beforeSHA256": "2E4B728A272EEDFE9B187CE1F8EEC89F668304CDB023DFD00F48EDC68FB45097",
+      "afterSHA256": "8FC008EBAEA7D03F76F6AFDA48F7C7D26B02D206BF09C7644664A001B66EB2D8"
+    },
+    {
+      "version": "1.6",
+      "root": "D:\\UnityTest\\unity_trk_35",
+      "path": "Assets/Editor/BowOfDeathPreviewWindow.cs",
+      "beforeSHA256": "3F20E392688DBA218B10D6558C0D9FD85EF5E80BE2D7985835528AD2C32D1B21",
+      "afterSHA256": "87B9DDEE52A1E3EC4A21E88D7C6915A5EA5645720E42FE9DD6674212ACF8CDF3"
+    },
+    {
+      "version": "1.6",
+      "root": "D:\\UnityTest\\unity_trk_35",
+      "path": "Assets/Editor/BowOfDeathVerification.cs",
+      "beforeSHA256": "997F95671AC9B359A510931E35113B3D5E3A9EF852858D36E283A13BDEE53379",
+      "afterSHA256": "6E8244D05A02B383CF12B4C33F7062D3E8C625307D1DEDBE56E2330E3C7D8552"
+    },
+    {
+      "version": "1.7",
+      "root": "D:\\UnityTest\\unity_trk_35_1.7",
+      "path": "Assets/Editor/BowOfDeathPreviewWindow.cs",
+      "beforeSHA256": "E1620E61076ACF2099A36937AEFDDA45A66450DD42E7515D49855EA33DEB19A4",
+      "afterSHA256": "3CBB5DD1BB099701C99316BC35563A205588365F8F4E6E88328A63F66A8F3FC3"
+    },
+    {
+      "version": "1.7",
+      "root": "D:\\UnityTest\\unity_trk_35_1.7",
+      "path": "Assets/Editor/BowOfDeathVerification.cs",
+      "beforeSHA256": "5785B998CAD1F1B7D83ED7E3F379409A7A7BB236629EEA9B1B9996822A353FF8",
+      "afterSHA256": "1879BE6B88A8B4C6A1EE0608AB8E6828282ACED8090EE5BD0A0F78A8CBA19E98"
+    },
+    {
+      "version": "1.7",
+      "root": "D:\\UnityTest\\unity_trk_35_1.7",
+      "path": "ProjectSettings/RimUnity.json",
+      "beforeSHA256": "CA81D05699FC2AEB7AD03A1264BE256A17C3624FB57C7AA957E537D5E4627EB1",
+      "afterSHA256": "71BE63C4FCC0577413F83FE0314E5AEDF153AD74917ACDB5C972A5A2E107EEC7"
+    }
+  ]
+}

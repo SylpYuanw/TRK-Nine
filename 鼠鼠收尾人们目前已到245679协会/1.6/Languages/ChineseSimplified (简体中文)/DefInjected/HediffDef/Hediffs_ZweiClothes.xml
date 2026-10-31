@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <zweiSet.label>二协会套装</zweiSet.label>
+  <zweiSet.description>二协会制服的完整套装状态。\n穿齐内衬与外衣时获得二协会光环技能。</zweiSet.description>
+  <zweiSet.stages.0.overrideTooltip>只穿戴了一件二协会制服部件，尚未构成套装。</zweiSet.stages.0.overrideTooltip>
+  <zweiSet.stages.1.overrideTooltip>已完整穿戴二协会套装，获得二协会光环技能。</zweiSet.stages.1.overrideTooltip>
+  <zweiB_Coat.label>Zwei协会-大衣</zweiB_Coat.label>
+  <zweiB_Coat.description>您的盾牌。</zweiB_Coat.description>
+</LanguageData>

@@ -1,0 +1,342 @@
+{
+  "version": 1,
+  "shaderName": "Trk/BowOfDeathAimWind",
+  "profile": "world",
+  "uiMasks": false,
+  "colorSpace": "Gamma",
+  "grabTexture": null,
+  "vertexEntry": "vert",
+  "fragmentEntry": "frag",
+  "vertexFile": "shader.vert.glsl",
+  "fragmentFile": "shader.frag.glsl",
+  "arrays": {},
+  "properties": [
+    {
+      "name": "_MainTex",
+      "displayName": "Smoke source texture",
+      "type": "2D",
+      "attributes": [],
+      "defaultValue": null,
+      "defaultTexture": "white",
+      "range": null
+    },
+    {
+      "name": "_Color",
+      "displayName": "Layer tint and alpha",
+      "type": "Color",
+      "attributes": [],
+      "defaultValue": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "defaultTexture": null,
+      "range": null
+    },
+    {
+      "name": "_ParticleCount",
+      "displayName": "Active particle count",
+      "type": "Range",
+      "attributes": [],
+      "defaultValue": [
+        6
+      ],
+      "defaultTexture": null,
+      "range": [
+        1,
+        12
+      ]
+    },
+    {
+      "name": "_EmitPeriod",
+      "displayName": "Particle lifetime seconds",
+      "type": "Range",
+      "attributes": [],
+      "defaultValue": [
+        2.6
+      ],
+      "defaultTexture": null,
+      "range": [
+        0.3,
+        4
+      ]
+    },
+    {
+      "name": "_StreakLength",
+      "displayName": "Streak length",
+      "type": "Range",
+      "attributes": [],
+      "defaultValue": [
+        0.42
+      ],
+      "defaultTexture": null,
+      "range": [
+        0.05,
+        1
+      ]
+    },
+    {
+      "name": "_StreakWidth",
+      "displayName": "Streak cross gaussian sigma",
+      "type": "Range",
+      "attributes": [],
+      "defaultValue": [
+        0.085
+      ],
+      "defaultTexture": null,
+      "range": [
+        0.005,
+        0.2
+      ]
+    },
+    {
+      "name": "_StreakAngle",
+      "displayName": "Drift angle degrees",
+      "type": "Range",
+      "attributes": [],
+      "defaultValue": [
+        20
+      ],
+      "defaultTexture": null,
+      "range": [
+        -80,
+        80
+      ]
+    },
+    {
+      "name": "_TravelDistance",
+      "displayName": "Drift distance",
+      "type": "Range",
+      "attributes": [],
+      "defaultValue": [
+        0.6
+      ],
+      "defaultTexture": null,
+      "range": [
+        0.2,
+        2
+      ]
+    },
+    {
+      "name": "_SpeedCurve",
+      "displayName": "Fast start curve",
+      "type": "Range",
+      "attributes": [],
+      "defaultValue": [
+        0.45
+      ],
+      "defaultTexture": null,
+      "range": [
+        0,
+        1
+      ]
+    },
+    {
+      "name": "_StreakColor",
+      "displayName": "Streak color",
+      "type": "Color",
+      "attributes": [],
+      "defaultValue": [
+        0.62,
+        0.035,
+        0.03,
+        1
+      ],
+      "defaultTexture": null,
+      "range": null
+    },
+    {
+      "name": "_HeadColor",
+      "displayName": "Streak head color",
+      "type": "Color",
+      "attributes": [],
+      "defaultValue": [
+        0.9,
+        0.09,
+        0.07,
+        1
+      ],
+      "defaultTexture": null,
+      "range": null
+    },
+    {
+      "name": "_HeadGlow",
+      "displayName": "Streak head brightness",
+      "type": "Range",
+      "attributes": [],
+      "defaultValue": [
+        0.12
+      ],
+      "defaultTexture": null,
+      "range": [
+        0,
+        4
+      ]
+    },
+    {
+      "name": "_StreakBrightness",
+      "displayName": "Streak body brightness",
+      "type": "Range",
+      "attributes": [],
+      "defaultValue": [
+        0.42
+      ],
+      "defaultTexture": null,
+      "range": [
+        0,
+        4
+      ]
+    },
+    {
+      "name": "_Turbulence",
+      "displayName": "Wind turbulence",
+      "type": "Range",
+      "attributes": [],
+      "defaultValue": [
+        0.09
+      ],
+      "defaultTexture": null,
+      "range": [
+        0,
+        0.3
+      ]
+    },
+    {
+      "name": "_TurbulenceSpeed",
+      "displayName": "Wind turbulence speed",
+      "type": "Range",
+      "attributes": [],
+      "defaultValue": [
+        0.35
+      ],
+      "defaultTexture": null,
+      "range": [
+        0,
+        3
+      ]
+    },
+    {
+      "name": "_SmokeStrength",
+      "displayName": "Smoke layer strength",
+      "type": "Range",
+      "attributes": [],
+      "defaultValue": [
+        0.8
+      ],
+      "defaultTexture": null,
+      "range": [
+        0,
+        2
+      ]
+    },
+    {
+      "name": "_SmokeScroll",
+      "displayName": "Smoke leftward scroll",
+      "type": "Range",
+      "attributes": [],
+      "defaultValue": [
+        0.12
+      ],
+      "defaultTexture": null,
+      "range": [
+        0,
+        1
+      ]
+    },
+    {
+      "name": "_SmokeCut",
+      "displayName": "Smoke alpha cutoff",
+      "type": "Range",
+      "attributes": [],
+      "defaultValue": [
+        0.12
+      ],
+      "defaultTexture": null,
+      "range": [
+        0,
+        0.4
+      ]
+    },
+    {
+      "name": "_SmokeSoft",
+      "displayName": "Smoke alpha softness",
+      "type": "Range",
+      "attributes": [],
+      "defaultValue": [
+        0.16
+      ],
+      "defaultTexture": null,
+      "range": [
+        0.01,
+        0.4
+      ]
+    },
+    {
+      "name": "_SmokeWarp",
+      "displayName": "Smoke noise warp",
+      "type": "Range",
+      "attributes": [],
+      "defaultValue": [
+        0
+      ],
+      "defaultTexture": null,
+      "range": [
+        0,
+        0.3
+      ]
+    },
+    {
+      "name": "_UseRealTime",
+      "displayName": "Animate while game paused",
+      "type": "Float",
+      "attributes": [
+        "Toggle"
+      ],
+      "defaultValue": [
+        1
+      ],
+      "defaultTexture": null,
+      "range": null
+    },
+    {
+      "name": "_PreviewClockEnabled",
+      "displayName": "Preview clock enabled",
+      "type": "Float",
+      "attributes": [],
+      "defaultValue": [
+        0
+      ],
+      "defaultTexture": null,
+      "range": null
+    },
+    {
+      "name": "_PreviewSeconds",
+      "displayName": "Preview seconds",
+      "type": "Float",
+      "attributes": [],
+      "defaultValue": [
+        0
+      ],
+      "defaultTexture": null,
+      "range": null
+    }
+  ],
+  "tags": {
+    "Queue": "Transparent",
+    "RenderType": "Transparent",
+    "IgnoreProjector": "True",
+    "PreviewType": "Plane"
+  },
+  "states": {
+    "Blend": "SrcAlpha OneMinusSrcAlpha, One OneMinusSrcAlpha",
+    "ZWrite": "Off",
+    "Cull": "Off"
+  },
+  "keywords": [],
+  "keywordGroups": [],
+  "approximations": [
+    "常量正整数幂 2～64 使用乘法展开；负底数按整数幂计算，属于旧 Shader 写法的兼容处理，并非 HLSL pow 的负底数语义保证。",
+    "smoothstep 按 HLSL 饱和 Hermite 公式展开，支持反向边界；相等边界仍要求作者避免除零。"
+  ]
+}

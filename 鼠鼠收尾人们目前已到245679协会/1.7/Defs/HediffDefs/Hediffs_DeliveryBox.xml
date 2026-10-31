@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- 高功率主状态：严重度=已运行时间/总时长(12h)，lethalSeverity=1 使其在12h直接判死 -->
+  <HediffDef>
+    <defName>RK_DeliveryBox_HighPower</defName>
+    <label>Delivery Box - High Power Mode</label>
+    <description>High Power Mode is active: movement speed increased and immune to stagger. Effects intensify over time (shield / chemical burns); at 12 hours the unit dies of severe overload.</description>
+    <hediffClass>XIYUNTE.Hediff_DeliveryBoxHighPower</hediffClass>
+    <defaultLabelColor>(0.9, 0.7, 0.2)</defaultLabelColor>
+    <isBad>false</isBad>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <tendable>false</tendable>
+    <everCurableByItem>false</everCurableByItem>
+    <initialSeverity>0</initialSeverity>
+    <maxSeverity>1</maxSeverity>
+    <lethalSeverity>1</lethalSeverity>
+
+    <stages>
+      <li>
+        <minSeverity>0</minSeverity>
+        <label>I</label>
+        <overrideTooltip>[Stage I. Beginning delivery assistance and management. Proceed calmly and find a way forward.]</overrideTooltip>
+        <statFactors>
+          <StaggerDurationFactor>0</StaggerDurationFactor>
+        </statFactors>
+        <statOffsets>
+          <MoveSpeed>0.5</MoveSpeed>
+        </statOffsets>
+      </li>
+      <li>
+        <minSeverity>0.25</minSeverity>
+        <label>II</label>
+        <overrideTooltip>[Stage II. Delivery unit power increased. Expedite your delivery.]</overrideTooltip>
+        <statFactors>
+          <StaggerDurationFactor>0</StaggerDurationFactor>
+        </statFactors>
+        <statOffsets>
+          <MoveSpeed>0.5</MoveSpeed>
+        </statOffsets>
+        <!-- <painFactor>0.9</painFactor> -->
+      </li>
+      <li>
+        <minSeverity>0.75</minSeverity>
+        <label>III</label>
+        <overrideTooltip>[Stage III. Warning. Delivery overdue. Entering final acceleration stage. Further delay cannot guarantee your safety.]</overrideTooltip>
+        <statFactors>
+          <StaggerDurationFactor>0</StaggerDurationFactor>
+        </statFactors>
+        <statOffsets>
+          <MoveSpeed>0.5</MoveSpeed>
+        </statOffsets>
+        <!-- <painFactor>0.7</painFactor> -->
+      </li>
+    </stages>
+
+    <comps>
+      <li Class="XIYUNTE.HediffCompProperties_DeliveryBoxHighPower">
+        <totalTicks>30000</totalTicks>
+        <stage2Tick>7500</stage2Tick>
+        <stage3Tick>22500</stage3Tick>
+        <burnIntervalTicks>1875</burnIntervalTicks>
+        <!-- 化学烧伤，每次 X 点 -->
+        <burnSeverity>4</burnSeverity>
+        <shieldDef>RK_DeliveryBox_HighPower_Shield</shieldDef>
+        <burnDef>ChemicalBurn</burnDef>
+      </li>
+    </comps>
+  </HediffDef>
+
+  <!-- 单一护盾 Hediff：严重度 0.01 表示阶段 I，严重度 1 表示阶段 II。 -->
+  <HediffDef>
+    <defName>RK_DeliveryBox_HighPower_Shield</defName>
+    <label>High Power Shield</label>
+    <description>A true-damage shield granted by High Power Mode. Stage I: 20 points, regenerating 5 points per second. Stage II: 40 points, regenerating 10 points per second.</description>
+    <hediffClass>XIYUNTE.Hediff_DeliveryBoxShield</hediffClass>
+    <renderNodeProperties>
+      <li Class="XIYUNTE.PawnRenderNodeProperties_DeliveryBoxShield">
+        <pawnType>Any</pawnType>
+        <useGraphic>false</useGraphic>
+        <debugLabel>DeliveryBox HighPower Shield</debugLabel>
+      </li>
+    </renderNodeProperties>
+    <defaultLabelColor>(0.25, 0.7, 0.55)</defaultLabelColor>
+    <isBad>false</isBad>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <tendable>false</tendable>
+    <everCurableByItem>false</everCurableByItem>
+    <initialSeverity>0.01</initialSeverity>
+    <maxSeverity>1</maxSeverity>
+    <stages>
+      <li>
+        <minSeverity>0.01</minSeverity>
+        <label>I</label>
+      </li>
+      <li>
+        <minSeverity>1</minSeverity>
+        <label>II</label>
+      </li>
+    </stages>
+    <comps>
+      <li Class="XIYUNTE.HediffCompProperties_DeliveryBoxShieldEnergy">
+        <initialMaxDamage>20</initialMaxDamage>
+        <initialRegenPerSecond>5</initialRegenPerSecond>
+        <stage2MaxDamage>40</stage2MaxDamage>
+        <stage2RegenPerSecond>10</stage2RegenPerSecond>
+      </li>
+    </comps>
+  </HediffDef>
+</Defs>

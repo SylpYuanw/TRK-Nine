@@ -1,0 +1,11 @@
+{
+  "targetFramework": "net10.0",
+  "source": "1.7/Source/ClassLibrary1/Weapon/BowOfDeath/DeathBowRimUnityShaders.cs",
+  "sourceSHA256": "29A45BA8E9BA7863B5E6F6609A9421FD786684F6D03220C1575F394153BB7CAE",
+  "output": "迁移记录/ShaderBridgeCompile/bin/Release/net10.0/ShaderBridgeCompile.dll",
+  "outputSHA256": "A27D7A4873EF94CC3A2F39024954D625AEBFF77625DD62638F15AB1F7F68346F",
+  "exitCode": 0,
+  "warnings": 0,
+  "errors": 0,
+  "limitation": "仅验证不依赖前置的加载接口；不包含 Harmony Prefix 或完整业务工程。"
+}

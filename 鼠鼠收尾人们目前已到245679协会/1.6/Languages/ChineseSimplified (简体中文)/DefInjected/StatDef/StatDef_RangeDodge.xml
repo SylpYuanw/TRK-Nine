@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <TRK_RangeDodgeChance.label>远程闪避率</TRK_RangeDodgeChance.label>
+  <TRK_RangeDodgeChance.description>闪避远程伤害的几率；判定成功时该次伤害完全不结算。</TRK_RangeDodgeChance.description>
+</LanguageData>

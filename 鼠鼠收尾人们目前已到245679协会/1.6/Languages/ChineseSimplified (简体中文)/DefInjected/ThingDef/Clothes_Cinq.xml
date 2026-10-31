@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <RK_cinqhat.label>南部Cinq协会羽毛帽</RK_cinqhat.label>
+  <RK_cinqhat.description>帽子左侧插有羽毛的宽檐帽，因成员们大多都是右撇子，所以将羽毛插在左侧避免影响挥剑</RK_cinqhat.description>
+  <cinqsuit.label>南部Cinq协会西装</cinqsuit.label>
+  <cinqsuit.description>贴身的蓝调西装，活动性很不错，即使做出夸张的动作也不会导致裤子开裂</cinqsuit.description>
+  <cinqcloak.label>南部Cinq协会披风</cinqcloak.label>
+  <cinqcloak.description>披风通常裹在左肩，在有需要时可以用左手拉到身前阻挡或偏转对方的攻击，或是干扰对方视线辅助进攻，总之在战斗的时候不止是衣物这么简单。</cinqcloak.description>
+</LanguageData>

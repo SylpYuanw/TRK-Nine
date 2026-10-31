@@ -1,0 +1,35 @@
+{
+  "generatedUtc": "2026-10-15T19:55:39.4794592Z",
+  "unity": "2022.3.35f1",
+  "project": "D:\\UnityTest\\unity_trk_35_1.7",
+  "entries": [
+    {
+      "path": "Assets/Data/Trk.Nine/Materials/Trk/BowOfDeathAimCharge.shader",
+      "bundle": "trk_bowofdeath_win",
+      "mod": "鼠鼠收尾人们目前已到245679协会",
+      "type": "UnityEngine.Shader",
+      "status": "exported",
+      "error": null,
+      "ui": false,
+      "catalogued": true,
+      "missingScripts": 0,
+      "components": null,
+      "shaders": null,
+      "layers": null
+    },
+    {
+      "path": "Assets/Data/Trk.Nine/Materials/Trk/BowOfDeathAimWind.shader",
+      "bundle": "trk_bowofdeath_win",
+      "mod": "鼠鼠收尾人们目前已到245679协会",
+      "type": "UnityEngine.Shader",
+      "status": "exported",
+      "error": null,
+      "ui": false,
+      "catalogued": true,
+      "missingScripts": 0,
+      "components": null,
+      "shaders": null,
+      "layers": null
+    }
+  ]
+}

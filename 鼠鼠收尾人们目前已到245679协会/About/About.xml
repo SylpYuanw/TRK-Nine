@@ -4,21 +4,47 @@
   <author>炸黄瓜条</author>
   <supportedVersions>
     <li>1.6</li>
+    <li>1.7</li>
   </supportedVersions>
   <description>测试创造mod物品</description>
   <packageId>Trk.Nine</packageId>
-  <modDependencies>
-    <li>
-      <packageId>brrainz.harmony</packageId>
-      <displayName>Harmony</displayName>
-    </li>
-    <li>
-      <packageId>Solaris.RatkinRaceMod</packageId>
-      <displayName>New Ratkin Plus</displayName>
-    </li>
-  </modDependencies>
+  <modDependenciesByVersion>
+    <v1.6>
+      <li>
+        <packageId>brrainz.harmony</packageId>
+        <displayName>Harmony</displayName>
+        <steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
+      </li>
+      <li>
+        <packageId>Solaris.RatkinRaceMod</packageId>
+        <displayName>New Ratkin Plus</displayName>
+        <steamWorkshopUrl>steam://url/CommunityFilePage/1578693166</steamWorkshopUrl>
+      </li>
+    </v1.6>
+    <v1.7>
+      <li>
+        <packageId>brrainz.harmony</packageId>
+        <displayName>Harmony</displayName>
+        <steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
+      </li>
+      <li>
+        <packageId>Solaris.RatkinRaceMod</packageId>
+        <displayName>New Ratkin Plus</displayName>
+        <steamWorkshopUrl>steam://url/CommunityFilePage/1578693166</steamWorkshopUrl>
+      </li>
+      <li>
+        <packageId>Chezhou.RimUnity</packageId>
+        <displayName>RimUnity</displayName>
+        <steamWorkshopUrl>steam://url/CommunityFilePage/3819570122</steamWorkshopUrl>
+      </li>
+    </v1.7>
+  </modDependenciesByVersion>
   <loadAfter>
     <li>brrainz.harmony</li>
     <li>Solaris.RatkinRaceMod</li>
+    <li>Chezhou.RimUnity</li>
+    <!-- 软前置：仅当 Mya's fufu 激活时加载本模组的 fufu 建筑（目录由 LoadFolders.xml 的 IfModActive 控制，
+         Def 由 MayRequire 控制）。写在此处只调整加载顺序，不构成硬依赖。 -->
+    <li>fxz.myafufu</li>
   </loadAfter>
 </ModMetaData>

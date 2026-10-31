@@ -1,0 +1,128 @@
+  <Defs>
+  
+  <!-- 五协会刺剑 -->
+
+  <ThingDef ParentName="RK_MeleeWeapon">
+		<defName>cinq</defName>
+		<label>Southern Cinq Association Rapier</label>
+		<description>The main business of Southern Cinq Association Fixers is duel representation. When issuing a challenge, they throw a glove at their opponent. Duels settle disputes, and do not always require fighting to the death.</description>
+		<graphicData>
+			<texPath>Weapon/cinqA</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<techLevel>Medieval</techLevel>
+		<weaponTags Inherit="false">
+			<li>RK_Sword</li>
+			<li>RK_Knight</li>
+			<li>RK_LightWeapon</li>
+			<li>RK_EliteDefender</li>
+			<li>RK_Guardener</li>
+			<li>RK_WeaponTag_OneHand</li>
+			<li>RK_WeaponTag_OneHandMelee</li>
+			<li>RK_WeaponTag_OneHandMeleeAttack</li>
+			<li>RK_WeaponTag_ArmedWanderer</li>
+		</weaponTags>
+		<statBases>
+			<WorkToMake>20000</WorkToMake>
+			<Mass>1.5</Mass>
+		</statBases>
+		<equippedAngleOffset>150</equippedAngleOffset>
+		<stuffCategories>
+			<li>Metallic</li>
+			<li>Woody</li>
+		</stuffCategories>
+		<costStuffCount>55</costStuffCount>
+		<tools>
+			<li>
+				<label>Hilt</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>7</power>
+				<armorPenetration>0.14</armorPenetration>
+				<cooldownTime>1.8</cooldownTime>
+			</li>
+			<li>
+				<label>Tip</label>
+				<capacities>
+					<li>Stab</li>
+				</capacities>
+				<power>26</power>
+				<armorPenetration>0.40</armorPenetration>
+				<cooldownTime>2.2</cooldownTime>
+			</li>
+		</tools>
+		<equippedStatOffsets>
+			<MeleeHitChance>2.5</MeleeHitChance>
+		</equippedStatOffsets>
+		<modExtensions>
+			<li Class="XIYUNTE.MeleeAttackEffectExtension">
+				<attackEffecter>RK_Cinq_AttackEffect</attackEffecter>
+			</li>
+		</modExtensions>
+		<recipeMaker>
+			<researchPrerequisite>RK_Research_SwordAndShield</researchPrerequisite>
+			<skillRequirements>
+				<Crafting>5</Crafting>
+			</skillRequirements>
+			<displayPriority>78270</displayPriority>
+		</recipeMaker>
+		<comps>
+			<li Class="NewRatkin.CompProperties_WeaponGripType">
+				<gripTypes>
+					<li>OneHand</li>
+				</gripTypes>
+			</li>
+			<li Class="SYS.CompProperties_Sheath">
+				<sheathOnlyGraphicData>
+					<texPath>Weapon/cinqb_Sheath</texPath>
+					<graphicClass>Graphic_Multi</graphicClass>
+				</sheathOnlyGraphicData>
+				<fullGraphicData>
+					<texPath>Weapon/cinqb_Full</texPath>
+					<graphicClass>Graphic_Multi</graphicClass>
+				</fullGraphicData>
+				<drawPosition>Side</drawPosition>
+				<northOffset>
+					<position>(0.2,0,-0.2)</position>
+					<angle>-60</angle>
+				</northOffset>
+				<southOffset>
+					<position>(-0.2,0,-0.2)</position>
+					<angle>0</angle>
+				</southOffset>
+				<eastOffset>
+					<position>(0,-0.3,-0.2)</position>
+					<angle>120</angle>
+				</eastOffset>
+				<westOffset>
+					<position>(0,0,-0.2)</position>
+					<angle>-120</angle>
+				</westOffset>
+			</li>
+			<!-- SYS手持四向参数：position=(X,Y,Z)，X正右负左，Y为绘制高度，Z正北负南。
+			     angle为绕Y轴旋转角（度），正值顺时针、负值逆时针；南/西向使用镜像网格。
+			     此分支用于征召待机手持，直接读取angle，不叠加equippedAngleOffset。 -->
+			<li Class="SYS.CompProperties_WeaponExtention">
+				<northOffset>
+					<position>(0.3,0,0.15)</position>
+					<angle>-225</angle>
+				</northOffset>
+				<eastOffset>
+					<position>(0.3,0,0.15)</position>
+					<angle>-215</angle>
+				</eastOffset>
+				<southOffset>
+					<position>(-0.3,0.3,0.15)</position>
+					<!-- 南向镜像手持逆时针旋转90度，使剑尖朝画面左侧、远离身体。 -->
+					<angle>225</angle>
+				</southOffset>
+				<westOffset>
+					<position>(-0.3,-0.3,0.15)</position>
+					<angle>215</angle>
+				</westOffset>
+			</li>
+		</comps>
+	</ThingDef>
+
+    </Defs>

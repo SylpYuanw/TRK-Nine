@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <RK_BreakthroughTool.label>突破工具-突进</RK_BreakthroughTool.label>
+  <RK_BreakthroughTool.description>冲刺至目标正前方，使用突破工具蓄力撞击对方躯干，造成 48 点钝击伤害并击退 5 格。\n撞到墙壁时提前停止，并造成额外伤害。</RK_BreakthroughTool.description>
+</LanguageData>

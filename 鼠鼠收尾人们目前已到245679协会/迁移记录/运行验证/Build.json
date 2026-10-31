@@ -1,0 +1,199 @@
+{
+  "checked": "2026-10-16T04:40:22.5772056+08:00",
+  "exitCode": 0,
+  "targetFramework": ".NETCoreApp,Version=v10.0",
+  "configuration": "Release",
+  "files": [
+    {
+      "path": "1.7/Source/ClassLibrary1/ClassLibrary1.csproj",
+      "sha256": "C7FD9A82D8E5C1813572FDDFD349FE176AFE159574D8A8142E219B1D95A0692A"
+    },
+    {
+      "path": "1.7/Source/ClassLibrary1/StatWorker_MeleeAveragePatches.cs",
+      "sha256": "2A4C6A9694FE0137A722D66A3CEB678631C76A3DB93F7649A2E6A063AD968CD7"
+    },
+    {
+      "path": "1.7/Source/ClassLibrary1/Abilities/Ability_BreakthroughTool.cs",
+      "sha256": "9094480C3C2BF79B96DA8F275724ACB1B20A3633563FD9E1A029D350DEEC6788"
+    },
+    {
+      "path": "1.7/Source/ClassLibrary1/Abilities/Ability_DeliveryBoxHighPower.cs",
+      "sha256": "397D5F139F3395B774F873D72AAF05EE6F53495F65A2352312D94BD266AB6902"
+    },
+    {
+      "path": "1.7/Source/ClassLibrary1/Abilities/Gizmo_DeliveryBoxHighPower.cs",
+      "sha256": "A932C7D2621654F566832A75551A32B93409312CCB5FB650E8C43F962AD99C29"
+    },
+    {
+      "path": "1.7/Source/ClassLibrary1/Abilities/Hediff_CinqDuelDeclaration.cs",
+      "sha256": "504EA01CAC9249DC356C255437A27220BB1890ECF712E3C3A9C915368609E09C"
+    },
+    {
+      "path": "1.7/Source/ClassLibrary1/Abilities/Hediff_LiuSet.cs",
+      "sha256": "E721A6FEB8E03D2B63378D5D34031032BCB9EAC7C9013EB9D96695D578887495"
+    },
+    {
+      "path": "1.7/Source/ClassLibrary1/Abilities/Hediff_SevenWeaknessAnalysis.cs",
+      "sha256": "C5CCA6FC21247E357F50785B80802896601043E004BACDA4AD1FD060C4C8A249"
+    },
+    {
+      "path": "1.7/Source/ClassLibrary1/Abilities/Hediff_ZweiAura.cs",
+      "sha256": "7A6797FEB2724BB2ECD74ECDEACC6BE5FFFA7F8954F8A68633B6DE5A13B8D74D"
+    },
+    {
+      "path": "1.7/Source/ClassLibrary1/Combat/Patch_Pawn_PreApplyDamage_RangeDodge.cs",
+      "sha256": "D523DF15AA8D6FD6DDDEA5FD790A3DAF8BEB589BA4A4ECA4622C37A32AD21D6F"
+    },
+    {
+      "path": "1.7/Source/ClassLibrary1/Hediff/Comp_EquippedHediff.cs",
+      "sha256": "6F84956F3E31A200B03E2E2E4E89E1F5A70800FB2CD0EA874A756ED42ED7EE00"
+    },
+    {
+      "path": "1.7/Source/ClassLibrary1/Hediff/Comp_SetPiece.cs",
+      "sha256": "8E12F739399BFF8C7295837AAC4CE1058E4ADEDCD724C216F4D777C33728F520"
+    },
+    {
+      "path": "1.7/Source/ClassLibrary1/Properties/AssemblyInfo.cs",
+      "sha256": "2118EF1A8661D15C81774565B71ACA3E01B5358AC6D08E76612C703E015E8F6B"
+    },
+    {
+      "path": "1.7/Source/ClassLibrary1/SpecialCharacter/Dialog_SpecialCharacters.cs",
+      "sha256": "D241C46583AC3A7EC2D300D7CFC62B73A08A672A646EB71B0766C1FC451300A5"
+    },
+    {
+      "path": "1.7/Source/ClassLibrary1/SpecialCharacter/DispatchLifecycle.cs",
+      "sha256": "993433BA1DD921B3E0B779EB4DEDDA73FCE0DB3065AB59F36656D0583C9C96BC"
+    },
+    {
+      "path": "1.7/Source/ClassLibrary1/SpecialCharacter/SpecialCharacterDef.cs",
+      "sha256": "AA480F029449B5F6B7394FDC447C4C510E535082F57B4F8FECB15FF3FBFBD267"
+    },
+    {
+      "path": "1.7/Source/ClassLibrary1/SpecialCharacter/SpecialCharacterFacialAnimation.cs",
+      "sha256": "0287EACF134771C27C4621FEDAB919EF521D8DB881CE9571E7DCDB83C23D4473"
+    },
+    {
+      "path": "1.7/Source/ClassLibrary1/SpecialCharacter/SpecialCharacterGenerator.cs",
+      "sha256": "C29B1F400882307EB7B1A7288CFC3584AB81B1A1E48E76AC7D72AE46C0855427"
+    },
+    {
+      "path": "1.7/Source/ClassLibrary1/SpecialCharacter/SpecialCharacterPod.cs",
+      "sha256": "46EDEA3DA65FCCBB95414D1A294FC0DF02FD2F69B0D6D7F6315AC3450C430D1D"
+    },
+    {
+      "path": "1.7/Source/ClassLibrary1/SpecialCharacter/WorldComponent_SpecialCharacters.cs",
+      "sha256": "DEF2B0B14642FEF255378E5E34AA035CB3801067FC43F257823EC5891BD6E1DA"
+    },
+    {
+      "path": "1.7/Source/ClassLibrary1/Weapon/Weapon_DeliveryBox_DisplayPatches.cs",
+      "sha256": "73B4915B492020D3334DDEC9F3DC0926B0F2852D66311EE6D640E692A54599F1"
+    },
+    {
+      "path": "1.7/Source/ClassLibrary1/Weapon/Weapon_DeliveryBox_EffectPatches.cs",
+      "sha256": "2726AA23F21E85F5A9460014C16EEA73F01F14AA21DB0A6FB3F422104DFDFC57"
+    },
+    {
+      "path": "1.7/Source/ClassLibrary1/Weapon/Weapon_DeliveryBox.cs",
+      "sha256": "DA51EB326D043439A6043E809E6FF0A96F4A2A0F00D5DB49394DBEE6B4B99D0E"
+    },
+    {
+      "path": "1.7/Source/ClassLibrary1/Weapon/BowOfDeath/CompEquippable_DeathBow.cs",
+      "sha256": "6213A561F503FC41C404B52E39E02B389ABF4E30F22E8281D7E659F603551354"
+    },
+    {
+      "path": "1.7/Source/ClassLibrary1/Weapon/BowOfDeath/DeathBowAimDrawOffsetPatch.cs",
+      "sha256": "9934DCF4577AE0EA18BEB01A916E744D6C5C8DC4E0A9D5D5DD98BD17FC07D2C8"
+    },
+    {
+      "path": "1.7/Source/ClassLibrary1/Weapon/BowOfDeath/DeathBowDefOf.cs",
+      "sha256": "6C42988754EAC42BA3A3A5641278EEC60A5161E178B813C0924D6A5935EAE25D"
+    },
+    {
+      "path": "1.7/Source/ClassLibrary1/Weapon/BowOfDeath/DeathBowRimUnityShaderPatch.cs",
+      "sha256": "DE12AD685E03C107C2C89F1DAA8008A758FEEF9D03BADDF19A2E3F43A8F168A8"
+    },
+    {
+      "path": "1.7/Source/ClassLibrary1/Weapon/BowOfDeath/DeathBowRimUnityShaders.cs",
+      "sha256": "29A45BA8E9BA7863B5E6F6609A9421FD786684F6D03220C1575F394153BB7CAE"
+    },
+    {
+      "path": "1.7/Source/ClassLibrary1/Weapon/BowOfDeath/DeathBowStatPatches.cs",
+      "sha256": "CC85EEC7666D7A469B5C9698E9C9F424F01ACC47A6B57AA3B644F310FEABB6F6"
+    },
+    {
+      "path": "1.7/Source/ClassLibrary1/Weapon/BowOfDeath/Mote_DeathBowAimVfx.cs",
+      "sha256": "BA643234C053A7E33386B35ECD926BC1CA1111FCBA4B64C269EEF8A00D9CD331"
+    },
+    {
+      "path": "1.7/Source/ClassLibrary1/Weapon/BowOfDeath/Projectile_DeathBowArrow.cs",
+      "sha256": "A4D63196877CA7F3B062599EC827A0F476DCAF2C445F55A3CCAFE2BA94E9F622"
+    },
+    {
+      "path": "1.7/Source/ClassLibrary1/Weapon/BowOfDeath/Properties_DeathBow.cs",
+      "sha256": "2CA398000FF20F2AFF83E5C144915A87D30583890C09239D57FF64B6ECD10C76"
+    },
+    {
+      "path": "1.7/Source/ClassLibrary1/Weapon/BowOfDeath/Thing_DeathBow.cs",
+      "sha256": "EE487DFEC312A6F16E2CF2D8D8AD7213D66B0F31325AEC30FF0E08CF6EA7AFE9"
+    },
+    {
+      "path": "1.7/Source/ClassLibrary1/Weapon/BowOfDeath/Verb_DeathBowShot.cs",
+      "sha256": "94295EB33A0308556B54986AAA392B5FCB7D4113294F95ADA606B81EB6FEF2DC"
+    },
+    {
+      "path": "1.7/Assemblies/ClassLibrary1.deps.json",
+      "sha256": "987977B67422ACA969EAC64FBFCD2EE1E4E56E492937D6B514BDB167C2795505"
+    },
+    {
+      "path": "1.7/Assemblies/ClassLibrary1.dll",
+      "sha256": "7FC429C10FF631C721F12F9F7B405973248B4C44EB4FD404FDC80AFC33274C3B"
+    },
+    {
+      "path": "1.7/Assemblies/ClassLibrary1.pdb",
+      "sha256": "A23DF91ECB56841ABF82693E4D06A98FB5A36F60C31993E652037953F1DDC2CE"
+    },
+    {
+      "path": "迁移记录/运行验证/EarlyShaderPatch/Build.log",
+      "sha256": "69CE2FD885369E3E5DF618B962C045367EC845D5E7D8172A1738588681E89073"
+    }
+  ],
+  "references": [
+    {
+      "assembly": "Assembly-CSharp",
+      "path": "D:\\Steam\\steamapps\\common\\RimWorld\\Assembly-CSharp.dll",
+      "sha256": "A97A01C4319414414C0CA39F3565215E83300DC608DC94B69A27720095B4E751"
+    },
+    {
+      "assembly": "UnityStubs",
+      "path": "D:\\Steam\\steamapps\\common\\RimWorld\\UnityStubs.dll",
+      "sha256": "CD4BC07E2137C2B2379C2EF538C0482426D87EC7003F097DA7155BD12E8991E4"
+    },
+    {
+      "assembly": "Waylith",
+      "path": "D:\\Steam\\steamapps\\common\\RimWorld\\Waylith.dll",
+      "sha256": "32B5EFB8AF594288F621F06D78075051B90FBCD8E8B3FCFA2043CCA481D8296B"
+    },
+    {
+      "assembly": "RimUnity.Core",
+      "path": "D:\\Steam\\steamapps\\workshop\\content\\294100\\3819570122\\1.7\\Assemblies\\RimUnity.Core.dll",
+      "sha256": "1704E8F0AB42FD6C4B991D11B085BFB6A5E687F6F333E2C6693C01682A7E4C97"
+    },
+    {
+      "assembly": "RimUnity",
+      "path": "D:\\Steam\\steamapps\\workshop\\content\\294100\\3819570122\\1.7\\Assemblies\\RimUnity.dll",
+      "sha256": "60C6858F16E1DE468E07FE30445D6C12E99159F0CA672A802B4540398FDA48F7"
+    },
+    {
+      "assembly": "0Harmony",
+      "path": "D:\\Steam\\steamapps\\workshop\\content\\294100\\2009463077\\1.7\\Assemblies\\0Harmony.dll",
+      "sha256": "C8EF7856B2BE3CF24B345C9B5C2F197F68FCF92649635064FCE7B3CCC8F77CB0"
+    },
+    {
+      "assembly": "SYS",
+      "path": "D:\\Steam\\steamapps\\workshop\\content\\294100\\1578693166\\1.6\\Assemblies\\SYS.dll",
+      "sha256": "8EE21292E2C8000E5D34077A87B07ED62D2B85B9D39790EE5FE6A9156E38F8EF"
+    }
+  ],
+  "earlyShaderPatch": true,
+  "ratkinBoundary": "SYS.CompSheath 仍来自 Ratkin 1.7 加载清单所共享的 1.6/Assemblies/SYS.dll。"
+}

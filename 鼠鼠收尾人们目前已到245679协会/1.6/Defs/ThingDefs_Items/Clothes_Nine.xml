@@ -1,0 +1,256 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- 北部Девять协会外套：贴身层衣物，提供携带量加成。 -->
+  <ThingDef ParentName="RK_ApparelMakeableBase">
+    <defName>nineja</defName>
+    <label>Northern Девять Association Coat</label>
+    <description>The harsh northern cold forces Девять Association members to deliver in thick coats. The pay is good, yet most members are in debt and assigned to this work under debt bondage.</description>
+    <recipeMaker>
+      <researchPrerequisite>RK_Research_AdvancedApparel</researchPrerequisite>
+      <recipeUsers Inherit="false">
+        <li>RK_ElectricTailoringBench</li>
+        <li>RK_HandTailoringBench</li>
+      </recipeUsers>
+      <displayPriority>215</displayPriority>
+    </recipeMaker>
+    <graphicData>
+      <texPath>Clothing/nineja</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <ignoreThingDrawColor>true</ignoreThingDrawColor>
+      <drawSize>1.05</drawSize>
+    </graphicData>
+    <costStuffCount>105</costStuffCount>
+    <stuffCategories>
+      <li>Fabric</li>
+      <li>Leathery</li>
+    </stuffCategories>
+    <thingCategories>
+      <li>ApparelMisc</li>
+    </thingCategories>
+    <techLevel>Industrial</techLevel>
+    <statBases>
+      <MaxHitPoints>290</MaxHitPoints>
+      <WorkToMake>14000</WorkToMake>
+      <Mass>3.9</Mass>
+      <!-- 固定护甲值；材料护甲贡献按材料系数缩放后叠加。 -->
+      <ArmorRating_Blunt>0.65</ArmorRating_Blunt>
+      <ArmorRating_Sharp>0.40</ArmorRating_Sharp>
+      <ArmorRating_Heat>0.25</ArmorRating_Heat>
+      <StuffEffectMultiplierArmor>0.30</StuffEffectMultiplierArmor>
+      <StuffEffectMultiplierInsulation_Cold>2.90</StuffEffectMultiplierInsulation_Cold>
+      <StuffEffectMultiplierInsulation_Heat>0</StuffEffectMultiplierInsulation_Heat>
+      <Flammability>1.00</Flammability>
+      <EquipDelay>4</EquipDelay>
+    </statBases>
+    <!-- 装备时属性偏移：携带量 +90。 -->
+    <equippedStatOffsets>
+      <CarryingCapacity>90</CarryingCapacity>
+    </equippedStatOffsets>
+    <apparel>
+      <drawData>
+        <defaultData>
+          <offset>(-0.002,0,0)</offset>
+        </defaultData>
+      </drawData>
+      <developmentalStageFilter>Adult</developmentalStageFilter>
+      <bodyPartGroups>
+        <li>Torso</li>
+        <li>Neck</li>
+        <li>Shoulders</li>
+        <li>Arms</li>
+        <li>Legs</li>
+      </bodyPartGroups>
+      <wornGraphicPath>Clothing/nineja</wornGraphicPath>
+      <layers>
+        <li>Shell</li>
+      </layers>
+      <tags>
+        <li>IndustrialAdvanced</li>
+      </tags>
+      <defaultOutfitTags>
+        <li>Worker</li>
+      </defaultOutfitTags>
+      <canBeDesiredForIdeo>false</canBeDesiredForIdeo>
+    </apparel>
+    <colorGenerator Class="ColorGenerator_Options">
+      <options>
+        <li>
+          <weight>10</weight>
+          <only>(0.33,0.33,0.33)</only>
+        </li>
+        <li>
+          <weight>10</weight>
+          <only>(0.65,0.65,0.65)</only>
+        </li>
+        <li>
+          <weight>30</weight>
+          <only>(0.4,0.3,0.15)</only>
+        </li>
+        <li>
+          <weight>6</weight>
+          <min>(0.3,0.3,0.3)</min>
+          <max>(0.5,0.5,0.5)</max>
+        </li>
+        <li>
+          <weight>2</weight>
+          <min>(0.5,0.5,0.5)</min>
+          <max>(1,1,1)</max>
+        </li>
+      </options>
+    </colorGenerator>
+    <tradeTags>
+      <li>BasicClothing</li>
+    </tradeTags>
+  </ThingDef>
+
+  <!-- 北部Девять协会羽绒服：贴身层衣物，提供远行速度、携带量与移动速度加成。 -->
+  <ThingDef ParentName="RK_ApparelMakeableBase">
+    <defName>Apparel_ninec</defName>
+    <label>Northern Девять Association Down Suit</label>
+    <description>To make deliveries easier for Девять Association members, white exoskeleton frames were added to the legs. Items placed in the Delivery Box don't add weight, but the box itself is already rather heavy.</description>
+    <recipeMaker>
+      <researchPrerequisite>RK_Research_AdvancedApparel</researchPrerequisite>
+      <recipeUsers Inherit="false">
+        <li>RK_ElectricTailoringBench</li>
+        <li>RK_HandTailoringBench</li>
+      </recipeUsers>
+      <displayPriority>208</displayPriority>
+    </recipeMaker>
+    <graphicData>
+      <texPath>Clothing/ninec</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <ignoreThingDrawColor>true</ignoreThingDrawColor>
+    </graphicData>
+    <costStuffCount>95</costStuffCount>
+    <costList>
+      <ComponentIndustrial>9</ComponentIndustrial>
+    </costList>
+    <stuffCategories>
+      <li>Fabric</li>
+      <li>Leathery</li>
+    </stuffCategories>
+    <thingCategories>
+      <li>ApparelMisc</li>
+    </thingCategories>
+    <techLevel>Industrial</techLevel>
+    <statBases>
+      <MaxHitPoints>290</MaxHitPoints>
+      <WorkToMake>7000</WorkToMake>
+      <Mass>2.5</Mass>
+      <!-- 固定护甲值；材料护甲贡献按材料系数缩放后叠加。 -->
+      <ArmorRating_Blunt>0.20</ArmorRating_Blunt>
+      <ArmorRating_Sharp>0.30</ArmorRating_Sharp>
+      <ArmorRating_Heat>0.25</ArmorRating_Heat>
+      <StuffEffectMultiplierArmor>0.20</StuffEffectMultiplierArmor>
+      <StuffEffectMultiplierInsulation_Cold>2.00</StuffEffectMultiplierInsulation_Cold>
+      <StuffEffectMultiplierInsulation_Heat>0</StuffEffectMultiplierInsulation_Heat>
+      <Flammability>1.00</Flammability>
+      <EquipDelay>4</EquipDelay>
+    </statBases>
+    <!-- 装备时属性偏移：远行速度 +90%，携带量 +40，移动速度 +0.9。 -->
+    <equippedStatOffsets>
+      <CaravanBonusSpeedFactor>0.90</CaravanBonusSpeedFactor>
+      <CarryingCapacity>40</CarryingCapacity>
+      <MoveSpeed>0.9</MoveSpeed>
+    </equippedStatOffsets>
+    <apparel>
+      <developmentalStageFilter>Adult</developmentalStageFilter>
+      <bodyPartGroups>
+        <li>Torso</li>
+        <li>Neck</li>
+        <li>Shoulders</li>
+        <li>Arms</li>
+        <li>Legs</li>
+        <li>Feet</li>
+        <li>Hands</li>
+      </bodyPartGroups>
+      <wornGraphicPath>Clothing/ninec</wornGraphicPath>
+      <layers>
+        <li>OnSkin</li>
+      </layers>
+      <tags>
+        <li>IndustrialBasic</li>
+      </tags>
+      <defaultOutfitTags>
+        <li>Worker</li>
+        <li>Soldier</li>
+        <li>Spacefarer</li>
+      </defaultOutfitTags>
+    </apparel>
+    <colorGenerator Class="ColorGenerator_StandardApparel" />
+    <tradeTags>
+      <li>BasicClothing</li>
+    </tradeTags>
+  </ThingDef>
+
+  <!-- 北部Девять协会护目镜：眼饰层装备，覆盖双眼。原先作为旧版遗留条目单独放在 RK_fixers Clothing.xml，
+       现按九协会专属装备归并到本文件；护甲全部来自材料系数，本身不设固定护甲值。 -->
+  <ThingDef ParentName="RK_HatMakeableBase">
+    <defName>RK_nineh</defName>
+    <label>Goggles</label>
+    <description>Protects the wearer's eyes from wind and snow, and keeps foreign objects out of them in combat.</description>
+    <graphicData>
+      <texPath>Clothing/hmj</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <ignoreThingDrawColor>true</ignoreThingDrawColor>
+    </graphicData>
+    <uiIconScale>1.25</uiIconScale>
+    <costStuffCount>25</costStuffCount>
+    <stuffCategories>
+      <li>Metallic</li>
+    </stuffCategories>
+    <techLevel>Industrial</techLevel>
+    <statBases>
+      <MaxHitPoints>190</MaxHitPoints>
+      <WorkToMake>3200</WorkToMake>
+      <Mass>0.2</Mass>
+      <MarketValue>100</MarketValue>
+      <Beauty>-3</Beauty>
+      <DeteriorationRate>2</DeteriorationRate>
+      <!-- 无固定护甲值，护甲全部来自材料；金属材质，不燃。 -->
+      <StuffEffectMultiplierArmor>0.70</StuffEffectMultiplierArmor>
+      <StuffEffectMultiplierInsulation_Cold>0</StuffEffectMultiplierInsulation_Cold>
+      <StuffEffectMultiplierInsulation_Heat>0</StuffEffectMultiplierInsulation_Heat>
+      <Flammability>0</Flammability>
+      <EquipDelay>0.5</EquipDelay>
+    </statBases>
+    <generateCommonality>0.5</generateCommonality>
+    <recipeMaker>
+      <researchPrerequisite>RK_Research_AdvancedApparel</researchPrerequisite>
+      <recipeUsers Inherit="false">
+        <li>RK_ElectricTailoringBench</li>
+        <li>RK_HandTailoringBench</li>
+      </recipeUsers>
+      <displayPriority>105</displayPriority>
+    </recipeMaker>
+    <!-- 装备时属性偏移：近战命中率 +0.2，移动速度 +0.15。 -->
+    <equippedStatOffsets>
+      <MeleeHitChance>0.2</MeleeHitChance>
+      <MoveSpeed>0.15</MoveSpeed>
+    </equippedStatOffsets>
+    <apparel>
+      <countsAsClothingForNudity>false</countsAsClothingForNudity>
+      <developmentalStageFilter>Adult</developmentalStageFilter>
+      <gender>None</gender>
+      <!-- 眼饰层，覆盖双眼；与原版眼罩（Blindfold）同层同部位组。 -->
+      <bodyPartGroups>
+        <li>Eyes</li>
+      </bodyPartGroups>
+      <wornGraphicPath>Clothing/hmj</wornGraphicPath>
+      <layers>
+        <li>EyeCover</li>
+      </layers>
+      <tags>
+        <li>IndustrialBasic</li>
+      </tags>
+      <defaultOutfitTags>
+        <li>Worker</li>
+        <li>Soldier</li>
+      </defaultOutfitTags>
+    </apparel>
+    <colorGenerator Class="ColorGenerator_StandardApparel" />
+    <tradeTags>
+      <li>BasicClothing</li>
+    </tradeTags>
+  </ThingDef>
+</Defs>

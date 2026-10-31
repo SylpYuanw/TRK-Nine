@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- 箭矢:每次命中保留一份独立 Hediff,每份提供 +14% 承伤系数,最多 4 份。
+       不自然愈合且不可包扎,只能通过手术"取出箭矢"清除。 -->
+  <HediffDef>
+    <defName>BowOfDeath_StuckArrow</defName>
+    <hediffClass>XIYUNTE.Hediff_BowOfDeathStuckArrow</hediffClass>
+    <label>Embedded Arrow of Death</label>
+    <description>An Arrow of Death lodged in the body. Until it is removed, the unit takes increased damage.</description>
+    <isBad>true</isBad>
+    <tendable>false</tendable>
+    <initialSeverity>1</initialSeverity>
+    <stages>
+      <li>
+        <statOffsets>
+          <IncomingDamageFactor>0.14</IncomingDamageFactor>
+        </statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <!-- 意识提升:每次射击完成后给射手挂载 4 小时(10000 tick)。重复射击只刷新持续时间,不叠加数值。 -->
+  <HediffDef>
+    <defName>BowOfDeath_Consciousness</defName>
+    <hediffClass>HediffWithComps</hediffClass>
+    <label>Heightened Awareness</label>
+    <description>Briefly raises consciousness after firing.</description>
+    <isBad>false</isBad>
+    <tendable>false</tendable>
+    <!-- 健康页文字色:四协会红偏淡深色系(#96272B,取自 Textures/Clothing/si_uniform.png 的红色主色)。 -->
+    <defaultLabelColor>(150,39,43)</defaultLabelColor>
+    <comps>
+      <li Class="HediffCompProperties_Disappears">
+        <disappearsAfterTicks>10000</disappearsAfterTicks>
+        <!-- 原版默认 false:不开这一项,健康页只显示 Hediff 名,不显示剩余时间。 -->
+        <showRemainingTime>true</showRemainingTime>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>0.14</offset>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+  </HediffDef>
+</Defs>

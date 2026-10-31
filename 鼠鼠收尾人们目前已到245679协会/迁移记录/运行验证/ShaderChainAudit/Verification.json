@@ -1,0 +1,135 @@
+{
+  "checked": "2026-10-16T04:40:22.7127319+08:00",
+  "passed": true,
+  "resourceCount": 9,
+  "resourceBytes": 39030.0,
+  "unusedCount": 0,
+  "resources": [
+    {
+      "path": "catalog.json",
+      "bytes": 1234,
+      "sha256": "0DD672CB14B07546CC6653363B9350767D88E875AB90B1BF69D22DA5B89B9FD3",
+      "gameSHA256": "0DD672CB14B07546CC6653363B9350767D88E875AB90B1BF69D22DA5B89B9FD3",
+      "strictUTF8": true
+    },
+    {
+      "path": "blobs/2780ed8c79bd5726c8e2fd74a7ef6c1ab6d56dab7443e57850d8d3a1c2685da8.glsl",
+      "bytes": 9024,
+      "sha256": "2780ED8C79BD5726C8E2FD74A7EF6C1AB6D56DAB7443E57850D8D3A1C2685DA8",
+      "gameSHA256": "2780ED8C79BD5726C8E2FD74A7EF6C1AB6D56DAB7443E57850D8D3A1C2685DA8",
+      "strictUTF8": true
+    },
+    {
+      "path": "blobs/2c39b17dc95b44b31c0d2244d0778170f0e3cb00056825b005fa97e58fe8fc33.json",
+      "bytes": 4369,
+      "sha256": "2C39B17DC95B44B31C0D2244D0778170F0E3CB00056825B005FA97E58FE8FC33",
+      "gameSHA256": "2C39B17DC95B44B31C0D2244D0778170F0E3CB00056825B005FA97E58FE8FC33",
+      "strictUTF8": true
+    },
+    {
+      "path": "blobs/60687f399adcce9bebaee7bbbe9a2264ab40f3a505e37a7148794fa7326f464a.json",
+      "bytes": 3512,
+      "sha256": "60687F399ADCCE9BEBAEE7BBBE9A2264AB40F3A505E37A7148794FA7326F464A",
+      "gameSHA256": "60687F399ADCCE9BEBAEE7BBBE9A2264AB40F3A505E37A7148794FA7326F464A",
+      "strictUTF8": true
+    },
+    {
+      "path": "blobs/853293efdb747b3a789eb8b3c0c819dc2485e0b91aef4320c53ff4717a2b4e8f.glsl",
+      "bytes": 2048,
+      "sha256": "853293EFDB747B3A789EB8B3C0C819DC2485E0B91AEF4320C53FF4717A2B4E8F",
+      "gameSHA256": "853293EFDB747B3A789EB8B3C0C819DC2485E0B91AEF4320C53FF4717A2B4E8F",
+      "strictUTF8": true
+    },
+    {
+      "path": "blobs/9f108f3d81e5bcf3df727769be1d9b9c79ea1d07a1f23802e6db14603f1ce776.glsl",
+      "bytes": 9856,
+      "sha256": "9F108F3D81E5BCF3DF727769BE1D9B9C79EA1D07A1F23802E6DB14603F1CE776",
+      "gameSHA256": "9F108F3D81E5BCF3DF727769BE1D9B9C79EA1D07A1F23802E6DB14603F1CE776",
+      "strictUTF8": true
+    },
+    {
+      "path": "blobs/eb8d30f206bfba1838cadc72ed6e3320cde96d58c4b67685f1ec7c1f1b749076.glsl",
+      "bytes": 2309,
+      "sha256": "EB8D30F206BFBA1838CADC72ED6E3320CDE96D58C4B67685F1EC7C1F1B749076",
+      "gameSHA256": "EB8D30F206BFBA1838CADC72ED6E3320CDE96D58C4B67685F1EC7C1F1B749076",
+      "strictUTF8": true
+    },
+    {
+      "path": "exports/07366a02acb84d809d2363adbc1c5a0c/s_eWl7osKfSWo_cAsKFNZsieIEgHwmU5g9X1Vpe60CP4I.json",
+      "bytes": 3115,
+      "sha256": "423BB6A4A288A9071F2B0F4591D1B98935C8CBC1E07B6DAD801364AA0D3233EE",
+      "gameSHA256": "423BB6A4A288A9071F2B0F4591D1B98935C8CBC1E07B6DAD801364AA0D3233EE",
+      "strictUTF8": true
+    },
+    {
+      "path": "exports/07366a02acb84d809d2363adbc1c5a0c/s_pKhGaaiy7YK3GdOmKE974NbNPMer78HCrg_dwU3JFQo.json",
+      "bytes": 3563,
+      "sha256": "ACD7DBE3B33A033FB1BD20B587DD48728DF7CDB0BF5D56FABAF3951883A78E46",
+      "gameSHA256": "ACD7DBE3B33A033FB1BD20B587DD48728DF7CDB0BF5D56FABAF3951883A78E46",
+      "strictUTF8": true
+    }
+  ],
+  "chains": [
+    {
+      "name": "Trk/BowOfDeathAimCharge",
+      "logicalPath": "Bundles/trk_bowofdeath_win/Assets/Data/Trk.Nine/Materials/Trk/BowOfDeathAimCharge.shader",
+      "shaderData": "exports/07366a02acb84d809d2363adbc1c5a0c/s_eWl7osKfSWo_cAsKFNZsieIEgHwmU5g9X1Vpe60CP4I.json",
+      "vertexFile": "blobs/853293efdb747b3a789eb8b3c0c819dc2485e0b91aef4320c53ff4717a2b4e8f.glsl",
+      "fragmentFile": "blobs/9f108f3d81e5bcf3df727769be1d9b9c79ea1d07a1f23802e6db14603f1ce776.glsl",
+      "descriptorFile": "blobs/60687f399adcce9bebaee7bbbe9a2264ab40f3a505e37a7148794fa7326f464a.json",
+      "approximations": [
+        "常量正整数幂 2～64 使用乘法展开；负底数按整数幂计算，属于旧 Shader 写法的兼容处理，并非 HLSL pow 的负底数语义保证。",
+        "smoothstep 按 HLSL 饱和 Hermite 公式展开，支持反向边界；相等边界仍要求作者避免除零。"
+      ]
+    },
+    {
+      "name": "Trk/BowOfDeathAimWind",
+      "logicalPath": "Bundles/trk_bowofdeath_win/Assets/Data/Trk.Nine/Materials/Trk/BowOfDeathAimWind.shader",
+      "shaderData": "exports/07366a02acb84d809d2363adbc1c5a0c/s_pKhGaaiy7YK3GdOmKE974NbNPMer78HCrg_dwU3JFQo.json",
+      "vertexFile": "blobs/eb8d30f206bfba1838cadc72ed6e3320cde96d58c4b67685f1ec7c1f1b749076.glsl",
+      "fragmentFile": "blobs/2780ed8c79bd5726c8e2fd74a7ef6c1ab6d56dab7443e57850d8d3a1c2685da8.glsl",
+      "descriptorFile": "blobs/2c39b17dc95b44b31c0d2244d0778170f0e3cb00056825b005fa97e58fe8fc33.json",
+      "approximations": [
+        "常量正整数幂 2～64 使用乘法展开；负底数按整数幂计算，属于旧 Shader 写法的兼容处理，并非 HLSL pow 的负底数语义保证。",
+        "smoothstep 按 HLSL 饱和 Hermite 公式展开，支持反向边界；相等边界仍要求作者避免除零。"
+      ]
+    }
+  ],
+  "runtimeDLL": "D:\\Steam\\steamapps\\common\\RimWorld\\Mods\\鼠鼠收尾人们目前已到245679协会\\1.7\\Assemblies\\ClassLibrary1.dll",
+  "runtimeDLLSHA256": "7FC429C10FF631C721F12F9F7B405973248B4C44EB4FD404FDC80AFC33274C3B",
+  "targetFramework": ".NETCoreApp,Version=v10.0",
+  "earlyPatch": true,
+  "duplicateScan": false,
+  "loadFolders17": [
+    "/",
+    "1.7"
+  ],
+  "sourceToGLSLPassed": true,
+  "fallbackCount": 0,
+  "prefixStackCount": 4,
+  "warningLines": [
+    {
+      "line": 1219,
+      "text": "2026-10-16 04:38:52.986  WARN [Verse] [RimUnity] Trk/BowOfDeathAimWind：常量正整数幂 2～64 使用乘法展开；负底数按整数幂计算，属于旧 Shader 写法的兼容处理，并非 HLSL pow 的负底数语义保证。"
+    },
+    {
+      "line": 1250,
+      "text": "2026-10-16 04:38:52.987  WARN [Verse] [RimUnity] Trk/BowOfDeathAimWind：smoothstep 按 HLSL 饱和 Hermite 公式展开，支持反向边界；相等边界仍要求作者避免除零。"
+    },
+    {
+      "line": 1281,
+      "text": "2026-10-16 04:38:52.994  WARN [Verse] [RimUnity] Trk/BowOfDeathAimCharge：常量正整数幂 2～64 使用乘法展开；负底数按整数幂计算，属于旧 Shader 写法的兼容处理，并非 HLSL pow 的负底数语义保证。"
+    },
+    {
+      "line": 1312,
+      "text": "2026-10-16 04:38:52.994  WARN [Verse] [RimUnity] Trk/BowOfDeathAimCharge：smoothstep 按 HLSL 饱和 Hermite 公式展开，支持反向边界；相等边界仍要求作者避免除零。"
+    }
+  ],
+  "readyLines": [
+    {
+      "line": 3073,
+      "text": "2026-10-16 04:39:14.483  INFO [Verse] [RimUnity] Shader 准备结束：2 项，失败 0 项，用时 0.00 秒。"
+    }
+  ],
+  "limitation": "证明实际部署程序集、产物对应及启动材质加载无默认回退；不包含游戏内特效画面或 GPU 抓帧验收。"
+}

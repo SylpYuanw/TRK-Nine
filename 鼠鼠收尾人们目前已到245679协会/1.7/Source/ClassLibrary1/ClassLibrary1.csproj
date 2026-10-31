@@ -1,0 +1,44 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <AssemblyName>ClassLibrary1</AssemblyName>
+    <RootNamespace>ClassLibrary1</RootNamespace>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+    <Deterministic>true</Deterministic>
+    <DefineConstants>$(DefineConstants);RIMWORLD_1_7</DefineConstants>
+    <OutputPath>../../Assemblies/</OutputPath>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
+    <RimWorldDir Condition="'$(RimWorldDir)' == ''">C:/Users/Administrator/Desktop/天翼种/本机源码/rimworlddll</RimWorldDir>
+    <RimUnityDir Condition="'$(RimUnityDir)' == ''">D:/Steam/steamapps/workshop/content/294100/3819570122</RimUnityDir>
+    <HarmonyPath Condition="'$(HarmonyPath)' == ''">D:/Steam/steamapps/workshop/content/294100/2009463077/1.7/Assemblies/0Harmony.dll</HarmonyPath>
+    <RatkinAssemblyPath Condition="'$(RatkinAssemblyPath)' == ''">D:/Steam/steamapps/workshop/content/294100/1578693166/1.6/Assemblies/SYS.dll</RatkinAssemblyPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Assembly-CSharp" HintPath="$(RimWorldDir)/Assembly-CSharp.dll" Private="false" />
+    <Reference Include="UnityStubs" HintPath="$(RimWorldDir)/UnityStubs.dll" Private="false" />
+    <Reference Include="Waylith" HintPath="$(RimWorldDir)/Waylith.dll" Private="false" />
+    <Reference Include="RimUnity.Core" HintPath="$(RimUnityDir)/1.7/Assemblies/RimUnity.Core.dll" Private="false" />
+    <Reference Include="RimUnity" HintPath="$(RimUnityDir)/1.7/Assemblies/RimUnity.dll" Private="false" />
+    <Reference Include="0Harmony" HintPath="$(HarmonyPath)" Private="false" />
+    <Reference Include="SYS" HintPath="$(RatkinAssemblyPath)" Private="false" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="StatWorker_MeleeAveragePatches.cs" />
+    <Compile Include="Properties/AssemblyInfo.cs" />
+    <Compile Include="Weapon/**/*.cs" />
+    <Compile Include="Abilities/**/*.cs" />
+    <Compile Include="Hediff/**/*.cs" />
+    <Compile Include="Combat/**/*.cs" />
+    <Compile Include="SpecialCharacter/**/*.cs" />
+  </ItemGroup>
+  <Target Name="ValidateMigrationReferences" BeforeTargets="ResolveReferences">
+    <Error Condition="!Exists('$(RimWorldDir)/Waylith.dll')" Text="RimWorldDir 必须指向本机 RimWorld 1.7 根目录。" />
+    <Error Condition="!Exists('$(RimUnityDir)/1.7/Assemblies/RimUnity.dll')" Text="RimUnityDir 必须指向配套 RimUnity 模组根目录。" />
+    <Error Condition="'$(HarmonyPath)' == '' Or !Exists('$(HarmonyPath)')" Text="请手动通过 HarmonyPath 配置 1.7 的 0Harmony.dll。" />
+    <Error Condition="'$(RatkinAssemblyPath)' == '' Or !Exists('$(RatkinAssemblyPath)')" Text="RatkinAssemblyPath 必须指向 Ratkin 的 1.7 加载清单实际提供的 SYS.dll。" />
+  </Target>
+</Project>

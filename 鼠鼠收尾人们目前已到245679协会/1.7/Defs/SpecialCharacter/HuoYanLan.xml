@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <PawnKindDef ParentName="RKBasePawnKind">
+    <defName>TRK_Special_HuoYanLan</defName>
+    <label>Renanthera coccinea</label>
+    <defaultFactionType>RK_PlayerFaction</defaultFactionType>
+    <fixedGender>Female</fixedGender>
+    <minGenerationAge>29</minGenerationAge>
+    <maxGenerationAge>29</maxGenerationAge>
+    <allowOldAgeInjuries>false</allowOldAgeInjuries>
+    <fixedChildBackstories><li>RK_Backstory_WandererChild</li></fixedChildBackstories>
+    <fixedAdultBackstories><li>Ratkin_Soldier</li></fixedAdultBackstories>
+    <forcedTraits>
+      <Nerves>2</Nerves>
+      <SpeedOffset>2</SpeedOffset>
+    </forcedTraits>
+    <forcedHair>RK_LongB</forcedHair>
+    <forcedHairColor>(0.576,0.353,0.192,1.000)</forcedHairColor>
+    <invNutrition>0</invNutrition>
+    <invFoodDef IsNull="True" />
+    <xenotypeSet IsNull="True" />
+    <apparelMoney>0</apparelMoney>
+    <weaponMoney>0</weaponMoney>
+    <generateInitialNonFamilyRelations>false</generateInitialNonFamilyRelations>
+    <showInDebugSpawner>false</showInDebugSpawner>
+  </PawnKindDef>
+
+  <XIYUNTE.SpecialCharacter.SpecialCharacterDef>
+    <defName>TRK_Character_HuoYanLan</defName>
+    <label>Renanthera coccinea</label>
+    <description>Renanthera coccinea is a Fixer of the Southern 六 Association. A childhood on the road and years in the army taught her to act quickly; among the 六 Association she learned to hold her ground for her comrades in chaos. Her longsword and laughter always lift the spirits of those around her.</description>
+    <detailedReport>29 years old, female, Renanthera coccinea, member of the Southern 六 Association.\n\nRenanthera coccinea drifted as a child and later joined a human army. Only when she was abandoned during a mission did she truly understand that this place was not worth staying in—survive, and embrace a new life.\n\nLater she chose the 六 Association. She loves the lively dinner table here, and is willing to charge ahead for the people around it. On commissions she keeps track of where her comrades are; on the way back she puts her longsword away, brings out the strawberry wine she carries, and waits for the last person to return before opening it.\n\nThe 하나 Association has verified her dispatch records. Renanthera coccinea is willing to take on the colony's combat and medical rescue work, and hopes her new comrades remember: when you need help, call her directly—don't tough it out alone.</detailedReport>
+    <arrivalGreeting>Even if I'm being sent to a strange place all by myself, let me see how they fight here. Put me at the very front and let me have a good look. Oh, and I brought some strawberry brew—ehehe...</arrivalGreeting>
+    <pawnKind>TRK_Special_HuoYanLan</pawnKind>
+    <association>六 Association · Southern 六 Association</association>
+    <iconPath>SpecialCharacter/HuoYanLan</iconPath>
+    <price>2000</price>
+    <firstName>Renanthera coccinea</firstName><nickname>Renanthera coccinea</nickname><lastName />
+    <biologicalAge>29</biologicalAge><gender>Female</gender>
+    <bodyType>Thin</bodyType><headType>RK_HeadType_Head5</headType><hair>RK_LongB</hair>
+    <hairColor>(0.576,0.353,0.192,1.000)</hairColor>
+    <hairColorSecond>(1.000,1.000,1.000,1.000)</hairColorSecond>
+    <favoriteColor>LightPink</favoriteColor>
+    <facialAnimation>
+      <head>Ratkin_Head</head><eyes>Ratkin_EyeStare</eyes><lids>Ratkin_LidPointy</lids>
+      <brows>Ratkin_Futomayu</brows><mouth>Ratkin_MouthNormal</mouth><skin>Ratkin_SkinNormal</skin>
+      <eyeColor>(0.580,0.373,0.427,1.000)</eyeColor>
+      <eyeColorSecond>(0.580,0.373,0.427,1.000)</eyeColorSecond>
+    </facialAnimation>
+    <addonVariants><li>0</li><li>0</li><li>0</li></addonVariants>
+    <xenotype>RK_XenoType_Ratkin</xenotype>
+    <endogenes>
+      <li>Skin_Melanin1</li><li>RK_Gene_SmallBody</li><li>RK_Gene_Nimble</li>
+      <li>RK_Gene_PoorEyesight</li><li>RK_Gene_FragilePain</li><li>RK_Gene_GoodGardening</li>
+      <li>Skin_SheerWhite</li><li>Beard_NoBeardOnly</li><li>RK_Gene_LargeEars</li>
+      <li>RK_Gene_ThinTail</li><li>RK_Gene_CuteFace</li><li>AptitudeStrong_Mining</li>
+      <li>AptitudeStrong_Plants</li><li>Hair_MidBlack</li>
+    </endogenes>
+    <skills>
+      <li><skill>Shooting</skill><level>8</level><passion>Minor</passion></li>
+      <li><skill>Melee</skill><level>10</level><passion>Major</passion></li>
+      <li><skill>Construction</skill><level>5</level><passion>None</passion></li>
+      <li><skill>Mining</skill><level>6</level><passion>Minor</passion></li>
+      <li><skill>Cooking</skill><level>6</level><passion>Minor</passion></li>
+      <li><skill>Plants</skill><level>5</level><passion>None</passion></li>
+      <li><skill>Animals</skill><level>2</level><passion>None</passion></li>
+      <li><skill>Crafting</skill><level>0</level><passion>None</passion></li>
+      <li><skill>Artistic</skill><level>2</level><passion>None</passion></li>
+      <li><skill>Medicine</skill><level>6</level><passion>Minor</passion></li>
+      <li><skill>Social</skill><level>7</level><passion>Minor</passion></li>
+      <li><skill>Intellectual</skill><level>0</level><passion>None</passion></li>
+    </skills>
+    <weapon>
+      <thing>liu_LongSword</thing><stuff>Steel</stuff><count>1</count><quality>Excellent</quality><hitPoints>100</hitPoints>
+    </weapon>
+    <apparel>
+      <li><thing>liuA</thing><stuff>Synthread</stuff><count>1</count><quality>Excellent</quality><hitPoints>390</hitPoints><color>(0.678,0.859,0.890,1.000)</color></li>
+      <li><thing>liuB</thing><stuff>Synthread</stuff><count>1</count><quality>Excellent</quality><hitPoints>390</hitPoints><color>(0.678,0.859,0.890,1.000)</color></li>
+    </apparel>
+    <inventory>
+      <li><thing>RK_Food_Hardtack</thing><count>6</count><hitPoints>50</hitPoints></li>
+      <li><thing>RK_StrawberryBeer</thing><count>6</count><hitPoints>50</hitPoints></li>
+      <li MayRequire="fxz.myafufu"><thing>FuFu_HuoYanLan</thing><count>1</count><hitPoints>300</hitPoints></li>
+    </inventory>
+  </XIYUNTE.SpecialCharacter.SpecialCharacterDef>
+</Defs>

@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <TRK_SC_OpenDispatch>Connect to 하나 Association: Special Personnel Dispatch</TRK_SC_OpenDispatch>
+  <TRK_SC_Title>하나 Association · Special Personnel Dispatch</TRK_SC_Title>
+  <TRK_SC_Contact>Contact: 하나 Association Dispatch Officer</TRK_SC_Contact>
+  <TRK_SC_Greeting>하나 Association Dispatch Office. Select the association member you wish to contact; we will verify the fee and arrange for that member to travel to your colony.</TRK_SC_Greeting>
+  <TRK_SC_Balance>Silver available near a powered trade beacon: {0}</TRK_SC_Balance>
+  <TRK_SC_Details>Details</TRK_SC_Details>
+  <TRK_SC_Back>Back</TRK_SC_Back>
+  <TRK_SC_PortraitUnavailable>This member cannot be displayed right now.</TRK_SC_PortraitUnavailable>
+  <TRK_SC_Buy>Request dispatch · {0}</TRK_SC_Buy>
+  <TRK_SC_Purchased>Dispatched</TRK_SC_Purchased>
+  <TRK_SC_Dispatching>Dispatching</TRK_SC_Dispatching>
+  <TRK_SC_Failed>Dispatch failed</TRK_SC_Failed>
+  <TRK_SC_AlreadyPurchased>This member has already been dispatched to this colony once and will not be accepted again.</TRK_SC_AlreadyPurchased>
+  <TRK_SC_HomeMapRequired>Please request dispatch from a colony communications console.</TRK_SC_HomeMapRequired>
+  <TRK_SC_BiotechRequired>This character's fixed gene setup requires Biotech to be enabled.</TRK_SC_BiotechRequired>
+  <TRK_SC_InsufficientSilver>The fee is not yet ready. Store enough silver near a powered trade beacon.</TRK_SC_InsufficientSilver>
+  <TRK_SC_NoDropSpot>The colony currently has no safe open-air drop spot; dispatch cannot be accepted.</TRK_SC_NoDropSpot>
+  <TRK_SC_PurchaseAccepted>Fee verified; dispatch for {0} has been registered. The member will arrive at this colony by drop pod in about an hour.</TRK_SC_PurchaseAccepted>
+  <TRK_SC_PurchaseFailed>This dispatch could not be registered. Processing has stopped; check the error log and refund status.</TRK_SC_PurchaseFailed>
+  <TRK_SC_DispatchFailed>Dispatch of {0} failed; the system has stopped processing. The fee has been refunded or remains in the order awaiting collection; check the error log.</TRK_SC_DispatchFailed>
+  <TRK_SC_Refund>Collect refund</TRK_SC_Refund>
+  <TRK_SC_Refunded>Refund returned. This order has ended.</TRK_SC_Refunded>
+  <TRK_SC_RefundFailed>No valid spot for the refund; the fee remains in the order.</TRK_SC_RefundFailed>
+  <TRK_SC_ArrivalLabel>{0} has arrived</TRK_SC_ArrivalLabel>
+  <TRK_SC_ArrivalText>하나 Association Dispatch Office notice: {1} member {0} has arrived at your colony by drop pod and formally joined; ownership of the person has been officially transferred. Please treat them well.\n\nThis special personnel dispatch is complete.</TRK_SC_ArrivalText>
+  <TRK_SC_FixedProfile>Profile: {0}, {1} years old. Race: {2}.</TRK_SC_FixedProfile>
+  <TRK_SC_Traits>Traits: {0}</TRK_SC_Traits>
+  <TRK_SC_Report>Detailed report from the 하나 Association: "{0}"</TRK_SC_Report>
+  <TRK_SC_Equipment>Equipment:</TRK_SC_Equipment>
+  <TRK_SC_Inventory>Inventory:</TRK_SC_Inventory>
+  <TRK_SC_OneTimeRule>Note: this individual is unique; once lost, they cannot be dispatched again.\n</TRK_SC_OneTimeRule>
+</LanguageData>

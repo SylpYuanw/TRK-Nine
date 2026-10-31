@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <ThoughtDef>
+    <defName>RK_Cinq_DuelMoodThought</defName>
+    <!-- 0.21游戏日 = 5小时2分24秒；技能释放完成时添加。 -->
+    <durationDays>0.21</durationDays>
+    <stackLimit>1</stackLimit>
+    <stackedEffectMultiplier>1</stackedEffectMultiplier>
+    <stages>
+      <li>
+        <label>Declared Duel</label>
+        <description>When the glove hits the ground, only blades and breath remain in the noisy street.\nThe fighting spirit of a Declared Duel lifts the mood.</description>
+        <baseMoodEffect>15</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+</Defs>

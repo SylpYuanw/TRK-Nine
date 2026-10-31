@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <RK_LiuSet.label>六协会套装</RK_LiuSet.label>
+  <RK_LiuSet.description>六协会制服的完整套装状态。\n穿齐内衬与制服时成为套装成员，为自身与周围的成员提供意识增益。</RK_LiuSet.description>
+  <RK_LiuSet.stages.0.overrideTooltip>只穿戴了一件六协会制服部件，尚未构成套装。</RK_LiuSet.stages.0.overrideTooltip>
+  <RK_LiuSet.stages.1.overrideTooltip>已完整穿戴六协会套装，成为套装成员：为自身与周围成员提供意识增益。</RK_LiuSet.stages.1.overrideTooltip>
+  <RK_LiuAuraBuff.label>碧血丹心</RK_LiuAuraBuff.label>
+  <RK_LiuAuraBuff.description>受到六协会套装成员的意识增益。</RK_LiuAuraBuff.description>
+</LanguageData>

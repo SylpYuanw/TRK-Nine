@@ -1,0 +1,19 @@
+{
+  "checked": "2026-10-16T04:38:20.1274887+08:00",
+  "log": "C:\\Users\\Administrator\\Desktop\\天翼种\\鼠鼠收尾人们目前已到245679协会\\迁移记录\\运行验证\\EarlyShaderPatch\\Player-before.log",
+  "logSHA256": "6068356575E2D90376463E6874BA0769386B685557EE944BD0F59882C40FE7A5",
+  "passed": false,
+  "fallbacks": [
+    {
+      "line": 1219,
+      "text": "2026-10-16 04:34:19.028  WARN [Vulkan] ShaderRegistry: shader 'BowOfDeathAimWind.shader' not registered, falling back to default!"
+    },
+    {
+      "line": 1249,
+      "text": "2026-10-16 04:34:19.028  WARN [Vulkan] ShaderRegistry: shader 'BowOfDeathAimCharge.shader' not registered, falling back to default!"
+    }
+  ],
+  "preparationCount": 1,
+  "prefixStackCount": 0,
+  "limitation": "检查启动材质初始化的默认回退，不代替特效画面验收。"
+}

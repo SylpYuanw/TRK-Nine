@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <PawnKindDef ParentName="RKBasePawnKind">
+    <defName>TRK_Special_ShanHeYe</defName>
+    <label>Diphylleia grayi</label>
+    <defaultFactionType>RK_PlayerFaction</defaultFactionType>
+    <fixedGender>Female</fixedGender>
+    <minGenerationAge>31</minGenerationAge>
+    <maxGenerationAge>31</maxGenerationAge>
+    <allowOldAgeInjuries>false</allowOldAgeInjuries>
+    <fixedChildBackstories><li>Ratkin_Kid</li></fixedChildBackstories>
+    <fixedAdultBackstories><li>Ratkin_Knight</li></fixedAdultBackstories>
+    <forcedTraits>
+      <Nerves>1</Nerves>
+      <Tough>0</Tough>
+      <Brawler>0</Brawler>
+    </forcedTraits>
+    <forcedHair>RK_LongA</forcedHair>
+    <forcedHairColor>(0.824,0.737,0.541,1.000)</forcedHairColor>
+    <invNutrition>0</invNutrition>
+    <invFoodDef IsNull="True" />
+    <xenotypeSet IsNull="True" />
+    <apparelMoney>0</apparelMoney>
+    <weaponMoney>0</weaponMoney>
+    <generateInitialNonFamilyRelations>false</generateInitialNonFamilyRelations>
+    <showInDebugSpawner>false</showInDebugSpawner>
+  </PawnKindDef>
+
+  <XIYUNTE.SpecialCharacter.SpecialCharacterDef>
+    <defName>TRK_Character_ShanHeYe</defName>
+    <label>Diphylleia grayi</label>
+    <description>Diphylleia grayi is a Fixer of the Southern Zwei Association. She once served as a knight of the Ratkin kingdom, defending it against all evil; her solid technique and tough physique make her a reliable guard.</description>
+    <detailedReport>31 years old, female, Diphylleia grayi, member of the Southern Zwei Association.\n\nDiphylleia grayi grew up in an ordinary Ratkin family and joined the kingdom's knights when young. The first order she remembered was not how to swing a sword, but how to hold the last stretch of road while the squad retreated. Years of guard duty taught her to read a crowd, and to make sure the people behind her were safe before considering how long she could still stand.\n\nAfter leaving the knights she joined the Zwei Association. Facing a threat, she prefers to defend rather than strike first; facing a client, she rarely raises her voice. At rest she finds a seat with a view of the entrances and waits until her companions return before slowly taking off her heavy coat.\n\nThe 하나 Association has verified her dispatch records. Diphylleia grayi is willing to take on the colony's patrol, guard and construction work. She has few demands for a new posting—only that no one be missing.</detailedReport>
+    <arrivalGreeting>We'll be long-term clients from now on, then. But before we start, would you mind if I have one? Ah—if smoking is banned, never mind.</arrivalGreeting>
+    <pawnKind>TRK_Special_ShanHeYe</pawnKind>
+    <association>Zwei Association · Southern Zwei Association</association>
+    <iconPath>SpecialCharacter/ShanHeYe</iconPath>
+    <price>2000</price>
+    <firstName>Diphylleia grayi</firstName><nickname>Diphylleia grayi</nickname><lastName />
+    <biologicalAge>31</biologicalAge><gender>Female</gender>
+    <bodyType>Thin</bodyType><headType>RK_HeadType_Head4</headType><hair>RK_LongA</hair>
+    <hairColor>(0.824,0.737,0.541,1.000)</hairColor>
+    <hairColorSecond>(1.000,1.000,1.000,1.000)</hairColorSecond>
+    <favoriteColor>Structure_Blue</favoriteColor>
+    <facialAnimation>
+      <head>Ratkin_Head</head><eyes>Ratkin_EyeStare</eyes><lids>Ratkin_LidSleepy</lids>
+      <brows>Ratkin_Futomayu</brows><mouth>Ratkin_MouthNormal</mouth><skin>Ratkin_SkinNormal</skin>
+      <eyeColor>(0.133,0.663,0.286,1.000)</eyeColor>
+      <eyeColorSecond>(0.133,0.663,0.286,1.000)</eyeColorSecond>
+    </facialAnimation>
+    <addonVariants><li>0</li><li>0</li><li>0</li></addonVariants>
+    <xenotype>RK_XenoType_Ratkin</xenotype>
+    <endogenes>
+      <li>Skin_Melanin3</li><li>RK_Gene_SmallBody</li><li>RK_Gene_Nimble</li>
+      <li>RK_Gene_PoorEyesight</li><li>RK_Gene_FragilePain</li><li>RK_Gene_GoodGardening</li>
+      <li>Skin_SheerWhite</li><li>Beard_NoBeardOnly</li><li>RK_Gene_LargeEars</li>
+      <li>RK_Gene_ThinTail</li><li>RK_Gene_CuteFace</li><li>AptitudeStrong_Mining</li>
+      <li>AptitudeStrong_Plants</li><li>Hair_DarkBrown</li>
+    </endogenes>
+    <skills>
+      <li><skill>Shooting</skill><level>0</level><passion>None</passion></li>
+      <li><skill>Melee</skill><level>14</level><passion>Major</passion></li>
+      <li><skill>Construction</skill><level>8</level><passion>Minor</passion></li>
+      <li><skill>Mining</skill><level>8</level><passion>Minor</passion></li>
+      <li><skill>Cooking</skill><level>2</level><passion>None</passion></li>
+      <li><skill>Plants</skill><level>6</level><passion>Minor</passion></li>
+      <li><skill>Animals</skill><level>6</level><passion>Minor</passion></li>
+      <li><skill>Crafting</skill><level>2</level><passion>None</passion></li>
+      <li><skill>Artistic</skill><level>1</level><passion>None</passion></li>
+      <li><skill>Medicine</skill><level>0</level><passion>None</passion></li>
+      <li><skill>Social</skill><level>5</level><passion>None</passion></li>
+      <li><skill>Intellectual</skill><level>0</level><passion>None</passion></li>
+    </skills>
+    <weapon>
+      <thing>zweiC</thing><stuff>Steel</stuff><count>1</count><quality>Excellent</quality><hitPoints>100</hitPoints>
+    </weapon>
+    <apparel>
+      <li><thing>zweiA</thing><stuff>Synthread</stuff><count>1</count><quality>Excellent</quality><hitPoints>415</hitPoints><color>(0.678,0.859,0.890,1.000)</color></li>
+      <li><thing>zweiB</thing><stuff>Synthread</stuff><count>1</count><quality>Excellent</quality><hitPoints>415</hitPoints><color>(0.678,0.859,0.890,1.000)</color></li>
+    </apparel>
+    <inventory>
+      <li><thing>RK_Food_Hardtack</thing><count>2</count><hitPoints>50</hitPoints></li>
+      <li><thing>SmokeleafJoint</thing><count>20</count><hitPoints>50</hitPoints></li>
+      <li MayRequire="fxz.myafufu"><thing>FuFu_ShanHeYe</thing><count>1</count><hitPoints>300</hitPoints></li>
+    </inventory>
+  </XIYUNTE.SpecialCharacter.SpecialCharacterDef>
+</Defs>

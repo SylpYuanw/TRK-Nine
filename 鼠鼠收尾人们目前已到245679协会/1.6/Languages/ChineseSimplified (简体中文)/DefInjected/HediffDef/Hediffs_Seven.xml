@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <RK_SevenSet.label>Seven协会套装</RK_SevenSet.label>
+  <RK_SevenSet.description>情报如齿轮彼此咬合，最后的答案由看破的刀锋收尾。\n穿齐两件南部Seven协会制服后，近战或远程攻击目标时施加"弱点解析"。</RK_SevenSet.description>
+  <RK_SevenSet.stages.0.overrideTooltip>只穿戴了一件Seven协会制服部件，尚未构成套装。</RK_SevenSet.stages.0.overrideTooltip>
+  <RK_SevenSet.stages.1.overrideTooltip>已完整穿戴Seven协会套装，近战或远程攻击会使目标获得弱点解析。</RK_SevenSet.stages.1.overrideTooltip>
+  <RK_SevenWeaknessAnalysis.label>弱点解析</RK_SevenWeaknessAnalysis.label>
+  <RK_SevenWeaknessAnalysis.description>破绽已被准确标记。\n持续 3 小时，效果不可叠加。</RK_SevenWeaknessAnalysis.description>
+</LanguageData>

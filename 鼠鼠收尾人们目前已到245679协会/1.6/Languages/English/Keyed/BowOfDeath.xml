@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <BowOfDeath_NoAmmo>No arrow of death loaded—cannot fire. Load an Arrow of Death or switch back to normal mode for melee.</BowOfDeath_NoAmmo>
+  <BowOfDeath_Busy>Aiming or firing; cannot switch modes.</BowOfDeath_Busy>
+  <BowOfDeath_Switching>Switching ({0} s)</BowOfDeath_Switching>
+  <BowOfDeath_Mode_FlashBow>Mode: Bow's Glimmer ({0} / {1})</BowOfDeath_Mode_FlashBow>
+  <BowOfDeath_Mode_Melee>Mode: Normal (melee only)</BowOfDeath_Mode_Melee>
+  <BowOfDeath_ModeDesc>Switch weapon mode. In Bow's Glimmer mode with shots remaining, the vanilla ranged attack command appears in the equipment bar; normal mode keeps melee only.</BowOfDeath_ModeDesc>
+  <BowOfDeath_Stage>Charge stage: {0}</BowOfDeath_Stage>
+  <BowOfDeath_StageDesc>Choose the charge stage for this shot. Higher stages increase damage, penetration and accuracy bonus, at the cost of longer aim time.</BowOfDeath_StageDesc>
+  <BowOfDeath_NoStage>Charge stage data missing; cannot select.</BowOfDeath_NoStage>
+  <BowOfDeath_StatStage>Current charge stage</BowOfDeath_StatStage>
+  <BowOfDeath_StatStageDesc>Ranged stats for the current stage. Reopen the info card after switching stages to refresh.</BowOfDeath_StatStageDesc>
+  <BowOfDeath_StatMode>Weapon mode and remaining shots</BowOfDeath_StatMode>
+  <BowOfDeath_StatModeDesc>Ranged shots are only possible in Bow's Glimmer mode; each shot consumes one Arrow of Death.</BowOfDeath_StatModeDesc>
+  <BowOfDeath_Load>Load Arrow of Death ({0} / {1})</BowOfDeath_Load>
+  <BowOfDeath_LoadDesc>Load {0} from your inventory into the weapon; each one grants one Bow's Glimmer shot.</BowOfDeath_LoadDesc>
+  <BowOfDeath_LoadFull>Shots already full.</BowOfDeath_LoadFull>
+  <BowOfDeath_LoadFailed>No {0} in your inventory.</BowOfDeath_LoadFailed>
+</LanguageData>

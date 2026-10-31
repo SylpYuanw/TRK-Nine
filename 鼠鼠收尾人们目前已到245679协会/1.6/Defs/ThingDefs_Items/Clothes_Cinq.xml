@@ -1,0 +1,280 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- 南部Cinq协会羽毛帽：头饰层，覆盖头部与双耳，提供近战闪避与社交加成。 -->
+  <ThingDef ParentName="RK_HatMakeableBase">
+    <defName>RK_cinqhat</defName>
+    <label>Southern Cinq Association Plumed Hat</label>
+    <description>A wide-brimmed hat with a feather on the left side. Most members are right-handed, so the feather sits on the left to keep it out of the way when swinging a sword.</description>
+    <graphicData>
+      <texPath>Clothing/cinqhat</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <ignoreThingDrawColor>true</ignoreThingDrawColor>
+    </graphicData>
+    <uiIconScale>1.25</uiIconScale>
+    <costStuffCount>35</costStuffCount>
+    <stuffCategories>
+      <li>Fabric</li>
+      <li>Leathery</li>
+    </stuffCategories>
+    <techLevel>Industrial</techLevel>
+    <statBases>
+      <MaxHitPoints>100</MaxHitPoints>
+      <WorkToMake>2870</WorkToMake>
+      <Mass>0.2</Mass>
+      <!-- 固定护甲值；材料护甲贡献按材料系数缩放后叠加。 -->
+      <ArmorRating_Blunt>0.05</ArmorRating_Blunt>
+      <ArmorRating_Sharp>0.15</ArmorRating_Sharp>
+      <ArmorRating_Heat>0.20</ArmorRating_Heat>
+      <StuffEffectMultiplierArmor>0.20</StuffEffectMultiplierArmor>
+      <StuffEffectMultiplierInsulation_Cold>0.50</StuffEffectMultiplierInsulation_Cold>
+      <StuffEffectMultiplierInsulation_Heat>0.50</StuffEffectMultiplierInsulation_Heat>
+      <Flammability>1.00</Flammability>
+      <EquipDelay>0.5</EquipDelay>
+    </statBases>
+    <generateCommonality>0.5</generateCommonality>
+    <recipeMaker>
+      <researchPrerequisite>RK_Research_AdvancedApparel</researchPrerequisite>
+      <recipeUsers Inherit="false">
+        <li>RK_ElectricTailoringBench</li>
+        <li>RK_HandTailoringBench</li>
+      </recipeUsers>
+      <displayPriority>105</displayPriority>
+    </recipeMaker>
+    <!-- 装备时属性偏移：近战闪避率 +5%，远程闪避率 +5%，社交效果 +15%。 -->
+    <equippedStatOffsets>
+      <MeleeDodgeChance>0.05</MeleeDodgeChance>
+      <TRK_RangeDodgeChance>0.05</TRK_RangeDodgeChance>
+      <SocialImpact>0.15</SocialImpact>
+    </equippedStatOffsets>
+    <comps>
+      <li Class="XIYUNTE.CompProperties_SetPiece">
+        <setHediff>RK_CinqSet</setHediff>
+        <abilityDef>RK_Cinq_DuelDeclaration</abilityDef>
+      </li>
+    </comps>
+    <apparel>
+      <countsAsClothingForNudity>false</countsAsClothingForNudity>
+      <developmentalStageFilter>Adult</developmentalStageFilter>
+      <!-- 覆盖原企划写为"头/左耳/右耳"；原版无 Head、Ears 部位组，改用覆盖整个头部的 FullHead。 -->
+      <bodyPartGroups>
+        <li>FullHead</li>
+      </bodyPartGroups>
+      <wornGraphicPath>Clothing/cinqhat</wornGraphicPath>
+      <layers>
+        <li>Overhead</li>
+      </layers>
+      <tags>
+        <li>IndustrialBasic</li>
+      </tags>
+      <defaultOutfitTags>
+        <li>Worker</li>
+        <li>Soldier</li>
+      </defaultOutfitTags>
+    </apparel>
+    <colorGenerator Class="ColorGenerator_StandardApparel" />
+    <tradeTags>
+      <li>BasicClothing</li>
+    </tradeTags>
+  </ThingDef>
+
+  <!-- 南部Cinq协会西装：贴身层衣物，提供近战闪避与移动速度加成。 -->
+  <ThingDef ParentName="RK_ApparelMakeableBase">
+    <defName>cinqsuit</defName>
+    <label>Southern Cinq Association Suit</label>
+    <description>A fitted blue suit with excellent mobility; even exaggerated movements won't split the trousers.</description>
+    <recipeMaker>
+      <researchPrerequisite>RK_Research_AdvancedApparel</researchPrerequisite>
+      <recipeUsers Inherit="false">
+        <li>RK_ElectricTailoringBench</li>
+        <li>RK_HandTailoringBench</li>
+      </recipeUsers>
+      <displayPriority>208</displayPriority>
+    </recipeMaker>
+    <graphicData>
+      <texPath>Clothing/cinqsuit</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <ignoreThingDrawColor>true</ignoreThingDrawColor>
+    </graphicData>
+    <costStuffCount>85</costStuffCount>
+    <stuffCategories>
+      <li>Fabric</li>
+      <li>Leathery</li>
+    </stuffCategories>
+    <thingCategories>
+      <li>ApparelMisc</li>
+    </thingCategories>
+    <techLevel>Industrial</techLevel>
+    <statBases>
+      <MaxHitPoints>275</MaxHitPoints>
+      <WorkToMake>5000</WorkToMake>
+      <Mass>1.5</Mass>
+      <!-- 固定护甲值；材料护甲贡献按材料系数缩放后叠加。 -->
+      <ArmorRating_Blunt>0.10</ArmorRating_Blunt>
+      <ArmorRating_Sharp>0.25</ArmorRating_Sharp>
+      <ArmorRating_Heat>0.20</ArmorRating_Heat>
+      <StuffEffectMultiplierArmor>0.25</StuffEffectMultiplierArmor>
+      <StuffEffectMultiplierInsulation_Cold>0.50</StuffEffectMultiplierInsulation_Cold>
+      <StuffEffectMultiplierInsulation_Heat>0.50</StuffEffectMultiplierInsulation_Heat>
+      <Flammability>1.00</Flammability>
+      <EquipDelay>3.5</EquipDelay>
+    </statBases>
+    <!-- 装备时属性偏移：近战闪避率 +15%，远程闪避率 +15%，移动速度 +0.25。 -->
+    <equippedStatOffsets>
+      <MeleeDodgeChance>0.15</MeleeDodgeChance>
+      <TRK_RangeDodgeChance>0.15</TRK_RangeDodgeChance>
+      <MoveSpeed>0.25</MoveSpeed>
+    </equippedStatOffsets>
+    <comps>
+      <li Class="XIYUNTE.CompProperties_SetPiece">
+        <setHediff>RK_CinqSet</setHediff>
+        <abilityDef>RK_Cinq_DuelDeclaration</abilityDef>
+      </li>
+    </comps>
+    <apparel>
+      <drawData>
+        <defaultData>
+          <offset>(0,0,-0.03)</offset>
+        </defaultData>
+        <scale>1.0</scale>
+      </drawData>
+      <developmentalStageFilter>Adult</developmentalStageFilter>
+      <bodyPartGroups>
+        <li>Torso</li>
+        <li>Neck</li>
+        <li>Shoulders</li>
+        <li>Arms</li>
+        <li>Legs</li>
+        <li>Hands</li>
+        <li>Feet</li>
+      </bodyPartGroups>
+      <wornGraphicPath>Clothing/cinqsuit</wornGraphicPath>
+      <layers>
+        <li>OnSkin</li>
+      </layers>
+      <tags>
+        <li>IndustrialBasic</li>
+      </tags>
+      <defaultOutfitTags>
+        <li>Worker</li>
+        <li>Soldier</li>
+        <li>Spacefarer</li>
+      </defaultOutfitTags>
+    </apparel>
+    <colorGenerator Class="ColorGenerator_StandardApparel" />
+    <tradeTags>
+      <li>BasicClothing</li>
+    </tradeTags>
+  </ThingDef>
+
+  <!-- 南部Cinq协会披风：贴身层衣物，提供近战闪避与移动速度加成。 -->
+  <ThingDef ParentName="RK_ApparelMakeableBase">
+    <defName>cinqcloak</defName>
+    <label>Southern Cinq Association Cape</label>
+    <description>The cape is usually wrapped around the left shoulder. When needed, the left hand can pull it across the body to block or deflect attacks, or to obstruct an opponent's view while attacking. In battle it is far more than clothing.</description>
+    <recipeMaker>
+      <researchPrerequisite>RK_Research_AdvancedApparel</researchPrerequisite>
+      <recipeUsers Inherit="false">
+        <li>RK_ElectricTailoringBench</li>
+        <li>RK_HandTailoringBench</li>
+      </recipeUsers>
+      <displayPriority>215</displayPriority>
+    </recipeMaker>
+    <graphicData>
+      <texPath>Clothing/cinqcloak</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <ignoreThingDrawColor>true</ignoreThingDrawColor>
+      <drawSize>1.05</drawSize>
+    </graphicData>
+    <costStuffCount>65</costStuffCount>
+    <stuffCategories>
+      <li>Fabric</li>
+      <li>Leathery</li>
+    </stuffCategories>
+    <thingCategories>
+      <li>ApparelMisc</li>
+    </thingCategories>
+    <techLevel>Industrial</techLevel>
+    <statBases>
+      <MaxHitPoints>275</MaxHitPoints>
+      <WorkToMake>5700</WorkToMake>
+      <Mass>0.5</Mass>
+      <!-- 固定护甲值；材料护甲贡献按材料系数缩放后叠加。 -->
+      <ArmorRating_Blunt>0.15</ArmorRating_Blunt>
+      <ArmorRating_Sharp>0.30</ArmorRating_Sharp>
+      <ArmorRating_Heat>0.20</ArmorRating_Heat>
+      <StuffEffectMultiplierArmor>0.30</StuffEffectMultiplierArmor>
+      <StuffEffectMultiplierInsulation_Cold>0.75</StuffEffectMultiplierInsulation_Cold>
+      <StuffEffectMultiplierInsulation_Heat>0.50</StuffEffectMultiplierInsulation_Heat>
+      <Flammability>1.00</Flammability>
+      <EquipDelay>0.5</EquipDelay>
+    </statBases>
+    <!-- 装备时属性偏移：近战闪避率 +30%，远程闪避率 +30%，移动速度 +0.25。 -->
+    <equippedStatOffsets>
+      <MeleeDodgeChance>0.30</MeleeDodgeChance>
+      <TRK_RangeDodgeChance>0.30</TRK_RangeDodgeChance>
+      <MoveSpeed>0.25</MoveSpeed>
+    </equippedStatOffsets>
+    <comps>
+      <li Class="XIYUNTE.CompProperties_SetPiece">
+        <setHediff>RK_CinqSet</setHediff>
+        <abilityDef>RK_Cinq_DuelDeclaration</abilityDef>
+      </li>
+    </comps>
+    <apparel>
+      <drawData>
+        <defaultData>
+          <offset>(-0.01,0,-0.06)</offset>
+        </defaultData>
+      </drawData>
+      <developmentalStageFilter>Adult</developmentalStageFilter>
+      <bodyPartGroups>
+        <li>Torso</li>
+        <li>Neck</li>
+        <li>Shoulders</li>
+        <li>Arms</li>
+        <li>Legs</li>
+        <li>Hands</li>
+      </bodyPartGroups>
+      <wornGraphicPath>Clothing/cinqcloak</wornGraphicPath>
+      <layers>
+        <li>Shell</li>
+      </layers>
+      <tags>
+        <li>IndustrialAdvanced</li>
+      </tags>
+      <defaultOutfitTags>
+        <li>Worker</li>
+      </defaultOutfitTags>
+      <canBeDesiredForIdeo>false</canBeDesiredForIdeo>
+    </apparel>
+    <colorGenerator Class="ColorGenerator_Options">
+      <options>
+        <li>
+          <weight>10</weight>
+          <only>(0.33,0.33,0.33)</only>
+        </li>
+        <li>
+          <weight>10</weight>
+          <only>(0.65,0.65,0.65)</only>
+        </li>
+        <li>
+          <weight>30</weight>
+          <only>(0.4,0.3,0.15)</only>
+        </li>
+        <li>
+          <weight>6</weight>
+          <min>(0.3,0.3,0.3)</min>
+          <max>(0.5,0.5,0.5)</max>
+        </li>
+        <li>
+          <weight>2</weight>
+          <min>(0.5,0.5,0.5)</min>
+          <max>(1,1,1)</max>
+        </li>
+      </options>
+    </colorGenerator>
+    <tradeTags>
+      <li>BasicClothing</li>
+    </tradeTags>
+  </ThingDef>
+</Defs>

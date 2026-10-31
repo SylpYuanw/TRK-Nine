@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <zwei_AuraActive.label>二协会光环-开启中</zwei_AuraActive.label>
+  <zwei_AuraActive.description>二协会套装光环的开启状态。\n剩余时间结束时技能效果关闭，光环随之消失。\n开启期间：10 格内同阵营成员（含自身）获得承伤减免。</zwei_AuraActive.description>
+  <zwei_AuraBuff.label>二协会-承伤减免</zwei_AuraBuff.label>
+  <zwei_AuraBuff.description>来自二协会套装光环的承伤减免：每次受击伤害 ×90%。\n多个来源可叠加，同一目标最多 3 层。</zwei_AuraBuff.description>
+</LanguageData>

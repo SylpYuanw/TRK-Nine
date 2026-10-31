@@ -1,0 +1,19 @@
+using HarmonyLib;
+using Verse;
+using Shader = UnityEngine.Shader;
+
+namespace XIYUNTE
+{
+    //由现有全程序集 PatchAll 安装，只接管死之弓的两个 ShaderTypeDef。
+    [HarmonyPatch(typeof(ShaderTypeDef), nameof(ShaderTypeDef.Shader), MethodType.Getter)]
+    internal static class DeathBowRimUnityShaderPatch
+    {
+        private static bool Prefix(ShaderTypeDef __instance, ref Shader __result)
+        {
+            if (!DeathBowRimUnityShaders.TryGetShader(__instance, out Shader shader))
+                return true;
+            __result = shader;
+            return false;
+        }
+    }
+}

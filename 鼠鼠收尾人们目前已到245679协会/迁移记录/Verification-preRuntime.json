@@ -1,0 +1,191 @@
+{
+  "checked": "2026-10-16T03:58:36.3943741+08:00",
+  "passed": true,
+  "checks": [
+    {
+      "name": "1.6 原运行文件逐项 SHA256",
+      "passed": true,
+      "detail": "207 个文件；通用资源从根目录核对；差异："
+    },
+    {
+      "name": "通用贴图与音效在根目录且内容不变",
+      "passed": true,
+      "detail": "145 个文件；差异："
+    },
+    {
+      "name": "两个版本目录无重复通用资源",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "1.7 基础资源独立复制",
+      "passed": true,
+      "detail": "57 个文件；差异："
+    },
+    {
+      "name": "1.6 业务 C# 与原始内容一致",
+      "passed": true,
+      "detail": "34 个文件；差异："
+    },
+    {
+      "name": "1.7 业务 C# 与原始内容一致",
+      "passed": true,
+      "detail": "34 个文件；差异："
+    },
+    {
+      "name": "1.7 新增业务代码仅两个 Shader 接入文件",
+      "passed": true,
+      "detail": "ClassLibrary1/Weapon/BowOfDeath/DeathBowRimUnityShaderPatch.cs, ClassLibrary1/Weapon/BowOfDeath/DeathBowRimUnityShaders.cs"
+    },
+    {
+      "name": "两个版本各自包含 Source 和 Defs",
+      "passed": true,
+      "detail": "1.6/Source、1.6/Defs、1.7/Source、1.7/Defs"
+    },
+    {
+      "name": "1.6 Unity 仅保留获准的路径修改",
+      "passed": true,
+      "detail": "41 个文件；三个 Editor 脚本仅改路径，其余按原始哈希核对；差异："
+    },
+    {
+      "name": "两套 Unity 当前路径文件与修正记录一致",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "1.7 Unity 的 Shader 源码未改公式或参数",
+      "passed": true,
+      "detail": "4 个源文件；差异："
+    },
+    {
+      "name": "About 保持原样，前置由用户处理",
+      "passed": true,
+      "detail": "未提前声明 1.7 完整兼容。"
+    },
+    {
+      "name": "LoadFolders 根目录共享与版本分隔",
+      "passed": true,
+      "detail": "每版加载根目录共享资源与自己的版本数据。"
+    },
+    {
+      "name": "根目录无旧加载内容或旧源码入口",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "1.7 无 1.6 业务二进制和 AB",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "1.7 源码未复制旧构建缓存",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "1.6 目标框架",
+      "passed": true,
+      "detail": ".NET Framework 4.7.2"
+    },
+    {
+      "name": "1.7 目标框架",
+      "passed": true,
+      "detail": ".NET 10"
+    },
+    {
+      "name": "两套程序集输出不交叉",
+      "passed": true,
+      "detail": "C:\\Users\\Administrator\\Desktop\\天翼种\\鼠鼠收尾人们目前已到245679协会\\1.6\\Assemblies\\, C:\\Users\\Administrator\\Desktop\\天翼种\\鼠鼠收尾人们目前已到245679协会\\1.6\\Assemblies\\; C:\\Users\\Administrator\\Desktop\\天翼种\\鼠鼠收尾人们目前已到245679协会\\1.7\\Assemblies\\"
+    },
+    {
+      "name": "1.7 外部程序集不随业务输出复制",
+      "passed": true,
+      "detail": "7 项 Private=false；前置路径由用户填写。"
+    },
+    {
+      "name": "RimUnity 输出归属与目标游戏",
+      "passed": true,
+      "detail": "C:\\Users\\Administrator\\Desktop\\天翼种\\鼠鼠收尾人们目前已到245679协会; D:/Steam/steamapps/common/RimWorld"
+    },
+    {
+      "name": "UPM 使用固定仓库的本地源码包",
+      "passed": true,
+      "detail": "file:D:/UnityTest/RimUnity_c0e241a/UnityPackage"
+    },
+    {
+      "name": "新 Unity Editor 不指向桌面副本或二进制打包",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "1.6 Unity 参数分版且贴图读取根目录",
+      "passed": true,
+      "detail": "C:/Users/Administrator/Desktop/天翼种/鼠鼠收尾人们目前已到245679协会/1.6/Defs/Misc/Mote_BowOfDeath.xml; 贴图：ModRoot/Textures"
+    },
+    {
+      "name": "1.7 Unity 参数分版且贴图读取根目录",
+      "passed": true,
+      "detail": "C:/Users/Administrator/Desktop/天翼种/鼠鼠收尾人们目前已到245679协会/1.7/Defs/Misc/Mote_BowOfDeath.xml; 贴图：ModRoot/Textures"
+    },
+    {
+      "name": "1.6 二进制打包只部署到工作区 1.6/AssetBundles",
+      "passed": true,
+      "detail": "C:\\Users\\Administrator\\Desktop\\天翼种\\鼠鼠收尾人们目前已到245679协会\\1.6\\AssetBundles"
+    },
+    {
+      "name": "官方导出报告两个 Shader 全部成功",
+      "passed": true,
+      "detail": "D:\\UnityTest\\unity_trk_35_1.7\\Library\\RimUnity\\Reports\\export.json"
+    },
+    {
+      "name": "资源清单版本和 owner",
+      "passed": true,
+      "detail": "formatVersion=2; owner=Trk.Nine"
+    },
+    {
+      "name": "1.7 ShaderDef 与实际导出清单一致",
+      "passed": true,
+      "detail": "两个 Def 使用对应 Shader 的真实逻辑路径。"
+    },
+    {
+      "name": "catalog 的 Shader 描述及 GLSL 引用完整",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "迁移与原自测 PowerShell 语法",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Unity Assets 内有实际路径说明",
+      "passed": true,
+      "detail": "D:\\UnityTest\\unity_trk_35_1.7\\Assets\\RimUnity迁移说明.txt"
+    },
+    {
+      "name": "实际 1.7 加载器与文件索引核验",
+      "passed": true,
+      "detail": "实际1.7程序集的 XML 加载目录解析与资源文件索引；未启动游戏或执行完整业务。"
+    },
+    {
+      "name": "与用户指定原 1.6 备份核对记录一致",
+      "passed": true,
+      "detail": "207 个原运行文件及 34 个业务源文件内容一致。"
+    },
+    {
+      "name": "RimUnity 加载接口独立 .NET 10 编译证据",
+      "passed": true,
+      "detail": "仅验证不依赖前置的加载接口；不包含 Harmony Prefix 或完整业务工程。"
+    },
+    {
+      "name": "目标游戏 ShaderTool 复验实际导出 GLSL",
+      "passed": true,
+      "detail": "4 个唯一程序文件；exit=0"
+    }
+  ],
+  "notExecuted": [
+    "1.6/1.7 完整业务重新编译及 Harmony Prefix 编译和运行：外部前置由用户后续配置。",
+    "About 的 1.7 支持和前置声明：用户后续处理。",
+    "游戏内 Shader 加载和视觉验收。"
+  ]
+}

@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <RimWorldDir>D:/Steam/steamapps/common/RimWorld</RimWorldDir>
+    <RimUnityDir>D:/UnityTest/RimUnity_c0e241a</RimUnityDir>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../../1.7/Source/ClassLibrary1/Weapon/BowOfDeath/DeathBowRimUnityShaders.cs" />
+    <Reference Include="Assembly-CSharp" HintPath="$(RimWorldDir)/Assembly-CSharp.dll" Private="false" />
+    <Reference Include="UnityStubs" HintPath="$(RimWorldDir)/UnityStubs.dll" Private="false" />
+    <Reference Include="Waylith" HintPath="$(RimWorldDir)/Waylith.dll" Private="false" />
+    <Reference Include="RimUnity.Core" HintPath="$(RimUnityDir)/1.7/Assemblies/RimUnity.Core.dll" Private="false" />
+    <Reference Include="RimUnity" HintPath="$(RimUnityDir)/1.7/Assemblies/RimUnity.dll" Private="false" />
+  </ItemGroup>
+</Project>

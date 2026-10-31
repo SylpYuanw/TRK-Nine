@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- 二协会光环地面圈：参数对齐文化 DLC 的战斗命令光罩 Mote_CombatCommand
+       (MoteAttached 跟随宿主、LightingOverlay 层、drawOffscreen、超长寿命 + 需维护、
+       Graphic_Mote + MoteGlow 着色)。
+       贴图 VFX/Zwei_Aura_Circle 为程序生成的径向渐变遮罩(中心不透明、向外平滑到 0)；
+       color 沿用原版战令的取值方式：暗色 tint + alpha 满值，整体亮度/色调由 color 决定。
+       drawSize 20 = 直径 20 格，对应光环半径 10；改半径时需同步改这里。 -->
+  <ThingDef ParentName="MoteBase">
+    <defName>Mote_ZweiAuraCircle</defName>
+    <thingClass>MoteAttached</thingClass>
+    <altitudeLayer>LightingOverlay</altitudeLayer>
+    <drawOffscreen>true</drawOffscreen>
+    <mote>
+      <solidTime>9999999</solidTime>
+      <needsMaintenance>true</needsMaintenance>
+    </mote>
+    <graphicData>
+      <graphicClass>Graphic_Mote</graphicClass>
+      <texPath>VFX/Zwei_Aura_Circle</texPath>
+      <shaderType>MoteGlow</shaderType>
+      <color>(64,54,22)</color>
+      <drawSize>20</drawSize>
+    </graphicData>
+  </ThingDef>
+</Defs>

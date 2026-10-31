@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!--
+    本文件的 ThingDef 全部继承前置模组 Mya's fufu（packageId: fxz.myafufu）的抽象基类 FufuBase，
+    并依赖该模组提供的 Fufu.Fufu 程序集、JoyKind Playing_Fufu 与 Fufu_TailoringBench 等 Def。
+    因此每条 ThingDef 都带 MayRequire="fxz.myafufu"：前置激活时正常加载；前置缺失时整条 Def 在
+    XML 注册阶段被跳过（XmlInheritance.TryRegister 先判 MayRequire 再解析 ParentName），不会去
+    解析缺失的 FufuBase，也不产生交叉引用错误。
+    本目录由 LoadFolders.xml 的 IfModActive="fxz.myafufu" 条件加载，前置缺失时整份文件不进入读取列表；
+    加载顺序由 About.xml 的 loadAfter（fxz.myafufu）保证，使 FufuBase 的模组加载序早于本模组，
+    XmlInheritance.GetBestParentFor 才能把该抽象 Def 选为父节点。
+  -->
+
+  <!-- 张施娜 -->
+  <ThingDef ParentName="FufuBase" MayRequire="fxz.myafufu">
+    <defName>FuFu_ZhangShiNa</defName>
+    <label>"Jang_Sina" fufu</label>
+    <description>A somewhat sad-looking schnauzer, apparently with a pink outfit.</description>
+    <graphicData>
+      <texPath>fufu/Hana/ZhangShiNa</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <damageData>
+        <rect>(0.35,0.35,0.3,0.3)</rect>
+      </damageData>
+      <drawOffset>(0,0,0.4)</drawOffset>
+    </graphicData>
+  </ThingDef>
+
+  <!-- 山荷叶 -->
+  <ThingDef ParentName="FufuBase" MayRequire="fxz.myafufu">
+    <defName>FuFu_ShanHeYe</defName>
+    <label>"Diphylleia grayi" fufu</label>
+    <description>Smoking isn't an addiction; I just like having something in my mouth. A pack has 20.</description>
+    <graphicData>
+      <texPath>fufu/Zwei/ShanHeYe</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <damageData>
+        <rect>(0.35,0.35,0.3,0.3)</rect>
+      </damageData>
+      <drawOffset>(0,0,0.4)</drawOffset>
+    </graphicData>
+  </ThingDef>
+
+  <!-- 精灵兰 -->
+  <ThingDef ParentName="FufuBase" MayRequire="fxz.myafufu">
+    <defName>FuFu_JingLingLan</defName>
+    <label>"Florida Ghost Orchid" fufu</label>
+    <description>You have poor eyesight, but the 4-turn aim time makes up for it.</description>
+    <graphicData>
+      <texPath>fufu/Si/JingLingLan</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <damageData>
+        <rect>(0.35,0.35,0.3,0.3)</rect>
+      </damageData>
+      <drawOffset>(0,0,0.4)</drawOffset>
+    </graphicData>
+  </ThingDef>
+
+  <!-- 五桠果 -->
+  <ThingDef ParentName="FufuBase" MayRequire="fxz.myafufu">
+    <defName>FuFu_WuYaGuo</defName>
+    <label>"Dillenia indica" fufu</label>
+    <description>Isn't the force of that glove throw a bit much? The person hit is red in the face.</description>
+    <graphicData>
+      <texPath>fufu/Cinq/WuYaGuo</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <damageData>
+        <rect>(0.35,0.35,0.3,0.3)</rect>
+      </damageData>
+      <drawOffset>(0,0,0.4)</drawOffset>
+    </graphicData>
+  </ThingDef>
+
+  <!-- 火焰兰 -->
+  <ThingDef ParentName="FufuBase" MayRequire="fxz.myafufu">
+    <defName>FuFu_HuoYanLan</defName>
+    <label>"Renanthera coccinea" fufu</label>
+    <description>Excuse me, are there any more soup dumplings?</description>
+    <graphicData>
+      <texPath>fufu/Liu/HuoYanLan</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <damageData>
+        <rect>(0.35,0.35,0.3,0.3)</rect>
+      </damageData>
+      <drawOffset>(0,0,0.4)</drawOffset>
+    </graphicData>
+  </ThingDef>
+
+  <!-- 苍月草 -->
+  <ThingDef ParentName="FufuBase" MayRequire="fxz.myafufu">
+    <defName>FuFu_CangYueCao</defName>
+    <label>"Baby Blue Eyes" fufu</label>
+    <description>Work... can't stop... did I forget to clock out?</description>
+    <graphicData>
+      <texPath>fufu/Seven/CangYueCao</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <damageData>
+        <rect>(0.35,0.35,0.3,0.3)</rect>
+      </damageData>
+      <drawOffset>(0,0,0.4)</drawOffset>
+    </graphicData>
+  </ThingDef>
+
+  <!-- 满天星 -->
+  <ThingDef ParentName="FufuBase" MayRequire="fxz.myafufu">
+    <defName>FuFu_ManTianXing</defName>
+    <label>"Baby's breath" fufu</label>
+    <description>I can deliver, trade, even join peace talks—but don't send me to a research summit!</description>
+    <graphicData>
+      <texPath>fufu/Nine/ManTianXing</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <damageData>
+        <rect>(0.35,0.35,0.3,0.3)</rect>
+      </damageData>
+      <drawOffset>(0,0,0.4)</drawOffset>
+    </graphicData>
+  </ThingDef>
+</Defs>

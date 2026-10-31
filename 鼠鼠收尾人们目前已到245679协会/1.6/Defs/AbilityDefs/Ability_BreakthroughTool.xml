@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- 突破工具技能：
+       - 6 格内选取一个敌方 Pawn，冲刺到其正前方，落地后造成 47.5 钝击(命中躯干)
+         并沿冲刺方向击退 5 格；击退路径撞到不可通行建筑时提前停止并追加 20 伤害。
+       - 数值、飞行器与特效均由本 Def 的 comp 传导给 C#，改 XML 即改数值。
+       - 本技能由 CompWeaponTransformer 在切到「突破工具」形态时挂到 pawn.abilities、
+         切走形态或卸下武器时移除，因此并非常驻技能，也不需要在武器 Gizmo 上注入。 -->
+  <AbilityDef>
+    <defName>RK_BreakthroughTool</defName>
+    <label>Breakthrough Tool - Charge</label>
+    <description>Rush to the cell directly in front of the target and slam your breakthrough tool into their torso, dealing 48 blunt damage and knocking them back 5 cells.\nThe charge stops early if it hits a wall, dealing extra damage.</description>
+    <abilityClass>XIYUNTE.Ability_BreakthroughTool</abilityClass>
+    <iconPath>Ability/Breakthrough_Tool</iconPath>
+    <targetRequired>true</targetRequired>
+    <hostile>true</hostile>
+    <displayGizmoWhileUndrafted>true</displayGizmoWhileUndrafted>
+    <disableGizmoWhileUndrafted>false</disableGizmoWhileUndrafted>
+    <!-- 射程 6 格：使用原版 Verb_CastAbility 与原版圆形范围高亮(斜角按欧氏距离缩短)。
+         不再自绘方形高亮 —— 那会与原版圆形高亮叠加，同时出现方框与圆环。
+         冲刺由 comp 里的 dashFlyerDef 完成，不依赖 Verb 的跳跃落点判定。 -->
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <range>6</range>
+      <hasStandardCommand>true</hasStandardCommand>
+      <warmupTime>0.1</warmupTime>
+    </verbProperties>
+    <comps>
+      <li Class="XIYUNTE.CompProperties_BreakthroughTool">
+        <damage>48</damage>
+        <knockbackDistance>5</knockbackDistance>
+        <wallExtraDamage>20</wallExtraDamage>
+        <dashFlyerDef>RK_BreakthroughFlyer</dashFlyerDef>
+        <knockbackFlyerDef>RK_BreakthroughKnockbackFlyer</knockbackFlyerDef>
+        <!-- 释放技能时：与切换到突破工具形态同一音效。 -->
+        <castSound>Interact_ZeusHammer</castSound>
+        <!-- 命中时：宙斯锤钝器命中音效 + 冲击波，两者都只在命中那一刻播放。 -->
+        <impactSound>MeleeHit_ZeusHammer</impactSound>
+        <impactFleck>ShockwaveFast</impactFleck>
+      </li>
+    </comps>
+    <cooldownTicksRange>600</cooldownTicksRange>
+  </AbilityDef>
+
+  <!-- ============ 冲刺飞行器（施放者）============
+       垂直高度只由 worker 的 GetHeight() 决定(= 本 Def 的 maxHeight * 抛物线)，
+       heightFactor 只影响前进方向偏移，不是高度。
+         flightSpeed       冲刺速度，越大越快
+         flightDurationMin 行程最短耗时下限(秒)，速度再快也不会短于它
+         maxHeight         起跳高度(altitude 层，原版跳跃峰值=1)。0 = 完全贴地。
+         heightFactor      前进方向偏移倍率，通常保持 0 -->
+  <ThingDef ParentName="PawnFlyerBase">
+    <defName>RK_BreakthroughFlyer</defName>
+    <thingClass>XIYUNTE.PawnFlyer_Breakthrough</thingClass>
+    <label>Breakthrough Tool - Sprint</label>
+    <pawnFlyer Class="XIYUNTE.PawnFlyerProperties_Breakthrough">
+      <workerClass>XIYUNTE.PawnFlyerWorker_Breakthrough</workerClass>
+      <flightSpeed>10</flightSpeed>
+      <flightDurationMin>0.1</flightDurationMin>
+      <heightFactor>0</heightFactor>
+      <maxHeight>0</maxHeight>
+      <progressCurve>
+        <points>
+          <li>(0,0)</li>
+          <li>(1,1)</li>
+        </points>
+      </progressCurve>
+    </pawnFlyer>
+  </ThingDef>
+
+  <!-- ============ 击退飞行器（被击退的目标）============
+       与冲刺飞行器同一套参数，只是默认值不同：这里要「起跳后落地」，
+       所以 maxHeight > 0，并按原版 PawnFlyer_Stun 的手感给了速度与时长。
+         maxHeight            击退弧线峰值高度，调大 = 飞得更高
+         flightSpeed          击退飞行速度，调大 = 飞得更快
+         flightDurationMin    行程最短耗时下限(秒)，调大 = 飞得更慢、更久
+         stunDurationTicksRange 落地眩晕时长(tick)，不想要眩晕可删掉本行 -->
+  <ThingDef ParentName="PawnFlyerBase">
+    <defName>RK_BreakthroughKnockbackFlyer</defName>
+    <thingClass>XIYUNTE.PawnFlyer_Breakthrough</thingClass>
+    <label>Breakthrough Tool - Knocked Back</label>
+    <pawnFlyer Class="XIYUNTE.PawnFlyerProperties_Breakthrough">
+      <workerClass>XIYUNTE.PawnFlyerWorker_Breakthrough</workerClass>
+      <flightSpeed>8</flightSpeed>
+      <flightDurationMin>0.5</flightDurationMin>
+      <heightFactor>0</heightFactor>
+      <maxHeight>1</maxHeight>
+      <progressCurve>
+        <points>
+          <li>(0,0)</li>
+          <li>(1,1)</li>
+        </points>
+      </progressCurve>
+      <!-- 落地眩晕时长(tick)；不需要眩晕就删掉本行。 -->
+      <stunDurationTicksRange>60~180</stunDurationTicksRange>
+    </pawnFlyer>
+  </ThingDef>
+</Defs>

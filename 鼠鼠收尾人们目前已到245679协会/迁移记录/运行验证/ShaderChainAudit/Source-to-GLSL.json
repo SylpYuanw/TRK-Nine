@@ -1,0 +1,61 @@
+{
+  "checked": "2026-10-16T04:30:36.5760348+08:00",
+  "passed": true,
+  "shaderTool": "D:/UnityTest/RimUnity_c0e241a/Tools/bin/ShaderTool/RimUnity.ShaderTool.exe",
+  "shaderToolSHA256": "38CA042660112755CED2AB27A3D563AE7C4DDA4AF6656E0CBFDAF27B92632B8B",
+  "gameRoot": "D:/Steam/steamapps/common/RimWorld",
+  "results": [
+    {
+      "shader": "Trk/BowOfDeathAimCharge",
+      "source": "D:\\UnityTest\\unity_trk_35_1.7\\Assets\\Data\\Trk.Nine\\Materials\\Trk\\BowOfDeathAimCharge.shader",
+      "sourceSHA256": "EF70914407155F3EA526A609C5F0ECD751D2F7188C76C44773FDFF2F03580A70",
+      "exitCode": 0,
+      "colorSpace": "Gamma",
+      "keywords": [],
+      "stages": [
+        {
+          "stage": "vertexFile",
+          "published": "C:\\Users\\Administrator\\Desktop\\天翼种\\鼠鼠收尾人们目前已到245679协会\\1.7\\Data\\RimUnity\\blobs\\853293efdb747b3a789eb8b3c0c819dc2485e0b91aef4320c53ff4717a2b4e8f.glsl",
+          "regenerated": "C:\\Users\\Administrator\\Desktop\\天翼种\\鼠鼠收尾人们目前已到245679协会\\迁移记录\\运行验证\\ShaderChainAudit\\BowOfDeathAimCharge\\shader.vert.glsl",
+          "publishedSHA256": "853293EFDB747B3A789EB8B3C0C819DC2485E0B91AEF4320C53FF4717A2B4E8F",
+          "regeneratedSHA256": "853293EFDB747B3A789EB8B3C0C819DC2485E0B91AEF4320C53FF4717A2B4E8F",
+          "identical": true
+        },
+        {
+          "stage": "fragmentFile",
+          "published": "C:\\Users\\Administrator\\Desktop\\天翼种\\鼠鼠收尾人们目前已到245679协会\\1.7\\Data\\RimUnity\\blobs\\9f108f3d81e5bcf3df727769be1d9b9c79ea1d07a1f23802e6db14603f1ce776.glsl",
+          "regenerated": "C:\\Users\\Administrator\\Desktop\\天翼种\\鼠鼠收尾人们目前已到245679协会\\迁移记录\\运行验证\\ShaderChainAudit\\BowOfDeathAimCharge\\shader.frag.glsl",
+          "publishedSHA256": "9F108F3D81E5BCF3DF727769BE1D9B9C79EA1D07A1F23802E6DB14603F1CE776",
+          "regeneratedSHA256": "9F108F3D81E5BCF3DF727769BE1D9B9C79EA1D07A1F23802E6DB14603F1CE776",
+          "identical": true
+        }
+      ]
+    },
+    {
+      "shader": "Trk/BowOfDeathAimWind",
+      "source": "D:\\UnityTest\\unity_trk_35_1.7\\Assets\\Data\\Trk.Nine\\Materials\\Trk\\BowOfDeathAimWind.shader",
+      "sourceSHA256": "C9C0BD1DDC24754DD20146A019254110B9D9C74B07CD5A6AD679B3FB5D401399",
+      "exitCode": 0,
+      "colorSpace": "Gamma",
+      "keywords": [],
+      "stages": [
+        {
+          "stage": "vertexFile",
+          "published": "C:\\Users\\Administrator\\Desktop\\天翼种\\鼠鼠收尾人们目前已到245679协会\\1.7\\Data\\RimUnity\\blobs\\eb8d30f206bfba1838cadc72ed6e3320cde96d58c4b67685f1ec7c1f1b749076.glsl",
+          "regenerated": "C:\\Users\\Administrator\\Desktop\\天翼种\\鼠鼠收尾人们目前已到245679协会\\迁移记录\\运行验证\\ShaderChainAudit\\BowOfDeathAimWind\\shader.vert.glsl",
+          "publishedSHA256": "EB8D30F206BFBA1838CADC72ED6E3320CDE96D58C4B67685F1EC7C1F1B749076",
+          "regeneratedSHA256": "EB8D30F206BFBA1838CADC72ED6E3320CDE96D58C4B67685F1EC7C1F1B749076",
+          "identical": true
+        },
+        {
+          "stage": "fragmentFile",
+          "published": "C:\\Users\\Administrator\\Desktop\\天翼种\\鼠鼠收尾人们目前已到245679协会\\1.7\\Data\\RimUnity\\blobs\\2780ed8c79bd5726c8e2fd74a7ef6c1ab6d56dab7443e57850d8d3a1c2685da8.glsl",
+          "regenerated": "C:\\Users\\Administrator\\Desktop\\天翼种\\鼠鼠收尾人们目前已到245679协会\\迁移记录\\运行验证\\ShaderChainAudit\\BowOfDeathAimWind\\shader.frag.glsl",
+          "publishedSHA256": "2780ED8C79BD5726C8E2FD74A7EF6C1AB6D56DAB7443E57850D8D3A1C2685DA8",
+          "regeneratedSHA256": "2780ED8C79BD5726C8E2FD74A7EF6C1AB6D56DAB7443E57850D8D3A1C2685DA8",
+          "identical": true
+        }
+      ]
+    }
+  ]
+}

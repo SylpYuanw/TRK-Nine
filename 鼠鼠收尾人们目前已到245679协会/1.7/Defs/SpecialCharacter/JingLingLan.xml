@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <PawnKindDef ParentName="RKBasePawnKind">
+    <defName>TRK_Special_JingLingLan</defName>
+    <label>Florida Ghost Orchid</label>
+    <defaultFactionType>RK_PlayerFaction</defaultFactionType>
+    <fixedGender>Female</fixedGender>
+    <minGenerationAge>23</minGenerationAge>
+    <maxGenerationAge>23</maxGenerationAge>
+    <allowOldAgeInjuries>false</allowOldAgeInjuries>
+    <fixedChildBackstories><li>Ratkin_Successor</li></fixedChildBackstories>
+    <fixedAdultBackstories><li>Ratkin_Hunter</li></fixedAdultBackstories>
+    <forcedTraits>
+      <ShootingAccuracy>1</ShootingAccuracy>
+      <Psychopath>0</Psychopath>
+      <Immunity>1</Immunity>
+    </forcedTraits>
+    <forcedHair>RK_PonyA</forcedHair>
+    <forcedHairColor>(0.714,0.718,0.729,1.000)</forcedHairColor>
+    <invNutrition>0</invNutrition>
+    <invFoodDef IsNull="True" />
+    <xenotypeSet IsNull="True" />
+    <apparelMoney>0</apparelMoney>
+    <weaponMoney>0</weaponMoney>
+    <generateInitialNonFamilyRelations>false</generateInitialNonFamilyRelations>
+    <showInDebugSpawner>false</showInDebugSpawner>
+  </PawnKindDef>
+
+  <XIYUNTE.SpecialCharacter.SpecialCharacterDef>
+    <defName>TRK_Character_JingLingLan</defName>
+    <label>Florida Ghost Orchid</label>
+    <description>Florida Ghost Orchid is a Fixer of the Si Association. She uses the Bow of Death for long-range hunting and elimination contracts, and prefers to confirm her target before finishing the shot in one go.</description>
+    <detailedReport>23 years old, female, Florida Ghost Orchid, member of the Eastern Si Association.\n\nFlorida Ghost Orchid was raised as an heir before her family declined and she left home, later becoming a Fixer who specializes in tracking and assassination. She knows wilderness routes and can judge a target's direction from footprints, broken branches and the wind, and she can hold a steady aim after long hours of waiting.\n\nShe dislikes conversation and is indifferent to others' emotions. Her work reports rarely contain extra description—usually just route, distance, arrow count and result. She wipes her bow clean, refills her quiver, and moves on to the next commission.\n\nThe 하나 Association has verified her dispatch records. Florida Ghost Orchid is willing to handle long-range threats and hunting for the colony; she asks only that the wind be checked before departure, and that her quiver not be forgotten.</detailedReport>
+    <arrivalGreeting>Draw the string, loose the arrow, and bring death fairly to all living things. But if no work has been assigned to me yet, please let me rest a little longer.</arrivalGreeting>
+    <pawnKind>TRK_Special_JingLingLan</pawnKind>
+    <association>Si Association · Eastern Si Association</association>
+    <iconPath>SpecialCharacter/JingLingLan</iconPath>
+    <price>2000</price>
+    <firstName>Florida Ghost Orchid</firstName><nickname>Florida Ghost Orchid</nickname><lastName />
+    <biologicalAge>23</biologicalAge><gender>Female</gender>
+    <bodyType>Thin</bodyType><headType>RK_HeadType_Head4</headType><hair>RK_PonyA</hair>
+    <hairColor>(0.714,0.718,0.729,1.000)</hairColor>
+    <hairColorSecond>(1.000,1.000,1.000,1.000)</hairColorSecond>
+    <favoriteColor>Olive</favoriteColor>
+    <facialAnimation>
+      <head>Ratkin_Head</head><eyes>Ratkin_EyeStars</eyes><lids>Ratkin_LidPointy</lids>
+      <brows>Ratkin_Futomayu</brows><mouth>Ratkin_MouthNormal</mouth><skin>Ratkin_SkinNormal</skin>
+      <eyeColor>(0.576,0.757,0.910,1.000)</eyeColor>
+      <eyeColorSecond>(0.576,0.757,0.910,1.000)</eyeColorSecond>
+    </facialAnimation>
+    <addonVariants><li>0</li><li>0</li><li>0</li></addonVariants>
+    <xenotype>RK_XenoType_Ratkin</xenotype>
+    <endogenes>
+      <li>Skin_Melanin2</li><li>RK_Gene_SmallBody</li><li>RK_Gene_Nimble</li>
+      <li>RK_Gene_PoorEyesight</li><li>RK_Gene_FragilePain</li><li>RK_Gene_GoodGardening</li>
+      <li>Skin_SheerWhite</li><li>Beard_NoBeardOnly</li><li>RK_Gene_LargeEars</li>
+      <li>RK_Gene_ThinTail</li><li>RK_Gene_CuteFace</li><li>AptitudeStrong_Mining</li>
+      <li>AptitudeStrong_Plants</li><li>Hair_DarkBlack</li>
+    </endogenes>
+    <skills>
+      <li><skill>Shooting</skill><level>10</level><passion>Major</passion></li>
+      <li><skill>Melee</skill><level>8</level><passion>Minor</passion></li>
+      <li><skill>Construction</skill><level>4</level><passion>None</passion></li>
+      <li><skill>Mining</skill><level>4</level><passion>None</passion></li>
+      <li><skill>Cooking</skill><level>0</level><passion>None</passion></li>
+      <li><skill>Plants</skill><level>4</level><passion>None</passion></li>
+      <li><skill>Animals</skill><level>0</level><passion>None</passion></li>
+      <li><skill>Crafting</skill><level>1</level><passion>None</passion></li>
+      <li><skill>Artistic</skill><level>6</level><passion>Minor</passion></li>
+      <li><skill>Medicine</skill><level>8</level><passion>Major</passion></li>
+      <li><skill>Social</skill><level>10</level><passion>None</passion></li>
+      <li><skill>Intellectual</skill><level>3</level><passion>None</passion></li>
+    </skills>
+    <weapon>
+      <thing>Bow_of_Death</thing><stuff>Steel</stuff><count>1</count><quality>Excellent</quality><hitPoints>100</hitPoints>
+    </weapon>
+    <apparel>
+      <li><thing>si_uniform</thing><stuff>Synthread</stuff><count>1</count><quality>Excellent</quality><hitPoints>310</hitPoints><color>(0.678,0.859,0.890,1.000)</color></li>
+      <li><thing>si_quiver</thing><stuff>Synthread</stuff><count>1</count><quality>Excellent</quality><hitPoints>130</hitPoints><color>(0.678,0.859,0.890,1.000)</color></li>
+    </apparel>
+    <inventory>
+      <li><thing>RK_Food_Hardtack</thing><count>3</count><hitPoints>50</hitPoints></li>
+      <li><thing>MedicineIndustrial</thing><count>4</count><hitPoints>60</hitPoints></li>
+      <li><thing>Bow_of_Death_Arrow</thing><count>4</count><hitPoints>100</hitPoints></li>
+      <li MayRequire="fxz.myafufu"><thing>FuFu_JingLingLan</thing><count>1</count><hitPoints>300</hitPoints></li>
+    </inventory>
+  </XIYUNTE.SpecialCharacter.SpecialCharacterDef>
+</Defs>

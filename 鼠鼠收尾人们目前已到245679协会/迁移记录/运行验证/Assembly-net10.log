@@ -1,0 +1,13 @@
+ClassLibrary1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+TargetFramework=.NETCoreApp,Version=v10.0
+REFERENCE System.Runtime, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+REFERENCE System.Runtime.InteropServices, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+REFERENCE Assembly-CSharp, Version=1.7.9784.3272, Culture=neutral, PublicKeyToken=null
+REFERENCE System.Collections, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+REFERENCE 0Harmony, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null
+REFERENCE UnityStubs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+REFERENCE RimUnity.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+REFERENCE SYS, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null
+REFERENCE System.Linq, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+REFERENCE RimUnity, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+REFERENCE System.Xml.ReaderWriter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- 1.7 的两个 Shader 由 DeathBowRimUnityShaderPatch 接管加载。
+       shaderPath 使用本模组 RimUnity 清单中的逻辑路径，宿主包装由 HostAssets.ToHost 提供。 -->
+  <ShaderTypeDef>
+    <defName>Trk_BowOfDeathAimWind</defName>
+    <shaderPath>Bundles/trk_bowofdeath_win/Assets/Data/Trk.Nine/Materials/Trk/BowOfDeathAimWind.shader</shaderPath>
+  </ShaderTypeDef>
+  <ShaderTypeDef>
+    <defName>Trk_BowOfDeathAimCharge</defName>
+    <shaderPath>Bundles/trk_bowofdeath_win/Assets/Data/Trk.Nine/Materials/Trk/BowOfDeathAimCharge.shader</shaderPath>
+  </ShaderTypeDef>
+</Defs>

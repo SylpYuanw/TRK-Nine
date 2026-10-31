@@ -1,0 +1,162 @@
+{
+  "passed": true,
+  "dll": "D:\\Steam\\steamapps\\common\\RimWorld\\Mods\\\u9F20\u9F20\u6536\u5C3E\u4EBA\u4EEC\u76EE\u524D\u5DF2\u5230245679\u534F\u4F1A\\1.7\\Assemblies\\ClassLibrary1.dll",
+  "sha256": "7FC429C10FF631C721F12F9F7B405973248B4C44EB4FD404FDC80AFC33274C3B",
+  "targetFramework": ".NETCoreApp,Version=v10.0",
+  "assetLoad": true,
+  "hostConversion": true,
+  "intercept": true,
+  "patchAll": true,
+  "earlyPatch": true,
+  "duplicateScan": false,
+  "hasOldLoader": false,
+  "hostShaderAssembly": "UnityStubs",
+  "types": [
+    {
+      "name": "XIYUNTE.DeathBowRimUnityShaders",
+      "attributes": [],
+      "methods": [
+        {
+          "name": "TryGetShader",
+          "instructions": [
+            "IL_0000: ldarg.1",
+            "IL_0001: ldnull",
+            "IL_0002: stind.ref",
+            "IL_0003: ldarg.0",
+            "IL_0004: ldfld Verse.Def::System.String defName",
+            "IL_0009: ldstr Trk_BowOfDeathAimWind",
+            "IL_000e: call System.String::Boolean op_Inequality(System.String, System.String)",
+            "IL_0013: brfalse.s 20",
+            "IL_0015: ldarg.0",
+            "IL_0016: ldfld Verse.Def::System.String defName",
+            "IL_001b: ldstr Trk_BowOfDeathAimCharge",
+            "IL_0020: call System.String::Boolean op_Inequality(System.String, System.String)",
+            "IL_0025: brfalse.s 2",
+            "IL_0027: ldc.i4.0",
+            "IL_0028: ret",
+            "IL_0029: ldsfld XIYUNTE.DeathBowRimUnityShaders::System.Collections.Generic.Dictionary\u00602[Verse.ShaderTypeDef,UnityEngine.Shader] Shaders",
+            "IL_002e: ldarg.0",
+            "IL_002f: ldarg.1",
+            "IL_0030: callvirt System.Collections.Generic.Dictionary\u00602[Verse.ShaderTypeDef,UnityEngine.Shader]::Boolean TryGetValue(Verse.ShaderTypeDef, UnityEngine.Shader ByRef)",
+            "IL_0035: brfalse.s 2",
+            "IL_0037: ldc.i4.1",
+            "IL_0038: ret",
+            "IL_0039: ldarg.0",
+            "IL_003a: ldfld Verse.Def::Verse.ModContentPack modContentPack",
+            "IL_003f: dup",
+            "IL_0040: brtrue.s 23",
+            "IL_0042: pop",
+            "IL_0043: ldstr \u6B7B\u4E4B\u5F13 Shader \u7F3A\u5C11\u8D44\u6E90\u6240\u5C5E\u6A21\u7EC4\uFF1A",
+            "IL_0048: ldarg.0",
+            "IL_0049: ldfld Verse.Def::System.String defName",
+            "IL_004e: call System.String::System.String Concat(System.String, System.String)",
+            "IL_0053: newobj System.InvalidOperationException::Void .ctor(System.String)",
+            "IL_0058: throw",
+            "IL_0059: ldarg.0",
+            "IL_005a: ldfld Verse.ShaderTypeDef::System.String shaderPath",
+            "IL_005f: call RimUnity.Assets.AssetLoader::RimUnity.Shader Load[Shader](Verse.ModContentPack, System.String)",
+            "IL_0064: stloc.0",
+            "IL_0065: ldarg.1",
+            "IL_0066: ldloc.0",
+            "IL_0067: call RimUnity.Assets.HostAssets::UnityEngine.Shader ToHost(RimUnity.Shader)",
+            "IL_006c: stind.ref",
+            "IL_006d: ldsfld XIYUNTE.DeathBowRimUnityShaders::System.Collections.Generic.Dictionary\u00602[Verse.ShaderTypeDef,UnityEngine.Shader] Shaders",
+            "IL_0072: ldarg.0",
+            "IL_0073: ldarg.1",
+            "IL_0074: ldind.ref",
+            "IL_0075: callvirt System.Collections.Generic.Dictionary\u00602[Verse.ShaderTypeDef,UnityEngine.Shader]::Void Add(Verse.ShaderTypeDef, UnityEngine.Shader)",
+            "IL_007a: ldc.i4.1",
+            "IL_007b: ret"
+          ]
+        },
+        {
+          "name": ".cctor",
+          "instructions": [
+            "IL_0000: ldc.i4.2",
+            "IL_0001: newobj System.Collections.Generic.Dictionary\u00602[Verse.ShaderTypeDef,UnityEngine.Shader]::Void .ctor(Int32)",
+            "IL_0006: stsfld XIYUNTE.DeathBowRimUnityShaders::System.Collections.Generic.Dictionary\u00602[Verse.ShaderTypeDef,UnityEngine.Shader] Shaders",
+            "IL_000b: ret"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "XIYUNTE.DeathBowRimUnityShaderPatch",
+      "attributes": [],
+      "methods": [
+        {
+          "name": "Prefix",
+          "instructions": [
+            "IL_0000: ldarg.0",
+            "IL_0001: ldloca.s 0",
+            "IL_0003: call XIYUNTE.DeathBowRimUnityShaders::Boolean TryGetShader(Verse.ShaderTypeDef, UnityEngine.Shader ByRef)",
+            "IL_0008: brtrue.s 2",
+            "IL_000a: ldc.i4.1",
+            "IL_000b: ret",
+            "IL_000c: ldarg.1",
+            "IL_000d: ldloc.0",
+            "IL_000e: stind.ref",
+            "IL_000f: ldc.i4.0",
+            "IL_0010: ret"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "XIYUNTE.DeathBowRimUnityMod",
+      "attributes": [],
+      "methods": [
+        {
+          "name": ".ctor",
+          "instructions": [
+            "IL_0000: ldarg.0",
+            "IL_0001: ldarg.1",
+            "IL_0002: call Verse.Mod::Void .ctor(Verse.ModContentPack)",
+            "IL_0007: ldtoken ::Verse.ShaderTypeDef",
+            "IL_000c: call System.Type::System.Type GetTypeFromHandle(System.RuntimeTypeHandle)",
+            "IL_0011: ldstr Shader",
+            "IL_0016: call HarmonyLib.AccessTools::System.Reflection.MethodInfo PropertyGetter(System.Type, System.String)",
+            "IL_001b: dup",
+            "IL_001c: brtrue.s 12",
+            "IL_001e: pop",
+            "IL_001f: ldstr ShaderTypeDef.Shader getter is unavailable.",
+            "IL_0024: newobj System.InvalidOperationException::Void .ctor(System.String)",
+            "IL_0029: throw",
+            "IL_002a: stloc.0",
+            "IL_002b: ldstr XIYUNTE.DeathBowRimUnity",
+            "IL_0030: newobj HarmonyLib.Harmony::Void .ctor(System.String)",
+            "IL_0035: ldloc.0",
+            "IL_0036: ldtoken ::XIYUNTE.DeathBowRimUnityShaderPatch",
+            "IL_003b: call System.Type::System.Type GetTypeFromHandle(System.RuntimeTypeHandle)",
+            "IL_0040: ldstr Prefix",
+            "IL_0045: ldnull",
+            "IL_0046: newobj HarmonyLib.HarmonyMethod::Void .ctor(System.Type, System.String, System.Type[])",
+            "IL_004b: ldnull",
+            "IL_004c: ldnull",
+            "IL_004d: ldnull",
+            "IL_004e: call HarmonyLib.Harmony::System.Reflection.MethodInfo Patch(System.Reflection.MethodBase, HarmonyLib.HarmonyMethod, HarmonyLib.HarmonyMethod, HarmonyLib.HarmonyMethod, HarmonyLib.HarmonyMethod)",
+            "IL_0053: pop",
+            "IL_0054: ret"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "XIYUNTE.DeliveryBoxStatPatchesInit",
+      "attributes": [
+        "[Verse.StaticConstructorOnStartup()]"
+      ],
+      "methods": [
+        {
+          "name": ".cctor",
+          "instructions": [
+            "IL_0000: ldstr XIYUNTE.DeliveryBoxStatWorkerPatches",
+            "IL_0005: newobj HarmonyLib.Harmony::Void .ctor(System.String)",
+            "IL_000a: call HarmonyLib.Harmony::Void PatchAll()",
+            "IL_000f: ret"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- 六协会套装状态：severity = 已穿戴件数(1 = 1/2，2 = 2/2)。
+       进度由内衬/制服上的 XIYUNTE.CompProperties_LiuPiece 在装备/卸下时维护，
+       不扫描装备；Hediff 随存档保存，因此读档后进度不变。
+       本 Hediff 自身不提供属性加成：意识加成全部由光环增益实例发放，
+       每个来源一份实例，套装成员每份 +6%，其他合格殖民者每份 +2%。
+       maxSeverity = 2 使件数天然封顶，重复装备事件不会把进度推过 2/2。 -->
+  <HediffDef>
+    <defName>RK_LiuSet</defName>
+    <label>六 Association Set</label>
+    <description>Full 六 Association uniform set state.\nWearing both the inner shirt and uniform makes you a set member, granting a consciousness buff to yourself and nearby members.</description>
+    <hediffClass>XIYUNTE.Hediff_LiuSet</hediffClass>
+    <defaultLabelColor>(0.55, 0.15, 0.15)</defaultLabelColor>
+    <isBad>false</isBad>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <tendable>false</tendable>
+    <everCurableByItem>false</everCurableByItem>
+    <initialSeverity>1</initialSeverity>
+    <maxSeverity>2</maxSeverity>
+    <stages>
+      <!-- 1/2：不提供光环，接收其他来源时使用非套装档位。 -->
+      <li>
+        <minSeverity>0</minSeverity>
+        <label>1/2</label>
+        <overrideTooltip>Only one 六 Association uniform piece is worn; the set is incomplete.</overrideTooltip>
+      </li>
+      <!-- 2/2：套装成员，开始向外提供光环。 -->
+      <li>
+        <minSeverity>2</minSeverity>
+        <label>2/2</label>
+        <overrideTooltip>The full 六 Association set is worn; you are a set member, granting a consciousness buff to yourself and nearby members.</overrideTooltip>
+      </li>
+    </stages>
+    <comps>
+      <!-- 光环半径(基础6格/每多1人+2格)与扫描间隔在此配置，改 XML 即改范围。 -->
+      <li Class="XIYUNTE.HediffCompProperties_LiuSetAura">
+        <baseRange>6</baseRange>
+        <rangePerExtraPawn>2</rangePerExtraPawn>
+        <scanIntervalTicks>30</scanIntervalTicks>
+        <targetingParameters>
+          <canTargetBuildings>false</canTargetBuildings>
+          <canTargetAnimals>false</canTargetAnimals>
+          <canTargetMechs>false</canTargetMechs>
+          <onlyTargetColonists>true</onlyTargetColonists>
+        </targetingParameters>
+      </li>
+    </comps>
+  </HediffDef>
+
+  <!-- 每来源一份独立实例；第一份以 severity 1/2/3 或 4/5/6 表示最多三份心情。
+       其他实例保持非套装单来源阶段 1，或完整套装单来源阶段 4。
+       意识每份分别 +2% / +6%，来源数不设上限。
+       依赖 HediffComp_Disappears 到期：来源离开/失去套装后自动移除。 -->
+  <HediffDef>
+    <defName>RK_LiuAuraBuff</defName>
+    <label>Loyal Heart</label>
+    <description>Receiving the consciousness buff from a 六 Association set member.</description>
+    <hediffClass>XIYUNTE.Hediff_LiuAuraBuff</hediffClass>
+    <defaultLabelColor>(0.55, 0.15, 0.15)</defaultLabelColor>
+    <isBad>false</isBad>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <tendable>false</tendable>
+    <everCurableByItem>false</everCurableByItem>
+    <initialSeverity>1</initialSeverity>
+    <maxSeverity>6</maxSeverity>
+    <stages>
+      <li>
+        <minSeverity>0</minSeverity>
+        <!-- 意识属于 PawnCapacityDef，各来源通过原版 capMods 相加。 -->
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>0.02</offset>
+          </li>
+        </capMods>
+      </li>
+      <li>
+        <minSeverity>2</minSeverity>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>0.02</offset>
+          </li>
+        </capMods>
+      </li>
+      <li>
+        <minSeverity>3</minSeverity>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>0.02</offset>
+          </li>
+        </capMods>
+      </li>
+      <li>
+        <minSeverity>4</minSeverity>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>0.06</offset>
+          </li>
+        </capMods>
+      </li>
+      <li>
+        <minSeverity>5</minSeverity>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>0.06</offset>
+          </li>
+        </capMods>
+      </li>
+      <li>
+        <minSeverity>6</minSeverity>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>0.06</offset>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+    <comps>
+      <li Class="XIYUNTE.HediffCompProperties_LiuAuraLink" />
+      <li Class="HediffCompProperties_Disappears">
+        <disappearsAfterTicks>35</disappearsAfterTicks>
+      </li>
+    </comps>
+  </HediffDef>
+</Defs>

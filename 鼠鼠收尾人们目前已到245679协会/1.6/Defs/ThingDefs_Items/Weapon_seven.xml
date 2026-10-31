@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- 南部Seven协会单手剑 -->
+  <ThingDef ParentName="RK_MeleeWeapon">
+    <defName>sevenC</defName>
+    <label>Southern Seven Association One-Handed Sword</label>
+    <description>An association mainly responsible for gathering intelligence; its members use basic one-handed swords to strike at an enemy's weak points. Seven Association Fixers also learn techniques from other associations—the way of the rapier from Cinq, or the defensive counter style of Zwei.</description>
+    <graphicData>
+      <texPath>Weapon/sevenC</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <techLevel>Medieval</techLevel>
+    <weaponTags Inherit="false">
+      <li>RK_Sword</li>
+      <li>RK_Knight</li>
+      <li>RK_LightWeapon</li>
+      <li>RK_WeaponTag_OneHand</li>
+      <li>RK_WeaponTag_OneHandMelee</li>
+      <li>RK_WeaponTag_OneHandMeleeAttack</li>
+      <li>RK_WeaponTag_ArmedWanderer</li>
+    </weaponTags>
+    <statBases>
+      <WorkToMake>20000</WorkToMake>
+      <Mass>1.6</Mass>
+    </statBases>
+    <equippedAngleOffset>-65</equippedAngleOffset>
+    <stuffCategories>
+      <li>Metallic</li>
+      <li>Woody</li>
+    </stuffCategories>
+    <costStuffCount>65</costStuffCount>
+    <tools>
+      <li>
+        <label>Hilt</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>7</power>
+        <armorPenetration>0.17</armorPenetration>
+        <cooldownTime>1.8</cooldownTime>
+      </li>
+      <li>
+        <label>Tip</label>
+        <capacities>
+          <li>Stab</li>
+        </capacities>
+        <power>18</power>
+        <armorPenetration>0.47</armorPenetration>
+        <cooldownTime>2.3</cooldownTime>
+      </li>
+      <li>
+        <label>Blade</label>
+        <capacities>
+          <li>Cut</li>
+        </capacities>
+        <power>22</power>
+        <armorPenetration>0.47</armorPenetration>
+        <cooldownTime>2.5</cooldownTime>
+      </li>
+    </tools>
+    <modExtensions>
+      <li Class="XIYUNTE.MeleeAttackEffectExtension">
+        <attackEffecter>RK_Seven_AttackEffect</attackEffecter>
+      </li>
+    </modExtensions>
+    <recipeMaker>
+      <researchPrerequisite>RK_Research_SwordAndShield</researchPrerequisite>
+      <skillRequirements>
+        <Crafting>5</Crafting>
+      </skillRequirements>
+      <displayPriority>78272</displayPriority>
+    </recipeMaker>
+    <comps>
+      <li Class="NewRatkin.CompProperties_WeaponGripType">
+        <gripTypes>
+          <li>OneHand</li>
+        </gripTypes>
+      </li>
+      <!-- 背负(收鞘)显示：未持握时使用收鞘贴图，拔出后使用完整贴图。
+           贴图 Weapon/sevenC_Sheath_north 与 Weapon/sevenC_Full_east 已存在，其余方向由
+           Graphic_Multi 按 _north→_south/east/west 的规则自动回退。 -->
+      <li Class="SYS.CompProperties_Sheath">
+        <sheathOnlyGraphicData>
+          <texPath>Weapon/sevenC_Sheath</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+        </sheathOnlyGraphicData>
+        <fullGraphicData>
+          <texPath>Weapon/sevenC_Full</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+        </fullGraphicData>
+        <drawPosition>Side</drawPosition>
+        <!-- 四向偏移与角度沿用 Cinq 刺剑的配置，Seven 剑贴图比例不同，若位置有偏差在此微调。 -->
+        <northOffset>
+          <position>(0.2,0,-0.2)</position>
+          <angle>-60</angle>
+        </northOffset>
+        <southOffset>
+          <position>(-0.2,0,-0.2)</position>
+          <angle>0</angle>
+        </southOffset>
+        <eastOffset>
+          <position>(0,-0.3,-0.2)</position>
+          <angle>120</angle>
+        </eastOffset>
+        <westOffset>
+          <position>(0,0,-0.2)</position>
+          <angle>-120</angle>
+        </westOffset>
+      </li>
+      <!-- 手持四向参数：用于征召待机时的手持姿态，直接读取 angle，不叠加 equippedAngleOffset。 -->
+      <li Class="SYS.CompProperties_WeaponExtention">
+        <northOffset>
+          <position>(0.3,0,0.15)</position>
+          <angle>-132</angle>
+        </northOffset>
+        <eastOffset>
+          <position>(0.3,0,0.15)</position>
+          <angle>-115</angle>
+        </eastOffset>
+        <southOffset>
+          <position>(-0.3,0.3,0.15)</position>
+          <angle>132</angle>
+        </southOffset>
+        <westOffset>
+          <position>(-0.3,-0.3,0.15)</position>
+          <angle>115</angle>
+        </westOffset>
+      </li>
+    </comps>
+  </ThingDef>
+</Defs>

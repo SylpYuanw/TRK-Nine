@@ -1,0 +1,5 @@
+[数学兼容] 常量正整数幂 2～64 使用乘法展开；负底数按整数幂计算，属于旧 Shader 写法的兼容处理，并非 HLSL pow 的负底数语义保证。
+[数学兼容] smoothstep 按 HLSL 饱和 Hermite 公式展开，支持反向边界；相等边界仍要求作者避免除零。
+shader.vert.glsl: 1228 bytes SPIR-V，布局检查通过
+shader.frag.glsl: 26244 bytes SPIR-V，布局检查通过
+ShaderLab 转换完成：Trk/BowOfDeathAimCharge [world]

@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- 二协会套装光环技能：穿齐两件(zweiSet 达到 2/2)时由 XIYUNTE.Comp_SetPiece 授予。
+       缺件时按钮隐藏、技能实例保留，冷却不会被换装重置。
+       技能只作用于自身，通过原版 CompAbilityEffect_GiveHediff 挂载 zwei_AuraActive。 -->
+  <AbilityDef>
+    <defName>zwei_Aura</defName>
+    <label>Guardian</label>
+    <description>Activates Guardian: allies within 10 cells take only 90% damage, stacking up to 3 times, for 12 hours.\nCooldown 36 hours, starting when activated.</description>
+    <iconPath>Ability/Zwei_Clothes_Ability</iconPath>
+    <targetRequired>false</targetRequired>
+    <hostile>false</hostile>
+    <displayGizmoWhileUndrafted>true</displayGizmoWhileUndrafted>
+    <disableGizmoWhileUndrafted>false</disableGizmoWhileUndrafted>
+    <statBases>
+      <!-- 持续时间 500 秒 = 30000 tick = 游戏内 12 小时(1 小时 2500 tick、1 秒 60 tick)。 -->
+      <Ability_Duration>500</Ability_Duration>
+    </statBases>
+    <!-- 射程 10 格：施放时由原版 Verb_CastAbility 绘制范围圈。 -->
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <range>10</range>
+      <drawAimPie>false</drawAimPie>
+      <requireLineOfSight>false</requireLineOfSight>
+      <soundCast>EnergyShield_Reset</soundCast>
+      <warmupTime>0.5</warmupTime>
+      <targetParams>
+        <canTargetSelf>true</canTargetSelf>
+        <canTargetPawns>false</canTargetPawns>
+        <canTargetBuildings>false</canTargetBuildings>
+        <canTargetAnimals>false</canTargetAnimals>
+        <canTargetHumans>false</canTargetHumans>
+        <canTargetMechs>false</canTargetMechs>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="XIYUNTE.CompProperties_ZweiAuraGiveHediff">
+        <hediffDef>zwei_AuraActive</hediffDef>
+        <setHediff>zweiSet</setHediff>
+        <onlyApplyToSelf>true</onlyApplyToSelf>
+        <replaceExisting>true</replaceExisting>
+      </li>
+    </comps>
+    <!-- 冷却 36 小时 = 90000 tick，由原版 Ability.Activate 在施放时开始计算。 -->
+    <cooldownTicksRange>90000</cooldownTicksRange>
+  </AbilityDef>
+</Defs>

@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <RK_DeliveryBox_HighPower.label>派送箱-高功率模式</RK_DeliveryBox_HighPower.label>
+  <RK_DeliveryBox_HighPower.description>高功率模式进行中，移动速度提升且免疫受击硬直；随运行时间强化（护盾/化学灼伤），运行满 12 小时将严重超载死亡。</RK_DeliveryBox_HighPower.description>
+  <RK_DeliveryBox_HighPower.stages.0.overrideTooltip>[阶段一。开始派送辅助及管理流程。请沉着地开拓生路。]</RK_DeliveryBox_HighPower.stages.0.overrideTooltip>
+  <RK_DeliveryBox_HighPower.stages.1.overrideTooltip>[阶段二。派送单元功率提升。建议迅速开拓。]</RK_DeliveryBox_HighPower.stages.1.overrideTooltip>
+  <RK_DeliveryBox_HighPower.stages.2.overrideTooltip>[阶段三。警告。任务超时。进入派送加速最终阶段。进一步的时间延误将无法保障您的安全。]</RK_DeliveryBox_HighPower.stages.2.overrideTooltip>
+  <RK_DeliveryBox_HighPower_Shield.label>高功率护盾</RK_DeliveryBox_HighPower_Shield.label>
+  <RK_DeliveryBox_HighPower_Shield.description>高功率模式提供的真实伤害护盾。阶段一 上限 20 点，5 点/秒回复；阶段二 上限 40 点，10 点/秒回复。</RK_DeliveryBox_HighPower_Shield.description>
+</LanguageData>

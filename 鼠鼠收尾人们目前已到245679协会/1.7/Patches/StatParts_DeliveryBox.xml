@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+  <!-- 形态级装备属性接入:原版 Pawn 属性只读取 ThingDef.equippedStatOffsets(def 级),组件级形态偏移/倍率必须挂到目标 StatDef 的 parts 上。 -->
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/StatDef[defName="MoveSpeed"]/parts</xpath>
+    <value>
+      <li Class="XIYUNTE.StatPart_DeliveryBoxModeOffset" />
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/StatDef[defName="CarryingCapacity"]/parts</xpath>
+    <value>
+      <li Class="XIYUNTE.StatPart_DeliveryBoxModeOffset" />
+    </value>
+  </Operation>
+  <!-- CaravanBonusSpeedFactor 原版没有 parts 节点,直接在 StatDef 下新建 parts。 -->
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/StatDef[defName="CaravanBonusSpeedFactor"]</xpath>
+    <value>
+      <parts>
+        <li Class="XIYUNTE.StatPart_DeliveryBoxModeFactor" />
+      </parts>
+    </value>
+  </Operation>
+</Patch>
